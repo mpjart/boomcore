@@ -10,10 +10,14 @@ Play it in your browser: https://mpjart.github.io/boomcore/ (works best on a tab
 
 The Core Master starts a table and shares its 6-letter code; players join with the code and everyone sees each other's rolls live. Shared tables run on Firebase's free plan: see `SETUP.md` to connect it. Until then the app runs in solo mode on each device.
 
+## Themes
+
+The Core Master picks the table's theme in the CM tab: Core, Fantasy, Space, Horror, or Street Grit. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
+
 ## To do next
 
-- **Theme changer** on the table creation page or the CM tab: Core, Fantasy, Pirate, Space, Street Grit, and Horror.
-- **Name roll tables:** clever names for items and abilities.
+- **Name roll tables:** clever names for items and abilities, by theme.
+- **Pirate theme.**
 - **Holding a turn** in the initiative order.
 
 ## Rules
