@@ -13,7 +13,6 @@ Players never make accounts. Each device signs in anonymously in the background.
 
 1. In the left menu: **Build → Authentication → Get started**.
 2. Under **Sign-in method**, pick **Anonymous**, turn it on, and **Save**.
-3. Under **Settings → Authorized domains**, tap **Add domain** and add `mpjart.github.io`.
 
 ## 3. Create the database
 
