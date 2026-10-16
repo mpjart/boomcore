@@ -1,0 +1,1861 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boom Core Guidelines</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l9 5v10l-9 5-9-5V7z' fill='%23c2410c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ee;--card:#fff;--ink:#1f1b16;--mute:#6f675d;--line:#e2dbd0;--acc:#c2410c;--head:#1F4E5F;--thfg:#fff;--alt:#f4efe7;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#17140f;--card:#221e17;--ink:#f3ede3;--mute:#a59b8e;--line:#3a3328;--acc:#fb8a4c;--head:#2a5d70;--alt:#2a251d;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Barlow,system-ui,sans-serif}
+.bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;padding:10px 16px;background:var(--head);font-family:'Barlow Condensed',sans-serif;font-size:18px}
+.bar a{color:#fff;text-decoration:none;font-weight:700}.bar a:hover,.bar a[aria-current]{text-decoration:underline}
+.bar .logo{font-family:'Alfa Slab One',serif;font-weight:400;margin-right:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:40px;line-height:1.15;color:var(--acc);margin:12px 0 8px}
+h2{font-family:'Barlow Condensed',sans-serif;font-size:30px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);border-bottom:3px solid var(--acc);padding-bottom:4px;margin:44px 0 12px}
+h3{font-family:'Barlow Condensed',sans-serif;font-size:23px;margin:28px 0 8px}
+a{color:var(--acc)}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin:16px 0 8px}
+.toc summary{cursor:pointer;font-weight:700}.toc ol{margin:8px 0 4px;padding-left:22px}.toc li{margin:2px 0}
+.tw{overflow-x:auto;margin:10px 0 16px;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--card)}
+th{background:var(--head);color:var(--thfg);font-family:'Barlow Condensed',sans-serif;font-size:16px;text-align:left;padding:6px 10px;position:sticky;top:0}
+td{padding:5px 10px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:var(--alt)}
+code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
+.top{position:fixed;right:16px;bottom:16px;background:var(--acc);color:#fff;border-radius:99px;padding:8px 14px;text-decoration:none;font-weight:700;font-size:15px}
+@media print{.bar,.toc,.top{display:none}body{background:#fff;color:#000}th{position:static}}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Boom pages"><span class="logo" style="color:#fff">BOOM</span><a href="./">Boom Dice app</a><a href="rules.html" aria-current="page">Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html">Loot Names</a></nav>
+<main class="page" id="top">
+
+<h1 id="boom-core-guidelines">Boom Core Guidelines</h1>
+<p><em>Updated October 16, 2026. Free and open source: play with the <a href="https://mpjart.github.io/boomcore/">Boom Dice app</a>, keep the <a href="https://mpjart.github.io/boomcore/cm-screen.html">Core Master screen</a> handy, and roll item names with the <a href="https://mpjart.github.io/boomcore/loot-names.html">loot name tables</a>.</em></p><details class="toc" open><summary>Contents</summary><ol><li><a href="#chapter-1-what-is-boom">Chapter 1: What Is Boom?</a></li><li><a href="#chapter-2-your-character">Chapter 2: Your Character</a></li><li><a href="#chapter-3-combat">Chapter 3: Combat</a></li><li><a href="#chapter-4-abilities">Chapter 4: Abilities</a></li><li><a href="#chapter-5-stat-checks">Chapter 5: Stat Checks</a></li><li><a href="#chapter-6-spirit-coins-and-loot">Chapter 6: Spirit Coins and Loot</a></li><li><a href="#chapter-7-gear">Chapter 7: Gear</a></li><li><a href="#chapter-8-the-core-masters-toolkit">Chapter 8: The Core Master's Toolkit</a></li><li><a href="#chapter-9-encounters-and-monsters">Chapter 9: Encounters and Monsters</a></li><li><a href="#chapter-10-adapting-boom-to-any-story">Chapter 10: Adapting Boom to Any Story</a></li><li><a href="#index">Index</a></li></ol></details>
+<h2 id="chapter-1-what-is-boom">Chapter 1: What Is Boom?</h2>
+<p>Boom is a fast tabletop RPG. Its rules are simple enough to learn in one sitting and open enough to run any story.</p>
+<p>Boom stands for <strong>Beyond Our Own Maximum</strong>. Exploding dice carry you past the top of the die, and heroes grow past their limits.</p>
+<h3 id="three-goals">Three Goals</h3>
+<ul>
+<li><strong>Fast:</strong> few dice and little math, so combat and checks keep moving.</li>
+<li><strong>Simple:</strong> six stats, one stat point per level, and one rule for exploding dice.</li>
+<li><strong>Open:</strong> these guidelines give formulas, not lists. Where the rules are silent, the Core Master decides.</li>
+</ul>
+<h3 id="what-you-need">What You Need</h3>
+<ul>
+<li>These guidelines</li>
+<li>A Core Master (CM) and one or more players</li>
+<li>The Boom Dice app, which rolls and explodes the dice and shows the whole party every roll</li>
+<li>Imagination</li>
+</ul>
+<h3 id="the-boom-rule">The Boom Rule</h3>
+<p>When a die explodes, throw out its result and roll <strong>two dice of the same size</strong> in its place. If a new die explodes, replace it the same way. A chain of explosions is a <strong>boom</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Die size</th>
+<th>Explodes on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d2 to d6</td>
+<td>a 1</td>
+</tr>
+<tr>
+<td>d7 to d20</td>
+<td>the minimum or the maximum</td>
+</tr>
+<tr>
+<td>d21 and larger</td>
+<td>a flat 10% chance</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Example:</strong> you roll a d6 and get a 1. It explodes into 2d6, which land on 1 and 4. Keep the 4. The 1 explodes into 2d6 again, which land on 2 and 3. Your total is 4 + 2 + 3 = 9.</p>
+<p><strong>Boom cap:</strong> one roll never uses more than 100 dice. At 100 dice, nothing else explodes and any remaining 1s or maximums count as rolled.</p>
+<p>The app shows every roll to the whole party, so when someone's dice go wild, cheer for them.</p>
+<h2 id="chapter-2-your-character">Chapter 2: Your Character</h2>
+<p>Every hero starts at <strong>level 1</strong> as a commoner: no stat points and no abilities. Your choices begin when you level up.</p>
+<p><strong>Hit points (HP) = 5 × (level + Constitution points).</strong> A level 1 commoner has 5 HP. A level 3 hero with 2 Constitution has 25 HP.</p>
+<h3 id="race-and-background">Race and Background</h3>
+<p><strong>Race and background are flavor only.</strong> No race is better than another. When the core is empowered, anyone can become a hero, no matter where they came from or what they were before.</p>
+<p>Invent any race or background you like, but it gives <strong>no advantage</strong> once you become a core hero. There are no built-in abilities: no dark sight, no tremor sense, no burrowing, flight, or swim speed. An ability that fits your theme is learned the same way as any other, with an ability token and a trainer (see Learning Abilities in Chapter 4).</p>
+<p><strong>Core Master note:</strong> if you want a race to have a special ability, like water breathing, flight, or mental powers, assign it to the player as a <strong>T1 ability</strong>. It fills an ability slot and trains up one tier at a time, the same as every other ability.</p>
+<h3 id="classes-and-professions">Classes and Professions</h3>
+<p><strong>There are no classes, subclasses, or professions.</strong> You can be anything you want that your Core Master allows: a knight, a pirate, a healer, a hacker, or something no one has named yet.</p>
+<p>Damage is already defined for everyone (see Attacks and Damage in Chapter 3), so what you call yourself is flavor. What makes your hero different is the <strong>abilities</strong> you learn and the stats you raise. Abilities exist for exactly this reason: they are how you build the hero you imagine.</p>
+<h3 id="the-six-stats">The Six Stats</h3>
+<ul>
+<li><strong>Constitution:</strong> HP, resisting effects and physical conditions, and protection magic like <strong>lifeforce</strong> auras.</li>
+<li><strong>Strength:</strong> physical damage, and lifting, pushing, and breaking.</li>
+<li><strong>Intellect:</strong> magic damage, and knowing and figuring things out.</li>
+<li><strong>Speed:</strong> movement, actions per turn, and how long things take or how much you get done.</li>
+<li><strong>Charm:</strong> glamor magic, and causing or resisting social pressure.</li>
+<li><strong>Spirit/Luck:</strong> healing magic, luck, and the supernatural. It is the catch-all stat for checks.</li>
+</ul>
+<h3 id="leveling-up">Leveling Up</h3>
+<p>Each level after the first gives you <strong>one stat point</strong> to spend on any stat.</p>
+<p>You level up by filling your level meter, in one of two ways:</p>
+<p><strong>Consume soul cores</strong>, which monsters and dungeons drop at the monster's level. <strong>Ten cores of your own level</strong> fill the meter. One core never fills more than one full level, so a high-level core can't skip you past a level.</p>
+<p><strong>Empower your core with coins.</strong> Spend spirit coins to fill the meter. Coins can buy as many levels as you can afford, which makes them the quickest way to win back levels lost in a hard fight. Cores you don't need, like lower-level ones, can be sold for coins and spent the same way.</p>
+<p>Cores and levels have a coin value, in coins of your level's tier (see Coin Tiers in Chapter 6):</p>
+<ul>
+<li>A level-L core is worth <strong>L × 100</strong> coins.</li>
+<li>Leaving level L costs <strong>L × 1,000</strong> coins.</li>
+</ul>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Reaching level</th>
+<th>Cost</th>
+<th>Cores needed</th>
+<th>Ability slots</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1,000 Common</td>
+<td>10 level-1 cores</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2,000 Common</td>
+<td>10 level-2 cores</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3,000 Common</td>
+<td>10 level-3 cores</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4,000 Common</td>
+<td>10 level-4 cores</td>
+<td>4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5,000 Common</td>
+<td>10 level-5 cores</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>6,000 Common</td>
+<td>10 level-6 cores</td>
+<td>4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7,000 Common</td>
+<td>10 level-7 cores</td>
+<td>4</td>
+</tr>
+<tr>
+<td>9</td>
+<td>8,000 Common</td>
+<td>10 level-8 cores</td>
+<td>4</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9,000 Common</td>
+<td>10 level-9 cores</td>
+<td>5</td>
+</tr>
+<tr>
+<td>11</td>
+<td>10,000 Common</td>
+<td>10 level-10 cores</td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<p>The full chart to level 100, and how to build it in Excel, is in the Index.</p>
+<p><strong>Ability slots:</strong> 3, plus 1 every 5 levels up to level 20, then plus 1 every 10 levels. Leveling never grants abilities; see Chapter 4.</p>
+<p><strong>Milestone leveling:</strong> the Core Master can skip cores and coins and level the party at story milestones instead.</p>
+<h3 id="falling-in-battle">Falling in Battle</h3>
+<p><strong>Level 2 and up:</strong> if you drop below 1 HP, you <strong>go down a level</strong> and come back at full HP for that level. Extra damage does not carry over. The coins spent on that level are gone, and you rebuild it from the bottom. You also lose a stat point (an unspent one first, otherwise a random stat). If you now have more abilities than slots, you lose one at random. Being knocked out, or any other effect, is a condition the Core Master applies.</p>
+<p><strong>Level 1:</strong> a commoner who drops to 0 HP <strong>dies</strong>. We recommend the party gets <strong>24 hours</strong> to resurrect them, or the player makes a new level 1 character. The Core Master can use any window they like. Resurrection can be an ability (like Return Spark in Chapter 4), a trainer's service, a quest, or a token.</p>
+<h3 id="eating-resting-and-healing">Eating, Resting, and Healing</h3>
+<p><strong>Rest does not heal.</strong> Short or long, a rest recovers no HP. If you are hurt, you need to be healed: see a healer, drink a potion, or receive a healing ability.</p>
+<p><strong>Healing and temp HP.</strong> You can only be healed if you are missing at least 1 HP. When you are, the full heal applies, from a spell, a healer, or a potion, and anything over your max HP becomes <strong>temp HP</strong>. Temp HP resets at dawn.</p>
+<p><strong>A day starts at dawn.</strong> Anything that works once a day, or resets daily, renews at sunrise.</p>
+<p>You can also gain temp HP with an ability before or during a fight. For example, a Constitution (lifeforce) ability can be designed to grant temp HP or a shield.</p>
+<p><strong>Commoners (level 1)</strong> need to eat and rest about <strong>10 hours a day</strong>. A commoner who goes without may fall ill, become malnourished, or grow weak, as conditions the Core Master applies. One spirit coin buys enough food to stave off malnutrition for a day.</p>
+<p><strong>Heroes (level 2 and up)</strong> have bodies that use everything with no waste. Consume <strong>one spirit coin</strong> and you need no food or sleep that day, and not even a trip to the toilet.</p>
+<p><strong>Food buffs.</strong> Food never restores HP, but the Core Master may let special food or drink grant a buff. A dwarven ale might make your beard grow, or elven cookies might double your movement for 10 minutes.</p>
+<p><strong>Exhaustion</strong> is optional, for Core Masters who want it. It is all or nothing, with no levels: you are exhausted or you are not. <strong>One 10-hour rest</strong> clears it.</p>
+<h2 id="chapter-3-combat">Chapter 3: Combat</h2>
+<p>Combat runs in rounds. Everyone takes a turn in initiative order, and when the last turn ends, a new round begins.</p>
+<h3 id="initiative">Initiative</h3>
+<p>When combat starts, everyone rolls <strong>d20 + Speed</strong>. Turns go from highest to lowest.</p>
+<p><strong>Holding your turn:</strong> you can wait and act later in the round, even last, but you must act that round. Next round you return to your original spot.</p>
+<h3 id="your-turn">Your Turn</h3>
+<p><strong>Movement:</strong> move up to <strong>5 + level + Speed spaces (1 space = 5 ft)</strong>, before your actions, after them, or split between them.</p>
+<p><strong>Actions:</strong> each of these takes one action:</p>
+<ul>
+<li>Using an ability</li>
+<li>Attacking with one hand or both</li>
+<li>Interacting with an object, like drinking a potion or flipping a switch</li>
+</ul>
+<p>You get <strong>1 action, plus 1 more for every 4 points of Speed</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Speed points</th>
+<th>Actions per turn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4-7</td>
+<td>2</td>
+</tr>
+<tr>
+<td>8-11</td>
+<td>3</td>
+</tr>
+<tr>
+<td>12-15</td>
+<td>4</td>
+</tr>
+<tr>
+<td>16-19</td>
+<td>5</td>
+</tr>
+<tr>
+<td>20-23</td>
+<td>6</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="attacks-and-damage">Attacks and Damage</h3>
+<p>The dice depend only on how many hands (or limbs) you use and whether the attack is touch or ranged. The same chart covers weapons, spells, and unarmed attacks.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Hands</th>
+<th>Touch (melee)</th>
+<th>Ranged</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One hand</td>
+<td>1d6</td>
+<td>1d4</td>
+</tr>
+<tr>
+<td>Two hands</td>
+<td>2d6</td>
+<td>2d4</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Two hands is still one attack</strong> and one action. Stabbing with two daggers is 2d6; throwing both at once is 2d4. Two different weapons each roll their own dice, all at once: a +1 dagger (2d6) and a plain dagger (1d6) attack for 3d6.</li>
+<li><strong>Sword and shield:</strong> the sword rolls 1d6 and the shield takes an armor slot.</li>
+<li><strong>Unarmed:</strong> a kick or headbutt is flavor and counts as one hand.</li>
+<li><strong>Range:</strong> no range penalty. The Core Master sets the maximum distance. Smaller dice explode more, so ranged attacks boom more often.</li>
+<li><strong>Magic</strong> needs a free hand and a spoken word unless the ability says otherwise. A spell that does anything beyond damage is an ability (Chapter 4).</li>
+<li><strong>Plus weapons:</strong> a +N weapon rolls N extra copies of its dice (see Chapter 7).</li>
+</ul>
+<h3 id="bonus-damage-and-armor">Bonus Damage and Armor</h3>
+<p>Every attack is <strong>physical</strong> or <strong>magical</strong>, and adds a bonus. This applies to every roll that uses Strength or Intellect, including abilities:</p>
+<ul>
+<li><strong>Physical bonus = Strength − your magical armor</strong></li>
+<li><strong>Magic bonus = Intellect − your physical armor</strong></li>
+</ul>
+<p>That is the trade-off of armor. A warrior in plate struggles to cast a fireball, and a mage in a warded robe hits softly with a staff. The bonus can drop below zero.</p>
+<p><strong>No penalty for the other four stats.</strong> A roll that uses Constitution, Speed, Charm, or Spirit/Luck adds the full stat, whatever armor you wear. That keeps healing, charms, smites, and lifeforce working as intended.</p>
+<p><strong>Taking damage:</strong> the attacker rolls damage, and your <strong>total armor</strong> (physical + magical) is subtracted from it. <strong>Example:</strong> 10 damage against 4 physical and 4 magical armor deals 2.</p>
+<h3 id="conditions">Conditions</h3>
+<p>A condition is any effect the Core Master allows. The Core Master decides which conditions exist in their game and can invent any they need.</p>
+<p><strong>Conditions never roll.</strong> Use <strong>T</strong>, the tier of whatever caused the condition, as a flat number: T damage, T rounds in combat, T hours outside combat, and T spaces of movement. A T3 condition is 3 damage, 3 rounds, 3 hours, and 3 spaces (15 ft). If nothing gives a tier, the Core Master picks one.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>What it does (for T rounds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bleeding</td>
+<td>Take T damage at the start of your turn. Armor doesn't stop it. Any healing ends it.</td>
+</tr>
+<tr>
+<td>Blessed</td>
+<td>+T to every roll you make.</td>
+</tr>
+<tr>
+<td>Burning</td>
+<td>Take T damage at the start of your turn. Spend an action to put it out.</td>
+</tr>
+<tr>
+<td>Exhausted</td>
+<td>−T spaces of movement and −T to every roll. Lasts until a 10-hour rest, not T rounds.</td>
+</tr>
+<tr>
+<td>Frightened</td>
+<td>You can't move toward the source or make touch attacks against it.</td>
+</tr>
+<tr>
+<td>Invisible</td>
+<td>Enemies can't target you unless they guess your spot. Ends when you attack.</td>
+</tr>
+<tr>
+<td>Poisoned</td>
+<td>−T to every roll. Healing magic or an antidote ends it.</td>
+</tr>
+<tr>
+<td>Prone</td>
+<td>Standing up costs T spaces. Touch attacks on you deal +T; ranged attacks on you deal −T.</td>
+</tr>
+<tr>
+<td>Slowed</td>
+<td>−T spaces of movement.</td>
+</tr>
+<tr>
+<td>Stunned</td>
+<td>Lose your turns: no movement, no actions.</td>
+</tr>
+<tr>
+<td>Unconscious</td>
+<td>Can't move or act. Ends when you are healed or the fight ends.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="chapter-4-abilities">Chapter 4: Abilities</h2>
+<p>An ability is a saved roll that takes one action. "Ability" covers spells, techniques, gadgets, and anything else your story needs.</p>
+<h3 id="tiers">Tiers</h3>
+<p>Every ability has a tier, the same six tiers used for loot. The tier sets everything, so the Core Master only remembers one number.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Dice</th>
+<th>Targets</th>
+<th>Rounds</th>
+<th>Effects</th>
+<th>Feels like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1 Common</td>
+<td>1d6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>A minor trick</td>
+</tr>
+<tr>
+<td>T2 Uncommon</td>
+<td>2d6</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>A solid move</td>
+</tr>
+<tr>
+<td>T3 Rare</td>
+<td>3d6</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>A signature move</td>
+</tr>
+<tr>
+<td>T4 Epic</td>
+<td>4d6</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>A battle-turning power</td>
+</tr>
+<tr>
+<td>T5 Legendary</td>
+<td>5d6</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>A hero's legend</td>
+</tr>
+<tr>
+<td>T6 Divine</td>
+<td>6d6</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+<td>A miracle</td>
+</tr>
+</tbody>
+</table></div>
+<p>Outside combat, the Core Master sets how long an ability lasts.</p>
+<h3 id="building-an-ability">Building an Ability</h3>
+<ol>
+<li><strong>Pick a tier.</strong> It sets the dice, targets, rounds, and number of effects.</li>
+<li><strong>Pick a stat.</strong> The Core Master chooses which of the six stats adds its points to the roll. Strength loses your magical armor and Intellect loses your physical armor, like any attack (Chapter 3). The other four stats add in full.</li>
+<li><strong>Pick the roll's job:</strong> deal damage, restore HP, or grant temporary HP.</li>
+<li><strong>Pick the effects,</strong> one per effect the tier allows:
+   - <strong>Condition:</strong> applies a condition for the duration (Chapter 3).
+   - <strong>Move:</strong> pushes, pulls, lifts, or teleports a target.
+   - <strong>Boost or drain:</strong> raises or lowers a stat for the duration.
+   - <strong>Utility:</strong> something the Core Master allows, like unlocking a door or talking to animals.</li>
+</ol>
+<h3 id="sample-abilities">Sample Abilities</h3>
+<p>Each sample is shown at full power for its tier.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Ability</th>
+<th>Tier</th>
+<th>Dice</th>
+<th>Stat</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spark Dart</td>
+<td>T1</td>
+<td>1d6</td>
+<td>Intellect</td>
+<td>One target takes damage and is Burning.</td>
+</tr>
+<tr>
+<td>Adrenaline Shot</td>
+<td>T1</td>
+<td>1d6 healing</td>
+<td>Constitution</td>
+<td>Heals one ally and Blesses them.</td>
+</tr>
+<tr>
+<td>Mending Touch</td>
+<td>T2</td>
+<td>2d6 healing</td>
+<td>Spirit/Luck</td>
+<td>Heals two allies and Blesses them.</td>
+</tr>
+<tr>
+<td>Stun Grenade</td>
+<td>T2</td>
+<td>2d6</td>
+<td>Strength</td>
+<td>Two targets take damage and are Stunned.</td>
+</tr>
+<tr>
+<td>Fireball</td>
+<td>T3</td>
+<td>3d6</td>
+<td>Intellect</td>
+<td>Three targets take damage and are Burning, Frightened, and Prone.</td>
+</tr>
+<tr>
+<td>Lifeforce Aura</td>
+<td>T4</td>
+<td>4d6 temp HP</td>
+<td>Constitution</td>
+<td>Four allies gain temporary HP and are Blessed.</td>
+</tr>
+<tr>
+<td>Return Spark</td>
+<td>T5</td>
+<td>5d6 healing</td>
+<td>Spirit/Luck</td>
+<td>Revives a fallen ally within the resurrection window, with HP equal to the roll.</td>
+</tr>
+<tr>
+<td>Reality Break</td>
+<td>T6</td>
+<td>6d6</td>
+<td>Intellect</td>
+<td>Six targets take damage. The Core Master chooses what else bends.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="learning-abilities">Learning Abilities</h3>
+<p>Leveling never grants abilities. They come only from <strong>ability tokens</strong> and <strong>trainers</strong>, so the Core Master controls how they enter the game.</p>
+<ul>
+<li><strong>Slots:</strong> you can know as many abilities as you have ability slots (Chapter 2). The limit keeps combat fast. To make room, unlearn an ability; it is gone for good.</li>
+<li><strong>Start at T1:</strong> every ability is learned at T1 and trained up one tier at a time.</li>
+<li><strong>Tokens and cores:</strong> ability tokens have no tier and stack. Learning a <strong>new T1 ability</strong> costs <strong>1 token + a T1 soul core</strong> or better. Training an ability <strong>up one tier</strong> costs <strong>1 token + a soul core of the new tier</strong> or better: T2 needs a T2 core, and T6 needs a T6 core. A core's tier is the tier of the loot box it came from, so a level 5 hero only reaches strong abilities by beating rare monsters or getting lucky upgrades. A core spent on training does not fill the level meter, so every core is a choice between leveling and training.</li>
+<li><strong>Trainers</strong> take an ability token and a core of the right tier. A coin tip or good roleplay can raise your standing and unlock better abilities. The Core Master can place a trainer anywhere or build a quest to find one.</li>
+<li><strong>Using a token directly:</strong> the Core Master may let you consume a token to mimic its ability once, or to gain a random ability. Be careful: a high-tier power can break the game for a young hero.</li>
+</ul>
+<h2 id="chapter-5-stat-checks">Chapter 5: Stat Checks</h2>
+<p>When the outcome of an action is uncertain, the Core Master sets a target number and calls for a <strong>stat check</strong>. Roll <strong>one d6 per point</strong> in the stat that fits, add them up, and meet or beat the target.</p>
+<p>With 0 points you roll a single d6 that does not explode. With 1 or more points the dice explode as usual.</p>
+<h3 id="what-each-stat-checks">What Each Stat Checks</h3>
+<ul>
+<li><strong>Constitution:</strong> enduring and resisting. <em>Holding your breath through smoke to reach a door; weeding the tomato patch all day in the sun.</em></li>
+<li><strong>Strength:</strong> lifting, pushing, breaking. <em>Knocking a door down; hauling a crate of tomatoes to market.</em></li>
+<li><strong>Intellect:</strong> knowing and figuring out. <em>How a lock works; spotting which tomato plant has blight.</em></li>
+<li><strong>Speed:</strong> how long it takes and how much you get done. <em>How fast you pick a lock; how many tomatoes you pick before the storm.</em></li>
+<li><strong>Charm:</strong> persuading and resisting pressure. <em>Talking a guard into opening a door; haggling over tomatoes.</em></li>
+<li><strong>Spirit/Luck:</strong> the supernatural, seen as higher powers, karma, or plain luck, good or bad. <em>Picking the one door that isn't trapped; finding the one perfect tomato.</em> <strong>If no stat fits, roll Spirit/Luck.</strong></li>
+</ul>
+<h3 id="setting-the-target">Setting the Target</h3>
+<p>Find the roller's stat points. <strong>Easy</strong> succeeds about 4 times in 5, <strong>Medium</strong> about half the time, and <strong>Hard</strong> about 1 time in 5. With 0 points, use Easy 2, Medium 4, Hard 6.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Stat points</th>
+<th>Dice</th>
+<th>Average</th>
+<th>Easy</th>
+<th>Medium</th>
+<th>Hard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1d6</td>
+<td>5</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2d6</td>
+<td>10</td>
+<td>7</td>
+<td>9</td>
+<td>12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3d6</td>
+<td>15</td>
+<td>11</td>
+<td>14</td>
+<td>18</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4d6</td>
+<td>20</td>
+<td>15</td>
+<td>19</td>
+<td>24</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5d6</td>
+<td>25</td>
+<td>19</td>
+<td>24</td>
+<td>30</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6d6</td>
+<td>30</td>
+<td>24</td>
+<td>29</td>
+<td>35</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7d6</td>
+<td>35</td>
+<td>28</td>
+<td>34</td>
+<td>41</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8d6</td>
+<td>40</td>
+<td>33</td>
+<td>39</td>
+<td>46</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9d6</td>
+<td>45</td>
+<td>37</td>
+<td>44</td>
+<td>52</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10d6</td>
+<td>50</td>
+<td>42</td>
+<td>49</td>
+<td>57</td>
+</tr>
+</tbody>
+</table></div>
+<p>The Index has the full chart with minimum, most likely, and maximum rolls. You can also set any number you like.</p>
+<h3 id="keeping-checks-fast">Keeping Checks Fast</h3>
+<ul>
+<li><strong>Set the number before the roll.</strong></li>
+<li><strong>Roll only when failure is interesting.</strong> If nothing is at stake, say yes.</li>
+<li><strong>Failure changes the story,</strong> like costing time or raising an alarm. It never stops the game.</li>
+<li><strong>Group rolls:</strong> when the party tries something together, one roll decides it. The group or the Core Master picks who rolls, or the Core Master simply decides the group passes or fails.</li>
+<li><strong>No rerolls, no passive checks,</strong> and <strong>no helping</strong> unless the Core Master gives someone an ability that helps.</li>
+</ul>
+<h2 id="chapter-6-spirit-coins-and-loot">Chapter 6: Spirit Coins and Loot</h2>
+<p>Money in the main setting is <strong>spirit coins</strong>. In another story it can be gold, bank notes, or credits; only the name changes.</p>
+<h3 id="earning-coins">Earning Coins</h3>
+<ul>
+<li><strong>Labor:</strong> anyone can make coins with time. One hour of work makes one coin, and one coin feeds a person for a day.</li>
+<li><strong>Daily limit:</strong> at most 10 hours (10 coins) a day, then 10 hours of rest before working again.</li>
+<li><strong>Example:</strong> a peasant family of four works 8 hours between them and makes 8 coins: 4 for food, 2 for shelter, and 2 for savings and taxes.</li>
+<li><strong>Heroes:</strong> once a day, a hero can roll their Spirit/Luck dice (the same dice as a Spirit/Luck check) and make that many coins without working. A new hero rolls one non-exploding d6, so they still need jobs.</li>
+<li><strong>Tithes and taxes:</strong> optional. If your story uses them, the Core Master sets the amount.</li>
+</ul>
+<h3 id="coin-tiers">Coin Tiers</h3>
+<p>To keep numbers under 1 million, coins come in six tiers named like loot. Each tier covers a band of levels, and <strong>one coin is worth 1,000 of the tier below</strong>. Wages and food are always Common coins.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Levels</th>
+<th>One coin is worth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Common</td>
+<td>1-10</td>
+<td>1 spirit coin</td>
+</tr>
+<tr>
+<td>Uncommon</td>
+<td>11-20</td>
+<td>1,000 spirit coins</td>
+</tr>
+<tr>
+<td>Rare</td>
+<td>21-40</td>
+<td>1 million spirit coins</td>
+</tr>
+<tr>
+<td>Epic</td>
+<td>41-60</td>
+<td>1 billion spirit coins</td>
+</tr>
+<tr>
+<td>Legendary</td>
+<td>61-80</td>
+<td>1 trillion spirit coins</td>
+</tr>
+<tr>
+<td>Divine</td>
+<td>81-100</td>
+<td>1 quadrillion spirit coins</td>
+</tr>
+</tbody>
+</table></div>
+<p>Trade up every 1,000 coins of a tier for 1 coin of the next. To pay with smaller coins, break a bigger one and keep the change. The app does both for you.</p>
+<h3 id="the-loot-box">The Loot Box</h3>
+<p>After a fight, a dungeon room, or a quest, each player opens a <strong>loot box</strong>. The app does the rolling.</p>
+<p><strong>Coins:</strong> roll <strong>(monster level + your level)d6</strong>, at least 2d6, in coins of the monster's tier.</p>
+<p><strong>Box tier:</strong> the monster's rarity sets the box, from Common (T1) to Divine (T6). The Core Master can upgrade any box. The tier sets item quality (Chapter 7) and coin tier for reagents.</p>
+<p><strong>The d100 pool:</strong> start with 1d100. Dice never add; each die is its own pull. Roll the whole pool, then resolve every die at the <strong>highest tier the box reached</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100 roll</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Boom:</strong> no loot; the die becomes 2d100</td>
+</tr>
+<tr>
+<td>2-50</td>
+<td>A <strong>sellable reagent</strong> worth the number rolled in coins of the box's tier</td>
+</tr>
+<tr>
+<td>51-75</td>
+<td>An <strong>ability token</strong> of the monster's signature ability</td>
+</tr>
+<tr>
+<td>76-99</td>
+<td>An <strong>item:</strong> d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat</td>
+</tr>
+<tr>
+<td>100</td>
+<td><strong>Upgrade:</strong> no loot; the box goes up one tier (max T6) and the die becomes 2d100</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Naming loot:</strong> roll a d100 clever name and a d100 base item from your theme's tables, such as Black Hawk Longbow (+2 Speed). Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. The full tables for Fantasy, Space, Horror, Street Grit, and the adults-only After Dark set are on the <a href="https://mpjart.github.io/boomcore/loot-names.html">Loot Name Tables</a> page, and the app rolls them for you.</p>
+<p><strong>Any even roll from 2 to 98</strong> also drops a <strong>soul core</strong> of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.</p>
+<p><strong>Example:</strong> Bob opens a T1 box and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 38 and 79. At T2, the 64 is a token plus a T2 core, the 38 is a reagent worth 38 Uncommon coins plus a core, and the 79 is an item with +1 to a random stat.</p>
+<h3 id="using-loot">Using Loot</h3>
+<ul>
+<li><strong>Sell:</strong> reagents for their number, cores for L × 100 coins of their tier, and items for a d100 roll (which can boom) of coins of the item's tier.</li>
+<li><strong>Consume:</strong> cores fill your level meter (Chapter 2). A token plus a core of the right tier learns or trains an ability (Chapter 4).</li>
+<li><strong>Bosses, quests, and dungeons:</strong> see Party Loot in Chapter 8.</li>
+</ul>
+<h2 id="chapter-7-gear">Chapter 7: Gear</h2>
+<p>There is no master list of weapons or armor. When loot or a story gives you gear, <strong>the Core Master decides what it is</strong>, and its tier sets how strong it is.</p>
+<h3 id="slots">Slots</h3>
+<p>You have <strong>2 weapon slots, 2 armor slots, and 2 magic item slots</strong>. What an item <em>does</em> decides its slot, not what it looks like:</p>
+<ul>
+<li>Deals damage → weapon slot (even jewelry)</li>
+<li>Gives armor → armor slot (a shield, or a mage's ring of shielding)</li>
+<li>Anything else → magic item slot</li>
+</ul>
+<p>While equipped, an item's +N adds to the stat it names. Unequip it and the bonus goes with it. If the right slots are full, unequip something first.</p>
+<h3 id="gear-by-tier">Gear by Tier</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Bonus</th>
+<th>Armor per piece</th>
+<th>Example magic item</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1 Common</td>
+<td>none</td>
+<td>1</td>
+<td>Lantern ring: lights a room (always on)</td>
+</tr>
+<tr>
+<td>T2 Uncommon</td>
+<td>+1</td>
+<td>2</td>
+<td>Cloak of shadows: Invisible 2 rounds, once per fight</td>
+</tr>
+<tr>
+<td>T3 Rare</td>
+<td>+2</td>
+<td>3</td>
+<td>Necklace: heals 3d6 when you drop below 2 HP, once per day</td>
+</tr>
+<tr>
+<td>T4 Epic</td>
+<td>+3</td>
+<td>4</td>
+<td>Hover board: double your speed (always on)</td>
+</tr>
+<tr>
+<td>T5 Legendary</td>
+<td>+4</td>
+<td>5</td>
+<td>Ring: +5 Speed for 5 rounds, once per day</td>
+</tr>
+<tr>
+<td>T6 Divine</td>
+<td>+5</td>
+<td>6</td>
+<td>Compass that points to what you most desire</td>
+</tr>
+</tbody>
+</table></div>
+<p>Any item sells for a d100 roll (which can boom) of coins of its tier.</p>
+<h3 id="weapons">Weapons</h3>
+<p>A weapon can be a sword, a gun, punching gloves, an exploding football, or a broken bottle. Its damage comes only from hands and range (Chapter 3). Mark each weapon <strong>physical or magical</strong>, <strong>one or two hands</strong>, and <strong>touch or ranged</strong>.</p>
+<p><strong>Plus weapons:</strong> a +N weapon rolls <strong>N extra copies</strong> of its dice and adds +N to its stat. A +1 one-handed gun rolls 2d4, a +2 rolls 3d4, and a +1 two-handed 2d4 weapon rolls 4d4.</p>
+<h3 id="armor">Armor</h3>
+<p>Each piece is one number, equal to its tier, marked <strong>physical or magical</strong>. Two T3 pieces give 6 total armor. Remember the cost: each type lowers the other kind of bonus damage (Chapter 3).</p>
+<h3 id="magic-items-and-jewelry">Magic Items and Jewelry</h3>
+<p>A magic item does one thing that isn't damage or armor. Healing and shielding items roll tier d6. Choose how often it works: always on for small effects, once per fight, or once per day for big ones. Use the table above as a guide.</p>
+<h3 id="gems">Gems</h3>
+<p>A gem is treasure to sell, with no stat bonus at any tier. It sells for a d100 roll of coins of its tier. The Core Master can also let a gem power an item or ability once.</p>
+<h2 id="chapter-8-the-core-masters-toolkit">Chapter 8: The Core Master's Toolkit</h2>
+<p>Boom is a framework, not a rulebook. <strong>Speed and fun are the goal of this system.</strong> If a rule slows your table or doesn't fit your story, change it, drop it, or write your own.</p>
+<h3 id="running-the-game-with-the-app">Running the Game with the App</h3>
+<p>The Boom Dice app rolls and explodes the dice, does the math, and shows everyone's rolls. Only the Core Master sees the CM tab and the editing controls.</p>
+<ul>
+<li><strong>Dice:</strong> quick rolls, your color, and the shared roll feed.</li>
+<li><strong>Party:</strong> every character sheet. The Core Master edits stats, HP, armor, abilities, coins, and loot.</li>
+<li><strong>Loot:</strong> opens loot boxes and holds the party stash.</li>
+<li><strong>CM:</strong> the initiative tracker and the monster generator.</li>
+</ul>
+<p><strong>A round at the table:</strong> the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.</p>
+<h3 id="party-loot">Party Loot</h3>
+<p>Normally each hero opens their own box. For <strong>bosses</strong> and <strong>finishing a quest or dungeon</strong>, roll one <strong>party loot</strong> box instead: <strong>every hero gets a full copy</strong> of everything in it, nothing split. Use the party's average level as the hero level in the coin roll.</p>
+<h3 id="the-party-stash">The Party Stash</h3>
+<p>The stash is shared treasure. The Core Master can add any gear, tokens, cores, or coins, or drop a loot box straight into it. Players trade by putting things in and taking things out; there is no direct giving. The Core Master can lock the stash at any time, such as mid-fight.</p>
+<h3 id="rewards-and-pacing">Rewards and Pacing</h3>
+<p>About half of all boxes hold a core, so a level takes roughly <strong>20 boxes</strong>. At four boxes a session, that's about five sessions per level.</p>
+<ul>
+<li><strong>Faster:</strong> give a box per dungeon room or objective, use tougher monsters (a higher-level core fills more of the meter, up to one level), use party loot, or level at milestones.</li>
+<li><strong>Slower:</strong> give fewer boxes and let milestones carry the story.</li>
+</ul>
+<h2 id="chapter-9-encounters-and-monsters">Chapter 9: Encounters and Monsters</h2>
+<p>Fair doesn't mean easy. Fair means the players can see the risk and make a real choice. These numbers come from simulated fights, so treat them as a starting point.</p>
+<h3 id="building-monsters">Building Monsters</h3>
+<p>A monster is a simpler hero. The app's CM tab builds one from a name, level, type, and rarity.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Stat points</th>
+<th>HP</th>
+<th>Armor</th>
+<th>Abilities</th>
+<th>Threat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minion</td>
+<td>(level − 1) ÷ 2</td>
+<td>half of 5 × (level + Con)</td>
+<td>none</td>
+<td>usually none</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>level − 1</td>
+<td>5 × (level + Con)</td>
+<td>level ÷ 5</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Boss</td>
+<td>2 × (level − 1) + 3</td>
+<td>triple 5 × (level + Con)</td>
+<td>level ÷ 3</td>
+<td>3</td>
+<td>4</td>
+</tr>
+</tbody>
+</table></div>
+<p>Round everything down, except a minion's HP, which rounds up.</p>
+<ul>
+<li><strong>Stats:</strong> deal points one at a time with a d6: 1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck.</li>
+<li><strong>Attacks:</strong> melee 2d6 + Strength and ranged 2d4 + Intellect. This is by design, to keep monsters quick to build. Flavor them to fit: a wolf bites with its melee attack and howls with its ranged one. Armor is one total, with no physical or magical split. The Core Master can always build outside this template.</li>
+<li><strong>Abilities:</strong> built as in Chapter 4. The first is its <strong>signature ability</strong>, which can drop as a token.</li>
+<li><strong>Initiative and actions:</strong> the same as a hero.</li>
+<li><strong>Rarity</strong> (Common to Divine) is a loose guide to toughness and sets its loot box tier. A boss is usually Epic.</li>
+<li><strong>Tier</strong> is the coin tier for its level (Chapter 6) and sets the coins and cores it drops. Monsters carry no coins of their own.</li>
+</ul>
+<p><strong>Example, level 5 standard:</strong> 4 points (1 Con, 2 Str, 1 Spd). HP 30, armor 1, melee 2d6 + 2, ranged 2d4, one ability.</p>
+<p><strong>Example, level 5 boss:</strong> 11 points (2 Con, 3 Str, 2 Int, 2 Spd, 1 Charm, 1 Spirit/Luck). HP 105, armor 1, melee 2d6 + 3, ranged 2d4 + 2, three abilities.</p>
+<h3 id="fair-encounters">Fair Encounters</h3>
+<p>Add up the monsters' threat points and compare with the party size.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Difficulty</th>
+<th>Threat per hero</th>
+<th>Party of 4</th>
+<th>Example for 4 heroes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Easy</td>
+<td>1</td>
+<td>4</td>
+<td>Two standard monsters</td>
+</tr>
+<tr>
+<td>Fair</td>
+<td>1.5</td>
+<td>6</td>
+<td>Three standard, or a boss and two minions</td>
+</tr>
+<tr>
+<td>Hard</td>
+<td>2</td>
+<td>8</td>
+<td>Four standard, or a boss and two standard</td>
+</tr>
+<tr>
+<td>Deadly</td>
+<td>3</td>
+<td>12</td>
+<td>A boss and four standard</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Use monsters within a couple of levels of the party's average.</li>
+<li><strong>Levels 1 and 2:</strong> heroes have very little HP. Halve the threat points.</li>
+<li><strong>Armor:</strong> it subtracts from every hit, so keep it at the levels above or fights drag.</li>
+<li><strong>Mid-fight:</strong> if it goes badly, add reinforcements or lower a boss's HP. The app rolls the dice, so never fudge a roll.</li>
+<li><strong>Bosses</strong> feel best with a couple of minions and a hazard in the room.</li>
+</ul>
+<h3 id="traps-and-hazards">Traps and Hazards</h3>
+<p>Build a hazard like an ability: its tier sets its dice, targets, rounds, and effects (Chapter 4). For example: T1 tripwire darts, T2 swinging blade, T3 collapsing floor (Prone), T4 poison gas (Poisoned), T5 lava vent (Burning), T6 a tear in reality (Stunned).</p>
+<ol>
+<li><strong>Give a clue first.</strong> Let the heroes notice something before it fires.</li>
+<li><strong>Call for a check</strong> to avoid it: Speed to dodge, Strength to push through, or Constitution to resist.</li>
+<li><strong>On a failure,</strong> roll its dice against each target (armor applies) and add its effects. On a success, nothing happens.</li>
+</ol>
+<h2 id="chapter-10-adapting-boom-to-any-story">Chapter 10: Adapting Boom to Any Story</h2>
+<p><strong>Change the names, not the math.</strong> Keep the Boom Rule, the damage chart, HP, the tiers, the level chart, and the loot box. That is what keeps the game fast in fantasy, space, pirates, horror, or a city street.</p>
+<h3 id="rename-anything">Rename Anything</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Boom</th>
+<th>Sci-fi</th>
+<th>Pirates</th>
+<th>Modern or horror</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Constitution</td>
+<td>Resilience</td>
+<td>Grit</td>
+<td>Grit</td>
+</tr>
+<tr>
+<td>Strength</td>
+<td>Might</td>
+<td>Brawn</td>
+<td>Strength</td>
+</tr>
+<tr>
+<td>Intellect</td>
+<td>Tech</td>
+<td>Wits</td>
+<td>Smarts</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Reflex</td>
+<td>Agility</td>
+<td>Agility</td>
+</tr>
+<tr>
+<td>Charm</td>
+<td>Presence</td>
+<td>Swagger</td>
+<td>Charisma</td>
+</tr>
+<tr>
+<td>Spirit/Luck</td>
+<td>Fortune</td>
+<td>Fortune</td>
+<td>Luck</td>
+</tr>
+<tr>
+<td>Spirit coins</td>
+<td>Credits</td>
+<td>Doubloons</td>
+<td>Cash</td>
+</tr>
+<tr>
+<td>Soul cores</td>
+<td>Data cores</td>
+<td>Trophies</td>
+<td>Relics</td>
+</tr>
+<tr>
+<td>Trainers</td>
+<td>Mentors</td>
+<td>Old sea dogs</td>
+<td>Veterans</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="what-changes-easily">What Changes Easily</h3>
+<ul>
+<li><strong>Abilities</strong> can be spells, gadgets, implants, martial arts, or curses.</li>
+<li><strong>Magic</strong> needs a free hand and a voice in the main setting. Elsewhere, a free hand and a power source, or whatever fits.</li>
+<li><strong>Weapons and armor</strong> keep the same rules. A wrench is melee; armor might be plating and an energy field.</li>
+<li><strong>Conditions</strong> fit the setting, like Overheated, Jammed, Spooked, or Seasick.</li>
+<li><strong>Monsters</strong> can be aliens, gangs, ghosts, a rival crew, or a ship. Its guns are its attacks and its crew its abilities.</li>
+<li><strong>Money and leveling:</strong> tithes and taxes are optional. For a short game, level at milestones or stop at level 10 or 20.</li>
+</ul>
+<h3 id="tips">Tips</h3>
+<ul>
+<li>Rename a few things first, not everything at once.</li>
+<li>Keep a one-page cheat sheet of the formulas at the table.</li>
+<li>When the rules are silent, the Core Master decides and the story keeps moving.</li>
+</ul>
+<h2 id="index">Index</h2>
+<p>Reference tables too long for the chapters.</p>
+<h3 id="full-level-chart">Full Level Chart</h3>
+<p>Cost and core value are counted in coins of the tier shown. You always need 10 cores of the level below.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Reaching level</th>
+<th>Cost</th>
+<th>Cores needed</th>
+<th>Core value</th>
+<th>Ability slots</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1,000 Common</td>
+<td>10 level-1</td>
+<td>100 Common</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2,000 Common</td>
+<td>10 level-2</td>
+<td>200 Common</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3,000 Common</td>
+<td>10 level-3</td>
+<td>300 Common</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4,000 Common</td>
+<td>10 level-4</td>
+<td>400 Common</td>
+<td>4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>5,000 Common</td>
+<td>10 level-5</td>
+<td>500 Common</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>6,000 Common</td>
+<td>10 level-6</td>
+<td>600 Common</td>
+<td>4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>7,000 Common</td>
+<td>10 level-7</td>
+<td>700 Common</td>
+<td>4</td>
+</tr>
+<tr>
+<td>9</td>
+<td>8,000 Common</td>
+<td>10 level-8</td>
+<td>800 Common</td>
+<td>4</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9,000 Common</td>
+<td>10 level-9</td>
+<td>900 Common</td>
+<td>5</td>
+</tr>
+<tr>
+<td>11</td>
+<td>10,000 Common</td>
+<td>10 level-10</td>
+<td>1,000 Common</td>
+<td>5</td>
+</tr>
+<tr>
+<td>12</td>
+<td>11,000 Uncommon</td>
+<td>10 level-11</td>
+<td>1,100 Uncommon</td>
+<td>5</td>
+</tr>
+<tr>
+<td>13</td>
+<td>12,000 Uncommon</td>
+<td>10 level-12</td>
+<td>1,200 Uncommon</td>
+<td>5</td>
+</tr>
+<tr>
+<td>14</td>
+<td>13,000 Uncommon</td>
+<td>10 level-13</td>
+<td>1,300 Uncommon</td>
+<td>5</td>
+</tr>
+<tr>
+<td>15</td>
+<td>14,000 Uncommon</td>
+<td>10 level-14</td>
+<td>1,400 Uncommon</td>
+<td>6</td>
+</tr>
+<tr>
+<td>16</td>
+<td>15,000 Uncommon</td>
+<td>10 level-15</td>
+<td>1,500 Uncommon</td>
+<td>6</td>
+</tr>
+<tr>
+<td>17</td>
+<td>16,000 Uncommon</td>
+<td>10 level-16</td>
+<td>1,600 Uncommon</td>
+<td>6</td>
+</tr>
+<tr>
+<td>18</td>
+<td>17,000 Uncommon</td>
+<td>10 level-17</td>
+<td>1,700 Uncommon</td>
+<td>6</td>
+</tr>
+<tr>
+<td>19</td>
+<td>18,000 Uncommon</td>
+<td>10 level-18</td>
+<td>1,800 Uncommon</td>
+<td>6</td>
+</tr>
+<tr>
+<td>20</td>
+<td>19,000 Uncommon</td>
+<td>10 level-19</td>
+<td>1,900 Uncommon</td>
+<td>7</td>
+</tr>
+<tr>
+<td>21</td>
+<td>20,000 Uncommon</td>
+<td>10 level-20</td>
+<td>2,000 Uncommon</td>
+<td>7</td>
+</tr>
+<tr>
+<td>22</td>
+<td>21,000 Rare</td>
+<td>10 level-21</td>
+<td>2,100 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>23</td>
+<td>22,000 Rare</td>
+<td>10 level-22</td>
+<td>2,200 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>24</td>
+<td>23,000 Rare</td>
+<td>10 level-23</td>
+<td>2,300 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>25</td>
+<td>24,000 Rare</td>
+<td>10 level-24</td>
+<td>2,400 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>26</td>
+<td>25,000 Rare</td>
+<td>10 level-25</td>
+<td>2,500 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>27</td>
+<td>26,000 Rare</td>
+<td>10 level-26</td>
+<td>2,600 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>28</td>
+<td>27,000 Rare</td>
+<td>10 level-27</td>
+<td>2,700 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>29</td>
+<td>28,000 Rare</td>
+<td>10 level-28</td>
+<td>2,800 Rare</td>
+<td>7</td>
+</tr>
+<tr>
+<td>30</td>
+<td>29,000 Rare</td>
+<td>10 level-29</td>
+<td>2,900 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>31</td>
+<td>30,000 Rare</td>
+<td>10 level-30</td>
+<td>3,000 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>32</td>
+<td>31,000 Rare</td>
+<td>10 level-31</td>
+<td>3,100 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>33</td>
+<td>32,000 Rare</td>
+<td>10 level-32</td>
+<td>3,200 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>34</td>
+<td>33,000 Rare</td>
+<td>10 level-33</td>
+<td>3,300 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>35</td>
+<td>34,000 Rare</td>
+<td>10 level-34</td>
+<td>3,400 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>36</td>
+<td>35,000 Rare</td>
+<td>10 level-35</td>
+<td>3,500 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>37</td>
+<td>36,000 Rare</td>
+<td>10 level-36</td>
+<td>3,600 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>38</td>
+<td>37,000 Rare</td>
+<td>10 level-37</td>
+<td>3,700 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>39</td>
+<td>38,000 Rare</td>
+<td>10 level-38</td>
+<td>3,800 Rare</td>
+<td>8</td>
+</tr>
+<tr>
+<td>40</td>
+<td>39,000 Rare</td>
+<td>10 level-39</td>
+<td>3,900 Rare</td>
+<td>9</td>
+</tr>
+<tr>
+<td>41</td>
+<td>40,000 Rare</td>
+<td>10 level-40</td>
+<td>4,000 Rare</td>
+<td>9</td>
+</tr>
+<tr>
+<td>42</td>
+<td>41,000 Epic</td>
+<td>10 level-41</td>
+<td>4,100 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>43</td>
+<td>42,000 Epic</td>
+<td>10 level-42</td>
+<td>4,200 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>44</td>
+<td>43,000 Epic</td>
+<td>10 level-43</td>
+<td>4,300 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>45</td>
+<td>44,000 Epic</td>
+<td>10 level-44</td>
+<td>4,400 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>46</td>
+<td>45,000 Epic</td>
+<td>10 level-45</td>
+<td>4,500 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>47</td>
+<td>46,000 Epic</td>
+<td>10 level-46</td>
+<td>4,600 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>48</td>
+<td>47,000 Epic</td>
+<td>10 level-47</td>
+<td>4,700 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>49</td>
+<td>48,000 Epic</td>
+<td>10 level-48</td>
+<td>4,800 Epic</td>
+<td>9</td>
+</tr>
+<tr>
+<td>50</td>
+<td>49,000 Epic</td>
+<td>10 level-49</td>
+<td>4,900 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>51</td>
+<td>50,000 Epic</td>
+<td>10 level-50</td>
+<td>5,000 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>52</td>
+<td>51,000 Epic</td>
+<td>10 level-51</td>
+<td>5,100 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>53</td>
+<td>52,000 Epic</td>
+<td>10 level-52</td>
+<td>5,200 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>54</td>
+<td>53,000 Epic</td>
+<td>10 level-53</td>
+<td>5,300 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>55</td>
+<td>54,000 Epic</td>
+<td>10 level-54</td>
+<td>5,400 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>56</td>
+<td>55,000 Epic</td>
+<td>10 level-55</td>
+<td>5,500 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>57</td>
+<td>56,000 Epic</td>
+<td>10 level-56</td>
+<td>5,600 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>58</td>
+<td>57,000 Epic</td>
+<td>10 level-57</td>
+<td>5,700 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>59</td>
+<td>58,000 Epic</td>
+<td>10 level-58</td>
+<td>5,800 Epic</td>
+<td>10</td>
+</tr>
+<tr>
+<td>60</td>
+<td>59,000 Epic</td>
+<td>10 level-59</td>
+<td>5,900 Epic</td>
+<td>11</td>
+</tr>
+<tr>
+<td>61</td>
+<td>60,000 Epic</td>
+<td>10 level-60</td>
+<td>6,000 Epic</td>
+<td>11</td>
+</tr>
+<tr>
+<td>62</td>
+<td>61,000 Legendary</td>
+<td>10 level-61</td>
+<td>6,100 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>63</td>
+<td>62,000 Legendary</td>
+<td>10 level-62</td>
+<td>6,200 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>64</td>
+<td>63,000 Legendary</td>
+<td>10 level-63</td>
+<td>6,300 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>65</td>
+<td>64,000 Legendary</td>
+<td>10 level-64</td>
+<td>6,400 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>66</td>
+<td>65,000 Legendary</td>
+<td>10 level-65</td>
+<td>6,500 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>67</td>
+<td>66,000 Legendary</td>
+<td>10 level-66</td>
+<td>6,600 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>68</td>
+<td>67,000 Legendary</td>
+<td>10 level-67</td>
+<td>6,700 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>69</td>
+<td>68,000 Legendary</td>
+<td>10 level-68</td>
+<td>6,800 Legendary</td>
+<td>11</td>
+</tr>
+<tr>
+<td>70</td>
+<td>69,000 Legendary</td>
+<td>10 level-69</td>
+<td>6,900 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>71</td>
+<td>70,000 Legendary</td>
+<td>10 level-70</td>
+<td>7,000 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>72</td>
+<td>71,000 Legendary</td>
+<td>10 level-71</td>
+<td>7,100 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>73</td>
+<td>72,000 Legendary</td>
+<td>10 level-72</td>
+<td>7,200 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>74</td>
+<td>73,000 Legendary</td>
+<td>10 level-73</td>
+<td>7,300 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>75</td>
+<td>74,000 Legendary</td>
+<td>10 level-74</td>
+<td>7,400 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>76</td>
+<td>75,000 Legendary</td>
+<td>10 level-75</td>
+<td>7,500 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>77</td>
+<td>76,000 Legendary</td>
+<td>10 level-76</td>
+<td>7,600 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>78</td>
+<td>77,000 Legendary</td>
+<td>10 level-77</td>
+<td>7,700 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>79</td>
+<td>78,000 Legendary</td>
+<td>10 level-78</td>
+<td>7,800 Legendary</td>
+<td>12</td>
+</tr>
+<tr>
+<td>80</td>
+<td>79,000 Legendary</td>
+<td>10 level-79</td>
+<td>7,900 Legendary</td>
+<td>13</td>
+</tr>
+<tr>
+<td>81</td>
+<td>80,000 Legendary</td>
+<td>10 level-80</td>
+<td>8,000 Legendary</td>
+<td>13</td>
+</tr>
+<tr>
+<td>82</td>
+<td>81,000 Divine</td>
+<td>10 level-81</td>
+<td>8,100 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>83</td>
+<td>82,000 Divine</td>
+<td>10 level-82</td>
+<td>8,200 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>84</td>
+<td>83,000 Divine</td>
+<td>10 level-83</td>
+<td>8,300 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>85</td>
+<td>84,000 Divine</td>
+<td>10 level-84</td>
+<td>8,400 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>86</td>
+<td>85,000 Divine</td>
+<td>10 level-85</td>
+<td>8,500 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>87</td>
+<td>86,000 Divine</td>
+<td>10 level-86</td>
+<td>8,600 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>88</td>
+<td>87,000 Divine</td>
+<td>10 level-87</td>
+<td>8,700 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>89</td>
+<td>88,000 Divine</td>
+<td>10 level-88</td>
+<td>8,800 Divine</td>
+<td>13</td>
+</tr>
+<tr>
+<td>90</td>
+<td>89,000 Divine</td>
+<td>10 level-89</td>
+<td>8,900 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>91</td>
+<td>90,000 Divine</td>
+<td>10 level-90</td>
+<td>9,000 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>92</td>
+<td>91,000 Divine</td>
+<td>10 level-91</td>
+<td>9,100 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>93</td>
+<td>92,000 Divine</td>
+<td>10 level-92</td>
+<td>9,200 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>94</td>
+<td>93,000 Divine</td>
+<td>10 level-93</td>
+<td>9,300 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>95</td>
+<td>94,000 Divine</td>
+<td>10 level-94</td>
+<td>9,400 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>96</td>
+<td>95,000 Divine</td>
+<td>10 level-95</td>
+<td>9,500 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>97</td>
+<td>96,000 Divine</td>
+<td>10 level-96</td>
+<td>9,600 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>98</td>
+<td>97,000 Divine</td>
+<td>10 level-97</td>
+<td>9,700 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>99</td>
+<td>98,000 Divine</td>
+<td>10 level-98</td>
+<td>9,800 Divine</td>
+<td>14</td>
+</tr>
+<tr>
+<td>100</td>
+<td>99,000 Divine</td>
+<td>10 level-99</td>
+<td>9,900 Divine</td>
+<td>15</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="build-the-level-chart-in-excel">Build the Level Chart in Excel</h3>
+<ol>
+<li>In row 1, type the headings: Reaching level, Tier, Cost in coins, Value of each core, Ability slots.</li>
+<li>In A2 type 2, in A3 type 3, and fill down to the level you want.</li>
+<li>Enter these in row 2 and fill them down:
+   - B2: =IF(A2-1&lt;=10,"Common",IF(A2-1&lt;=20,"Uncommon",IF(A2-1&lt;=40,"Rare",IF(A2-1&lt;=60,"Epic",IF(A2-1&lt;=80,"Legendary","Divine")))))
+   - C2: =(A2-1)*1000
+   - D2: =(A2-1)*100
+   - E2: =3+INT(MIN(A2,20)/5)+INT(MAX(0,A2-20)/10)</li>
+<li>Format columns C and D as numbers with commas.</li>
+</ol>
+<h3 id="full-dice-chart">Full Dice Chart</h3>
+<p>The <strong>mode</strong> is the single most likely total; it sits below the average because explosions now and then launch a roll far higher. The max assumes the 100-dice cap and an incredibly lucky chain, so it almost never happens.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Stat points</th>
+<th>Dice</th>
+<th>Min</th>
+<th>Average</th>
+<th>Mode</th>
+<th>Max</th>
+<th>Easy</th>
+<th>Medium</th>
+<th>Hard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1d6 (no explosion)</td>
+<td>1</td>
+<td>3.5</td>
+<td>any</td>
+<td>6</td>
+<td>2</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1d6</td>
+<td>2</td>
+<td>5</td>
+<td>6</td>
+<td>300</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2d6</td>
+<td>4</td>
+<td>10</td>
+<td>8</td>
+<td>306</td>
+<td>7</td>
+<td>9</td>
+<td>12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3d6</td>
+<td>6</td>
+<td>15</td>
+<td>13</td>
+<td>306</td>
+<td>11</td>
+<td>14</td>
+<td>18</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4d6</td>
+<td>8</td>
+<td>20</td>
+<td>17</td>
+<td>312</td>
+<td>15</td>
+<td>19</td>
+<td>24</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5d6</td>
+<td>10</td>
+<td>25</td>
+<td>22</td>
+<td>312</td>
+<td>19</td>
+<td>24</td>
+<td>30</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6d6</td>
+<td>12</td>
+<td>30</td>
+<td>26</td>
+<td>318</td>
+<td>24</td>
+<td>29</td>
+<td>35</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7d6</td>
+<td>14</td>
+<td>35</td>
+<td>31</td>
+<td>318</td>
+<td>28</td>
+<td>34</td>
+<td>41</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8d6</td>
+<td>16</td>
+<td>40</td>
+<td>36</td>
+<td>324</td>
+<td>33</td>
+<td>39</td>
+<td>46</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9d6</td>
+<td>18</td>
+<td>45</td>
+<td>41</td>
+<td>324</td>
+<td>37</td>
+<td>44</td>
+<td>52</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10d6</td>
+<td>20</td>
+<td>50</td>
+<td>46</td>
+<td>330</td>
+<td>42</td>
+<td>49</td>
+<td>57</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+<a class="top" href="#top">Top</a>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boom Core Master Screen</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l9 5v10l-9 5-9-5V7z' fill='%23B83A12'/%3E%3C/svg%3E">
+<style>
+/* Each theme sets these; panels only use the variables. ?theme=fantasy|space|horror|grit picks one. */
+:root{--bg:#FBF7EF;--ink:#1F1A17;--head:#1F4E5F;--thbg:#1F4E5F;--thfg:#fff;--acc:#B83A12;--accfg:#fff;--line:#9C8F7E;--alt:#F1EADC;--mute:#5E554B;--page:#e9e3d8;
+ --fd:'Alfa Slab One',serif;--fc:'Barlow Condensed',sans-serif;--fb:'Barlow',sans-serif}
+:root[data-skin="fantasy"]{--bg:#f6ecd6;--ink:#2b1d0e;--head:#8b1e1e;--thbg:#8b1e1e;--thfg:#f7eedb;--acc:#2b1d0e;--accfg:#e0b44f;--line:#b8862b;--alt:#ecdcb9;--mute:#6b5538;--page:#d9c7a0;
+ --fd:Cinzel,Georgia,serif;--fc:Cinzel,Georgia,serif;--fb:'EB Garamond',Georgia,serif}
+:root[data-skin="space"]{--bg:#0b1124;--ink:#e4eaff;--head:#4fd8f7;--thbg:#12244a;--thfg:#e4eaff;--acc:#4fd8f7;--accfg:#06101f;--line:#2c3b68;--alt:#111a36;--mute:#9aa6cc;--page:#05070f;
+ --fd:Orbitron,sans-serif;--fc:Orbitron,sans-serif;--fb:'Exo 2',sans-serif}
+:root[data-skin="horror"]{--bg:#141010;--ink:#e6dccf;--head:#e0424a;--thbg:#3a1416;--thfg:#f3e9dc;--acc:#7d1016;--accfg:#f3e9dc;--line:#4a3a36;--alt:#1d1717;--mute:#a39686;--page:#060505;
+ --fd:'IM Fell English SC',Georgia,serif;--fc:'IM Fell English SC',Georgia,serif;--fb:'Crimson Pro',Georgia,serif}
+:root[data-skin="grit"]{--bg:#ece9e2;--ink:#121212;--head:#121212;--thbg:#121212;--thfg:#f5c400;--acc:#f5c400;--accfg:#121212;--line:#121212;--alt:#dcd8cf;--mute:#4a4741;--page:#bdb8ad;
+ --fd:Anton,Impact,sans-serif;--fc:Anton,Impact,sans-serif;--fb:'Barlow Condensed','Arial Narrow',sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--fb)}
+.bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--thbg);color:var(--thfg);font-family:var(--fc)}
+.bar a{color:var(--thfg);text-decoration:none;font-weight:700;margin-right:14px}.bar a:hover{text-decoration:underline}
+.bar .ctl{display:flex;gap:8px;align-items:center}
+.bar select,.bar button{font:inherit;font-size:15px;padding:7px 10px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.wrap{padding:16px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.fit{transform-origin:top left}
+.panel{display:block;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+.h{font-family:var(--fc);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase;color:var(--head);margin:0 0 6px 0;padding-bottom:3px;border-bottom:2px solid var(--head)}
+.t{border-collapse:collapse;width:100%;font-size:13px}
+.t th{background:var(--thbg);color:var(--thfg);font-family:var(--fc);font-weight:600;font-size:14px;text-align:left;padding:3px 6px;border:1px solid var(--thbg)}
+.t td{padding:3px 6px;border:1px solid var(--line);vertical-align:top}
+.t tr:nth-child(even) td{background:var(--alt)}
+.c td,.c th{text-align:center}.r{text-align:right}
+p{margin:0 0 6px 0}
+b{color:var(--ink)}
+:root[data-skin="grit"] .h,:root[data-skin="grit"] .t th{letter-spacing:.03em;font-weight:400}
+@page{size:11in 8.5in;margin:0}
+@media print{body{background:var(--bg)}.bar{display:none}.wrap{padding:0;gap:0}.fit{transform:none!important;height:auto!important}.panel{box-shadow:none;break-after:page;page-break-after:always}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Boom pages" data-noswap>
+ <div><a href="./">Boom Dice app</a><a href="rules.html">Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html">Loot Names</a></div>
+ <div class="ctl"><label for="skin">Theme</label><select id="skin"><option value="core">Core</option><option value="fantasy">Fantasy</option><option value="space">Space</option><option value="horror">Horror</option><option value="grit">Street Grit</option></select><button id="print" type="button">Print</button></div>
+</nav>
+<main class="wrap" id="wrap">
+<div class="fit" id="fit">
+<section class="panel" aria-label="Panel 1"><div style="width: 1056px; height: 816px; box-sizing: border-box; padding: 36px 40px; background: var(--bg); color: var(--ink); font-family: var(--fb); font-size: 13.5px; line-height: 1.35; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; background: var(--acc); color: var(--accfg); padding: 8px 16px; border-radius: 4px">
+<div style="font-family: var(--fd); font-size: 30px; letter-spacing: .02em">BOOM · CORE MASTER SCREEN</div>
+<div style="font-family: var(--fc); font-weight: 600; font-size: 18px; text-transform: uppercase; letter-spacing: .06em">Panel 1 · Dice, Checks &amp; Combat</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<section>
+<h2 class="h">The Boom Rule</h2>
+<p>When a die explodes, <b>throw it out and roll two dice of the same size</b> in its place. New dice can explode too. A chain of explosions is a <b>boom</b>.</p>
+<table class="t">
+<tr><th>Die</th><th>Explodes on</th><th>How often</th></tr>
+<tr><td>d2 to d6</td><td>a 1</td><td>d6: about 1 in 6</td></tr>
+<tr><td>d7 to d20</td><td>the minimum or maximum</td><td>d8: 1 in 4 · d20: 1 in 10</td></tr>
+<tr><td>d21 and larger</td><td>a flat 10% chance</td><td>1 in 10</td></tr>
+</table>
+<p style="margin-top: 6px"><b>Example:</b> d6 rolls 1 → roll 2d6: 1 and 4. Keep 4; the 1 → 2d6: 2 and 3. Total 4 + 2 + 3 = <b>9</b>.</p>
+<p><b>Boom cap:</b> one roll never uses more than <b>100 dice</b>. At 100, nothing else explodes.</p>
+<p><b>0 stat points:</b> roll a single d6 that does <b>not</b> explode. 1+ points: one d6 per point, and they explode.</p>
+</section>
+<section>
+<h2 class="h">Stat Check Targets</h2>
+<p>Roll one d6 per point in the stat; meet or beat the target. No stat fits? <b>Spirit/Luck.</b></p>
+<table class="t c">
+<tr><th style="text-align: left">Points</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+<tr><td style="text-align: left"><b>Easy</b> 4 in 5</td><td>2</td><td>3</td><td>7</td><td>11</td><td>15</td><td>19</td><td>24</td><td>28</td><td>33</td><td>37</td><td>42</td></tr>
+<tr><td style="text-align: left"><b>Medium</b> 1 in 2</td><td>4</td><td>5</td><td>9</td><td>14</td><td>19</td><td>24</td><td>29</td><td>34</td><td>39</td><td>44</td><td>49</td></tr>
+<tr><td style="text-align: left"><b>Hard</b> 1 in 5</td><td>6</td><td>7</td><td>12</td><td>18</td><td>24</td><td>30</td><td>35</td><td>41</td><td>46</td><td>52</td><td>57</td></tr>
+</table>
+<p style="margin-top: 6px"><b>Group roll:</b> one roll for the party. <b>No</b> rerolls, passive checks or helping.</p>
+</section>
+<section>
+<h2 class="h">Falling in Battle</h2>
+<p><b>Level 2+:</b> below 1 HP → <b>lose a level</b>, a stat point, and any ability over your slots (random).</p>
+<p><b>Level 1:</b> 0 HP → <b>dies</b>. Recommended: 24 hours to resurrect, else a new level 1 hero.</p>
+</section>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<section>
+<h2 class="h">Turn Order</h2>
+<p><b>Initiative:</b> d20 + Speed, highest first. You may <b>hold</b> your turn until later in the round, but you must act that round.</p>
+<p><b>Movement:</b> 5 + level + Speed <b>spaces</b> (1 space = 5 ft), before, after or split around actions.</p>
+<p><b>Actions:</b> 1, plus 1 per 4 Speed. Each costs one action: an <b>ability</b>, an <b>attack</b> (one hand or both), or <b>using an object</b>.</p>
+<table class="t c">
+<tr><th>Speed</th><th>0-3</th><th>4-7</th><th>8-11</th><th>12-15</th><th>16-19</th><th>20-23</th></tr>
+<tr><td><b>Actions</b></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+</table>
+</section>
+<section>
+<h2 class="h">Attack Dice</h2>
+<table class="t c">
+<tr><th style="text-align: left">Hands or limbs</th><th>Touch (melee)</th><th>Ranged</th></tr>
+<tr><td style="text-align: left"><b>One</b></td><td>1d6</td><td>1d4</td></tr>
+<tr><td style="text-align: left"><b>Two</b> (still one attack)</td><td>2d6</td><td>2d4</td></tr>
+</table>
+<p style="margin-top: 6px">Same for weapons, spells and fists. No range penalty; the Core Master sets max distance. Magic needs a free hand and a spoken word.</p>
+<p><b>+N weapon:</b> rolls N extra copies of its dice. +1 one-hand gun = 2d4 · +2 = 3d4.</p>
+</section>
+<section>
+<h2 class="h">Bonus Damage &amp; Armor</h2>
+<table class="t">
+<tr><th>Attack</th><th>Adds</th></tr>
+<tr><td><b>Physical</b></td><td>Strength − your magical armor</td></tr>
+<tr><td><b>Magical</b></td><td>Intellect − your physical armor</td></tr>
+</table>
+<p style="margin-top: 6px"><b>Damage taken</b> = attack roll − target's <b>total armor</b> (physical + magical).<br>10 damage vs 4 + 4 armor = <b>2</b>.</p>
+<p><b>Abilities:</b> tier = d6s, targets, rounds and effects (T3 = 3d6, 3 targets, 3 rounds, 3 effects).</p>
+</section>
+</div>
+</div>
+</div></section>
+<section class="panel" aria-label="Panel 2"><div style="width: 1056px; height: 816px; box-sizing: border-box; padding: 36px 40px; background: var(--bg); color: var(--ink); font-family: var(--fb); font-size: 13.5px; line-height: 1.35; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; background: var(--acc); color: var(--accfg); padding: 8px 16px; border-radius: 4px">
+<div style="font-family: var(--fd); font-size: 30px; letter-spacing: .02em">BOOM · CORE MASTER SCREEN</div>
+<div style="font-family: var(--fc); font-weight: 600; font-size: 18px; text-transform: uppercase; letter-spacing: .06em">Panel 2 · Conditions &amp; Threat</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<section>
+<h2 class="h">Conditions</h2>
+<div style="border: 2px solid var(--acc); border-radius: 4px; padding: 6px 10px; margin-bottom: 8px; font-size: 14px">
+<b>Conditions never roll. T = the tier of what caused it, as a flat number:</b> T damage · T rounds in combat · T hours outside it · T spaces (5 ft each). A T3 condition = 3 damage, 3 rounds, 3 hours, 3 spaces (15 ft).
+</div>
+<p>Suggested defaults. No tier given? The Core Master picks one. The Core Master decides which conditions exist and can invent any.</p>
+<table class="t">
+<tr><th style="width: 92px">Condition</th><th>What it does (for T rounds)</th></tr>
+<tr><td><b>Bleeding</b></td><td>Take T damage at the start of your turn. Armor doesn't stop it. Any healing ends it.</td></tr>
+<tr><td><b>Blessed</b></td><td>+T to every roll you make.</td></tr>
+<tr><td><b>Burning</b></td><td>Take T damage at the start of your turn. Spend an action to put it out.</td></tr>
+<tr><td><b>Exhausted</b></td><td>−T spaces of movement and −T to every roll. 10 hours of rest ends it.</td></tr>
+<tr><td><b>Frightened</b></td><td>You can't move toward the source or make touch attacks against it.</td></tr>
+<tr><td><b>Invisible</b></td><td>Enemies can't target you unless they guess your spot. Ends when you attack.</td></tr>
+<tr><td><b>Poisoned</b></td><td>−T to every roll. Healing magic or an antidote ends it.</td></tr>
+<tr><td><b>Prone</b></td><td>Standing up costs T spaces. Touch attacks on you deal +T; ranged attacks on you deal −T.</td></tr>
+<tr><td><b>Slowed</b></td><td>−T spaces of movement.</td></tr>
+<tr><td><b>Stunned</b></td><td>Lose your next turn: no movement, no actions.</td></tr>
+<tr><td><b>Unconscious</b></td><td>Can't move or act. Ends when healed or when the fight ends.</td></tr>
+</table>
+</section>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<section>
+<h2 class="h">Tier Ladder</h2>
+<table class="t">
+<tr><th>Tier</th><th>Ability</th><th>Gear</th><th>Coin levels</th></tr>
+<tr><td><b>T1</b> Common</td><td>1d6 · 1 target</td><td>no bonus · 1 armor</td><td>1-10</td></tr>
+<tr><td><b>T2</b> Uncommon</td><td>2d6 · 2 targets</td><td>+1 · 2 armor</td><td>11-20</td></tr>
+<tr><td><b>T3</b> Rare</td><td>3d6 · 3 targets</td><td>+2 · 3 armor</td><td>21-40</td></tr>
+<tr><td><b>T4</b> Epic</td><td>4d6 · 4 targets</td><td>+3 · 4 armor</td><td>41-60</td></tr>
+<tr><td><b>T5</b> Legendary</td><td>5d6 · 5 targets</td><td>+4 · 5 armor</td><td>61-80</td></tr>
+<tr><td><b>T6</b> Divine</td><td>6d6 · 6 targets</td><td>+5 · 6 armor</td><td>81-100</td></tr>
+</table>
+<p style="margin-top: 6px">A monster's <b>rarity</b> is its loot box tier (a Rare monster drops a T3 box). Uncommon and up are tougher; Epic is a boss; Divine is a god.</p>
+</section>
+<section>
+<h2 class="h">Threat Rating</h2>
+<table class="t">
+<tr><th>Type</th><th>Threat</th><th>Stat points</th><th>HP</th><th>Armor</th></tr>
+<tr><td><b>Minion</b></td><td>1</td><td>(lvl − 1) ÷ 2</td><td>½ × 5 × (lvl + Con)</td><td>none</td></tr>
+<tr><td><b>Standard</b></td><td>2</td><td>lvl − 1</td><td>5 × (lvl + Con)</td><td>lvl ÷ 5</td></tr>
+<tr><td><b>Boss</b></td><td>4</td><td>2 × (lvl − 1) + 3</td><td>3 × 5 × (lvl + Con)</td><td>lvl ÷ 3</td></tr>
+</table>
+<p style="margin-top: 6px">Attacks: melee 2d6 + Str, ranged 2d4 + Int. Abilities: minion 0, standard 1, boss 3.</p>
+<table class="t c">
+<tr><th style="text-align: left">Fight</th><th>Easy</th><th>Fair</th><th>Hard</th><th>Deadly</th></tr>
+<tr><td style="text-align: left"><b>Threat per hero</b></td><td>1</td><td>1.5</td><td>2</td><td>3</td></tr>
+<tr><td style="text-align: left"><b>Party of 4</b></td><td>4</td><td>6</td><td>8</td><td>12</td></tr>
+</table>
+<p style="margin-top: 6px">Monsters within a couple of levels of the party. <b>Levels 1-2:</b> halve the threat.</p>
+</section>
+</div>
+</div>
+</div></section>
+<section class="panel" aria-label="Panel 3"><div style="width: 1056px; height: 816px; box-sizing: border-box; padding: 36px 40px; background: var(--bg); color: var(--ink); font-family: var(--fb); font-size: 13.5px; line-height: 1.35; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; background: var(--acc); color: var(--accfg); padding: 8px 16px; border-radius: 4px">
+<div style="font-family: var(--fd); font-size: 30px; letter-spacing: .02em">BOOM · CORE MASTER SCREEN</div>
+<div style="font-family: var(--fc); font-weight: 600; font-size: 18px; text-transform: uppercase; letter-spacing: .06em">Panel 3 · Coins, Calendar &amp; Travel</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<section>
+<h2 class="h">Spirit Coins</h2>
+<div style="border: 2px solid var(--acc); border-radius: 4px; padding: 8px 12px; margin-bottom: 8px; font-size: 15px; line-height: 1.4">
+<b>1 spirit coin = 1 hour of labor = gruel to feed one person for a day.</b>
+</div>
+<p>Work caps at 10 hours (10 coins) a day, then 10 hours of rest. Heroes also roll their Spirit/Luck dice once a day for coins without working.</p>
+<table class="t">
+<tr><th>Coin</th><th class="r">Worth</th><th>In labor</th></tr>
+<tr><td><b>Common</b></td><td class="r">1</td><td>1 hour · everyday money</td></tr>
+<tr><td><b>Uncommon</b></td><td class="r">1,000 Common</td><td>1 worker's whole season (100 days)</td></tr>
+<tr><td><b>Rare</b></td><td class="r">1,000 Uncommon</td><td>250 years of labor · a lord's fortune</td></tr>
+<tr><td><b>Epic</b></td><td class="r">1,000 Rare</td><td>a kingdom's treasury</td></tr>
+<tr><td><b>Legendary</b></td><td class="r">1,000 Epic</td><td>an empire's wealth</td></tr>
+<tr><td><b>Divine</b></td><td class="r">1,000 Legendary</td><td>the coffers of the gods</td></tr>
+</table>
+<p style="margin-top: 6px">Trade up at every 1,000; break big coins for change. Monster loot pays in the coin of the monster's level band.</p>
+</section>
+<section>
+<h2 class="h">What Things Cost</h2>
+<p><b>Price anything by the hours it took to make.</b> Suggested, in Common coins:</p>
+<table class="t">
+<tr><th>Item or service</th><th class="r">Coins</th></tr>
+<tr><td>Gruel for one person, one day</td><td class="r">1</td></tr>
+<tr><td>Shelter for a family, one day</td><td class="r">2</td></tr>
+<tr><td>A peasant family of 4, one day's earnings</td><td class="r">8</td></tr>
+<tr><td>Hire a laborer for a full day (10 hours)</td><td class="r">10</td></tr>
+<tr><td>Level 1 → 2</td><td class="r">1,000</td></tr>
+</table>
+</section>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<section>
+<h2 class="h">The Year · 400 Days</h2>
+<p>Four seasons of <b>100 days</b> each. No weeks, no months. Write dates as <b>Day 37 of Spring, Year 1</b>.</p>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-bottom: 8px">
+<div style="border: 1px solid var(--head); border-radius: 3px; padding: 4px 6px; text-align: center"><b>Spring</b><br>Days 1-100</div>
+<div style="border: 1px solid var(--head); border-radius: 3px; padding: 4px 6px; text-align: center"><b>Summer</b><br>Days 1-100</div>
+<div style="border: 1px solid var(--head); border-radius: 3px; padding: 4px 6px; text-align: center"><b>Autumn</b><br>Days 1-100</div>
+<div style="border: 1px solid var(--head); border-radius: 3px; padding: 4px 6px; text-align: center"><b>Winter</b><br>Days 1-100</div>
+</div>
+<div style="display: flex; gap: 12px; align-items: flex-start">
+<div style="display: grid; grid-template-columns: repeat(10, 21px); gap: 2px" aria-label="Day tracker, days 1 to 100">
+<div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">1</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">2</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">3</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">4</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">5</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">6</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">7</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">8</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">9</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">10</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">11</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">12</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">13</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">14</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">15</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">16</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">17</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">18</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">19</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">20</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">21</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">22</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">23</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">24</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">25</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">26</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">27</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">28</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">29</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">30</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">31</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">32</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">33</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">34</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">35</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">36</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">37</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">38</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">39</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">40</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">41</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">42</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">43</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">44</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">45</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">46</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">47</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">48</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">49</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">50</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">51</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">52</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">53</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">54</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">55</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">56</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">57</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">58</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">59</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">60</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">61</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">62</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">63</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">64</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">65</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">66</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">67</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">68</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">69</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">70</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">71</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">72</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">73</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">74</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">75</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">76</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">77</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">78</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">79</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">80</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">81</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">82</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">83</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">84</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">85</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">86</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">87</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">88</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">89</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">90</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">91</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">92</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">93</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">94</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">95</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">96</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">97</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">98</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">99</div><div style="width: 21px; height: 17px; border: 1px solid var(--line); font-size: 9.5px; line-height: 17px; text-align: center; color: var(--mute); box-sizing: border-box">100</div>
+</div>
+<div style="font-size: 13px">
+<p><b>Day tracker:</b> mark off each day of the current season.</p>
+<p>Season: ________</p>
+<p>Year: ________</p>
+<p style="margin-top: 10px">1 day = 24 hours. A work day or travel day is <b>10 hours</b>.</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="h">Travel Time</h2>
+<table class="t">
+<tr><th>Travel by</th><th class="r">Per hour</th><th class="r">Per day (10 h)</th><th>Notes</th></tr>
+<tr><td><b>Cart or wagon</b></td><td class="r">2 mi</td><td class="r">20 mi</td><td>Roads only</td></tr>
+<tr><td><b>On foot</b></td><td class="r">3 mi</td><td class="r">30 mi</td><td></td></tr>
+<tr><td><b>Horse</b></td><td class="r">4 mi</td><td class="r">40 mi</td><td>Gallop: double for 1 hour</td></tr>
+<tr><td><b>Ship</b></td><td class="r">5 mi</td><td class="r">50 mi</td><td>Wind and weather</td></tr>
+<tr><td><b>Airship</b></td><td class="r">10 mi</td><td class="r">100 mi</td><td>Ignores terrain</td></tr>
+</table>
+<p style="margin-top: 6px"><b>Days = distance ÷ miles per day.</b> Rough ground or no road halves land travel. A crewed ship or airship sails day and night: <b>double</b> its day.</p>
+<p><b>Forced march:</b> each hour past 10, a Medium Constitution check or become <b>Exhausted</b>.</p>
+</section>
+</div>
+</div>
+</div></section>
+</div>
+</main>
+<script>
+// Theme: ?theme= wins (the app passes the table's theme), else the last one picked here.
+const FONTS={core:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',fantasy:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',space:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',horror:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',grit:'Anton&family=Barlow+Condensed:wght@500;600;700'};
+// Same loot words the app uses for each theme.
+const WORDS={core:{},fantasy:{box:['chest','chests']},space:{coin:['credit','credits'],token:['data chip','data chips'],core:['power core','power cores'],box:['crate','crates']},horror:{coin:['grave coin','grave coins'],token:['rite','rites'],box:['coffer','coffers']},grit:{coin:['buck','bucks'],token:['favor','favors'],core:['rep','rep'],box:['duffel bag','duffel bags']}};
+const WRE=/\b(spirit coins?|coins?|ability tokens?|tokens?|soul cores?|cores?(?! Master)|loot box(?:es)?|box(?:es)?)\b/gi;
+const orig=new WeakMap();
+function swap(W){const tw=document.createTreeWalker(document.getElementById('fit'),NodeFilter.SHOW_TEXT);let n;
+ while((n=tw.nextNode())){if(!orig.has(n))orig.set(n,n.nodeValue);const t=orig.get(n);
+  n.nodeValue=t.replace(WRE,(m,_g,off,str)=>{if(off>=5&&str.slice(off-5,off)==='Boom ')return m;const l=m.toLowerCase(),k=l.includes('coin')?'coin':l.includes('token')?'token':l.includes('core')?'core':'box',r=W[k];if(!r)return m;
+   let o=(/s$/.test(l)&&!/^(loot )?box$/.test(l))?r[1]:r[0];if(m===m.toUpperCase()&&/[A-Z]/.test(m))return o.toUpperCase();if(/^[A-Z]/.test(m))o=o[0].toUpperCase()+o.slice(1);return o;});}}
+function setSkin(k){if(!FONTS[k])k='core';const d=document.documentElement;if(k==='core')d.removeAttribute('data-skin');else d.setAttribute('data-skin',k);
+ if(!document.getElementById('f-'+k)){const l=document.createElement('link');l.id='f-'+k;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+FONTS[k]+'&display=swap';document.head.append(l);}
+ document.getElementById('skin').value=k;swap(WORDS[k]);try{localStorage.setItem('boomcmskin',k)}catch{}}
+let k0=new URLSearchParams(location.search).get('theme');if(!k0){try{k0=localStorage.getItem('boomcmskin')}catch{}}
+setSkin(k0||'core');
+document.getElementById('skin').onchange=e=>{setSkin(e.target.value);const u=new URL(location);u.searchParams.set('theme',e.target.value);history.replaceState(null,'',u);};
+document.getElementById('print').onclick=()=>print();
+// Panels are 11x8.5 in (1056x816 px); shrink them to fit narrow screens.
+function fit(){const f=document.getElementById('fit'),w=document.getElementById('wrap').clientWidth-32,s=Math.min(1,w/1056);f.style.transform=s<1?'scale('+s+')':'';f.style.height=s<1?(f.scrollHeight*s)+'px':'';f.style.width=s<1?'1056px':'';}
+addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

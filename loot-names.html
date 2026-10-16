@@ -1,0 +1,9466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boom Loot Name Tables</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l9 5v10l-9 5-9-5V7z' fill='%23c2410c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ee;--card:#fff;--ink:#1f1b16;--mute:#6f675d;--line:#e2dbd0;--acc:#c2410c;--head:#1F4E5F;--thfg:#fff;--alt:#f4efe7;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#17140f;--card:#221e17;--ink:#f3ede3;--mute:#a59b8e;--line:#3a3328;--acc:#fb8a4c;--head:#2a5d70;--alt:#2a251d;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Barlow,system-ui,sans-serif}
+.bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;padding:10px 16px;background:var(--head);font-family:'Barlow Condensed',sans-serif;font-size:18px}
+.bar a{color:#fff;text-decoration:none;font-weight:700}.bar a:hover,.bar a[aria-current]{text-decoration:underline}
+.bar .logo{font-family:'Alfa Slab One',serif;font-weight:400;margin-right:8px}
+.page{max-width:860px;margin:0 auto;padding:24px 16px 80px}
+h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:40px;line-height:1.15;color:var(--acc);margin:12px 0 8px}
+h2{font-family:'Barlow Condensed',sans-serif;font-size:30px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);border-bottom:3px solid var(--acc);padding-bottom:4px;margin:44px 0 12px}
+h3{font-family:'Barlow Condensed',sans-serif;font-size:23px;margin:28px 0 8px}
+a{color:var(--acc)}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin:16px 0 8px}
+.toc summary{cursor:pointer;font-weight:700}.toc ol{margin:8px 0 4px;padding-left:22px}.toc li{margin:2px 0}
+.tw{overflow-x:auto;margin:10px 0 16px;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--card)}
+th{background:var(--head);color:var(--thfg);font-family:'Barlow Condensed',sans-serif;font-size:16px;text-align:left;padding:6px 10px;position:sticky;top:0}
+td{padding:5px 10px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:var(--alt)}
+code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
+.top{position:fixed;right:16px;bottom:16px;background:var(--acc);color:#fff;border-radius:99px;padding:8px 14px;text-decoration:none;font-weight:700;font-size:15px}
+@media print{.bar,.toc,.top{display:none}body{background:#fff;color:#000}th{position:static}}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Boom pages"><span class="logo" style="color:#fff">BOOM</span><a href="./">Boom Dice app</a><a href="rules.html">Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html" aria-current="page">Loot Names</a></nav>
+<main class="page" id="top">
+
+<h1 id="boom-loot-name-tables">Boom Loot Name Tables</h1>
+<p><em>Every item a loot box drops gets a name from its theme's tables. The <a href="https://mpjart.github.io/boomcore/">Boom Dice app</a> rolls these for you; the <a href="https://mpjart.github.io/boomcore/rules.html">Core Guidelines</a> explain the loot box.</em></p><details class="toc" open><summary>Contents</summary><ol><li><a href="#how-naming-works">How Naming Works</a></li><li><a href="#fantasy-and-core">Fantasy (and Core)</a></li><li><a href="#space">Space</a></li><li><a href="#horror">Horror</a></li><li><a href="#street-grit">Street Grit</a></li><li><a href="#after-dark-21">After Dark (21+)</a></li></ol></details>
+<h2 id="how-naming-works">How Naming Works</h2>
+<p><strong>Clever name + base item</strong>, then the bonus from the box tier. T1 items have no bonus; T2 to T6 add +1 to +5 to a random stat.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rolls</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weapon</td>
+<td>d100 clever name + d100 weapon</td>
+<td>Black Hawk Longbow (+2 Speed)</td>
+</tr>
+<tr>
+<td>Armor</td>
+<td>d100 clever name + d100 armor</td>
+<td>Goblin Knee Pads (T1, no bonus)</td>
+</tr>
+<tr>
+<td>Jewelry</td>
+<td>d100 clever name + d100 jewelry</td>
+<td>Nova's Toe Ring (+3 Charm)</td>
+</tr>
+<tr>
+<td>Gem</td>
+<td>Gem quality for the tier + d100 gem</td>
+<td>Flawless Sapphire (T4)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Every weapon does the same base damage.</strong> Hands and reach set the dice (1d6 per hand for touch, 1d4 per hand for ranged), and the tier adds +N, so a bow and a slingshot differ only in how they are held. Twin weapons use both hands for one attack.</li>
+<li><strong>Base items carry their slot details:</strong> hands, touch or ranged, and physical or magical for weapons; physical or magical for armor. The app sets these when an item is equipped.</li>
+<li><strong>Armor is anything worn,</strong> from a full hazmat suit to a toe ring or knee pads.</li>
+<li><strong>Gems</strong> have no stat and no clever name; they only sell. Their quality word comes from the box tier.</li>
+<li><strong>Name rolls never explode.</strong> Names avoid the words coin, token, core, and box, because themes rename those words on screen.</li>
+<li><strong>Core</strong> uses the Fantasy tables. <strong>After Dark (21+)</strong> is a loot-only set the Core Master can switch on in the app for adult tables.</li>
+<li>The Core Master can always rename an item to fit the story.</li>
+</ul>
+<h2 id="fantasy-and-core">Fantasy (and Core)</h2>
+<p>Swords, spells, and old gold. Magical means spells.</p>
+<h3 id="weapons">Weapons</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Weapon</th>
+<th>Hands</th>
+<th>Reach</th>
+<th>Damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dagger</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Twin Daggers</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Shortsword</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Longsword</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Greatsword</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Twin Blades</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Rapier</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Scimitar</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Falchion</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Claymore</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Zweihander</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Hand Axe</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Battle Axe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Twin Hatchets</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Greataxe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Mace</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Morningstar</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Flail</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Warhammer</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Maul</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Club</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Cudgel</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Quarterstaff</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Spear</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Pike</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Halberd</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Glaive</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Trident</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Lance</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Scythe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>War Pick</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Sickle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Twin Sickles</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Whip</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Cestus</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Iron Gauntlets</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Khopesh</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Kukri</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Curved Saber</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Tomahawk</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Meteor Hammer</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Guisarme</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Sword and Dagger</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Dragonbone Club</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Wooden Sword</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Pitchfork</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Frying Pan</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Woodcutter's Axe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Smith's Hammer</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Shovel</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Torch</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Chair Leg</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Broken Bottle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Fishing Spear</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Shortbow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Longbow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Recurve Bow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Crossbow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Hand Crossbow</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Twin Hand Crossbows</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Sling</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Slingshot</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Throwing Knives</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Throwing Axes</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Javelin</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Bolas</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Blowgun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Chakram</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Harpoon</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Shuriken</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Darts</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Boomerang</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Gnome Cannon</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Bag of Rocks</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Wand</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Twin Wands</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Staff</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Rod</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Orb</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Spell Tome</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Scroll Case</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Crystal Shard</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Bone Fetish</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Druid's Branch</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Rune Stones</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Holy Symbol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Spirit Bell</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Lute</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Flute</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Hand Drum</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Spellblade</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Flame Brand</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Frost Glaive</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Storm Hammer</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Rune Axe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Witch's Broom</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Ritual Dagger</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Staff of Thorns</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Moon Sickle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Mystic Hand Wraps</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="armor">Armor</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Armor</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Padded Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Leather Jerkin</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Studded Leather</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chain Shirt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Chainmail</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Scale Mail</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Splint Mail</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Breastplate</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Plate Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Full Plate</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Brigandine</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Hide Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Bear Pelt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Wolf Fur Cloak</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Wool Cloak</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Traveler's Cloak</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Iron Helm</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Great Helm</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Horned Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Leather Cap</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Mail Coif</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Gorget</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Pauldrons</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Bracers</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Vambraces</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Gauntlets</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Leather Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Greaves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Riding Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Iron Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Sabatons</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Knee Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Elbow Guards</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Buckler</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Round Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Kite Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Tower Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Heater Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Wooden Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Pot Lid</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Quilted Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Lamellar</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Ring Mail</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Dragonscale Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Troll Hide</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Bone Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Barding Plate</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Cuirass</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Fencing Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Sallet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Kettle Hat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Bascinet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Arming Doublet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Leather Kilt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>War Belt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Shin Guards</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Steel Codpiece</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Mail Skirt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Ranger's Hood</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Thick Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Mage Robes</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Warded Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Rune Bracers</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Spellweave Mantle</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Wizard Hat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Witch's Hat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Priest's Vestments</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Monk's Wraps</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Moonsilk Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Starweave Shawl</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Rune Tattoos</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Spirit Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Feather Cape</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Blessed Tabard</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Shadow Hood</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Sigil Belt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Ward Sash</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Glamour Veil</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Fae Wings</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Toe Ring of Warding</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Druid's Leaf Wrap</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Silk Slippers</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Enchanted Circlet</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Ward Stone Necklace</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Holy Mitre</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Ward Beads</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Arcane Goggles</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Hex-Woven Scarf</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Phoenix Down Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Mirror Shield</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Crystal Buckler</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Living Bark Armor</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Ghostweave Shroud</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Sun Disc Pendant</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Runed Pauldron</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Mana Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Elven Chain</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Celestial Robe</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Bone Charm Belt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Glowing Sigil Ring</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="clever-names-jewelry-and-gems">Clever Names, Jewelry, and Gems</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Clever name</th>
+<th>Jewelry</th>
+<th>Gem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Goblin</td>
+<td>Ring</td>
+<td>Garnet</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Black Hawk</td>
+<td>Amulet</td>
+<td>Amethyst</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Nova's</td>
+<td>Brooch</td>
+<td>Topaz</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Wolfsbane</td>
+<td>Circlet</td>
+<td>Jade</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dragon's</td>
+<td>Bracelet</td>
+<td>Opal</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ironhide</td>
+<td>Earring</td>
+<td>Pearl</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Stormcaller</td>
+<td>Signet Ring</td>
+<td>Sapphire</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Moonlit</td>
+<td>Torc</td>
+<td>Emerald</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Sunforged</td>
+<td>Charm</td>
+<td>Ruby</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Ember</td>
+<td>Locket</td>
+<td>Diamond</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Frostbite</td>
+<td>Pendant</td>
+<td>Agate</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Thunder</td>
+<td>Choker</td>
+<td>Onyx</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Raven's</td>
+<td>Anklet</td>
+<td>Jasper</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Lion's</td>
+<td>Toe Ring</td>
+<td>Quartz</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Bear's</td>
+<td>Nose Ring</td>
+<td>Rose Quartz</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Serpent's</td>
+<td>Ear Cuff</td>
+<td>Smoky Quartz</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Griffon</td>
+<td>Armlet</td>
+<td>Citrine</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Phoenix</td>
+<td>Hairpin</td>
+<td>Peridot</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Kraken</td>
+<td>Tiara</td>
+<td>Aquamarine</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Troll</td>
+<td>Crown</td>
+<td>Turquoise</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Ogre's</td>
+<td>Diadem</td>
+<td>Lapis Lazuli</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Elven</td>
+<td>Medallion</td>
+<td>Malachite</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Dwarven</td>
+<td>Talisman</td>
+<td>Moonstone</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Gnomish</td>
+<td>Scarab</td>
+<td>Sunstone</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Halfling</td>
+<td>Cameo</td>
+<td>Bloodstone</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Orcish</td>
+<td>Bangle</td>
+<td>Obsidian</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Giant's</td>
+<td>Cuff</td>
+<td>Amber</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Fey</td>
+<td>Chain</td>
+<td>Coral</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Shadow</td>
+<td>Rosary</td>
+<td>Jet</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Silver</td>
+<td>Prayer Beads</td>
+<td>Tourmaline</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Golden</td>
+<td>Clasp</td>
+<td>Zircon</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Copper</td>
+<td>Belt Buckle</td>
+<td>Spinel</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Iron</td>
+<td>Cloak Pin</td>
+<td>Tanzanite</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Steel</td>
+<td>Seal Ring</td>
+<td>Alexandrite</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Bronze</td>
+<td>Thumb Ring</td>
+<td>Beryl</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Mithril</td>
+<td>Wedding Band</td>
+<td>Chrysoberyl</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Obsidian</td>
+<td>Band of Gold</td>
+<td>Carnelian</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Crystal</td>
+<td>Twisted Wire Ring</td>
+<td>Chalcedony</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Bone</td>
+<td>Bone Ring</td>
+<td>Hematite</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Blood</td>
+<td>Tooth Necklace</td>
+<td>Pyrite</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Ashen</td>
+<td>Feather Charm</td>
+<td>Fluorite</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Starfall</td>
+<td>Rune Charm</td>
+<td>Labradorite</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Dawn</td>
+<td>Lucky Horseshoe</td>
+<td>Iolite</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Dusk</td>
+<td>Rabbit's Foot</td>
+<td>Kunzite</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Midnight</td>
+<td>Saint's Medal</td>
+<td>Morganite</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Twilight</td>
+<td>Pocket Watch</td>
+<td>Heliodor</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Winter's</td>
+<td>Hourglass Charm</td>
+<td>Andalusite</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Summer's</td>
+<td>Compass Pendant</td>
+<td>Tiger's Eye</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Autumn</td>
+<td>Key on a Chain</td>
+<td>Cat's Eye</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Spring</td>
+<td>Silver Bell</td>
+<td>Star Sapphire</td>
+</tr>
+<tr>
+<td>51</td>
+<td>King's</td>
+<td>Glass Eye</td>
+<td>Star Ruby</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Queen's</td>
+<td>Monocle</td>
+<td>Fire Opal</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Prince's</td>
+<td>Spectacles</td>
+<td>Black Opal</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Knight's</td>
+<td>Hair Comb</td>
+<td>Black Pearl</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Squire's</td>
+<td>Headband</td>
+<td>Blue Diamond</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Peasant's</td>
+<td>Ribbon</td>
+<td>Pink Diamond</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Bandit's</td>
+<td>Garter</td>
+<td>Yellow Diamond</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Pirate's</td>
+<td>Waist Chain</td>
+<td>Red Beryl</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Witch's</td>
+<td>Shoulder Chain</td>
+<td>Rhodonite</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Wizard's</td>
+<td>Knuckle Ring</td>
+<td>Rhodochrosite</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Druid's</td>
+<td>Finger Claw</td>
+<td>Sodalite</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Paladin's</td>
+<td>Crystal Drop</td>
+<td>Azurite</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Ranger's</td>
+<td>Pearl Strand</td>
+<td>Chrysocolla</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Rogue's</td>
+<td>Gold Collar</td>
+<td>Serpentine</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Bard's</td>
+<td>Copper Wristband</td>
+<td>Variscite</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Monk's</td>
+<td>Iron Ring</td>
+<td>Amazonite</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Hermit's</td>
+<td>Mithril Band</td>
+<td>Aventurine</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Pilgrim's</td>
+<td>Dragon Scale Charm</td>
+<td>Prehnite</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Hunter's</td>
+<td>Phoenix Feather</td>
+<td>Kyanite</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Woodsman's</td>
+<td>Unicorn Hair Bracelet</td>
+<td>Sugilite</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Blacksmith's</td>
+<td>Griffon Claw</td>
+<td>Larimar</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Miller's</td>
+<td>Wolf Fang</td>
+<td>Charoite</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Fisher's</td>
+<td>Bear Claw Necklace</td>
+<td>Benitoite</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Shepherd's</td>
+<td>Shell Necklace</td>
+<td>Painite</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Jester's</td>
+<td>Sea Glass Charm</td>
+<td>Taaffeite</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Old Tom's</td>
+<td>Moon Pendant</td>
+<td>Jadeite</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Grandma's</td>
+<td>Sun Pendant</td>
+<td>Nephrite</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Lucky</td>
+<td>Star Brooch</td>
+<td>Ammolite</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Cursed</td>
+<td>Leaf Brooch</td>
+<td>Mother of Pearl</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Blessed</td>
+<td>Rose Brooch</td>
+<td>Abalone</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Whispering</td>
+<td>Skull Pin</td>
+<td>Dragonstone</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Howling</td>
+<td>Serpent Ring</td>
+<td>Elfstone</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Roaring</td>
+<td>Owl Pendant</td>
+<td>Starstone</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Singing</td>
+<td>Raven Feather</td>
+<td>Moonglass</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Weeping</td>
+<td>Acorn Charm</td>
+<td>Frostgem</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Laughing</td>
+<td>Mistletoe Sprig</td>
+<td>Emberstone</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Wandering</td>
+<td>Locket of Hair</td>
+<td>Stormglass</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Last</td>
+<td>Engraved Ring</td>
+<td>Shadowstone</td>
+</tr>
+<tr>
+<td>89</td>
+<td>First</td>
+<td>Guild Ring</td>
+<td>Sunshard</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Forgotten</td>
+<td>Royal Seal</td>
+<td>Dreamstone</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Hidden</td>
+<td>Signet Brooch</td>
+<td>Soulgem</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Sacred</td>
+<td>Puzzle Ring</td>
+<td>Wyrm's Eye</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Wild</td>
+<td>Mood Ring</td>
+<td>Phoenix Tear</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Brave</td>
+<td>Spinner Ring</td>
+<td>Mermaid's Pearl</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Swift</td>
+<td>Emblem</td>
+<td>Giant's Heart</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Mighty</td>
+<td>Badge of Honor</td>
+<td>Fairy Glass</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Clever</td>
+<td>Chain of Office</td>
+<td>Troll Pearl</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Gentle</td>
+<td>Laurel Wreath</td>
+<td>Kraken Ink Stone</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Grim</td>
+<td>Circlet of Thorns</td>
+<td>Wishing Stone</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Merry</td>
+<td>Mask Pendant</td>
+<td>Heartstone</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="gem-quality-by-tier">Gem Quality by Tier</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Gem quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>Chipped</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Rough</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Polished</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Flawless</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Radiant</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>Star</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="space">Space</h2>
+<p>Blasters, hardsuits, and salvage. Magical means energy weapons and psionics.</p>
+<h3 id="weapons_1">Weapons</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Weapon</th>
+<th>Hands</th>
+<th>Reach</th>
+<th>Damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Vibro-Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Twin Vibro-Knives</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Combat Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mono-Whip</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mono-Katana</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Chainsword</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Power Fist</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Twin Power Fists</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Gravity Hammer</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Hydraulic Ram</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Pipe Wrench</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Boarding Axe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Vibro-Spear</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Mag-Boot Kick</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Riot Club</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Bone Saw</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Cargo Hook</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Asteroid Pick</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Servo Claw</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Titanium Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Hull Plate Club</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Exo-Suit Punch</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Vibro-Axe</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Dueling Saber</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Bayonet Rifle</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Slug Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Twin Slug Pistols</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Rail Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Railgun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Slug Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Gauss Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Flechette Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Needle Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Scattergun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Auto-Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Sniper Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Mag Revolver</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Holdout Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Rivet Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Harpoon Launcher</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Grenade Launcher</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Micro-Missile Pod</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Frag Grenades</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Throwing Discs</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Spike Launcher</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Rotary Cannon</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Bolt Carbine</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Dart Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Recoilless Cannon</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Smart Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Mining Charge</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Breaching Charge</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Shoulder Rockets</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Grapple Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Shock Baton</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Stun Prod</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Plasma Torch</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Plasma Blade</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Twin Plasma Blades</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Plasma Glaive</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Ion Axe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Arc Gauntlet</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Thermal Lance</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Laser Scalpel</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Hull Cutter</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Solar Lance</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Psi-Blade</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Void Touch Glove</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Laser Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Twin Laser Pistols</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Laser Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Pulse Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Plasma Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Plasma Cannon</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Ion Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Ion Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Arc Caster</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Tesla Coil Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Disruptor</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Photon Bow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Beam Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Microwave Emitter</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Sonic Blaster</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Cryo Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Flamethrower</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Gravity Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Psi-Amp</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Mind Spike</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Psi-Crystal</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Drone Swarm</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Combat Drone</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Nanite Cloud</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>EMP Grenade</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Plasma Grenade</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Particle Beam</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Antimatter Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Dark Matter Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Phase Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Neutron Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Void Wand</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="armor_1">Armor</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Armor</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Flight Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ballistic Weave</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Combat Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Hardsuit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Exo-Frame</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Riot Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Vac Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>EVA Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Hazmat Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Ceramic Plates</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Carbon Fiber Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Armored Jumpsuit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Pilot's Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Bubble Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Gas Mask</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Mag-Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Knee Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Elbow Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Tactical Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Armored Gauntlets</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Shin Guards</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Utility Harness</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Ablative Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Mining Rig</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Power Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Mech Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Boarding Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Ballistic Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Duster Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Leather Space Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Cargo Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Crash Webbing</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Trauma Plate</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Kinetic Mesh</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Hull-Plate Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Insulated Parka</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Heavy Coveralls</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Shoulder Plating</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Bracer Plates</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Armored Codpiece</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Visor Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Thermal Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Dive Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Smart Fabric Tee</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Riot Gear</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Spiked Pauldron</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Juggernaut Plate</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Scrap Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Salvaged Hull Plates</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Bomb Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Deflector Belt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Shield Projector</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Psi-Hood</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Phase Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Energy Barrier Bracer</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Hardlight Shield</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Refractor Mesh</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Ion Shell</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Force Field Harness</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Stealth Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Holo-Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Gravity Belt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Personal Bubble Shield</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Mind Shield Circlet</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Psionic Headband</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Nano-Skin</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Plasma-Ward Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Static Cape</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Photon Veil</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Quantum Vest</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Null Field Pack</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Warp Harness</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Chrono Bracer</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Shield Drone</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Emitter Pauldron</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Faraday Coat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Solar Sail Cape</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Void Robe</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Crystal Lattice Armor</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Resonance Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Neural Helmet</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Aura Projector</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Barrier Ring</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Reflective Chrome Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Ghost Weave</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Field Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Toe Ring Emitter</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Antimatter Buckler</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Starlight Mantle</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Zero-Point Vest</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Pulse Dampener</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Energy Kilt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Deflector Visor</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Prism Armor</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Cosmic Shroud</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Ward Beacon</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Ion Scarf</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Phase Boots</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Nebula Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Singularity Belt</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="clever-names-gadget-and-crystals">Clever Names, Gadget, and Crystals</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Clever name</th>
+<th>Gadget</th>
+<th>Crystal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Nova's</td>
+<td>Wrist Comm</td>
+<td>Quartz Shard</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Black Hawk</td>
+<td>Neural Chip</td>
+<td>Iridium Nugget</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Goblin</td>
+<td>Targeting Visor</td>
+<td>Void Pearl</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Starborn</td>
+<td>Data Band</td>
+<td>Star Shard</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Void</td>
+<td>Ear Implant</td>
+<td>Plasma Crystal</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Nebula</td>
+<td>Holo-Locket</td>
+<td>Nebula Opal</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Quasar</td>
+<td>Dog Tags</td>
+<td>Helium Ice</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Pulsar</td>
+<td>Cyber-Eye</td>
+<td>Dark Matter Bead</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Comet</td>
+<td>Signal Ring</td>
+<td>Neutron Glass</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Meteor</td>
+<td>Pilot's Medal</td>
+<td>Singularity Gem</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Eclipse</td>
+<td>Holo-Watch</td>
+<td>Moon Diamond</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Solar</td>
+<td>Smart Ring</td>
+<td>Mars Ruby</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Lunar</td>
+<td>Memory Crystal</td>
+<td>Titan Sapphire</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Orbital</td>
+<td>Nav Pendant</td>
+<td>Europa Ice</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Zero-G</td>
+<td>Translator Earpiece</td>
+<td>Io Sulfur Crystal</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Hyperion</td>
+<td>Biometric Bracelet</td>
+<td>Comet Glass</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Titan</td>
+<td>Augmented Lens</td>
+<td>Meteor Iron</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Atlas</td>
+<td>Star Map Locket</td>
+<td>Asteroid Emerald</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Orion's</td>
+<td>Rank Insignia</td>
+<td>Stellar Amber</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Vega's</td>
+<td>Captain's Pin</td>
+<td>Solar Topaz</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Sirius</td>
+<td>Fleet Badge</td>
+<td>Lunar Pearl</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Andromeda</td>
+<td>Med Monitor</td>
+<td>Ion Crystal</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Cassiopeia</td>
+<td>Pulse Bracelet</td>
+<td>Fusion Glass</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Draco</td>
+<td>Lucky Bolt</td>
+<td>Quantum Quartz</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Phoenix</td>
+<td>Charm Drone</td>
+<td>Phase Gem</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Raptor</td>
+<td>Tiny Robot Pet</td>
+<td>Warp Crystal</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Viper</td>
+<td>Hover Orb</td>
+<td>Gravity Stone</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Cobra</td>
+<td>Credit Chip</td>
+<td>Antimatter Sphere</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Mantis</td>
+<td>Keycard Lanyard</td>
+<td>Photon Prism</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Hornet</td>
+<td>Access Ring</td>
+<td>Laser Ruby</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Wasp</td>
+<td>Gene Locket</td>
+<td>Maser Sapphire</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Scorpion</td>
+<td>Mood Chip</td>
+<td>Crystalline Ice</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Falcon</td>
+<td>Tattoo Circuit</td>
+<td>Silicate Bloom</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Kestrel</td>
+<td>Glow Stud</td>
+<td>Methane Pearl</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Osprey</td>
+<td>LED Earrings</td>
+<td>Ammonia Crystal</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Condor</td>
+<td>Fiber-Optic Hair</td>
+<td>Nitrogen Frost</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Ghost</td>
+<td>Chrome Teeth</td>
+<td>Xenon Glass</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Phantom</td>
+<td>Finger Laser Pointer</td>
+<td>Krypton Shard</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Specter</td>
+<td>Holo-Tiara</td>
+<td>Neon Opal</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Shadow</td>
+<td>Starlight Choker</td>
+<td>Argon Bead</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Rogue</td>
+<td>Meteorite Ring</td>
+<td>Cobalt Star</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Outlaw</td>
+<td>Moon Rock Pendant</td>
+<td>Platinum Nugget</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Smuggler's</td>
+<td>Mars Dust Vial</td>
+<td>Palladium Ore</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Bounty Hunter's</td>
+<td>Comet Tail Charm</td>
+<td>Rhodium Flake</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Pirate's</td>
+<td>Alien Fang</td>
+<td>Osmium Pellet</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Mercenary's</td>
+<td>Space Whale Bone</td>
+<td>Gallium Drop</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Marine's</td>
+<td>Crystal Skull Charm</td>
+<td>Titanium Crystal</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Pilot's</td>
+<td>Anti-Grav Anklet</td>
+<td>Tungsten Gem</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Captain's</td>
+<td>Thruster Cufflinks</td>
+<td>Carbon Diamond</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Admiral's</td>
+<td>Magnetic Cuffs</td>
+<td>Graphene Flake</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Commander's</td>
+<td>Data Spike Necklace</td>
+<td>Pulsar Stone</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Cadet's</td>
+<td>Encryption Key</td>
+<td>Quasar Gem</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Engineer's</td>
+<td>Flight Log Pendant</td>
+<td>Red Dwarf Garnet</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Mechanic's</td>
+<td>Flight Recorder Charm</td>
+<td>White Dwarf Diamond</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Medic's</td>
+<td>Old Earth Dollar</td>
+<td>Blue Giant Sapphire</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Scientist's</td>
+<td>Ancient Smartphone</td>
+<td>Black Hole Onyx</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Android's</td>
+<td>Vintage Wristwatch</td>
+<td>Supernova Opal</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Cyborg's</td>
+<td>Grandpa's Wings</td>
+<td>Aurora Glass</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Clone's</td>
+<td>Cadet Ring</td>
+<td>Cosmic Pearl</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Alien</td>
+<td>Graduation Band</td>
+<td>Starlight Beryl</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Martian</td>
+<td>Wedding Implant</td>
+<td>Nebula Jade</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Lunarian</td>
+<td>Bonded Pair Rings</td>
+<td>Galaxy Agate</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Belter's</td>
+<td>Clan Sigil</td>
+<td>Event Horizon Jet</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Colonist's</td>
+<td>Corporate Pin</td>
+<td>Plasma Opal</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Miner's</td>
+<td>Rebel Patch</td>
+<td>Ion Amethyst</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Trader's</td>
+<td>Bounty Tag</td>
+<td>Radiant Citrine</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Diplomat's</td>
+<td>Medal of Valor</td>
+<td>Glowstone</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Prototype</td>
+<td>Purple Heart Chip</td>
+<td>Darkstar Obsidian</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Experimental</td>
+<td>Kill Stripe</td>
+<td>Sunshard</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Military</td>
+<td>Engineer's Wrench Pin</td>
+<td>Moonshard</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Corporate</td>
+<td>Lucky Fuse</td>
+<td>Comet Tear</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Black Market</td>
+<td>Spark Plug Charm</td>
+<td>Alien Egg Stone</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Salvaged</td>
+<td>Cyber Tail</td>
+<td>Living Crystal</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Rebel</td>
+<td>Optic Tiara</td>
+<td>Singing Crystal</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Imperial</td>
+<td>Halo Ring</td>
+<td>Psi-Gem</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Federation</td>
+<td>Shoulder Holo</td>
+<td>Mind Pearl</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Frontier</td>
+<td>Pocket AI</td>
+<td>Dream Quartz</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Deep Space</td>
+<td>Mini Hologram</td>
+<td>Echo Stone</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Red Planet</td>
+<td>Reactor Pendant</td>
+<td>Time Crystal</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Blue Moon</td>
+<td>Fusion Bead</td>
+<td>Space Amber</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Dark Side</td>
+<td>Plasma Bead Bracelet</td>
+<td>Frozen Lightning</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Twin Suns</td>
+<td>Quantum Dice Charm</td>
+<td>Liquid Metal Drop</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Ringworld</td>
+<td>Zero-G Pearl</td>
+<td>Mercury Bead</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Stardust</td>
+<td>Asteroid Shard Ring</td>
+<td>Ferrofluid Pearl</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Cosmic</td>
+<td>Supernova Locket</td>
+<td>Magnetite Star</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Galactic</td>
+<td>Wormhole Pendant</td>
+<td>Hematite Moon</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Interstellar</td>
+<td>Starfish Charm</td>
+<td>Chrome Pearl</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Warp</td>
+<td>Nebula Glass Earring</td>
+<td>Nano Diamond</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Quantum</td>
+<td>Stardust Vial</td>
+<td>Synthetic Ruby</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Plasma</td>
+<td>Captain's Ring</td>
+<td>Lab Emerald</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Ion</td>
+<td>Admiral's Chain</td>
+<td>Holo-Gem</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Photon</td>
+<td>Senator's Seal</td>
+<td>Data Crystal</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Neutron</td>
+<td>Diplomat's Pin</td>
+<td>Memory Diamond</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Gravity</td>
+<td>Trader's Ring</td>
+<td>Power Prism</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Iron Moon</td>
+<td>Smuggler's Charm</td>
+<td>Reactor Glass</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Burnout</td>
+<td>Mercenary Tags</td>
+<td>Fuel Crystal</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Lucky Star</td>
+<td>Priestess Circlet</td>
+<td>Star Sapphire</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Last Light</td>
+<td>Oracle Eye</td>
+<td>Dyson Pearl</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Hyperdrive</td>
+<td>Psi-Focus Stone</td>
+<td>Cosmic Ray Crystal</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Moonshot</td>
+<td>Glow Collar</td>
+<td>Void Diamond</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="crystal-quality-by-tier">Crystal Quality by Tier</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Crystal quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>Cracked</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Raw</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Refined</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Pure</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Prismatic</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>Stellar</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="horror">Horror</h2>
+<p>Razors, relics, and things best left buried. Magical means the occult. Keepsakes fill the jewelry role, and stones fill the gem role.</p>
+<h3 id="weapons_2">Weapons</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Weapon</th>
+<th>Hands</th>
+<th>Reach</th>
+<th>Damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Straight Razor</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Butcher's Cleaver</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Silver Dagger</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Twin Silver Daggers</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Kitchen Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Carving Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Bone Saw</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Hacksaw</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Meat Hook</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Twin Meat Hooks</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Ice Pick</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Letter Opener</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Scalpel</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Fire Poker</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Claw Hammer</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Sledgehammer</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Wood Axe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Hatchet</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Pickaxe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Gravedigger's Shovel</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Pitchfork</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Scythe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Sickle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Machete</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Chainsaw</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Garden Shears</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Crowbar</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Lead Pipe</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Candlestick</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Walking Cane</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Sword Cane</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Wooden Stake</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Stake and Mallet</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Barbed Wire Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Rusty Chain</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Baseball Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Golf Club</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Umbrella</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Mirror Shard</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Broken Bottle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Silver Sword</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Bayonet Rifle</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Bear Trap</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Rolling Pin</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Iron Skillet</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Railroad Spike</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Antler Club</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Coffin Nail Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Revolver</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Twin Revolvers</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Double-Barrel Shotgun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Pump Shotgun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Hunting Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Flintlock Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Derringer</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Crossbow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Silver-Bolt Crossbow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Nail Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Slingshot</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Throwing Knives</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Brick</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Dynamite Stick</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Speargun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Drum-Fed Tommy Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Harpoon Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Lever-Action Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Musket</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Silver Bullets Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Flare Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Molotov</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Holy Water Flask</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Oil Lantern</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Ritual Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Sacrificial Sickle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Vampire Fang Dagger</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Werewolf Claw</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Shadow Whip</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Cursed Blade</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Rosary Whip</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Exorcist's Cross</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Hand of Glory</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Hex Doll</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Grimoire</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Bone Wand</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Spirit Board Planchette</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Tarot Deck</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Cursed Mirror</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Crystal Ball</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Death Bell</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Bone Flute</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Puppet on Strings</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Spirit Lantern</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Salt Pouch</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Blessed Candle</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Black Book</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Plague Censer</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Raven Skull Staff</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Grave Dirt Pouch</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Leech Jar</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Phylactery</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="armor_2">Armor</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Armor</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Heavy Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Leather Apron</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hunter's Duster</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chainmail Shirt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Iron Corset</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Coffin-Lid Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Trench Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Peacoat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Wool Overcoat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Rubber Waders</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Butcher's Smock</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Welding Mask</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Hockey Mask</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Football Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Miner's Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Bowler Hat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Top Hat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Leather Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Work Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Steel-Toe Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Riding Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Knee Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Elbow Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Shin Guards</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Gardening Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Thick Scarf</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Turtleneck</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Hooded Sweatshirt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Letterman Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Flannel Shirt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Overalls</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Hunting Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Fishing Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Life Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Lab Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Surgical Gown</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Straitjacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Padded Room Mattress</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Trash Can Lid</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Stop Sign Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Car Door Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Tin Bucket Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Pot Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Duct Tape Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Phone Book Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Antique Breastplate</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Suit of Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Rusty Gauntlet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Plague Doctor Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Mourning Veil</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Church Vestments</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Plague Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Salt-Lined Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Warding Shawl</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Holy Tabard</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Nun's Habit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Priest's Collar</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Witch's Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Hag's Rags</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Shroud</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Burial Dress</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Funeral Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Wedding Veil</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Sackcloth Hood</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Bone Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Skull Crown</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Antler Headdress</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Feather Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Raven Cape</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Moth Wing Shawl</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Spider Silk Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Rune-Stitched Coat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Sigil Tattoos</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Blood Paint</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Ash Markings</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Ghost Sheet</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Cobweb Veil</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Mirror Vest</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Iron Nail Belt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Garlic Garland</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Wolfsbane Wreath</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Silver Chain Mail</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Blessed Rosary Belt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Saint's Medallion Armor</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Exorcist's Stole</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Haunted Wedding Gown</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Seance Robes</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Medium's Turban</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Fortune Teller's Shawl</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Grave Moss Cloak</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Embalmer's Apron</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Toe Tag Anklet</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Lucky Toe Ring</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Dreamcatcher Harness</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Candle Wax Coat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Chalk Circle Boots</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Possessed Doll Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Mothman Goggles</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Cursed Locket Armor</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Shadow Cloak</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="clever-names-keepsakes-and-stones">Clever Names, Keepsakes, and Stones</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Clever name</th>
+<th>Keepsake</th>
+<th>Stone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hollow</td>
+<td>Rosary</td>
+<td>Jet</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Grave</td>
+<td>Mourning Locket</td>
+<td>Onyx</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Crypt</td>
+<td>Bone Charm</td>
+<td>Bloodstone</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Widow's</td>
+<td>Wedding Ring</td>
+<td>Moonstone</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Hangman's</td>
+<td>Pocket Watch</td>
+<td>Black Pearl</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gravedigger's</td>
+<td>Silver Holy Symbol</td>
+<td>Obsidian</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Undertaker's</td>
+<td>Rabbit's Foot</td>
+<td>Garnet</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Butcher's</td>
+<td>Glass Eye</td>
+<td>Amber</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Surgeon's</td>
+<td>Cameo Brooch</td>
+<td>Smoky Quartz</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Mortician's</td>
+<td>Tooth Necklace</td>
+<td>Witch's Eye</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Exorcist's</td>
+<td>Hair Locket</td>
+<td>Black Diamond</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Priest's</td>
+<td>Skull Ring</td>
+<td>Blood Ruby</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Nun's</td>
+<td>Bat Wing Pendant</td>
+<td>Grave Opal</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Witch's</td>
+<td>Spider Brooch</td>
+<td>Bone Ivory</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Hag's</td>
+<td>Raven Skull Necklace</td>
+<td>Coffin Agate</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Warlock's</td>
+<td>Coffin Pendant</td>
+<td>Raven Sapphire</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Necromancer's</td>
+<td>Cross Earrings</td>
+<td>Ghost Quartz</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Vampire's</td>
+<td>Black Pearl Choker</td>
+<td>Spirit Glass</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Werewolf's</td>
+<td>Jet Brooch</td>
+<td>Tear Pearl</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Banshee's</td>
+<td>Onyx Ring</td>
+<td>Widow's Tear</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Wraith's</td>
+<td>Bloodstone Ring</td>
+<td>Hangman's Stone</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Ghoul's</td>
+<td>Moonstone Pendant</td>
+<td>Gallows Garnet</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Zombie's</td>
+<td>Silver Bullet Necklace</td>
+<td>Crypt Emerald</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Mummy's</td>
+<td>Wolf Tooth Charm</td>
+<td>Tomb Topaz</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Lich's</td>
+<td>Snake Ring</td>
+<td>Mummy Amber</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Demon's</td>
+<td>Scarab Brooch</td>
+<td>Ash Diamond</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Devil's</td>
+<td>Evil Eye Charm</td>
+<td>Cinder Ruby</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Imp's</td>
+<td>Witch's Ladder</td>
+<td>Midnight Sapphire</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Goblin</td>
+<td>Hag Stone</td>
+<td>Moonlit Opal</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Black Hawk</td>
+<td>Mandrake Root Charm</td>
+<td>Wolf's Eye</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Nova's</td>
+<td>Garlic Necklace</td>
+<td>Cat's Eye</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Raven's</td>
+<td>Iron Key</td>
+<td>Serpent Eye</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Crow's</td>
+<td>Skeleton Key</td>
+<td>Dragon's Blood</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Bat's</td>
+<td>Music Locket</td>
+<td>Vampire Ruby</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Spider's</td>
+<td>Dead Man's Watch</td>
+<td>Werewolf Amber</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Moth's</td>
+<td>Broken Compass</td>
+<td>Banshee Pearl</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Wolf's</td>
+<td>Toe Tag</td>
+<td>Wraith Crystal</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Serpent's</td>
+<td>Hospital Bracelet</td>
+<td>Phantom Quartz</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Rat King's</td>
+<td>Dog Tag</td>
+<td>Shadow Jet</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Plague</td>
+<td>Class Ring</td>
+<td>Night Onyx</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Cursed</td>
+<td>Grandma's Brooch</td>
+<td>Dusk Amethyst</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Haunted</td>
+<td>Doll's Eye Pendant</td>
+<td>Blood Moon Garnet</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Possessed</td>
+<td>Porcelain Hand Charm</td>
+<td>Harvest Topaz</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Blessed</td>
+<td>Baby Tooth Bracelet</td>
+<td>Hallow Citrine</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Damned</td>
+<td>Lock of Hair</td>
+<td>Pumpkin Agate</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Forsaken</td>
+<td>Thimble</td>
+<td>Cobweb Quartz</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Forgotten</td>
+<td>Sewing Needle Pin</td>
+<td>Spider Opal</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Lost</td>
+<td>Pin Cushion Charm</td>
+<td>Beetle Shell</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Drowned</td>
+<td>Mirror Compact</td>
+<td>Moth Wing Glass</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Burned</td>
+<td>Hand Mirror Pendant</td>
+<td>Bat Pearl</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Buried</td>
+<td>Candle Charm</td>
+<td>Corpse Candle Glass</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Unburied</td>
+<td>Bell Charm</td>
+<td>Will-o'-Wisp Gem</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Restless</td>
+<td>Sleigh Bell Anklet</td>
+<td>Bog Amber</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Weeping</td>
+<td>Wind Chime Earrings</td>
+<td>Swamp Jade</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Screaming</td>
+<td>Feather Earrings</td>
+<td>Drowned Pearl</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Whispering</td>
+<td>Crow Feather</td>
+<td>Sea Witch Opal</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Silent</td>
+<td>Owl Pendant</td>
+<td>Kraken Ink Pearl</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Grinning</td>
+<td>Moth Brooch</td>
+<td>Deep One Pearl</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Hungry</td>
+<td>Beetle Ring</td>
+<td>Eldritch Quartz</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Bleeding</td>
+<td>Bone Bangle</td>
+<td>Void Obsidian</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Rotting</td>
+<td>Finger Bone Ring</td>
+<td>Madness Opal</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Withered</td>
+<td>Knuckle Duster Ring</td>
+<td>Dream Pearl</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Pale</td>
+<td>Fang Earring</td>
+<td>Nightmare Onyx</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Ashen</td>
+<td>Claw Necklace</td>
+<td>Hex Garnet</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Midnight</td>
+<td>Vial Necklace</td>
+<td>Curse Ruby</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Witching Hour</td>
+<td>Holy Water Vial</td>
+<td>Blessed Sapphire</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Blood Moon</td>
+<td>Blood Vial Pendant</td>
+<td>Holy Diamond</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Harvest Moon</td>
+<td>Tear Bottle</td>
+<td>Saint's Tear</td>
+</tr>
+<tr>
+<td>69</td>
+<td>New Moon</td>
+<td>Poison Ring</td>
+<td>Angel's Pearl</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Black Mass</td>
+<td>Cyanide Locket</td>
+<td>Demon's Eye</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Last Rites</td>
+<td>Mourning Band</td>
+<td>Devil's Ruby</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Requiem</td>
+<td>Widow's Ring</td>
+<td>Hellfire Opal</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Lullaby</td>
+<td>Engagement Ring</td>
+<td>Brimstone</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Nursery Rhyme</td>
+<td>Lovers' Locket</td>
+<td>Sulfur Crystal</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Carnival</td>
+<td>Friendship Bracelet</td>
+<td>Graveyard Granite</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Circus</td>
+<td>Charm Bracelet</td>
+<td>Tombstone Marble</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Asylum</td>
+<td>Saint Medal</td>
+<td>Mausoleum Jade</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Manor</td>
+<td>Crucifix</td>
+<td>Catacomb Calcite</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Cellar</td>
+<td>Rune Pendant</td>
+<td>Skull Quartz</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Attic</td>
+<td>Ouroboros Ring</td>
+<td>Bone Opal</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Lighthouse</td>
+<td>Pentacle Pendant</td>
+<td>Marrow Pearl</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Cabin in the Woods</td>
+<td>Hamsa Charm</td>
+<td>Blood Coral</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Old Mill</td>
+<td>Spirit Bell</td>
+<td>Red Jasper</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Bog</td>
+<td>Crystal Pendulum</td>
+<td>Black Tourmaline</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Swamp</td>
+<td>Tarot Card Pin</td>
+<td>Hematite</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Fog</td>
+<td>Ghost Photo Locket</td>
+<td>Labradorite</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Mist</td>
+<td>Film Reel Charm</td>
+<td>Black Opal</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Thirteenth</td>
+<td>Antique Cufflinks</td>
+<td>Pale Opal</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Ninth</td>
+<td>Tie Pin</td>
+<td>Weeping Amethyst</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Mother's</td>
+<td>Monocle</td>
+<td>Lament Lapis</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Father's</td>
+<td>Spectacles</td>
+<td>Sorrow Sapphire</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Sister's</td>
+<td>Hearing Trumpet</td>
+<td>Grief Garnet</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Brother's</td>
+<td>Ear Horn Pin</td>
+<td>Dread Diamond</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Grandmother's</td>
+<td>Ventriloquist Doll Pin</td>
+<td>Fear Fluorite</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Orphan's</td>
+<td>Clown Nose</td>
+<td>Terror Topaz</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Stranger's</td>
+<td>Jester Bell</td>
+<td>Horror Hematite</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Nobody's</td>
+<td>Carnival Ticket</td>
+<td>Silent Spinel</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Lucky</td>
+<td>Old Watch Chain</td>
+<td>Cold Iron Nugget</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Moonless</td>
+<td>Cemetery Key</td>
+<td>Haunted Heirloom Gem</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Bonechill</td>
+<td>Funeral Pin</td>
+<td>Mourning Jet</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="stone-quality-by-tier">Stone Quality by Tier</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Stone quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>Clouded</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Dull</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Polished</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Gleaming</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Whispering</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>Eldritch</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="street-grit">Street Grit</h2>
+<p>Whatever's in the trunk. Magical means shock, fire, or chemicals. Bling fills the jewelry role, and ice fills the gem role.</p>
+<h3 id="weapons_3">Weapons</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Weapon</th>
+<th>Hands</th>
+<th>Reach</th>
+<th>Damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Switchblade</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Twin Switchblades</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Butterfly Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Utility Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Brass Knuckles</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Twin Brass Knuckles</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Crowbar</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tire Iron</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Lead Pipe</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Pipe Wrench</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Claw Hammer</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Sledgehammer</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Machete</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Baseball Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Aluminum Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Cricket Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Hockey Stick</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Golf Club</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Pool Cue</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Nunchucks</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Bike Chain</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Padlock in a Sock</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Broken Bottle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Shovel</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Fire Axe</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Chainsaw</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Samurai Sword</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Steel Pipe</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Rebar</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Skateboard</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Frying Pan</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Folding Chair</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Stop Sign</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Bowling Pin</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Screwdriver</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Ice Pick</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Meat Cleaver</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Shiv</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Hatchet</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Kitchen Knife</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Tactical Baton</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Riot Baton</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Tow Chain</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Bear Trap</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Rake</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Trash Can</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Car Antenna Whip</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Spiked Bat</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Stun Stick</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Stun Gun</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Cattle Prod</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Jumper Cables</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Live Wire</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Blowtorch</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Soldering Iron</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Curling Iron</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Acid Squirt Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Pepper Spray</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Bear Spray</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Fire Extinguisher</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Road Flare</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Molotov</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Flashbang</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Firework Launcher</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Roman Candle</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Flare Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Dart Stunner</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Spray Can Torch</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Bug Bomb</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Bleach Balloon</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Pipe Bomb</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>C4</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Dynamite</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Grenade</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Homemade Bomb</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Nail Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Staple Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Paintball Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>BB Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Slingshot</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Compound Bow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Crossbow</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Snub-Nose Revolver</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Twin Pistols</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>9mm Pistol</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Hand Cannon</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Sawed-Off Shotgun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Pump Shotgun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Hunting Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Assault Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Compact SMG</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Sniper Rifle</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Harpoon Gun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Throwing Knives</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Throwing Stars</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Darts</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Bowling Ball</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Beanbag Shotgun</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Brick</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Hubcap Frisbee</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="armor_3">Armor</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Armor</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Leather Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hockey Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ballistic Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Motorcycle Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Steel-Toe Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Riot Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Knee Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Elbow Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Shin Guards</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Football Pads</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Catcher's Gear</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Batting Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Hard Hat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Bike Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Skate Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Wrist Guards</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Work Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Fingerless Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Biker Gloves</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Denim Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Puffer Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Bomber Jacket</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Hoodie</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Trench Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Canvas Work Coat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Work Overalls</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Coveralls</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Mechanic's Jumpsuit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Security Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Tactical Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Plate Carrier</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Bulletproof Briefcase</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Trash Can Lid Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Car Door Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Mattress Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Duct Tape Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Cardboard Armor</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Phone Book Vest</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Chain Shirt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Bandana</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Ski Mask</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Hockey Mask</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Goggles</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Snapback Cap</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Beanie</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Cowboy Hat</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Combat Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>High-Tops</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Cowboy Boots</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Track Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Hazmat Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Welding Apron</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Lineman's Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Fire Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Rubber Boots</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Rubber Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Gas Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Respirator</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Welding Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Lab Goggles</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Fireproof Blanket</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Insulated Coveralls</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Electrician's Belt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Firefighter Turnout Coat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Firefighter Helmet</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Bomb Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Faraday Jacket</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Lead Apron</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Chemical Apron</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Tyvek Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Asbestos Gloves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Wetsuit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Rain Poncho</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Tinfoil Hat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Lucky Jersey</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Grandma's Sweater</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Church Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Wedding Tux</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Silk Shirt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Velvet Robe</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Fur Coat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Designer Shades</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Gold Grill Guard</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Toe Ring</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Ankle Monitor</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Rosary Tattoo</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Prison Tattoos</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Face Paint</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Glow Stick Rave Gear</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Hi-Vis Jacket</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Reflective Vest</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Bubble Wrap Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Foam Finger</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Mascot Costume</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Cape</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Luchador Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Boxing Robe</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Armored Hoodie</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Neck Brace</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Back Brace</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="clever-names-bling-and-ice">Clever Names, Bling, and Ice</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Clever name</th>
+<th>Bling</th>
+<th>Ice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Kingpin</td>
+<td>Gold Chain</td>
+<td>Ruby</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Black Hawk</td>
+<td>Pinky Ring</td>
+<td>Sapphire</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Goblin</td>
+<td>Wristwatch</td>
+<td>Emerald</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Nova's</td>
+<td>Gold Grill</td>
+<td>Diamond</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Big Mike's</td>
+<td>Stud Earrings</td>
+<td>Pearl</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Lil' Ray's</td>
+<td>Class Ring</td>
+<td>Opal</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Uncle Lou's</td>
+<td>Rosary Beads</td>
+<td>Topaz</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Mama's</td>
+<td>Medallion</td>
+<td>Tanzanite</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Pops's</td>
+<td>Tennis Bracelet</td>
+<td>Jade</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Cousin Sal's</td>
+<td>Lucky Charm</td>
+<td>Black Diamond</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Tony's</td>
+<td>Dog Tags</td>
+<td>Pink Diamond</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Benny's</td>
+<td>Cuban Link</td>
+<td>Yellow Diamond</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Lefty's</td>
+<td>Rope Chain</td>
+<td>Blue Diamond</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Slim's</td>
+<td>Nameplate Necklace</td>
+<td>Cubic Zirconia</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Shorty's</td>
+<td>Nugget Ring</td>
+<td>Moissanite</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Red's</td>
+<td>Signet Ring</td>
+<td>Rhinestone</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Boss</td>
+<td>Championship Ring</td>
+<td>Glass Diamond</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Hustler's</td>
+<td>Title Game Ring</td>
+<td>Crystal Bead</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Grinder's</td>
+<td>Hoop Earrings</td>
+<td>Rock Candy</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Runner's</td>
+<td>Diamond Studs</td>
+<td>Gold Nugget</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Lookout's</td>
+<td>Nose Stud</td>
+<td>Silver Nugget</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Bouncer's</td>
+<td>Eyebrow Ring</td>
+<td>Platinum Bar</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Bartender's</td>
+<td>Lip Ring</td>
+<td>Gold Bar</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Mechanic's</td>
+<td>Belly Ring</td>
+<td>Gold Tooth</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Trucker's</td>
+<td>Ankle Bracelet</td>
+<td>Diamond Tooth</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Cabbie's</td>
+<td>Toe Ring</td>
+<td>Garnet</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Mailman's</td>
+<td>Thumb Ring</td>
+<td>Amethyst</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Janitor's</td>
+<td>Knuckle Ring</td>
+<td>Citrine</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Cop's</td>
+<td>Four-Finger Ring</td>
+<td>Peridot</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Detective's</td>
+<td>Dollar Sign Pendant</td>
+<td>Aquamarine</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Snitch's</td>
+<td>Crown Pendant</td>
+<td>Turquoise</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Bookie's</td>
+<td>Cross Pendant</td>
+<td>Onyx</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Loan Shark's</td>
+<td>Saint Medal</td>
+<td>Jasper</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Pawnbroker's</td>
+<td>Praying Hands Pendant</td>
+<td>Agate</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Street Preacher's</td>
+<td>Scales Pendant</td>
+<td>Tiger's Eye</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Corner Store</td>
+<td>Dice Pendant</td>
+<td>Malachite</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Back Alley</td>
+<td>Eight Ball Charm</td>
+<td>Lapis</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Southside</td>
+<td>Lucky Seven Ring</td>
+<td>Coral</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Northside</td>
+<td>Horseshoe Ring</td>
+<td>Amber</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Eastside</td>
+<td>Four-Leaf Clover</td>
+<td>Obsidian</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Westside</td>
+<td>Rabbit's Foot</td>
+<td>Quartz</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Uptown</td>
+<td>Fuzzy Dice</td>
+<td>Rose Quartz</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Downtown</td>
+<td>Car Keys</td>
+<td>Smoky Quartz</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Crosstown</td>
+<td>Keychain</td>
+<td>Moonstone</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Midtown</td>
+<td>Lanyard</td>
+<td>Sunstone</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Dockside</td>
+<td>Locket with Photo</td>
+<td>Bloodstone</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Rail Yard</td>
+<td>Baby Shoe Charm</td>
+<td>Hematite</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Junkyard</td>
+<td>Mom Tattoo Locket</td>
+<td>Pyrite</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Chop Shop</td>
+<td>Friendship Bracelet</td>
+<td>Fool's Gold</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Body Shop</td>
+<td>Paracord Bracelet</td>
+<td>Sea Glass</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Pool Hall</td>
+<td>Beaded Bracelet</td>
+<td>Beach Pearl</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Barbershop</td>
+<td>Rubber Wristband</td>
+<td>Freshwater Pearl</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Laundromat</td>
+<td>Hospital Band</td>
+<td>Black Pearl</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Bodega</td>
+<td>Jail ID Band</td>
+<td>Baroque Pearl</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Diner</td>
+<td>VIP Wristband</td>
+<td>Mother of Pearl</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Dive Bar</td>
+<td>Concert Wristband</td>
+<td>Abalone</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Night Shift</td>
+<td>Festival Pass</td>
+<td>Spinel</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Graveyard Shift</td>
+<td>Press Badge</td>
+<td>Zircon</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Overtime</td>
+<td>Police Badge</td>
+<td>Tourmaline</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Payday</td>
+<td>Security Badge</td>
+<td>Alexandrite</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Rent Day</td>
+<td>Employee ID</td>
+<td>Morganite</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Last Call</td>
+<td>Union Pin</td>
+<td>Kunzite</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Happy Hour</td>
+<td>Veteran Pin</td>
+<td>Beryl</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Rush Hour</td>
+<td>Purple Heart</td>
+<td>Fire Opal</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Red Light</td>
+<td>Medal of Honor</td>
+<td>Star Sapphire</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Green Light</td>
+<td>Bottle Cap Necklace</td>
+<td>Star Ruby</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Yellow Tape</td>
+<td>Bullet Casing Necklace</td>
+<td>Cat's Eye</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Blue Line</td>
+<td>Shell Casing Earring</td>
+<td>Chocolate Diamond</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Red Line</td>
+<td>Wrench Pendant</td>
+<td>Champagne Diamond</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Hot</td>
+<td>Spark Plug Ring</td>
+<td>Canary Diamond</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Cold</td>
+<td>Lug Nut Ring</td>
+<td>Princess Cut</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Clean</td>
+<td>Washer Bracelet</td>
+<td>Emerald Cut</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Dirty</td>
+<td>Chain Link Bracelet</td>
+<td>Pear Cut</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Borrowed</td>
+<td>Padlock Necklace</td>
+<td>Marquise Cut</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Stolen</td>
+<td>Skeleton Key</td>
+<td>Heart Cut</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Lucky</td>
+<td>Pager</td>
+<td>Cushion Cut</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Busted</td>
+<td>Flip Phone</td>
+<td>Radiant Cut</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Rusty</td>
+<td>Bluetooth Earpiece</td>
+<td>Asscher Cut</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Shiny</td>
+<td>Smart Watch</td>
+<td>Oval Cut</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Fresh</td>
+<td>Pocket Knife Charm</td>
+<td>Round Brilliant</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Old School</td>
+<td>Lighter</td>
+<td>Rough Diamond</td>
+</tr>
+<tr>
+<td>82</td>
+<td>New School</td>
+<td>Flip-Top Lighter</td>
+<td>Uncut Emerald</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Hard Knock</td>
+<td>Cigar Cutter</td>
+<td>Raw Ruby</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Big League</td>
+<td>Money Clip</td>
+<td>Loose Stone</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Small Time</td>
+<td>Tie Clip</td>
+<td>Pawned Ring Stone</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Bootleg</td>
+<td>Cufflinks</td>
+<td>Hot Rock</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Knock-Off</td>
+<td>Gold Tooth</td>
+<td>Heist Diamond</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Brand-Name</td>
+<td>Sunglasses Chain</td>
+<td>Museum Piece</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Hand-Me-Down</td>
+<td>Hair Clip</td>
+<td>Crown Jewel</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Secondhand</td>
+<td>Scrunchie</td>
+<td>Royal Sapphire</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Pawnshop</td>
+<td>Bandana Ring</td>
+<td>Mob Boss Ruby</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Thrift Store</td>
+<td>Gold Bangle</td>
+<td>Lottery Diamond</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Dollar Store</td>
+<td>Silver Cuff</td>
+<td>Church Ruby</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Gas Station</td>
+<td>Ice Pendant</td>
+<td>Bank Vault Emerald</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Parking Lot</td>
+<td>Bling Belt Buckle</td>
+<td>Insurance Fraud Pearl</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Rooftop</td>
+<td>Grandpa's Watch</td>
+<td>Cartel Jade</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Basement</td>
+<td>Wedding Band</td>
+<td>Smuggled Opal</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Street King's</td>
+<td>Promise Ring</td>
+<td>Pawn Counter Topaz</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Block Party</td>
+<td>Mood Ring</td>
+<td>Grandma's Brooch Stone</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Hometown</td>
+<td>Hustler's Watch</td>
+<td>Street Ice</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ice-quality-by-tier">Ice Quality by Tier</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Ice quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>Pawn-Shop</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Cloudy</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Cut</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Flawless</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Museum</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>Crown-Jewel</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="after-dark-21">After Dark (21+)</h2>
+<p>Loot only, for adult tables: bad puns, crude jokes, and novelty gear. It has no app look of its own; use it with any theme. Magical means vibration, heat, sauce, or sheer awkwardness. Twin weapons and prosthetics follow the same hands rule as everything else.</p>
+<h3 id="weapons_4">Weapons</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Weapon</th>
+<th>Hands</th>
+<th>Reach</th>
+<th>Damage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3-Foot Rubber Dong</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Paddle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Twin Paddles</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Riding Crop</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Flogger</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Leather Whip</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Hairbrush of Discipline</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Wooden Spoon</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Rolling Pin of Regret</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Inflatable Sword</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Pool Noodle</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Tickle Feather</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Fuzzy Handcuff Flail</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Ball and Chain</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Leather Leash</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Stripper Pole</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Champagne Bottle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Beer Bong</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Selfie Stick</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Cowbell</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Rubber Chicken</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Novelty Gavel</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Bowling Pin of Shame</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Barstool</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Karaoke Mic</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Hotel Ice Bucket</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Unpaid Bar Tab</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Body Pillow</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Blow-Up Doll</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Rubber Glove Slap</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Peg Leg</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Prosthetic Leg Club</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Hook Hand</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Twin Hook Hands</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Wooden Arm</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Robo-Arm Haymaker</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>False Teeth Chompers</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Grandpa's Cane</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Walker of Doom</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Back Scratcher</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Toilet Plunger</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Toilet Brush</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Wet Noodle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Floppy Fish</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Kielbasa</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Baguette</td>
+<td>2</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Foot-Long Sub</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Cucumber of Suspicion</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Eggplant Club</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Fanny Pack Flail</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Ping Pong Paddle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Massage Wand</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Twin Massagers</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Back Massager</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Hot Wax Candle</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Ice Cube of Surprise</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Tickle Monster Gloves</td>
+<td>2</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Joy Buzzer</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Love Shock Collar Remote</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Spicy Salsa Fingers</td>
+<td>1</td>
+<td>Touch</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Whipped Cream Can</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Chocolate Syrup Squirter</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Massage Oil Squirt</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Lube Launcher</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Glitter Bomb</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Love Potion</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Pheromone Spray</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Cologne Cloud</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Morning Breath</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Whoopee Cushion</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Air Horn</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Kazoo of Annoyance</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Hot Sauce Shot</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Body Shot Salt</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Lemon Wedge Squirt</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Bad Pickup Line</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Dad Joke</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Party Poppers</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Ping Pong Balls</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Beer Can Grenade</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Water Balloons</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Confetti Cannon</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>T-Shirt Cannon</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Champagne Cork</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Bouquet Toss</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Garter Slingshot</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Bra Slingshot</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Panty Launcher</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Thrown Room Key</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Cake Smash</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Pie in the Face</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Water Blaster</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Foam Dart Blaster</td>
+<td>2</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Squirt Gun</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Pocket Rocket</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Party Beads</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Wedding Rice</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Jello Shots</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Glass Eye Sling</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Flying Toupee</td>
+<td>1</td>
+<td>Ranged</td>
+<td>Physical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="armor_4">Armor</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Armor</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Gimp Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cone of Shame</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Leather Chaps</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Assless Chaps</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Banana Hammock</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Mankini</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Speedo</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Thong</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Granny Panties</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Tighty-Whities</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Lucky Boxers</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Fishnet Stockings</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Garter Belt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Corset</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Latex Catsuit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Rubber Apron</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Studded Collar</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Spiked Codpiece</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Hotel Bathrobe</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Groom's Tux</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Beer Helmet</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Commando Kilt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Bedsheet Toga</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Grass Skirt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Coconut Bra</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Lobster Bib</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Lederhosen</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Pirate Wench Corset</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Tear-Away Firefighter Pants</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Strategically Placed Sock</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Fig Leaf</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Barrel with Suspenders</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Mud Wrestling Bikini</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Hot Tub Trunks</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Rubber Ducky Floatie</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Blow-Up Doll Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Heart Pillow Shield</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Beer Belly</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Dad Bod</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Hairy Back Sweater</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Speedo and Socks</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Socks and Sandals</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Walk of Shame Heels</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Duct Tape Bikini</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Oven Mitts</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Shower Cap</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Plastic Wrap Suit</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Hot Dog Costume</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Banana Costume</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Eggplant Costume</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Peach Costume</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Footie Pajamas</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Leather Harness</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Chastity Belt</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Knee Pads (Don't Ask)</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Dunce Hat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Gag Ball</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Subscriber-Only T-Shirt</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Bunny Ears</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Nipple Pasties</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Body Glitter</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Edible Underwear</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Silk Kimono</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Smoking Jacket</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Sequin Dress</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Feather Boa</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Bachelorette Sash</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Bride-to-Be Veil</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Beer Goggles</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Nurse Costume</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>71</td>
+<td>French Maid Outfit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Tear-Away Tux</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Bow Tie and Nothing Else</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Body Paint Suit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Willy Party Hat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Novelty Boob Hat</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Mullet Wig</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Porn Stache</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Hangover Sunglasses</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Splash Zone Goggles</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Muumuu</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Blanket with Sleeves</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Hair Curlers</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Mud Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Cucumber Eye Patches</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Spa Robe</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Glow-in-the-Dark Thong</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Love Bite Turtleneck</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Mood Lingerie</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Fuzzy Slippers</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Tinfoil Thong</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Leopard Print Robe</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Gold Lame Jumpsuit</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Velvet Smoking Slippers</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>95</td>
+<td>Satin Sleep Mask</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Prosthetic Arm Bracer</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Eye Patch of Mystery</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Toupee of Power</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Spanx of Holding</td>
+<td>Magical</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Midlife Crisis Leather Jacket</td>
+<td>Magical</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="clever-names-jewelry-and-gems_1">Clever Names, Jewelry, and Gems</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
+<th>Clever name</th>
+<th>Jewelry</th>
+<th>Gem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ben Dover's</td>
+<td>Pearl Necklace</td>
+<td>Family Jewels</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mike Hunt's</td>
+<td>Love Ring</td>
+<td>Blue Ball Sapphire</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hugh Jass's</td>
+<td>Nipple Clamps</td>
+<td>Rock Hard Diamond</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Seymour Butts'</td>
+<td>Belly Button Jewel</td>
+<td>Hard Candy</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Anita Bath's</td>
+<td>Body Chain</td>
+<td>Booty Ruby</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Phil McCracken's</td>
+<td>Lower Back Tattoo</td>
+<td>Peach Topaz</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Dixie Normous's</td>
+<td>Toe Ring</td>
+<td>Eggplant Amethyst</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Hugh G. Rection's</td>
+<td>Anklet of Shame</td>
+<td>Sugar Daddy Diamond</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Wayne Kerr's</td>
+<td>Hickey Choker</td>
+<td>Gold Digger Nugget</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Amanda Hugginkiss's</td>
+<td>Broken Promise Ring</td>
+<td>Trophy Wife Emerald</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Ivana Tinkle's</td>
+<td>Divorce Ring</td>
+<td>Cougar Opal</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Harry Johnson's</td>
+<td>Pinky Ring of Sleaze</td>
+<td>Silver Fox Quartz</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Jack Goff's</td>
+<td>Chest Hair Gold Chain</td>
+<td>Thirst Trap Topaz</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Pat McGroin's</td>
+<td>Medallion of Swagger</td>
+<td>Booty Call Garnet</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Al Coholic's</td>
+<td>Mood Ring</td>
+<td>Walk of Shame Jade</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Dick Hertz's</td>
+<td>Candy Necklace</td>
+<td>Morning After Pearl</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Rusty Trombone's</td>
+<td>Candy Bracelet</td>
+<td>Hangover Hematite</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Sir Loin's</td>
+<td>Ring Pop</td>
+<td>Beer Goggle Glass</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Hugh Mungus's</td>
+<td>Glow Stick Bracelet</td>
+<td>Last Call Citrine</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Bea O'Problem's</td>
+<td>21+ Wristband</td>
+<td>Body Shot Bloodstone</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Big Daddy's</td>
+<td>Hotel Key Card</td>
+<td>Lap Dance Lapis</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Mistress</td>
+<td>Sharpied Phone Number</td>
+<td>Pole Dancer Peridot</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Madame</td>
+<td>Mistletoe Headband</td>
+<td>Strip Club Sapphire</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Leather Daddy's</td>
+<td>Wedding Ring Tan Line</td>
+<td>Vegas Rhinestone</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Dungeon Master's</td>
+<td>Cubic Engagement Ring</td>
+<td>Bachelor Party Onyx</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Safe Word</td>
+<td>Gold Grill</td>
+<td>Honeymoon Moonstone</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Pineapple</td>
+<td>Belly Chain</td>
+<td>Spicy Ruby</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Tickle Monster</td>
+<td>Septum Ring</td>
+<td>Naughty Opal</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Spank Bank</td>
+<td>Tongue Ring</td>
+<td>Kinky Kunzite</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Thicc</td>
+<td>Eyebrow Ring</td>
+<td>Frisky Fluorite</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Juicy</td>
+<td>Garter</td>
+<td>Saucy Spinel</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Sloppy</td>
+<td>Bow Tie</td>
+<td>Cheeky Citrine</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Saucy</td>
+<td>Handcuff Keychain</td>
+<td>Flirty Feldspar</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Spicy</td>
+<td>Lipstick Kiss Mark</td>
+<td>Lusty Labradorite</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Naughty</td>
+<td>Lipstick Tube</td>
+<td>Thicc Tourmaline</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Kinky</td>
+<td>Love Letter</td>
+<td>Juicy Jasper</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Frisky</td>
+<td>Spicy Selfie Locket</td>
+<td>Moist Malachite</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Cheeky</td>
+<td>Fuzzy Dice</td>
+<td>Sweaty Sunstone</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Horny</td>
+<td>Expired Wallet Rubber</td>
+<td>Hairy Agate</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Thirsty</td>
+<td>Breath Mint Tin</td>
+<td>Bald Beryl</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Desperate</td>
+<td>Cologne Bottle</td>
+<td>Tiny Zircon</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Lonely</td>
+<td>Perfume Vial</td>
+<td>Massive Morganite</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Divorced Dad's</td>
+<td>Pheromone Locket</td>
+<td>Well-Hung Hematite</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Cougar</td>
+<td>Chest Hair Wig</td>
+<td>Girthy Garnet</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Silver Fox</td>
+<td>Fake Eyelashes</td>
+<td>Busty Bloodstone</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Sugar Daddy's</td>
+<td>Press-On Nails</td>
+<td>Pert Pearl</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Gold Digger's</td>
+<td>Spray Tan</td>
+<td>Perky Pyrite</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Trophy Wife's</td>
+<td>Hello My Name Is Trouble Tag</td>
+<td>Saggy Sapphire</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Pool Boy's</td>
+<td>Strip Club Punch Card</td>
+<td>Wrinkly Ruby</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Milkman's</td>
+<td>Vegas Chapel Ring</td>
+<td>Dad Bod Diamond</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Pizza Guy's</td>
+<td>Elvis Sideburns</td>
+<td>Beer Gut Amber</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Plumber's</td>
+<td>Bachelor Party Bracelet</td>
+<td>Mullet Moonstone</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Cable Guy's</td>
+<td>Shot Glass Necklace</td>
+<td>Mustache Malachite</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Stripper's</td>
+<td>Bottle Opener Ring</td>
+<td>Toupee Topaz</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Bachelor's</td>
+<td>Beer Tab Bracelet</td>
+<td>Comb-Over Coral</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Bachelorette's</td>
+<td>Bar Coaster Pendant</td>
+<td>Bunion Beryl</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Best Man's</td>
+<td>Matchbook from a Motel</td>
+<td>Belly Button Lint Gem</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Maid of Honor's</td>
+<td>Pickup Line Fortune Cookie</td>
+<td>Kidney Stone</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Ex's</td>
+<td>Lucky Thong Charm</td>
+<td>Gallstone</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Side Piece's</td>
+<td>Booty Call Pager</td>
+<td>Navel Pearl</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Booty Call</td>
+<td>Burner Phone</td>
+<td>Earwax Amber</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Walk of Shame</td>
+<td>Dating App Badge</td>
+<td>Booger Emerald</td>
+</tr>
+<tr>
+<td>63</td>
+<td>One-Night</td>
+<td>Swipe-Right Ring</td>
+<td>Toe Jam Jade</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Hot Tub</td>
+<td>Ex's Hoodie String</td>
+<td>Butt Crack Quartz</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Motel</td>
+<td>Toothbrush Left Behind</td>
+<td>Pit Stain Topaz</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Love Shack</td>
+<td>Morning-After Sunglasses</td>
+<td>Skid Mark Onyx</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Vegas</td>
+<td>Walk of Shame Earrings</td>
+<td>Swamp Ass Jade</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Spring Break</td>
+<td>Heart Pasty Brooch</td>
+<td>Fart Bubble Opal</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Frat House</td>
+<td>Leather Wristband</td>
+<td>Burp Crystal</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Last Call</td>
+<td>Spiked Bracelet</td>
+<td>Hiccup Gem</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Two-Pump</td>
+<td>O-Ring Collar</td>
+<td>Whoopee Ruby</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Limp</td>
+<td>Bell Collar</td>
+<td>Dingleberry</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Rock Hard</td>
+<td>Cat Ears Headband</td>
+<td>Douche Nozzle Diamond</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Throbbing</td>
+<td>Devil Horns Headband</td>
+<td>Butt-Munch Garnet</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Moist</td>
+<td>Halo Headband</td>
+<td>Turd Polish Agate</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Sweaty</td>
+<td>Kazoo Necklace</td>
+<td>Nut Sack Nugget</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Hairy</td>
+<td>Whistle Necklace</td>
+<td>Ball Sweat Pearl</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Tiny</td>
+<td>Tooth Gap Grill</td>
+<td>Chode Crystal</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Massive</td>
+<td>Prosthetic Finger Ring</td>
+<td>Pecker Wood Petrified</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Girthy</td>
+<td>Glass Eye Pendant</td>
+<td>Wiener Schnitzel Jasper</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Well-Hung</td>
+<td>Hearing Aid Earring</td>
+<td>Tallywacker Tourmaline</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Thirst Trap</td>
+<td>False Teeth Brooch</td>
+<td>Ding-Dong Diamond</td>
+</tr>
+<tr>
+<td>83</td>
+<td>Swipe-Right</td>
+<td>Wooden Nose</td>
+<td>Hoo-Ha Opal</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Ghosted</td>
+<td>Golden Toenail</td>
+<td>Va-Jay-Jay Jade</td>
+</tr>
+<tr>
+<td>85</td>
+<td>Left-on-Read</td>
+<td>Bunion Ring</td>
+<td>Ta-Ta Topaz</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Friends with Benefits</td>
+<td>Sock Garters</td>
+<td>Bazonga Beryl</td>
+</tr>
+<tr>
+<td>87</td>
+<td>Situationship</td>
+<td>Comb-Over Clip</td>
+<td>Junk Drawer Jewel</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Rebound</td>
+<td>Nose Hair Trimmer</td>
+<td>Prosthetic Pearl</td>
+</tr>
+<tr>
+<td>89</td>
+<td>Grandpa's Blue Pill</td>
+<td>Earwax Locket</td>
+<td>Glass Eyeball</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Hot Mom's</td>
+<td>Belly Lint Jewel</td>
+<td>Gold Tooth</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Dad Bod</td>
+<td>Navel Gazer Ring</td>
+<td>Silver Filling</td>
+</tr>
+<tr>
+<td>92</td>
+<td>Beer Gut</td>
+<td>Hot Glue Tiara</td>
+<td>Denture Diamond</td>
+</tr>
+<tr>
+<td>93</td>
+<td>Mullet</td>
+<td>Duct Tape Bracelet</td>
+<td>Pacemaker Gem</td>
+</tr>
+<tr>
+<td>94</td>
+<td>Peg-Legged</td>
+<td>Pull-Tab Engagement Ring</td>
+<td>Hip Replacement Titanium</td>
+</tr>
+<tr>
+<td>95</td>
+<td>One-Armed</td>
+<td>Plastic Lei</td>
+<td>Retainer Ruby</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Hook-Handed</td>
+<td>Mardi Gras Beads</td>
+<td>Braces Bead</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Glass-Eyed</td>
+<td>Bachelorette Tiara</td>
+<td>Lucky Bellybutton Ring</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Toothless</td>
+<td>Rubber Wedding Band</td>
+<td>Bar Napkin Diamond</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Douche Nozzle</td>
+<td>Grandma's Pearls</td>
+<td>Stripper Glitter Gem</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Dingleberry</td>
+<td>Questionable Souvenir</td>
+<td>Rhinestone Tassel</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="gem-quality-by-tier_1">Gem Quality by Tier</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Gem quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1</td>
+<td>Cracked</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>Knock-Off</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>Pawned</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>Flashy</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Bling-Bling</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>Royal</td>
+</tr>
+</tbody>
+</table></div>
+</main>
+<a class="top" href="#top">Top</a>
+</body>
+</html>

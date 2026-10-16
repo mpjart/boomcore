@@ -161,8 +161,9 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
 <script src="names.js?v=1"></script>
 <script>
 const $=s=>document.querySelector(s), CAP=100;
-// Links to the Boom Core Guidelines (handbook) and the CM screen. Change these if they move.
-const LINKS={guidelines:'https://claude.ai/code/artifact/28a885bc-9741-40b0-8e7a-2fe6c2eafa57',cmScreen:'https://claude.ai/artifact/3EfuRgREyHKAGruQkTcPer'};
+// The Boom Core Guidelines (handbook) and the CM screen are pages on this same site.
+// The CM screen link carries the table's theme so it matches (set in applySkin).
+const LINKS={guidelines:'rules.html',cmScreen:'cm-screen.html'};
 $('#hbook').href=LINKS.guidelines;$('#cmscreen').href=LINKS.cmScreen;
 let db=null, me=null, qcol=null, rolls=[], names={}, userNS=null, quicks=[];
 // ---------- dice engine ----------
@@ -1057,6 +1058,7 @@ function applySkin(k){
  if(S.k==='core')document.documentElement.removeAttribute('data-skin');else document.documentElement.setAttribute('data-skin',S.k);
  if(S.font&&!document.getElementById('skf-'+S.k)){const l=document.createElement('link');l.id='skf-'+S.k;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+S.font+'&display=swap';document.head.append(l);}
  try{localStorage.setItem('boomskin',S.k)}catch{}
+ $('#cmscreen').href=LINKS.cmScreen+'?theme='+S.k;
  renderSkins();
  // redraw so every label picks up the new words
  render();renderParty();renderMon();renderQuick();swapAll(document.body);}

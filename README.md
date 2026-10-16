@@ -23,9 +23,13 @@ Every item a loot box drops gets a name from its theme's d100 tables in `names.j
 - **Pirate theme.**
 - **Holding a turn** in the initiative order.
 
-## Rules
+## Rules and Core Master screen
 
-The Boom Core Guidelines (player handbook and Core Master guide in one) will live in this repo.
+- **Rules:** https://mpjart.github.io/boomcore/rules.html (source: `docs/core-guidelines.md`)
+- **Core Master screen:** https://mpjart.github.io/boomcore/cm-screen.html — three panels that print on letter paper, landscape. Add `?theme=space` (or fantasy, horror, grit) to match a theme; the app's CM tab opens it in the table's theme.
+- **Loot name tables:** https://mpjart.github.io/boomcore/loot-names.html (source: `docs/loot-names.md`)
+
+The rules and loot pages are built from the Markdown in `docs/`. After editing it, run `python3 tools/build_docs.py` (needs `pip install markdown`) and commit the updated HTML.
 
 ## License
 
