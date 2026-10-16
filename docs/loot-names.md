@@ -18,7 +18,7 @@
 - **Armor is anything worn,** from a full hazmat suit to a toe ring or knee pads.
 - **Gems** have no stat and no clever name; they only sell. Their quality word comes from the box tier.
 - **Name rolls never explode.** Names avoid the words coin, token, core, and box, because themes rename those words on screen.
-- **Core** uses the Fantasy tables. **After Dark (21+)** is a loot-only set the Core Master can switch on in the app for adult tables. It adds to the theme's tables rather than replacing them, so drops mix both lists.
+- **Core** uses the Fantasy tables. **After Dark (21+)** is a loot-only set the Core Master can switch on in the app for adult tables. It adds to the theme's tables rather than replacing them: roll 1d2 for each item, 1 for the theme's tables and 2 for After Dark.
 - The Core Master can always rename an item to fit the story.
 
 ## Fantasy (and Core)
@@ -1343,7 +1343,7 @@ Whatever's in the trunk. Magical means shock, fire, or chemicals. Bling fills th
 
 ## After Dark (21+)
 
-Loot only, for adult tables: bad puns, crude jokes, and novelty gear. It has no app look of its own; it mixes into any theme's tables (roll a d200 across both lists, or flip a coin for which table to use). Magical means vibration, heat, sauce, or sheer awkwardness. Twin weapons and prosthetics follow the same hands rule as everything else.
+Loot only, for adult tables: bad puns, crude jokes, and novelty gear. It has no app look of its own; it mixes into any theme's tables (roll 1d2 for each item: 1 uses the theme's tables, 2 uses these). Magical means vibration, heat, sauce, or sheer awkwardness. Twin weapons and prosthetics follow the same hands rule as everything else.
 
 ### Weapons
 

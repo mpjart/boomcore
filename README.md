@@ -18,7 +18,7 @@ The Core Master picks the table's theme in the CM tab: Core, Fantasy, Space, Hor
 
 ## Loot names
 
-Every item a loot box drops gets a name from its theme's d100 tables in `names.js`: a clever name plus a base item, like Black Hawk Longbow (+2 Speed). Gems get a quality word for their tier. Weapons carry their hands, reach, and damage type, and armor its type, so equipping sets them automatically. The Core Master can switch on **After Dark loot names (21+)** in the CM tab for adult tables; it adds the After Dark names to the theme's tables, so drops mix both. The tables are reviewed in the Boom Loot Name Tables doc.
+Every item a loot box drops gets a name from its theme's d100 tables in `names.js`: a clever name plus a base item, like Black Hawk Longbow (+2 Speed). Gems get a quality word for their tier. Weapons carry their hands, reach, and damage type, and armor its type, so equipping sets them automatically. The Core Master can switch on **After Dark loot names (21+)** in the CM tab for adult tables; each item rolls 1d2 to use the theme's tables (1) or the After Dark tables (2). The tables are reviewed in the Boom Loot Name Tables doc.
 
 ## To do next
 

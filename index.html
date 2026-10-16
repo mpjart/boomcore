@@ -140,8 +140,9 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden>
-<div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: adds the crude, punny After Dark names to the theme's loot tables, so drops are a mix of both.</div></div>
+<div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
 <a class="btnl" id="cmscreen" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
+<div class="card" id="dawnbox"><div class="row" style="align-items:center;justify-content:space-between;gap:10px"><div><b class="pn">Dawn</b><div class="note">A new day: clears every hero's temp HP.</div></div><button id="dawn" class="rbu">🌅 Dawn</button></div></div>
 <div class="card" id="initbox"></div>
 <div class="card" id="mgen">
  <b class="pn">Monster generator</b>
@@ -680,9 +681,9 @@ const LT=['Common','Uncommon','Rare','Epic','Legendary','Divine'],ITYPE=['Weapon
 const fmtN=n=>n<1e15?Math.round(n).toLocaleString('en-US'):n.toExponential(2);
 // ---------- item names (see names.js) ----------
 let adultLoot=false;
-// After Dark (21+) adds its names to the theme's tables instead of replacing them; quality words stay the theme's.
-const NSET=()=>{const B=window.BOOM_NAMES||{},T=B[skin==='core'?'fantasy':skin]||B.fantasy||null,A=B.adult;
- if(!adultLoot||!A||!T)return T;const o={...T};for(const k of['n','w','a','j','g'])o[k]=[...(T[k]||[]),...(A[k]||[])];return o;};
+// After Dark (21+): roll 1d2 per item first. 1 = the theme's tables, 2 = the After Dark tables; the whole name comes from that table.
+const NSET=()=>{const B=window.BOOM_NAMES||{},T=B[skin==='core'?'fantasy':skin]||B.fantasy||null;
+ return adultLoot&&B.adult&&Math.random()<0.5?B.adult:T;};
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 // Clever name + base item; gems get the tier's quality word instead. Weapons carry hands/reach/damage, armor its type.
 function nameItem(type,tier){const S=NSET(),ty=String(type).toLowerCase();if(!S)return{n:LT[tier]+' '+ty};
@@ -1104,6 +1105,9 @@ function renderSkins(){const w=$('#skins');if(!w)return;w.replaceChildren();
 function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,adult:adultLoot,ts:Date.now()}).catch(()=>toast('Could not change the theme'));else applySkin(k);}
 function applyAdult(v){adultLoot=!!v;const c=$('#adultchk');if(c)c.checked=adultLoot;try{localStorage.setItem('boomadult',adultLoot?'1':'')}catch{}}
 $('#adultchk').onchange=e=>{const v=e.target.checked;if(settingsCol)settingsCol.doc('theme').set({skin,adult:v,ts:Date.now()}).catch(()=>toast('Could not change the setting'));else applyAdult(v);};
+// Dawn: temp HP resets for the whole party.
+$('#dawn').onclick=()=>{if(!partyCol)return toast('Add heroes in the Party tab first');const hit=chars.filter(c=>(c.temp||0)>0);
+ hit.forEach(c=>put(c,{temp:0}));const m='🌅 Dawn breaks'+(hit.length?': temp HP cleared for '+hit.map(c=>c.name||'a hero').join(', '):'. No one had temp HP');toast(m);logEvent(m);};
 // ---------- startup (page works alone, lights up with db) ----------
 renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
 {let k0='core',a0='';try{k0=localStorage.getItem('boomskin')||'core';a0=localStorage.getItem('boomadult')||''}catch{}applyAdult(a0);applySkin(k0);}
