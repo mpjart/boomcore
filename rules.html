@@ -672,7 +672,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 </table></div>
 <p>Trade up every 1,000 coins of a tier for 1 coin of the next. To pay with smaller coins, break a bigger one and keep the change. The app does both for you.</p>
 <h3 id="the-loot-box">The Loot Box</h3>
-<p>After a fight, a dungeon room, or a quest, each player opens a <strong>loot box</strong>. The app does the rolling.</p>
+<p>After a fight, a dungeon room, or a quest, each hero gets a <strong>loot box</strong>. The Core Master makes the box (in the app, from the CM tab), and the player opens it; the app does the rolling.</p>
 <p><strong>Coins:</strong> roll <strong>(monster level + your level)d6</strong>, at least 2d6, in coins of the monster's tier.</p>
 <p><strong>Box tier:</strong> the monster's rarity sets the box, from Common (T1) to Divine (T6). The Core Master can upgrade any box. The tier sets item quality (Chapter 7) and coin tier for reagents.</p>
 <p><strong>The d100 pool:</strong> start with 1d100. Dice never add; each die is its own pull. Roll the whole pool, then resolve every die at the <strong>highest tier the box reached</strong>.</p>
@@ -789,10 +789,11 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <h3 id="running-the-game-with-the-app">Running the Game with the App</h3>
 <p>The Boom Dice app rolls and explodes the dice, does the math, and shows everyone's rolls. Only the Core Master sees the CM tab and the editing controls.</p>
 <ul>
-<li><strong>Dice:</strong> quick rolls, your color, and the shared roll feed.</li>
-<li><strong>Party:</strong> every character sheet. The Core Master edits stats, HP, armor, abilities, coins, and loot.</li>
-<li><strong>Loot:</strong> opens loot boxes and holds the party stash.</li>
-<li><strong>CM:</strong> the initiative tracker and the monster generator.</li>
+<li><strong>Table:</strong> the Core Master starts a table and shares its 6-letter code; players join with the code. Everyone sees every roll live.</li>
+<li><strong>Dice:</strong> quick rolls, your color, the shared roll feed, and a book icon that opens these guidelines.</li>
+<li><strong>Party:</strong> every character sheet. Collapsed sheets show the six stats at a glance. The Core Master edits everything; a player can equip, sell, and train on their own hero.</li>
+<li><strong>Loot:</strong> loot boxes waiting to be opened, and the party stash. A hero's box is opened by its player; a group box has a timer and everyone grabs it.</li>
+<li><strong>CM:</strong> the table theme (and the After Dark loot names switch), a link to the Core Master screen, the initiative tracker, the loot box maker, and the monster generator.</li>
 </ul>
 <p><strong>A round at the table:</strong> the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.</p>
 <h3 id="party-loot">Party Loot</h3>
@@ -913,29 +914,62 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <h2 id="chapter-10-adapting-boom-to-any-story">Chapter 10: Adapting Boom to Any Story</h2>
 <p><strong>Change the names, not the math.</strong> Keep the Boom Rule, the damage chart, HP, the tiers, the level chart, and the loot box. That is what keeps the game fast in fantasy, space, pirates, horror, or a city street.</p>
 <h3 id="rename-anything">Rename Anything</h3>
+<p>The app's table theme (in the CM tab) renames the loot words for everyone, as the first four rows show. Stat names stay the same in the app; the stat rows are optional names for the table to use out loud.</p>
 <div class="tw"><table>
 <thead>
 <tr>
-<th>Boom</th>
-<th>Sci-fi</th>
-<th>Pirates</th>
-<th>Modern or horror</th>
+<th>Boom (Core)</th>
+<th>Fantasy</th>
+<th>Space</th>
+<th>Horror</th>
+<th>Street Grit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>Spirit coins</td>
+<td>Spirit coins</td>
+<td>Credits</td>
+<td>Grave coins</td>
+<td>Bucks</td>
+</tr>
+<tr>
+<td>Ability tokens</td>
+<td>Ability tokens</td>
+<td>Data chips</td>
+<td>Rites</td>
+<td>Favors</td>
+</tr>
+<tr>
+<td>Soul cores</td>
+<td>Soul cores</td>
+<td>Power cores</td>
+<td>Soul cores</td>
+<td>Rep</td>
+</tr>
+<tr>
+<td>Loot box</td>
+<td>Chest</td>
+<td>Crate</td>
+<td>Coffer</td>
+<td>Duffel bag</td>
+</tr>
+<tr>
+<td>Constitution</td>
 <td>Constitution</td>
 <td>Resilience</td>
 <td>Grit</td>
-<td>Grit</td>
+<td>Toughness</td>
 </tr>
 <tr>
+<td>Strength</td>
 <td>Strength</td>
 <td>Might</td>
-<td>Brawn</td>
+<td>Strength</td>
 <td>Strength</td>
 </tr>
 <tr>
+<td>Intellect</td>
 <td>Intellect</td>
 <td>Tech</td>
 <td>Wits</td>
@@ -943,42 +977,28 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 </tr>
 <tr>
 <td>Speed</td>
+<td>Speed</td>
 <td>Reflex</td>
 <td>Agility</td>
 <td>Agility</td>
 </tr>
 <tr>
 <td>Charm</td>
+<td>Charm</td>
 <td>Presence</td>
-<td>Swagger</td>
 <td>Charisma</td>
+<td>Swagger</td>
 </tr>
 <tr>
 <td>Spirit/Luck</td>
+<td>Spirit/Luck</td>
 <td>Fortune</td>
-<td>Fortune</td>
+<td>Fate</td>
 <td>Luck</td>
-</tr>
-<tr>
-<td>Spirit coins</td>
-<td>Credits</td>
-<td>Doubloons</td>
-<td>Cash</td>
-</tr>
-<tr>
-<td>Soul cores</td>
-<td>Data cores</td>
-<td>Trophies</td>
-<td>Relics</td>
-</tr>
-<tr>
-<td>Trainers</td>
-<td>Mentors</td>
-<td>Old sea dogs</td>
-<td>Veterans</td>
 </tr>
 </tbody>
 </table></div>
+<p>A Pirate theme is on the way. Until then, try doubloons for coins and a sea chest for the loot box.</p>
 <h3 id="what-changes-easily">What Changes Easily</h3>
 <ul>
 <li><strong>Abilities</strong> can be spells, gadgets, implants, martial arts, or curses.</li>

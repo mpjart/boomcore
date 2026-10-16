@@ -330,7 +330,7 @@ Trade up every 1,000 coins of a tier for 1 coin of the next. To pay with smaller
 
 ### The Loot Box
 
-After a fight, a dungeon room, or a quest, each player opens a **loot box**. The app does the rolling.
+After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Core Master makes the box (in the app, from the CM tab), and the player opens it; the app does the rolling.
 
 **Coins:** roll **(monster level + your level)d6**, at least 2d6, in coins of the monster's tier.
 
@@ -411,10 +411,11 @@ Boom is a framework, not a rulebook. **Speed and fun are the goal of this system
 
 The Boom Dice app rolls and explodes the dice, does the math, and shows everyone's rolls. Only the Core Master sees the CM tab and the editing controls.
 
-- **Dice:** quick rolls, your color, and the shared roll feed.
-- **Party:** every character sheet. The Core Master edits stats, HP, armor, abilities, coins, and loot.
-- **Loot:** opens loot boxes and holds the party stash.
-- **CM:** the initiative tracker and the monster generator.
+- **Table:** the Core Master starts a table and shares its 6-letter code; players join with the code. Everyone sees every roll live.
+- **Dice:** quick rolls, your color, the shared roll feed, and a book icon that opens these guidelines.
+- **Party:** every character sheet. Collapsed sheets show the six stats at a glance. The Core Master edits everything; a player can equip, sell, and train on their own hero.
+- **Loot:** loot boxes waiting to be opened, and the party stash. A hero's box is opened by its player; a group box has a timer and everyone grabs it.
+- **CM:** the table theme (and the After Dark loot names switch), a link to the Core Master screen, the initiative tracker, the loot box maker, and the monster generator.
 
 **A round at the table:** the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.
 
@@ -491,17 +492,22 @@ Build a hazard like an ability: its tier sets its dice, targets, rounds, and eff
 
 ### Rename Anything
 
-| Boom | Sci-fi | Pirates | Modern or horror |
-| --- | --- | --- | --- |
-| Constitution | Resilience | Grit | Grit |
-| Strength | Might | Brawn | Strength |
-| Intellect | Tech | Wits | Smarts |
-| Speed | Reflex | Agility | Agility |
-| Charm | Presence | Swagger | Charisma |
-| Spirit/Luck | Fortune | Fortune | Luck |
-| Spirit coins | Credits | Doubloons | Cash |
-| Soul cores | Data cores | Trophies | Relics |
-| Trainers | Mentors | Old sea dogs | Veterans |
+The app's table theme (in the CM tab) renames the loot words for everyone, as the first four rows show. Stat names stay the same in the app; the stat rows are optional names for the table to use out loud.
+
+| Boom (Core) | Fantasy | Space | Horror | Street Grit |
+| --- | --- | --- | --- | --- |
+| Spirit coins | Spirit coins | Credits | Grave coins | Bucks |
+| Ability tokens | Ability tokens | Data chips | Rites | Favors |
+| Soul cores | Soul cores | Power cores | Soul cores | Rep |
+| Loot box | Chest | Crate | Coffer | Duffel bag |
+| Constitution | Constitution | Resilience | Grit | Toughness |
+| Strength | Strength | Might | Strength | Strength |
+| Intellect | Intellect | Tech | Wits | Smarts |
+| Speed | Speed | Reflex | Agility | Agility |
+| Charm | Charm | Presence | Charisma | Swagger |
+| Spirit/Luck | Spirit/Luck | Fortune | Fate | Luck |
+
+A Pirate theme is on the way. Until then, try doubloons for coins and a sea chest for the loot box.
 
 ### What Changes Easily
 
