@@ -3,7 +3,8 @@
 // on the Claude-hosted page, backed by Firebase (Firestore + anonymous sign-in).
 // A "table" is one game group: the Core Master starts it and gets a 6-letter code,
 // players join with that code. Everything for a table lives under tables/{CODE}/.
-// If firebase-config.js is not filled in, or the player picks Solo, the app runs solo.
+// Play solo (or no Firebase): the same interface runs on a local database saved on this
+// device, and the player is the Core Master of a private table nobody else can join.
 (function(){
  const cfg=window.BOOM_FIREBASE||{};
  const configured=!!(cfg.apiKey&&!/YOUR_/i.test(cfg.apiKey)&&window.firebase);
@@ -20,6 +21,43 @@
 #tgate .gcode{text-transform:uppercase;letter-spacing:.2em;font-weight:700}#tgate .gerr{color:#dc2626;font-size:14px;min-height:18px}
 #tbar{display:flex;align-items:center;gap:8px;justify-content:space-between;font-size:13px;color:var(--mute);margin:0 0 10px}#tbar b{color:var(--ink);letter-spacing:.12em}`;
 
+
+ // ---------- solo: a tiny local stand-in for Firestore, saved in localStorage ----------
+ function localDb(){
+  const KEY='boomsolo',subs=new Set(),clone=v=>v===undefined?v:JSON.parse(JSON.stringify(v));
+  let mem=null,queued=false;
+  const load=()=>{if(!mem){try{mem=JSON.parse(localStorage.getItem(KEY)||'null')}catch{mem=null}
+   if(!mem){mem={};seed(mem);}}return mem;};
+  // first run: bring over quick rolls and color saved by the old solo mode
+  function seed(d){try{const q=JSON.parse(localStorage.getItem('boomq')||'[]');(Array.isArray(q)?q:[]).forEach((x,i)=>{if(x&&x.expr)d['data/users/solo/'+(x.id&&/^q/.test(x.id)?x.id:'q'+Date.now()+i)]={label:x.label||'',expr:x.expr,ts:x.ts||Date.now()+i};});
+   const c=localStorage.getItem('boomcol');if(c)d['colors/solo']={c};}catch{}}
+  const fire=()=>{if(queued)return;queued=true;setTimeout(()=>{queued=false;subs.forEach(f=>f());},0);};
+  const commit=()=>{const d=load(),r=Object.keys(d).filter(k=>/^rolls\/[^/]+$/.test(k)).sort((a,b)=>(d[b].ts||0)-(d[a].ts||0));r.slice(150).forEach(k=>delete d[k]);
+   try{localStorage.setItem(KEY,JSON.stringify(d))}catch{}fire();};
+  addEventListener('storage',e=>{if(e.key===KEY){mem=null;fire();}});
+  const put=(o,path,v)=>{const ps=path.split('.');while(ps.length>1){const q=ps.shift();if(typeof o[q]!=='object'||!o[q])o[q]={};o=o[q];}if(v===undefined)delete o[ps[0]];else o[ps[0]]=clone(v);};
+  function docref(k){const id=k.split('/').pop();return{id,_k:k,
+   set:async v=>{load()[k]=clone(v)||{};commit();},
+   update:async p=>{const d=load();if(!d[k])throw{code:'not-found'};for(const[f,v]of Object.entries(p))put(d[k],f,v);commit();},
+   delete:async()=>{delete load()[k];commit();},
+   get:async()=>{const d=load();return{id,exists:k in d,data:()=>clone(d[k])};}};}
+  function col(path,ord,dir,lim){const pre=path+'/';
+   const docs=()=>{const d=load();let l=Object.keys(d).filter(k=>k.startsWith(pre)&&!k.slice(pre.length).includes('/')).map(k=>({id:k.slice(pre.length),v:d[k]}));
+    if(ord)l.sort((a,b)=>{const x=a.v[ord],y=b.v[ord];return(x>y?1:x<y?-1:0)*(dir==='desc'?-1:1);});if(lim)l=l.slice(0,lim);
+    return l.map(x=>({id:x.id,exists:true,data:()=>clone(x.v)}));};
+   return{doc:id=>docref(pre+id),orderBy:(f,dr)=>col(path,f,dr||'asc',lim),limit:n=>col(path,ord,dir,n),
+    async get(){const ds=docs();return{docs:ds,empty:!ds.length,size:ds.length};},
+    onSnapshot(cb){let prev=new Map(),live=true;
+     const run=()=>{if(!live)return;const ds=docs(),now=new Map(ds.map(x=>[x.id,JSON.stringify(x.data())])),ch=[];
+      ds.forEach(x=>{if(!prev.has(x.id))ch.push({type:'added',doc:x});else if(prev.get(x.id)!==now.get(x.id))ch.push({type:'modified',doc:x});});
+      prev.forEach((_,id)=>{if(!now.has(id))ch.push({type:'removed',doc:{id,exists:false,data:()=>undefined}});});
+      prev=now;try{cb({docs:ds,empty:!ds.length,size:ds.length,docChanges:()=>ch});}catch(e){console.error(e);}};
+     subs.add(run);setTimeout(run,0);return()=>{live=false;subs.delete(run);};}};}
+  return{collection:p=>col(p),tx:async fn=>fn({get:r=>r.get(),set:(r,v)=>r.set(v),update:(r,p)=>r.update(p),delete:r=>r.delete()})};
+ }
+ let soloDb=null;
+ const solo=()=>({solo:true,db:soloDb||(soloDb=localDb())});
+
  function gate(msg){
   return new Promise(res=>{
    if(!document.getElementById('tgcss')){const s=document.createElement('style');s.id='tgcss';s.textContent=css;document.head.append(s);}
@@ -31,7 +69,7 @@
 <div class="or">or</div>
 <div class="card"><label for="gcode">Table code</label><div class="row"><input id="gcode" class="gcode" maxlength="6" placeholder="ABC123" autocapitalize="characters" autocomplete="off" spellcheck="false"><button id="gjoin">Join</button></div></div>
 <div class="gerr" id="gerr"></div>
-<div class="card"><button id="gsolo" class="ghost">Play solo on this device</button></div></div>`;
+<div class="card"><button id="gsolo" class="ghost">Play solo on this device</button><div class="gsub" style="margin:0">You're the Core Master of a private table saved on this device: party, loot, monsters, and themes, with no code to share.</div></div></div>`;
    document.body.append(w);
    const $g=s=>w.querySelector(s),err=$g('#gerr');
    $g('#gname').value=saved.name||'';$g('#gcode').value=saved.code||'';err.textContent=msg||'';
@@ -49,7 +87,7 @@
    const b=document.createElement('div');b.id='tbar';
    const left=document.createElement('span'),btn=document.createElement('button');btn.className='ghost sm';
    if(t.wait){left.textContent=t.wait;btn.hidden=true;}
-   else if(t.solo){left.textContent=t.why?'Solo mode · '+t.why:'Playing solo on this device';btn.textContent=t.why?'Try again':'Join a table';btn.hidden=!configured&&!t.why;}
+   else if(t.solo){left.textContent=t.why?'Solo · '+t.why:'Solo · your private table on this device';btn.textContent=t.why?'Try again':'Join a table';btn.hidden=!configured&&!t.why;}
    else{left.append('Table ');const c=document.createElement('b');c.textContent=t.code;left.append(c,' · '+(t.owner?'Core Master':t.name));btn.textContent='Leave table';}
    btn.onclick=()=>{if(t.why){location.reload();return;}if(!t.solo&&!confirm('Leave this table on this device? You can rejoin with the code '+t.code+'.'))return;lsSet(t.solo?{name:''}:{name:t.name,code:''});location.reload();};
    b.append(left,btn);m.prepend(b);};
@@ -57,20 +95,20 @@
  }
 
  async function connect(){
-  if(!configured){bar({solo:true,why:window.firebase?'shared tables are not set up':'could not load Firebase (check the connection or a content blocker)'});return null;}
+  if(!configured){bar({solo:true,why:window.firebase?'shared tables are not set up':'could not load Firebase (check the connection or a content blocker)'});return solo();}
   let saved=lsGet();
-  if(saved&&saved.solo){bar({solo:true});return null;}
+  if(saved&&saved.solo){bar({solo:true});return solo();}
   firebase.initializeApp(cfg);
   const fs=firebase.firestore();
   try{fs.settings({ignoreUndefinedProperties:true});}catch{}
   let cred;try{cred=await firebase.auth().signInAnonymously();}
-  catch(e){const c=(e&&e.code)||'';bar({solo:true,why:/operation-not-allowed|admin-restricted/.test(c)?'Anonymous sign-in is off in Firebase':'could not sign in ('+(c||'network')+')'});return null;}
+  catch(e){const c=(e&&e.code)||'';bar({solo:true,why:/operation-not-allowed|admin-restricted/.test(c)?'Anonymous sign-in is off in Firebase':'could not sign in ('+(c||'network')+')'});return solo();}
   const uid=cred.user.uid;
   let msg='';
   for(;;){
    let t=saved&&saved.code&&saved.name?{name:saved.name,code:saved.code}:await gate(msg);
    saved=null;
-   if(t.solo){lsSet({solo:true});bar({solo:true});return null;}
+   if(t.solo){lsSet({solo:true});bar({solo:true});return solo();}
    bar({wait:'Connecting to the table…'});
    const T=p=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r({code:'timeout'}),12000))]);
    try{
@@ -96,7 +134,12 @@
  window.claude={
   async use(what){
    const t=await ready;
-   if(!t)throw new Error('solo');
+   if(!t)throw new Error('offline');
+   if(t.solo){
+    if(what==='db')return t.db;
+    if(what==='user')return{id:async()=>'solo',isOwner:async()=>true,profiles:async ids=>Object.fromEntries(ids.map(i=>[i,{name:'Core Master'}]))};
+    throw new Error('unknown capability '+what);
+   }
    if(what==='db')return{collection:p=>t.fs.collection(t.base+p),tx:fn=>t.fs.runTransaction(fn)};
    if(what==='user')return{
     id:async()=>t.uid,

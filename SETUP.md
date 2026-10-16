@@ -34,4 +34,4 @@ These values are safe to publish. They only identify the project; the rules in `
 - **Players** enter their name and that code and tap **Join**.
 - Each device remembers its table, so reopening the app goes straight back in. **Leave table** at the top switches tables.
 - Only the person who started a table gets the CM tab and the Core Master controls.
-- **Play solo** works without Firebase and keeps everything on that one device.
+- **Play solo** works without Firebase: you are the Core Master of a private table saved on that one device (the full CM tab, themes included), with no code to share.
