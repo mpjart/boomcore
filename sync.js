@@ -97,7 +97,7 @@
   async use(what){
    const t=await ready;
    if(!t)throw new Error('solo');
-   if(what==='db')return{collection:p=>t.fs.collection(t.base+p)};
+   if(what==='db')return{collection:p=>t.fs.collection(t.base+p),tx:fn=>t.fs.runTransaction(fn)};
    if(what==='user')return{
     id:async()=>t.uid,
     isOwner:async()=>t.owner,

@@ -10,6 +10,12 @@ Play it in your browser: https://mpjart.github.io/boomcore/ (works best on a tab
 
 The Core Master starts a table and shares its 6-letter code; players join with the code and everyone sees each other's rolls live. Shared tables run on Firebase's free plan: see `SETUP.md` to connect it. Until then the app runs in solo mode on each device.
 
+## To do next
+
+- **Theme changer** on the table creation page or the CM tab: Core, Fantasy, Pirate, Space, Street Grit, and Horror.
+- **Name roll tables:** clever names for items and abilities.
+- **Holding a turn** in the initiative order.
+
 ## Rules
 
 The Boom Core Guidelines (player handbook and Core Master guide in one) will live in this repo.

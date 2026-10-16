@@ -54,7 +54,7 @@ button.sm{padding:6px 11px;font-size:14px}
 .evt{border-left-color:#dc2626}.evt-t{font-weight:700;margin-top:2px}
 .pc.dead{border-color:#dc2626}.pc.dead .atkb,.pc.dead .st>button,.pc.dead .xb>button,.pc.dead .eq button{pointer-events:none;opacity:.35}button.dmg{background:#dc2626;color:#fff}button.heal{background:#16a34a;color:#fff}
 .eq select{width:100%;padding:6px 2px;font-size:13px}
-#pgLoot select{font:inherit;width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#lootmk select,#boxlist select{font:inherit;width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
 .col{flex:1;min-width:0}
 
 :root{--col-red:#b91c1c;--col-amber:#956100;--col-green:#15803d;--col-teal:#0f766e;--col-blue:#1d4ed8;--col-purple:#7e22ce;--col-pink:#be185d;--col-slate:#475569}
@@ -86,14 +86,20 @@ details.how{margin:0 0 14px;color:var(--mute);font-size:13px}details.how>summary
 details.how .hw{color:var(--acc);font-weight:700;white-space:nowrap}details.how[open] .hw{display:none}details.how p{margin:8px 0 0}
 #pgLoot details.how{margin-bottom:12px}
 .stashc details.sx>summary{color:var(--cc)}
-.lrow3{align-items:flex-end;gap:8px}.lrow3 .lc-n{flex:0 0 74px}.lrow3 .lc-t{flex:1 1 0}.lrow3 input,#pgLoot .lrow3 select{width:100%;display:block;padding-left:10px;padding-right:6px}.lrow3 input::-webkit-inner-spin-button{display:none}#lhlnote{margin-top:6px}#lhlnote:empty{display:none}
+.lh{display:flex;align-items:center;justify-content:space-between;gap:8px}.lh label{margin:2px 0 6px}
+a.book{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--chip);color:var(--acc);flex:none}a.book svg{width:20px;height:20px}
+a.btnl{display:block;text-align:center;text-decoration:none;font-weight:700;border-radius:10px;padding:11px 16px;background:var(--chip);color:var(--ink);margin-bottom:12px}
+.stc{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px}.stc button{padding:3px 7px;font-size:12px;font-weight:700;background:var(--chip);color:var(--cc,var(--ink));border-radius:8px;min-width:0}.stc button small{color:var(--mute);font-weight:600;margin-right:3px;font-size:10px;letter-spacing:.03em}
+.bx{border-top:1px solid var(--line);padding:9px 0;display:flex;flex-direction:column;gap:6px}.bx:first-of-type{border-top:0}.bxh{display:flex;justify-content:space-between;align-items:center;gap:8px}.bxh b{font-size:15px}.bx .note b{color:var(--ink)}.cd{font-variant-numeric:tabular-nums;font-weight:800;color:var(--boom)}.bx .row{flex-wrap:wrap}
+.mine{font-size:12px;color:var(--mute);margin:4px 0 8px}
+.lrow3{align-items:flex-end;gap:8px}.lrow3 .lc-n{flex:0 0 74px}.lrow3 .lc-t{flex:1 1 0}.lrow3 input,.lrow3 select{width:100%;display:block;padding-left:10px;padding-right:6px}.lrow3 input::-webkit-inner-spin-button{display:none}#lhlnote{margin-top:6px}#lhlnote:empty{display:none}
 </style></head><body>
 <canvas id="fx"></canvas><div id="toast"></div>
 <main>
 <h1>🎲 Boom Dice</h1><div class="tabs"><button id="tD" class="on" onclick="tab('d')">Dice</button><button id="tP" onclick="tab('p')">Party</button><button id="tL" onclick="tab('l')">Loot</button><button id="tM" onclick="tab('m')" hidden>CM</button></div><div id="pgDice">
 <details class="how"><summary>Dice that hit their max or min <b>explode</b> 💥 <span class="hw">How it works</span></summary><p>Every die that lands on its max or min <b>explodes</b> (d6 and smaller only explode on a 1; d21 and larger explode on a flat 10% chance instead): it's discarded and 2 new dice are rolled. Everything left adds up.</p><p>Boom cap: one die group stops exploding after 100 dice in total (a d1 would explode forever, and a d2 can run very long).</p></details>
 <div class="card">
- <label>Roll</label>
+ <div class="lh"><label>Roll</label><a class="book" id="hbook" href="#" target="_blank" rel="noopener" title="guidelines" aria-label="guidelines"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="guidelines"><title>guidelines</title><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></a></div>
  <div class="row"><input id="expr" value="3d6+2" autocapitalize="off" autocomplete="off" spellcheck="false" enterkeyhint="go"><button id="go" class="rbu">Roll</button></div>
  <div class="err" id="err"></div>
  <label style="margin-top:6px">Quick rolls</label>
@@ -102,16 +108,20 @@ details.how .hw{color:var(--acc);font-weight:700;white-space:nowrap}details.how[
 </div>
 <div class="card"><label>Your color</label><div id="mycol"></div><div class="note">Your rolls show in this color for the whole party. Rolls made from a character card use that character's color.</div></div>
 </div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div></div><div id="pgLoot" hidden>
-<details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>Open a loot box. You always get spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier. Even rolls also drop a soul core.</p><p>The Core Master sets the box tier: T1 by default, higher for rare or epic monsters. Rolls appear in the feed below for the whole party. If you pick a hero, the coins go to their coin totals and the items to their Loot list. The Core Master can also pick the whole party: every hero gets a full copy, nothing is split. Use that only for bosses and for finishing a quest or dungeon. Pick the party stash to drop the loot in the shared stash instead.</p></details>
-<div class="card">
- <label>Hero</label><select id="lhero"></select>
+<details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier. Even rolls also drop a soul core.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
+<div class="card" id="boxlist"></div>
+<div class="card" id="lootmk">
+ <b class="pn" id="lmkh">Make a loot box</b>
+ <label style="margin-top:8px">For</label><select id="lhero"></select>
  <div class="row lrow3" style="margin-top:10px"><div class="col lc-n"><label>Enemy lvl</label><input id="lmon" type="number" min="1" max="99" value="1" inputmode="numeric"></div><div class="col lc-n" id="lhlw"><label>Hero lvl</label><input id="lhl" type="number" min="1" max="100" value="1" inputmode="numeric"></div><div class="col lc-t"><label>Box tier</label><select id="ltier"></select></div></div>
  <div class="note" id="lhlnote"></div>
- <div class="row" style="margin-top:12px"><button id="lgo" class="rbu" style="flex:1">🎁 Open loot box</button></div>
+ <div id="lextra"><div class="row" style="margin-top:10px"><div class="col"><label>Note (optional)</label><input id="lnote" maxlength="40" placeholder="e.g. Goblin chief"></div><div class="col lc-t" id="ltw" style="flex:0 0 120px"><label>Timer</label><select id="ltime"><option value="15">15 sec</option><option value="30" selected>30 sec</option><option value="60">1 min</option><option value="120">2 min</option><option value="300">5 min</option></select></div></div></div>
+ <div class="row" style="margin-top:12px"><button id="lgo" class="rbu" style="flex:1">🎁 Make loot box</button></div>
  <div class="err" id="lerr"></div>
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden>
+<a class="btnl" id="cmscreen" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
 <div class="card" id="initbox"></div>
 <div class="card" id="mgen">
  <b class="pn">Monster generator</b>
@@ -128,10 +138,13 @@ details.how .hw{color:var(--acc);font-weight:700;white-space:nowrap}details.how[
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js?v=4"></script>
-<script src="sync.js?v=4"></script>
+<script src="firebase-config.js?v=5"></script>
+<script src="sync.js?v=5"></script>
 <script>
 const $=s=>document.querySelector(s), CAP=100;
+// Links to the Boom Core Guidelines (handbook) and the CM screen. Change these if they move.
+const LINKS={guidelines:'https://claude.ai/code/artifact/28a885bc-9741-40b0-8e7a-2fe6c2eafa57',cmScreen:'https://claude.ai/artifact/3EfuRgREyHKAGruQkTcPer'};
+$('#hbook').href=LINKS.guidelines;$('#cmscreen').href=LINKS.cmScreen;
 let db=null, me=null, qcol=null, rolls=[], names={}, userNS=null, quicks=[];
 // ---------- dice engine ----------
 function parse(e){
@@ -175,6 +188,7 @@ function card(r){
   c.append(d);
  }
  if(det.mod)c.append(el('div','note','Modifier '+(det.mod>0?'+':'')+det.mod));
+ if(r.by)c.append(el('div','evt-t','🔓 '+r.by));
  if(r.loot)c.append(lootBody(r));
  return c;
 }
@@ -258,6 +272,7 @@ const MAGT=[['p','Phys'],['m','Magic'],['c','Con'],['s','Spd'],['h','Cha'],['l',
 function slotItem(c,s){try{const t=c[s+'I'];return t?JSON.parse(t):null}catch{return null}}
 function itemType(it){if(it.ty)return it.ty;const n=(it.n||'').toLowerCase();return n.includes('weapon')?'weapon':n.includes('armor')?'armor':n.includes('jewelry')?'jewelry':n.includes('gem')?'gem':'jewelry';}
 function itemMeta(it){
+ if(itemType(it)==='gem')return{ty:'gem',plus:0,sk:''};
  if(it.sk!=null||it.plus!=null)return{ty:itemType(it),plus:it.plus||0,sk:it.sk||''};
  const m=/\+(\d+)\s+([A-Za-z\/]+)/.exec(it.n||'');let sk='';
  if(m){const f=STATS.find(x=>x[1].toLowerCase()===m[2].toLowerCase());if(f)sk=f[0];}
@@ -297,10 +312,16 @@ function eqSub(c,k,p,lab,vv,can){
   if(p==='w2'&&bothOk(c)){const a=wpn(c,k,'w'),b=wpn(c,k,'w2'),ex=(a.n+b.n)+'d'+a.die+(a.bn>0?'+'+a.bn:a.bn<0?String(a.bn):'');
    sb.append(btn('🎲 Both hands '+ex,()=>doRoll(ex,c.name+' · Both hands',null,true,colorMap[c.id]),'sm rb'));}
  }
- if(filled&&isDM)sb.append(btn('Unequip',()=>unequip(c,p),'sm'));
+ if(filled&&canAct(c))sb.append(btn('Unequip',()=>unequip(c,p),'sm'));
  return sb.childNodes.length?sb:null;}
 
 const calc=c=>{const A=arm(c),E=k=>eff(c,k);return{hp:5*(c.level+E('con')),mv:5+c.level+E('spd'),na:1+Math.floor(E('spd')/4),pd:E('str')-A.m,md:E('int')-A.p,ar:A.p+A.m,free:c.level-1-STATS.reduce((a,[k])=>a+c[k],0),slots:nSlots(c.level)};};
+// Who can equip, sell, and use loot on a sheet: the Core Master, or the player whose hero it is.
+const canAct=c=>!c.dead&&(isDM||(!!partyCol&&c.id===myHero));
+const SHORT={con:'CON',str:'STR',int:'INT',spd:'SPD',cha:'CHA',lck:'LCK'};
+function statChips(c){const w=el('div','stc');
+ for(const[key,lab]of STATS){const b=btn('',()=>statRoll(c,key,lab),'');b.append(el('small',null,SHORT[key]),String(eff(c,key)));b.title=lab+(bonus(c,key)>0?' ('+c[key]+' +'+bonus(c,key)+' from gear)':'')+' · tap to roll';b.disabled=!!c.dead;w.append(b);}
+ return w;}
 function atks(c){try{return JSON.parse(c.atk)}catch{return[]}}
 function put(c,p){Object.assign(c,p);const{id,...d}=c;partyCol.doc(id).set(d).catch(()=>{});}
 function putP(c,p){Object.assign(c,p);const{id,...d}=c;return partyCol.doc(id).set(d);}
@@ -347,7 +368,7 @@ function charCard(c){
  h.append(el('span','chev','▾'));
  h.onclick=e=>{if(e.target.closest('button,input,select,textarea'))return;UI.c[c.id]=!open;if(open)editing.delete(c.id);uiSave();renderParty();};
  box.append(h);
- if(!open){box.append(hpBox(c,k,true),condBox(c,true));EDIT=false;return box;}
+ if(!open){box.append(hpBox(c,k,true),statChips(c),condBox(c,true));EDIT=false;return box;}
  if(ED){const er=el('div','edrow'),cro=el('div','crow');cro.append(el('small',null,'Color'),swatches(ck,v=>setColor(c.id,v)));er.append(cro);
   if(isDM){const lr=el('div','row');lr.append(el('small',null,'Level'),btn('Level up',()=>put(c,{level:c.level+1}),'sm rb'));
    if(c.level>1&&k.free>0)lr.append(btn('− Level',()=>{const f=fitAtks(c,c.level-1);put(c,{level:c.level-1,atk:f.atk});if(f.gone.length){toast('Lost ability: '+f.gone.join(', '));logEvent(c.name+' lost ability: '+f.gone.join(', '));}}));
@@ -381,13 +402,13 @@ function charCard(c){
  // coins & loot
  const cs=coinsOf(c),ll=lootList(c),hi=cs.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).reverse()[0]||'0 coins';
  const force=(tokOpen&&String(tokOpen).startsWith(c.id+':'))||(coreOpen&&String(coreOpen.key).startsWith(c.id+':'));
- box.append(sec(c.id+':loot','Coins & Loot',hi+(ll.length?' · '+ll.length+' item'+(ll.length>1?'s':''):''),[coinBox(c),lootBox(c)],force));
+ box.append(sec(c.id+':loot','Coins & Loot',hi+(ll.length?' · '+ll.length+' item'+(ll.length>1?'s':''):''),[coinBox(c),mineBox(c),lootBox(c)],force));
  // notes
  if(isDM){const t=document.createElement('textarea');t.value=c.notes;t.placeholder='Notes';t.rows=3;t.onchange=()=>put(c,{notes:t.value.slice(0,500)});box.append(sec(c.id+':notes','Notes',c.notes?'Has notes':'',[t]));}
  else if(c.notes)box.append(sec(c.id+':notes','Notes','',[el('div','note pre',c.notes)]));
  EDIT=false;
  return box;}
-function renderParty(){renderInit();fillHeroes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
+function renderParty(){renderInit();fillHeroes();renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
  if(!partyCol)return b.append(el('div','note','Join a table to see the party.'));
  if(!chars.length)return b.append(el('div','note',isDM?'No players yet. Add one above.':'The Core Master has not added players yet.'));
  chars.forEach(c=>b.append(charCard(c)));}
@@ -410,7 +431,22 @@ function addXp(c,L,t){let lv=c.level,cost=costOf(lv),v=coreVal(L,t),g=0;if(v>cos
 function xpBox(c){
  const cost=costOf(c.level),w=el('div','xp'),pips=Number(xpOf(c)*1000n/cost)/100;
  w.append(el('small',null,'Level meter '+pips.toFixed(1)+' / 10'));
- const bar=el('div','bar'),f=el('div','fill xpf');f.style.width=Math.min(100,pips*10)+'%';bar.append(f);w.append(bar);return w;}
+ const bar=el('div','bar'),f=el('div','fill xpf');f.style.width=Math.min(100,pips*10)+'%';bar.append(f);w.append(bar);
+ if(isDM&&!c.dead&&c.level<100){const b=band(c.level),need=cost-xpOf(c),nd=(need+CP(b)-1n)/CP(b);
+  const r=el('div','row hpc'),n=document.createElement('input'),t=document.createElement('select');
+  n.type='number';n.min=1;n.inputMode='numeric';n.value=String(nd);n.title='Coins to pour into the level meter';
+  LT.forEach((x,i)=>t.add(new Option(x,i)));t.value=String(b);
+  r.append(n,t,btn('⚡ Empower',()=>empower(c,+t.value,n.value),'sm rb'));w.append(r);
+  w.append(el('div','note',fmtN(Number(nd))+' '+LT[b]+' coins reach level '+(c.level+1)+'.'));}
+ return w;}
+function empower(c,t,amt){
+ const a=Math.max(0,Math.floor(+amt)||0);if(!a)return toast('Enter an amount');
+ const arr=coinSub(coinsOf(c),t,a);if(!arr)return toast('Not enough coins');
+ let lv=c.level,xp=xpOf(c)+BigInt(a)*CP(t),g=0;
+ while(lv<100&&xp>=costOf(lv)){xp-=costOf(lv);lv++;g++;}
+ if(lv>=100)xp=0n;
+ const ex={coins:arr,gold:arr[0],xp:xp.toString()};if(g>0)ex.level=lv;put(c,ex);
+ const m=c.name+' empowers their core with '+fmtN(a)+' '+LT[t]+' coins'+(g>0?' and reaches level '+lv+'!':'');toast(m);if(g>0)logEvent(m);}
 let tokOpen=null;
 function trainOpen(c,i){
  const a=atks(c)[i];if(!a)return;const r=a.r||1;
@@ -435,10 +471,11 @@ function learnAb(c,tid,name,expr,type){
  put(c,{loot:JSON.stringify(l.filter(x=>x.id!==tid)),atk:JSON.stringify(ab)});
  const msg=c.name+' learns '+nm+' (T1)';toast(msg);logEvent(msg);}
 function tokPanel(c,it){
- const N=it.t+1,w=el('div','tp'),ab=atks(c),k=calc(c);
+ const N=it.t+1,w=el('div','tp'),ab=atks(c),k=calc(c),full=isDM;
  w.append(el('b',null,'T'+N+' '+LT[it.t]+' token'));
- w.append(el('small',null,'Learn a new T1 ability'));
- if(ab.length>=k.slots)w.append(el('div','note','No free ability slot. Remove an ability first.'));
+ if(full)w.append(el('small',null,'Learn a new T1 ability'));
+ if(!full)w.append(el('div','note','Players can use a token to train an ability one tier. Learning a new ability or consuming the token is up to the Core Master.'));
+ else if(ab.length>=k.slots)w.append(el('div','note','No free ability slot. Remove an ability first.'));
  else{const r=el('div','row add'),n=document.createElement('input'),e=document.createElement('input'),t=document.createElement('select');
   n.placeholder='Name';e.placeholder='1d6';e.value='1d6';
   [['p','Physical (Str)'],['m','Magic (Int)'],['c','Lifeforce (Con)'],['s','Speed'],['h','Charm'],['l','Spirit/Luck']].forEach(([v,x])=>t.add(new Option(x,v)));
@@ -447,7 +484,7 @@ function tokPanel(c,it){
  const el2=ab.map((a,i)=>({a,i})).filter(x=>(x.a.r||1)<N);
  if(!el2.length)w.append(el('div','note','No ability can be trained by this token.'));
  el2.forEach(x=>w.append(btn(x.a.n+': T'+(x.a.r||1)+' → T'+((x.a.r||1)+1),()=>trainAb(c,it.id,x.i),'sm rb')));
- const f=el('div','row');f.append(btn('Consume to mimic once',()=>consumeLoot(c,it.id),'sm'),btn('Close',()=>{tokOpen=null;renderParty();}));w.append(f);
+ const f=el('div','row');if(full)f.append(btn('Consume to mimic once',()=>consumeLoot(c,it.id),'sm'));f.append(btn('Close',()=>{tokOpen=null;renderParty();}));w.append(f);
  return w;}
 function lootList(c){
  let l;try{l=JSON.parse(c.loot)}catch{l=[]}
@@ -506,7 +543,7 @@ function corePanel(c,it,mode){
  f.append(btn(use?'Use':'Sell',()=>{const n=Math.max(0,Math.min(it.q,Math.floor(+q.value)||0));if(!n)return toast('Pick a quantity');if(use)useCores(c,it.L,n);else sellCores(c,it.L,n);},use?'sm rb':'sm heal'),btn('Close',()=>{coreOpen=null;renderParty();}));
  w.append(f);return w;}
 function lootBox(c){
- const l=lootList(c),w=el('div','lb');
+ const l=lootList(c),w=el('div','lb'),act=canAct(c);
  w.append(el('small',null,'Loot'));
  if(!l.length){w.append(el('div','note','Nothing yet. Loot boxes opened for this hero land here.'));return w;}
  l.forEach(it=>{
@@ -515,16 +552,20 @@ function lootBox(c){
   else if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'worth '+fmtN(it.v)+' '+LT[it.t]+' coins each'));
   else t.append(el('b',null,it.n),el('small',null,lootVal(it)));
   r.append(t);
-  if(isDM){const b=el('div','lbtn'),key=c.id+':'+it.id;
+  if(act){const b=el('div','lbtn'),key=c.id+':'+it.id;
    if(it.k==='reagent')b.append(btn('Sell',()=>sellReagents(c),'sm heal'));
    else if(it.k==='core')b.append(btn('Use',()=>{coreOpen={key,mode:'use'};renderParty();},'sm rb'),btn('Sell',()=>{coreOpen={key,mode:'sell'};renderParty();},'sm heal'));
-   else if(it.k==='token')b.append(btn('Use',()=>{tokOpen=tokOpen===key?null:key;renderParty();},'sm rb'));
+   else if(it.k==='token')b.append(btn(isDM?'Use':'Train',()=>{tokOpen=tokOpen===key?null:key;renderParty();},'sm rb'));
    else{if(itemType(it)!=='gem')b.append(btn('Equip',()=>equipItem(c,it.id),'sm rb'));b.append(btn('Sell',()=>sellLoot(c,it.id),'sm heal'));}
-   b.append(btn('✕',()=>setLoot(c,l.filter(x=>x.id!==it.id))));r.append(b);}
+   if(isDM)b.append(btn('✕',()=>setLoot(c,l.filter(x=>x.id!==it.id))));r.append(b);}
   w.append(r);
-  if(isDM&&it.k==='token'&&tokOpen===c.id+':'+it.id)w.append(tokPanel(c,it));
-  if(isDM&&it.k==='core'&&coreOpen&&coreOpen.key===c.id+':'+it.id)w.append(corePanel(c,it,coreOpen.mode));
+  if(act&&it.k==='token'&&tokOpen===c.id+':'+it.id)w.append(tokPanel(c,it));
+  if(act&&it.k==='core'&&coreOpen&&coreOpen.key===c.id+':'+it.id)w.append(corePanel(c,it,coreOpen.mode));
  });
+ return w;}
+function mineBox(c){
+ if(isDM||!partyCol||c.dead||c.id===myHero)return null;
+ const w=el('div','mine');w.append('Is this your hero? ',btn('🙋 This is me',()=>{myHero=c.id;try{localStorage.setItem('boomhero',myHero)}catch{}renderParty();toast('You can now equip, sell, and use loot for '+(c.name||'this hero'));},'sm'));
  return w;}
 const CP=i=>1000n**BigInt(i);
 const coinTotal=a=>a.reduce((t,x,i)=>t+BigInt(Math.max(0,Math.floor(+x)||0))*CP(i),0n);
@@ -593,7 +634,7 @@ function makeLoot(L,l,t0){
   if(v%2===0){cores++;e.core=1;}
   if(v<=50){e.k='reagent';e.val=v;}
   else if(v<=75)e.k='token';
-  else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=tier;if(tier>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);}
+  else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=e.type==='Gem'?0:tier;if(e.plus>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);}
   loot.push(e);
  }
  return{L,l,t0,tier,coins:cr.total,coinParts:cr.parts,booms:cr.booms+booms,up,seq,loot,cores,core:L*100,ct:band(L)};
@@ -611,7 +652,7 @@ function lootBody(r){
   let t;
   if(e.k==='reagent')t='🧪 Sellable reagent · worth '+e.val+' '+LT[o.tier]+' coins';
   else if(e.k==='token')t='✨ Ability token · tier '+(o.tier+1)+' '+LT[o.tier];
-  else t='🎒 '+LT[o.tier]+' '+e.type.toLowerCase()+(e.plus>0?' (+'+e.plus+' '+e.stat+')':'')+' · sells for 1d100 '+LT[o.tier]+' coins';
+  else t=(e.type==='Gem'?'💠 ':'🎒 ')+LT[o.tier]+' '+e.type.toLowerCase()+(e.plus>0&&e.type!=='Gem'?' (+'+e.plus+' '+e.stat+')':'')+' · sells for 1d100 '+LT[o.tier]+' coins';
   row(t+(e.core?'  💎':''),String(e.v));
  }
  if(o.cores>0)w.append(el('div','evt-t','💎 '+o.cores+' soul core'+(o.cores>1?'s':'')+' · level '+o.L+' · worth '+fmtN(o.core)+' '+LT[o.ct==null?0:o.ct]+' coins each'));
@@ -623,7 +664,7 @@ function addLoot(l,arr,res){
  for(const e of res.loot){
   if(e.k==='reagent'){let r=l.find(x=>x.k==='reagent');if(!r){r={id:'reagents',k:'reagent',n:'Sellable reagents',tot:[0,0,0,0,0,0]};l.unshift(r);}r.tot[T]+=e.val;}
   else if(e.k==='token')l.push({id:uid(),k:'token',n:'Ability token',t:T});
-  else l.push({id:uid(),k:'item',ty:e.type.toLowerCase(),n:LT[T]+' '+e.type.toLowerCase()+(e.plus>0?' +'+e.plus+' '+e.stat:''),t:T,plus:e.plus,sk:e.sk||''});
+  else{const gem=e.type==='Gem',p=gem?0:e.plus;l.push({id:uid(),k:'item',ty:e.type.toLowerCase(),n:LT[T]+' '+e.type.toLowerCase()+(p>0?' +'+p+' '+e.stat:''),t:T,plus:p,sk:gem?'':(e.sk||'')});}
  }
  if(res.cores>0){const s=l.find(x=>x.k==='core'&&x.L===res.L);if(s)s.q+=res.cores;else l.push({id:uid(),k:'core',n:'Level '+res.L+' soul core',L:res.L,v:res.core,t:ct,q:res.cores});}
 }
@@ -637,37 +678,116 @@ async function applyLootStash(res){
  addLoot(l,arr,res);
  await stashSave({loot:JSON.stringify(l.slice(-100)),coins:arr});
 }
-let lheroTouched=false;
-function heroLvl(){const v=$('#lhero').value,a=chars.filter(c=>!c.dead);
- if(v==='__party'||v==='__stash')return a.length?Math.max(1,Math.round(a.reduce((x,c)=>x+c.level,0)/a.length)):1;
+// ---------- loot boxes: the CM makes them (CM tab), players open them (Loot tab) ----------
+let lheroTouched=false,boxes=[],boxCol=null,busy=new Set();
+const GROUP=v=>v==='__party'||v==='__stash';
+const living=()=>chars.filter(c=>!c.dead);
+const avgLvl=()=>{const a=living();return a.length?Math.max(1,Math.round(a.reduce((x,c)=>x+c.level,0)/a.length)):1;};
+const shared=()=>!!(db&&me&&boxCol);
+function heroLvl(){const v=$('#lhero').value;
+ if(GROUP(v))return avgLvl();
  const c=chars.find(x=>x.id===v);return c?c.level:(Math.floor(+$('#lhl').value)||0);}
-function syncHL(){const v=$('#lhero').value;$('#lhlw').hidden=!!v;$('#lhlnote').textContent=v?'Hero level '+heroLvl()+(v==='__party'||v==='__stash'?' (party average)':'')+', filled in from the sheet.':'';}
+function syncHL(){const v=$('#lhero').value,sh=shared();
+ $('#lhlw').hidden=!!v||sh;$('#ltw').hidden=!GROUP(v);$('#lextra').hidden=!sh;
+ $('#lhlnote').textContent=v?'Hero level '+heroLvl()+(GROUP(v)?' (party average)':'')+(sh?', taken from the sheet when the box is opened.':', filled in from the sheet.'):'';}
 function fillHeroes(){
- const s=$('#lhero');if(!s)return;const cur=s.value;
- s.replaceChildren(new Option('No hero (type the hero level)',''));if(isDM){s.add(new Option('Whole party (everyone gets a copy)','__party'));s.add(new Option('Party stash (one shared copy)','__stash'));}
- chars.filter(c=>!c.dead).forEach(c=>s.add(new Option(c.name||'Unnamed',c.id)));
- const ok=v=>((v==='__party'||v==='__stash')&&isDM)||chars.some(c=>c.id===v&&!c.dead);
- s.value=ok(cur)?cur:(!lheroTouched&&ok(myHero)?myHero:'');
+ const s=$('#lhero');if(!s)return;const cur=s.value,sh=shared();
+ s.replaceChildren(new Option(sh?'Choose who it is for…':'No hero (type the hero level)',''));
+ living().forEach(c=>s.add(new Option(c.name||'Unnamed',c.id)));
+ if(isDM){s.add(new Option('Whole party (group box, everyone gets a copy)','__party'));s.add(new Option('Party stash (group box, one shared copy)','__stash'));}
+ const ok=v=>(GROUP(v)&&isDM)||chars.some(c=>c.id===v&&!c.dead);
+ s.value=ok(cur)?cur:(!lheroTouched&&!sh&&ok(myHero)?myHero:'');
+ // where the maker lives: CM tab at a table, Loot tab when playing solo
+ const mk=$('#lootmk'),host=sh?(isDM?$('#pgDM'):null):$('#pgLoot');
+ if(host){mk.hidden=false;if(mk.parentElement!==host){if(sh)host.insertBefore(mk,$('#mgen'));else host.insertBefore(mk,$('#stashbox'));}}else mk.hidden=true;
+ $('#lmkh').textContent=sh?'Make a loot box':'Open a loot box';
+ $('#lgo').textContent=sh?'🎁 Make loot box':'🎁 Open loot box';
  syncHL();
 }
 LT.forEach((n,i)=>$('#ltier').add(new Option('T'+(i+1)+' '+n,i)));
-$('#lhero').onchange=e=>{if(e&&e.isTrusted)lheroTouched=true;syncHL();const v=$('#lhero').value;if(v==='__party'||v==='__stash'){const a=chars.filter(c=>!c.dead);if(a.length)$('#lhl').value=Math.max(1,Math.round(a.reduce((x,c)=>x+c.level,0)/a.length));return;}const c=chars.find(x=>x.id===v);if(c)$('#lhl').value=c.level;};
-$('#lgo').onclick=async()=>{
- const L=Math.floor(+$('#lmon').value)||0,l=heroLvl(),t0=+$('#ltier').value||0;
- if(L<1||l<1||L>99||l>100){$('#lerr').textContent='Enemy level 1 to 99, hero level 1 to 100.';return;}
- $('#lerr').textContent='';
- const hv=$('#lhero').value,pv=hv==='__party'&&isDM,sv=hv==='__stash'&&isDM,heroes=pv?chars.filter(c=>!c.dead):[],ch=(pv||sv)?null:chars.find(c=>c.id===hv);
- if(pv&&!heroes.length){$('#lerr').textContent='No living heroes in the party.';return;}
- const res=makeLoot(L,l,t0);
- const r={uid:me||'local',who:pv?'The party':sv?'The stash':ch?ch.name:'',col:(ch&&colorMap[ch.id])||myColor()||'',expr:'Loot box · T'+(res.tier+1)+' '+LT[res.tier],total:res.coins,booms:res.booms,ts:Date.now(),detail:JSON.stringify({parts:res.coinParts,mod:0}),loot:JSON.stringify(res)};
+$('#lhero').onchange=e=>{if(e&&e.isTrusted)lheroTouched=true;syncHL();const v=$('#lhero').value;if(GROUP(v)){$('#lhl').value=avgLvl();return;}const c=chars.find(x=>x.id===v);if(c)$('#lhl').value=c.level;};
+// Roll a box and hand out the loot. spec: {to:'hero'|'party'|'stash'|'none', hero, L, t0, l (only for 'none'), note}
+async function openLoot(spec,by){
+ const heroes=spec.to==='party'?living():[],ch=spec.to==='hero'?chars.find(c=>c.id===spec.hero):null;
+ if(spec.to==='hero'&&(!ch||ch.dead)){toast('That hero can no longer take this box');return false;}
+ if(spec.to==='party'&&!heroes.length){toast('No living heroes in the party');return false;}
+ const l=spec.to==='none'?spec.l:spec.to==='hero'?ch.level:avgLvl();
+ const res=makeLoot(spec.L,l,spec.t0),pv=spec.to==='party',sv=spec.to==='stash';
+ const r={uid:me||'local',who:pv?'The party':sv?'The stash':ch?ch.name:'',col:(ch&&colorMap[ch.id])||myColor()||'',expr:'Loot box · T'+(res.tier+1)+' '+LT[res.tier]+(spec.note?' · '+spec.note:''),total:res.coins,booms:res.booms,ts:Date.now(),detail:JSON.stringify({parts:res.coinParts,mod:0}),loot:JSON.stringify(res),by:by||''};
  toast((pv?'The party opened':sv?'The stash got':ch?ch.name+' opened':'You opened')+' a loot box'+(res.booms?'  💥×'+res.booms:''));
  if(res.booms>0||res.up>0)burst(Math.min(260,60+res.booms*30+res.up*60));
  if(db&&me)db.collection('rolls').doc(r.ts+'-'+Math.random().toString(36).slice(2,7)).set(r).catch(()=>{rolls.unshift(r);render();});
  else{rolls.unshift(r);render();}
- if(pv&&partyCol){try{for(const h of heroes)await applyLoot(h,res);toast('Everyone got a copy ('+heroes.length+' hero'+(heroes.length>1?'es':'')+')');}catch{toast('Could not add the loot to every sheet');}}
- if(sv&&stashCol){try{await applyLootStash(res);toast('Added to the party stash');}catch{toast('Could not add the loot to the stash');}}
- if(ch&&partyCol){try{await applyLoot(ch,res);toast('Added to '+(ch.name||'the hero')+"'s sheet");}catch{toast('Could not add the loot to the sheet');}}
+ try{
+  if(pv&&partyCol){for(const h of heroes)await applyLoot(h,res);}
+  if(sv&&stashCol)await applyLootStash(res);
+  if(ch&&partyCol)await applyLoot(ch,res);
+ }catch{toast('Could not add all of the loot. Check the sheets.');}
+ return true;
+}
+$('#lgo').onclick=async()=>{
+ const L=Math.floor(+$('#lmon').value)||0,hv=$('#lhero').value,t0=+$('#ltier').value||0,sh=shared();
+ if(sh&&!hv){$('#lerr').textContent='Choose a hero, the whole party, or the party stash.';return;}
+ const l=heroLvl();
+ if(L<1||l<1||L>99||l>100){$('#lerr').textContent='Enemy level 1 to 99, hero level 1 to 100.';return;}
+ $('#lerr').textContent='';
+ const to=hv==='__party'?'party':hv==='__stash'?'stash':hv?'hero':'none';
+ if(!sh){const ch=chars.find(c=>c.id===hv);await openLoot({to,hero:hv,L,t0,l},ch?'Opened by '+ch.name:'');return;}
+ const ch=chars.find(c=>c.id===hv),note=$('#lnote').value.trim().slice(0,40),grp=GROUP(hv),secs=+$('#ltime').value||30;
+ const b={to,hero:ch?ch.id:'',heroName:ch?ch.name:'',L,t0,note,st:'ready',hands:{},ts:Date.now(),...(grp?{secs,until:Date.now()+secs*1000}:{})};
+ try{await boxCol.doc('b'+Date.now().toString(36)+Math.random().toString(36).slice(2,5)).set(b);}catch{$('#lerr').textContent='Could not make the box. Try again.';return;}
+ $('#lnote').value='';
+ const who=to==='party'?'the whole party':to==='stash'?'the party stash':ch.name;
+ logEvent('🎁 A T'+(t0+1)+' '+LT[t0]+' loot box is waiting for '+who+(note?' ('+note+')':'')+(grp?'. Grab it in the Loot tab within '+fmtSecs(secs)+'!':'. Open it in the Loot tab.'));
+ toast('Loot box made for '+who);
 };
+const fmtSecs=s=>s>=60?(s%60?Math.floor(s/60)+'m '+s%60+'s':(s/60)+' min'):s+' sec';
+const clock=ms=>{const s=Math.max(0,Math.ceil(ms/1000));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');};
+function myName(){const h=chars.find(c=>c.id===myHero&&!c.dead);return h?(h.name||'A hero'):isDM?'the Core Master':(names[me]||'Someone');}
+const canOpenBox=b=>isDM||(b.to==='hero'&&b.hero===myHero);
+// Claim the box so only one device ever opens it, then roll and remove it.
+async function claimAndOpen(b,by){
+ if(busy.has(b.id))return;busy.add(b.id);
+ const ref=boxCol.doc(b.id);let won=false;
+ try{
+  if(db.tx)await db.tx(async tx=>{const s=await tx.get(ref);won=false;if(!s.exists||s.data().st!=='ready')return;tx.update(ref,{st:'opening'});won=true;});
+  else{await ref.update({st:'opening'});won=true;}
+ }catch{won=false;}
+ if(!won){busy.delete(b.id);return;}
+ try{await openLoot(b,by);}finally{ref.delete().catch(()=>{});busy.delete(b.id);}
+}
+function openMine(b){if(!canOpenBox(b))return toast('Only '+(b.heroName||'that hero')+' or the Core Master can open this box');
+ claimAndOpen(b,'Opened by '+(isDM&&b.hero!==myHero?'the Core Master for '+b.heroName:myName()));}
+function grab(b){const h=chars.find(c=>c.id===myHero&&!c.dead),key=h?h.id:'u'+me;
+ boxCol.doc(b.id).update({['hands.'+key]:h?(h.name||'A hero'):myName()}).then(()=>toast('You grabbed the box')).catch(()=>toast('Could not grab it. Try again.'));}
+function groupBy(b){const n=Object.values(b.hands||{});return n.length?'Opened together by '+n.join(', '):'Nobody grabbed it in time, so it opened when the timer ran out';}
+function allIn(b){const a=living(),h=b.hands||{};return a.length>0&&a.every(c=>c.id in h);}
+function checkBoxes(){if(!shared())return;const now=Date.now();
+ for(const b of boxes)if(b.st==='ready'&&(b.to==='party'||b.to==='stash')&&(now>=(b.until||0)||allIn(b)))claimAndOpen(b,groupBy(b));}
+function renderBoxes(){
+ const w=$('#boxlist');if(!w)return;w.replaceChildren();const n=boxes.length;
+ $('#tL').textContent='Loot'+(n?' ('+n+')':'');
+ if(!shared()){w.hidden=true;return;}w.hidden=false;
+ w.append(el('b','pn','Loot boxes'));
+ if(!n){w.append(el('div','note',isDM?'No boxes waiting. Make one in the CM tab.':'No loot boxes waiting. The Core Master makes them.'));return;}
+ const now=Date.now();
+ boxes.forEach(b=>{const x=el('div','bx'),h=el('div','bxh'),grp=b.to==='party'||b.to==='stash';
+  const who=b.to==='party'?'Whole party':b.to==='stash'?'Party stash':(b.heroName||'A hero');
+  h.append(el('b',null,'🎁 T'+(b.t0+1)+' '+LT[b.t0]+' box · for '+who));
+  if(grp&&b.st==='ready')h.append(el('span','cd',clock((b.until||0)-now)));x.append(h);
+  const info=el('div','note');info.append('Enemy level '+b.L+(b.note?' · '+b.note:'')+(grp?(b.to==='party'?' · everyone gets a copy':' · one copy for the stash'):''));x.append(info);
+  const row=el('div','row');
+  if(b.st!=='ready')row.append(el('span','note','Opening…'));
+  else if(grp){const hands=b.hands||{},h0=chars.find(c=>c.id===myHero&&!c.dead),mk=h0?h0.id:'u'+me,inn=mk in hands;
+   row.append(inn?el('span','note','✋ You grabbed it'):btn('✋ Grab it',()=>grab(b),'sm rb'));
+   if(isDM)row.append(btn('Open now',()=>claimAndOpen(b,groupBy(b)),'sm'));
+   const nm=Object.values(hands);x.append(el('div','note',nm.length?'Grabbed by '+nm.join(', '):'Nobody has grabbed it yet'));}
+  else if(canOpenBox(b))row.append(btn('🎁 Open',()=>openMine(b),'sm rb'));
+  else row.append(el('span','note','Waiting for '+(b.heroName||'that hero')+' to open it'));
+  if(isDM){let armed=0;const d=btn('✕',()=>{if(!armed){armed=1;d.textContent='Tap again to cancel';setTimeout(()=>{armed=0;d.textContent='✕';},3000);}else boxCol.doc(b.id).delete().catch(()=>{});});row.append(d);}
+  x.append(row);w.append(x);});
+}
+setInterval(()=>{if(boxes.some(b=>b.until&&b.st==='ready')){renderBoxes();checkBoxes();}},1000);
 // ---------- colors ----------
 const COLORS=[['red','Red'],['amber','Amber'],['green','Green'],['teal','Teal'],['blue','Blue'],['purple','Purple'],['pink','Pink'],['slate','Slate']];
 let colorMap={},colorsCol=null;
@@ -729,7 +849,7 @@ function monCard(m){
   w.append(nn,ee,tt,btn('Add',()=>{const x=ee.value.replace(/\s+/g,'');if(!nn.value.trim()||!parse(x))return toast('Need a name and a valid roll');putM(m,{abil:JSON.stringify([...ab,{n:nn.value.trim().slice(0,30),e:x,t:tt.value}])});},'sm'));box.append(w);}
  const ft=el('div','row');
  ft.append(btn('Reroll stats',()=>{const g=genMon(m.name,m.level,m.kind,m.rarity);putM(m,{con:g.con,str:g.str,int:g.int,spd:g.spd,cha:g.cha,lck:g.lck,hpCur:null});}),
-  btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lhero').onchange();tab('l');toast('Loot tab set for a level '+m.level+' '+LT[m.rarity]+' monster');}));
+  btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
  let armed=0;const d=btn('Remove',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove';},3000);}else{if(initCol)initCol.doc('m'+m.id).delete().catch(()=>{});monCol.doc(m.id).delete();}});ft.append(d);box.append(ft);
  return box;}
 function renderMon(){
@@ -842,7 +962,7 @@ function renderStash(){
   const st=document.createElement('select');st.add(new Option('No stat bonus',''));STATS.forEach(([k,l])=>st.add(new Option(l,k)));
   const pl=num('Bonus');
   const r1=el('div','row add arow');r1.append(ni);const r2=el('div','row add arow');r2.append(ty,tr);const r3=el('div','row add arow');r3.append(st,pl,btn('Add item',()=>{
-   const t=+tr.value,sk=st.value,plus=sk?Math.max(0,Math.floor(+pl.value)||0):0,typ=ty.value;
+   const t=+tr.value,typ=ty.value,sk=typ==='gem'?'':st.value,plus=sk?Math.max(0,Math.floor(+pl.value)||0):0;
    const nm=ni.value.trim().slice(0,40)||(LT[t]+' '+typ+(plus>0?' +'+plus+' '+STATLAB[sk]:''));
    const l=stashList();l.push({id:suid(),k:'item',ty:typ,n:nm,t,plus,sk});dmAdd(l,stash.coins,'Added '+nm);ni.value='';},'sm rb dmb'));
   dmk.push(r1,r2,r3);
@@ -857,7 +977,7 @@ function renderStash(){
  }
 }
 // ---------- startup (page works alone, lights up with db) ----------
-renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();
+renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
 (async()=>{
  try{userNS=await claude.use('user');}catch{}
  try{db=await claude.use('db');}catch{}
@@ -872,6 +992,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();
  $('#tM').hidden=!isDM;if(isDM){monCol=db.collection('monsters');monCol.onSnapshot(s=>{monsters=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderMon();});}
  initCol=db.collection('init');
  initCol.onSnapshot(s=>{inits=s.docs.filter(d=>d.id!=='_turn').map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.v-a.v||a.ts-b.ts);const t=s.docs.find(d=>d.id==='_turn');turn=t?t.data().id:null;round=t?(t.data().round||1):1;renderInit();});
+ boxCol=db.collection('boxes');boxCol.onSnapshot(s=>{boxes=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderBoxes();checkBoxes();});fillHeroes();
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');
  colorsCol.onSnapshot(s=>{colorMap={};s.docs.forEach(d=>{colorMap[d.id]=(d.data()||{}).c||'';});renderMyColor();renderParty();render();});
