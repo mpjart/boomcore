@@ -92,6 +92,8 @@ a.btnl{display:block;text-align:center;text-decoration:none;font-weight:700;bord
 .stc{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px}.stc button{padding:3px 7px;font-size:12px;font-weight:700;background:var(--chip);color:var(--cc,var(--ink));border-radius:8px;min-width:0}.stc button small{color:var(--mute);font-weight:600;margin-right:3px;font-size:10px;letter-spacing:.03em}
 .bx{border-top:1px solid var(--line);padding:9px 0;display:flex;flex-direction:column;gap:6px}.bx:first-of-type{border-top:0}.bxh{display:flex;justify-content:space-between;align-items:center;gap:8px}.bxh b{font-size:15px}.bx .note b{color:var(--ink)}.cd{font-variant-numeric:tabular-nums;font-weight:800;color:var(--boom)}.bx .row{flex-wrap:wrap}
 .mine{font-size:12px;color:var(--mute);margin:4px 0 8px}
+.stc .arm{padding:3px 7px;font-size:12px;font-weight:700;border:1px dashed var(--line);color:var(--cc,var(--ink));border-radius:8px;display:inline-flex;align-items:center}.stc .arm small{color:var(--mute);font-weight:600;margin-right:3px;font-size:10px;letter-spacing:.03em}
+details.stx{border:0;margin:0}details.stx>summary{padding:0;font-size:18px;font-weight:700;text-transform:none;color:var(--cc,var(--ink));font-family:var(--fd)}details.stx>summary .sumx{font-family:var(--fb)}details.stx[open]>summary{padding-bottom:6px}
 
 /* ---------- table themes (the CM picks one for the whole table) ---------- */
 :root{--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--fd:var(--fb);--r:14px;--rb:10px;--bw:1px;--sh:none;--hp:#16a34a;--boomfg:#fff}
@@ -341,6 +343,7 @@ const canAct=c=>!c.dead&&(isDM||(!!partyCol&&c.id===myHero));
 const SHORT={con:'CON',str:'STR',int:'INT',spd:'SPD',cha:'CHA',lck:'LCK'};
 function statChips(c){const w=el('div','stc');
  for(const[key,lab]of STATS){const b=btn('',()=>statRoll(c,key,lab),'');b.append(el('small',null,SHORT[key]),String(eff(c,key)));b.title=lab+(bonus(c,key)>0?' ('+c[key]+' +'+bonus(c,key)+' from gear)':'')+' · tap to roll';b.disabled=!!c.dead;w.append(b);}
+ const A=arm(c),a=el('span','arm');a.append(el('small',null,'ARM'),String(A.p+A.m));a.title='Total armor: '+A.p+' physical + '+A.m+' magical';w.append(a);
  return w;}
 function atks(c){try{return JSON.parse(c.atk)}catch{return[]}}
 function put(c,p){Object.assign(c,p);const{id,...d}=c;partyCol.doc(id).set(d).catch(()=>{});}
@@ -970,6 +973,7 @@ function renderStash(){
  const b=$('#stashbox');if(!b)return;b.replaceChildren();b.classList.remove('stashc');b.style.removeProperty('--cc');
  b.append(el('b','pn','Party stash'));
  if(!stashCol){b.append(el('div','note','Join a table to use the shared stash.'));return;}
+ b.replaceChildren();
  const open=stash.open!==false,can=isDM||open;
  const h=chars.find(c=>c.id===myHero&&!c.dead),dmMode=isDM&&!h;
  const col=cvar(h?colorMap[h.id]:myColor());
@@ -1031,6 +1035,14 @@ function renderStash(){
   cc.append(ca,ct,btn('Add coins',()=>{const a=Math.floor(+ca.value)||0;if(a<1)return;const sc=coinAdd(stash.coins,+ct.value,a);dmAdd(stashList(),sc,'Added '+fmtN(a)+' '+LT[+ct.value]+' coins');},'sm rb dmb'));dmk.push(cc);
   b.append(sec('stash:dm','CM: add to stash','',dmk));
  }
+ // fold it all under one summary line: Party stash · coins · item count
+ const kids=[...b.childNodes],d=document.createElement('details'),sm=document.createElement('summary'),sl0=stashList();
+ const nItems=sl0.reduce((n,it)=>n+(it.k==='core'||it.k==='token'?(it.q||1):1),0);
+ const coinTxt=stash.coins.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).reverse().join(', ')||'0';
+ d.className='sx stx';d.open=UI.s['stash:main']!==false;
+ sm.append(el('span',null,'Party stash'),el('span','sumx',coinTxt+' coins · '+nItems+' item'+(nItems===1?'':'s')));d.append(sm,...kids);
+ d.addEventListener('toggle',()=>{UI.s['stash:main']=d.open;uiSave();});
+ b.replaceChildren(d);
 }
 
 // ---------- table themes: look + words ----------

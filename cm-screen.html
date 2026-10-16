@@ -24,7 +24,7 @@ body{margin:0;background:var(--page);color:var(--ink);font-family:var(--fb)}
 .bar .ctl{display:flex;gap:8px;align-items:center}
 .bar select,.bar button{font:inherit;font-size:15px;padding:7px 10px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
 .wrap{padding:16px;display:flex;flex-direction:column;align-items:center;gap:16px}
-.fit{transform-origin:top left}
+.fit{display:flex;flex-direction:column;gap:16px;width:100%;align-items:center}
 .panel{display:block;box-shadow:0 2px 14px rgba(0,0,0,.25)}
 .h{font-family:var(--fc);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase;color:var(--head);margin:0 0 6px 0;padding-bottom:3px;border-bottom:2px solid var(--head)}
 .t{border-collapse:collapse;width:100%;font-size:13px}
@@ -35,6 +35,17 @@ body{margin:0;background:var(--page);color:var(--ink);font-family:var(--fb)}
 p{margin:0 0 6px 0}
 b{color:var(--ink)}
 :root[data-skin="grit"] .h,:root[data-skin="grit"] .t th{letter-spacing:.03em;font-weight:400}
+/* Phones and small tablets: the printed 11x8.5 sheets reflow into one readable column. */
+@media screen and (max-width:1100px){
+ .wrap{padding:10px;align-items:stretch}
+ .panel{width:100%}
+ .panel>div{width:auto!important;height:auto!important;padding:16px!important;font-size:15px!important}
+ .panel>div>div:first-child{flex-wrap:wrap;gap:4px 12px}
+ .panel>div>div:first-child>div:first-child{font-size:24px!important}
+ .panel>div>div:nth-child(2){grid-template-columns:minmax(0,1fr)!important;gap:18px!important}
+ .t{display:block;overflow-x:auto;font-size:14px}
+ .bar{justify-content:center}
+}
 @page{size:11in 8.5in;margin:0}
 @media print{body{background:var(--bg)}.bar{display:none}.wrap{padding:0;gap:0}.fit{transform:none!important;height:auto!important}.panel{box-shadow:none;break-after:page;page-break-after:always}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
@@ -274,9 +285,6 @@ let k0=new URLSearchParams(location.search).get('theme');if(!k0){try{k0=localSto
 setSkin(k0||'core');
 document.getElementById('skin').onchange=e=>{setSkin(e.target.value);const u=new URL(location);u.searchParams.set('theme',e.target.value);history.replaceState(null,'',u);};
 document.getElementById('print').onclick=()=>print();
-// Panels are 11x8.5 in (1056x816 px); shrink them to fit narrow screens.
-function fit(){const f=document.getElementById('fit'),w=document.getElementById('wrap').clientWidth-32,s=Math.min(1,w/1056);f.style.transform=s<1?'scale('+s+')':'';f.style.height=s<1?(f.scrollHeight*s)+'px':'';f.style.width=s<1?'1056px':'';}
-addEventListener('resize',fit);fit();
 </script>
 </body>
 </html>
