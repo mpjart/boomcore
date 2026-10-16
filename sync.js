@@ -48,21 +48,22 @@
   const add=()=>{const m=document.querySelector('main');if(!m||document.getElementById('tbar'))return;
    const b=document.createElement('div');b.id='tbar';
    const left=document.createElement('span'),btn=document.createElement('button');btn.className='ghost sm';
-   if(t.solo){left.textContent='Playing solo on this device';btn.textContent=configured?'Join a table':'';btn.hidden=!configured;}
+   if(t.solo){left.textContent=t.why?'Solo mode · '+t.why:'Playing solo on this device';btn.textContent=t.why?'Try again':'Join a table';btn.hidden=!configured&&!t.why;}
    else{left.append('Table ');const c=document.createElement('b');c.textContent=t.code;left.append(c,' · '+(t.owner?'Core Master':t.name));btn.textContent='Leave table';}
-   btn.onclick=()=>{if(!t.solo&&!confirm('Leave this table on this device? You can rejoin with the code '+t.code+'.'))return;lsSet(t.solo?{name:''}:{name:t.name,code:''});location.reload();};
+   btn.onclick=()=>{if(t.why){location.reload();return;}if(!t.solo&&!confirm('Leave this table on this device? You can rejoin with the code '+t.code+'.'))return;lsSet(t.solo?{name:''}:{name:t.name,code:''});location.reload();};
    b.append(left,btn);m.prepend(b);};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',add);else add();
  }
 
  async function connect(){
-  if(!configured){bar({solo:true});return null;}
+  if(!configured){bar({solo:true,why:window.firebase?'shared tables are not set up':'could not load Firebase (check the connection or a content blocker)'});return null;}
   let saved=lsGet();
   if(saved&&saved.solo){bar({solo:true});return null;}
   firebase.initializeApp(cfg);
   const fs=firebase.firestore();
   try{fs.settings({ignoreUndefinedProperties:true});}catch{}
-  const cred=await firebase.auth().signInAnonymously();
+  let cred;try{cred=await firebase.auth().signInAnonymously();}
+  catch(e){const c=(e&&e.code)||'';bar({solo:true,why:/operation-not-allowed|admin-restricted/.test(c)?'Anonymous sign-in is off in Firebase':'could not sign in ('+(c||'network')+')'});return null;}
   const uid=cred.user.uid;
   let msg='';
   for(;;){
@@ -84,7 +85,7 @@
     const info={fs,uid,code:t.code,name:t.name,owner:owner===uid,base:'tables/'+t.code+'/'};
     bar({code:t.code,name:t.name,owner:info.owner});
     return info;
-   }catch(e){msg='Could not reach the table. Check your connection and try again.';}
+   }catch(e){const c=(e&&e.code)||'';msg=c==='permission-denied'?'The database rules are blocking this. Publish firestore.rules in Firebase.':'Could not reach the table ('+(c||'network')+'). Try again.';}
   }
  }
 
