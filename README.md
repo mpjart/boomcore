@@ -14,9 +14,12 @@ The Core Master starts a table and shares its 6-letter code; players join with t
 
 The Core Master picks the table's theme in the CM tab: Core, Fantasy, Space, Horror, or Street Grit. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
 
+## Loot names
+
+Every item a loot box drops gets a name from its theme's d100 tables in `names.js`: a clever name plus a base item, like Black Hawk Longbow (+2 Speed). Gems get a quality word for their tier. Weapons carry their hands, reach, and damage type, and armor its type, so equipping sets them automatically. The Core Master can switch on **After Dark loot names (21+)** in the CM tab for adult tables. The tables are reviewed in the Boom Loot Name Tables doc.
+
 ## To do next
 
-- **Name roll tables:** clever names for items and abilities, by theme.
 - **Pirate theme.**
 - **Holding a turn** in the initiative order.
 

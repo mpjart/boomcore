@@ -138,7 +138,7 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden>
-<div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div></div>
+<div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: crude, punny item names from the After Dark list, with any theme.</div></div>
 <a class="btnl" id="cmscreen" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
 <div class="card" id="initbox"></div>
 <div class="card" id="mgen">
@@ -158,6 +158,7 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js?v=5"></script>
 <script src="sync.js?v=5"></script>
+<script src="names.js?v=1"></script>
 <script>
 const $=s=>document.querySelector(s), CAP=100;
 // Links to the Boom Core Guidelines (handbook) and the CM screen. Change these if they move.
@@ -303,7 +304,7 @@ function equipItem(c,id){
  const slot=SLOTS[kind].find(x=>!(c[x+'N']||'').trim()&&!c[x+'I']);
  if(!slot)return toast('All '+(kind==='magic'?'magic item':kind)+' slots are full. Unequip something first.');
  const patch={[slot+'N']:it.n,[slot+'I']:JSON.stringify(it)};
- if(kind==='armor')patch[slot+'V']=String((it.t||0)+1);else if(kind==='weapon'){patch[slot+'V']='';patch[slot+'T']='p';patch[slot+'H']='1';patch[slot+'R']='t';}else patch[slot+'V']='';
+ if(kind==='armor'){patch[slot+'V']=String((it.t||0)+1);if(it.at)patch[slot+'T']=it.at;}else if(kind==='weapon'){patch[slot+'V']='';patch[slot+'T']=it.wt||'p';patch[slot+'H']=it.wh||'1';patch[slot+'R']=it.wr||'t';}else patch[slot+'V']='';
  setLoot(c,l.filter(x=>x.id!==id),patch);
  toast(c.name+' equips '+it.n);}
 function unequip(c,sl){
@@ -655,6 +656,17 @@ function tab(t){$('#pgDice').hidden=t!=='d';$('#pgParty').hidden=t!=='p';$('#pgL
 // ---------- loot box ----------
 const LT=['Common','Uncommon','Rare','Epic','Legendary','Divine'],ITYPE=['Weapon','Armor','Jewelry','Gem'],LOOTCAP=100,band=n=>n<=10?0:n<=20?1:n<=40?2:n<=60?3:n<=80?4:5;
 const fmtN=n=>n<1e15?Math.round(n).toLocaleString('en-US'):n.toExponential(2);
+// ---------- item names (see names.js) ----------
+let adultLoot=false;
+const NSET=()=>{const B=window.BOOM_NAMES||{};return B[adultLoot?'adult':(skin==='core'?'fantasy':skin)]||B.fantasy||null;};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+// Clever name + base item; gems get the tier's quality word instead. Weapons carry hands/reach/damage, armor its type.
+function nameItem(type,tier){const S=NSET(),ty=String(type).toLowerCase();if(!S)return{n:LT[tier]+' '+ty};
+ if(ty==='gem')return{n:S.q[tier]+' '+pick(S.g)};
+ const c=pick(S.n);
+ if(ty==='weapon'){const w=pick(S.w);return{n:c+' '+w[0],wh:String(w[1]),wr:w[2],wt:w[3]};}
+ if(ty==='armor'){const a=pick(S.a);return{n:c+' '+a[0],at:a[1]};}
+ return{n:c+' '+pick(S.j)};}
 function makeLoot(L,l,t0){
  const cr=rollExpr([{sign:1,n:Math.max(2,L+l),s:6}]);
  let tier=t0,made=0,pending=1,up=0,booms=0;const seq=[],fin=[];
@@ -672,7 +684,7 @@ function makeLoot(L,l,t0){
   if(v%2===0){cores++;e.core=1;}
   if(v<=50){e.k='reagent';e.val=v;}
   else if(v<=75)e.k='token';
-  else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=e.type==='Gem'?0:tier;if(e.plus>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);}
+  else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=e.type==='Gem'?0:tier;if(e.plus>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);e.nm=nameItem(e.type,tier);}
   loot.push(e);
  }
  return{L,l,t0,tier,coins:cr.total,coinParts:cr.parts,booms:cr.booms+booms,up,seq,loot,cores,core:L*100,ct:band(L)};
@@ -690,7 +702,7 @@ function lootBody(r){
   let t;
   if(e.k==='reagent')t='🧪 Sellable reagent · worth '+e.val+' '+LT[o.tier]+' coins';
   else if(e.k==='token')t='✨ Ability token';
-  else t=(e.type==='Gem'?'💠 ':'🎒 ')+LT[o.tier]+' '+e.type.toLowerCase()+(e.plus>0&&e.type!=='Gem'?' (+'+e.plus+' '+e.stat+')':'')+' · sells for 1d100 '+LT[o.tier]+' coins';
+  else t=(e.type==='Gem'?'💠 ':'🎒 ')+(e.nm?e.nm.n:LT[o.tier]+' '+e.type.toLowerCase())+(e.plus>0&&e.type!=='Gem'?' (+'+e.plus+' '+e.stat+')':'')+' · '+LT[o.tier]+' '+e.type.toLowerCase()+', sells for 1d100 '+LT[o.tier]+' coins';
   row(t+(e.core?'  💎':''),String(e.v));
  }
  if(o.cores>0)w.append(el('div','evt-t','💎 '+o.cores+' T'+(o.tier+1)+' soul core'+(o.cores>1?'s':'')+' · level '+o.L+' · worth '+fmtN(o.core)+' '+LT[o.ct==null?0:o.ct]+' coins each'));
@@ -702,7 +714,7 @@ function addLoot(l,arr,res){
  for(const e of res.loot){
   if(e.k==='reagent'){let r=l.find(x=>x.k==='reagent');if(!r){r={id:'reagents',k:'reagent',n:'Sellable reagents',tot:[0,0,0,0,0,0]};l.unshift(r);}r.tot[T]+=e.val;}
   else if(e.k==='token'){const t=l.find(x=>x.k==='token');if(t)t.q+=1;else l.push({id:'tokens',k:'token',n:'Ability tokens',q:1});}
-  else{const gem=e.type==='Gem',p=gem?0:e.plus;l.push({id:uid(),k:'item',ty:e.type.toLowerCase(),n:LT[T]+' '+e.type.toLowerCase()+(p>0?' +'+p+' '+e.stat:''),t:T,plus:p,sk:gem?'':(e.sk||'')});}
+  else{const gem=e.type==='Gem',p=gem?0:e.plus,nm=e.nm||{n:LT[T]+' '+e.type.toLowerCase()};l.push({id:uid(),k:'item',ty:e.type.toLowerCase(),n:nm.n+(p>0?' +'+p+' '+e.stat:''),t:T,plus:p,sk:gem?'':(e.sk||''),...(nm.wh?{wh:nm.wh,wr:nm.wr,wt:nm.wt}:{}),...(nm.at?{at:nm.at}:{})});}
  }
  if(res.cores>0){const s=findCore(l,res.L,T);if(s)s.q+=res.cores;else l.push({id:uid(),k:'core',n:coreName({L:res.L,r:T}),L:res.L,v:res.core,t:ct,r:T,q:res.cores});}
 }
@@ -999,15 +1011,15 @@ function renderStash(){
  }
  if(dmMode){
   const dmk=[];
-  const ni=document.createElement('input');ni.placeholder='Item name (optional)';
+  const ni=document.createElement('input');ni.placeholder='Item name (optional)';let rolled=null;
   const ty=document.createElement('select');['Weapon','Armor','Jewelry','Gem'].forEach(x=>ty.add(new Option(x,x.toLowerCase())));
   const tr=document.createElement('select');LT.forEach((n,i)=>tr.add(new Option('T'+(i+1)+' '+n,i)));
   const st=document.createElement('select');st.add(new Option('No stat bonus',''));STATS.forEach(([k,l])=>st.add(new Option(l,k)));
   const pl=num('Bonus');
-  const r1=el('div','row add arow');r1.append(ni);const r2=el('div','row add arow');r2.append(ty,tr);const r3=el('div','row add arow');r3.append(st,pl,btn('Add item',()=>{
+  const r1=el('div','row add arow');r1.append(ni,btn('🎲 Name',()=>{rolled=nameItem(ty.value,+tr.value);ni.value=rolled.n;},'sm rb dmb'));const r2=el('div','row add arow');r2.append(ty,tr);const r3=el('div','row add arow');r3.append(st,pl,btn('Add item',()=>{
    const t=+tr.value,typ=ty.value,sk=typ==='gem'?'':st.value,plus=sk?Math.max(0,Math.floor(+pl.value)||0):0;
-   const nm=ni.value.trim().slice(0,40)||(LT[t]+' '+typ+(plus>0?' +'+plus+' '+STATLAB[sk]:''));
-   const l=stashList();l.push({id:suid(),k:'item',ty:typ,n:nm,t,plus,sk});dmAdd(l,stash.coins,'Added '+nm);ni.value='';},'sm rb dmb'));
+   const nm0=ni.value.trim().slice(0,80),nm=(nm0||(LT[t]+' '+typ))+(plus>0&&(!nm0||(rolled&&nm0===rolled.n))?' +'+plus+' '+STATLAB[sk]:'');
+   const l=stashList();const meta=rolled&&ni.value.trim()===rolled.n?{...(rolled.wh?{wh:rolled.wh,wr:rolled.wr,wt:rolled.wt}:{}),...(rolled.at?{at:rolled.at}:{})}:{};l.push({id:suid(),k:'item',ty:typ,n:nm,t,plus,sk,...meta});rolled=null;dmAdd(l,stash.coins,'Added '+nm);ni.value='';},'sm rb dmb'));
   dmk.push(r1,r2,r3);
   const tk=el('div','row add arow'),tq=num('Tokens',1);
   tk.append(tq,btn('Add tokens',()=>{const q=Math.floor(+tq.value)||0;if(q<1)return toast('Enter how many tokens');const l=stashList(),t=l.find(x=>x.k==='token');if(t)t.q+=q;else l.push({id:'tokens',k:'token',n:'Ability tokens',q});dmAdd(l,stash.coins,'Added '+q+' ability token'+(q>1?'s':''));},'sm rb dmb'));dmk.push(tk);
@@ -1050,10 +1062,12 @@ function applySkin(k){
  render();renderParty();renderMon();renderQuick();swapAll(document.body);}
 function renderSkins(){const w=$('#skins');if(!w)return;w.replaceChildren();
  SKINS.forEach(S=>{const b=el('button','skb'+(S.k===skin?' on':''));const sp=el('span','sp');S.sw.forEach(c=>{const i=document.createElement('i');i.style.background=c;sp.append(i);});b.append(sp,el('span',null,S.n));b.setAttribute('aria-pressed',S.k===skin?'true':'false');b.onclick=()=>setSkin(S.k);w.append(b);});}
-function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,ts:Date.now()}).catch(()=>toast('Could not change the theme'));else applySkin(k);}
+function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,adult:adultLoot,ts:Date.now()}).catch(()=>toast('Could not change the theme'));else applySkin(k);}
+function applyAdult(v){adultLoot=!!v;const c=$('#adultchk');if(c)c.checked=adultLoot;try{localStorage.setItem('boomadult',adultLoot?'1':'')}catch{}}
+$('#adultchk').onchange=e=>{const v=e.target.checked;if(settingsCol)settingsCol.doc('theme').set({skin,adult:v,ts:Date.now()}).catch(()=>toast('Could not change the setting'));else applyAdult(v);};
 // ---------- startup (page works alone, lights up with db) ----------
 renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
-{let k0='core';try{k0=localStorage.getItem('boomskin')||'core'}catch{}applySkin(k0);}
+{let k0='core',a0='';try{k0=localStorage.getItem('boomskin')||'core';a0=localStorage.getItem('boomadult')||''}catch{}applyAdult(a0);applySkin(k0);}
 (async()=>{
  try{userNS=await claude.use('user');}catch{}
  try{db=await claude.use('db');}catch{}
@@ -1068,7 +1082,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  $('#tM').hidden=!isDM;if(isDM){monCol=db.collection('monsters');monCol.onSnapshot(s=>{monsters=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderMon();});}
  initCol=db.collection('init');
  initCol.onSnapshot(s=>{inits=s.docs.filter(d=>d.id!=='_turn').map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.v-a.v||a.ts-b.ts);const t=s.docs.find(d=>d.id==='_turn');turn=t?t.data().id:null;round=t?(t.data().round||1):1;renderInit();});
- settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');applySkin(d?(d.data().skin||'core'):'core');});
+ settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applyAdult(v.adult);applySkin(v.skin||'core');});
  boxCol=db.collection('boxes');boxCol.onSnapshot(s=>{boxes=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderBoxes();checkBoxes();});fillHeroes();
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');
