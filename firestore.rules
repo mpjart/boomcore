@@ -1,0 +1,17 @@
+rules_version = '2';
+// Boom Core: anyone signed in (anonymously) who knows a table's code can play at that table.
+// Only the Core Master who created a table can change or delete the table itself.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /tables/{code} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.resource.data.owner == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.owner == request.auth.uid;
+
+      match /{rest=**} {
+        allow read, write: if request.auth != null
+          && exists(/databases/$(database)/documents/tables/$(code));
+      }
+    }
+  }
+}

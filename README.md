@@ -8,7 +8,7 @@
 
 Play it in your browser: https://mpjart.github.io/boomcore/ (works best on a tablet or larger).
 
-> Status: the standalone version currently runs in solo mode (rolls stay on your device). Shared party play is being moved to its own sync service.
+The Core Master starts a table and shares its 6-letter code; players join with the code and everyone sees each other's rolls live. Shared tables run on Firebase's free plan: see `SETUP.md` to connect it. Until then the app runs in solo mode on each device.
 
 ## Rules
 

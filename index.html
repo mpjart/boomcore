@@ -125,6 +125,11 @@ details.how .hw{color:var(--acc);font-weight:700;white-space:nowrap}details.how[
 </div><div id="banner" class="note" style="margin-bottom:8px"></div>
 <div id="best" class="card" hidden></div><div id="clrrow" class="row" style="justify-content:flex-end;margin-bottom:8px" hidden><button class="ghost sm" id="clr">Clear rolls</button></div><div id="feed"></div>
 </main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="sync.js"></script>
 <script>
 const $=s=>document.querySelector(s), CAP=100;
 let db=null, me=null, qcol=null, rolls=[], names={}, userNS=null, quicks=[];
@@ -383,7 +388,7 @@ function charCard(c){
  EDIT=false;
  return box;}
 function renderParty(){renderInit();fillHeroes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
- if(!partyCol)return b.append(el('div','note','Sign in to see the party.'));
+ if(!partyCol)return b.append(el('div','note','Join a table to see the party.'));
  if(!chars.length)return b.append(el('div','note',isDM?'No players yet. Add one above.':'The Core Master has not added players yet.'));
  chars.forEach(c=>b.append(charCard(c)));}
 $('#padd').onclick=()=>{const n=$('#pname').value.trim();if(!n||!partyCol)return;$('#pname').value='';
@@ -729,7 +734,7 @@ function monCard(m){
  return box;}
 function renderMon(){
  const b=$('#mlist');if(!b)return;b.replaceChildren();{const x=$('#mclr');if(x){x.hidden=!monCol||!monsters.length;x.textContent='Remove all monsters ('+monsters.length+')';}}
- if(!monCol)return b.append(el('div','note','Sign in as the Core Master to use monsters.'));
+ if(!monCol)return b.append(el('div','note','Start a table as the Core Master to use monsters.'));
  if(!monsters.length)return b.append(el('div','note','No monsters yet. Generate one above.'));
  monsters.forEach(m=>b.append(monCard(m)));}
 KINDS.forEach(([k,n])=>$('#mkind').add(new Option(n,k)));
@@ -744,7 +749,7 @@ $('#mclr').onclick=()=>{const b=$('#mclr');if(!monCol||!monsters.length)return;
  toast('Removed '+n+' monster'+(n>1?'s':'')+'. Ready for the next encounter');};
 $('#mgo').onclick=()=>{
  const lv=Math.floor(+$('#mlvl').value)||0;
- if(!monCol){$('#merr').textContent='Sign in as the Core Master to add monsters.';return;}
+ if(!monCol){$('#merr').textContent='Start a table as the Core Master to add monsters.';return;}
  if(lv<1||lv>99){$('#merr').textContent='Monster level 1 to 99.';return;}
  $('#merr').textContent='';
  const m=genMon($('#mname').value.trim().slice(0,40),lv,$('#mkind').value,+$('#mrar').value||0),id='m'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
@@ -789,7 +794,7 @@ async function dmAdd(loot,coins,msg){try{await stashSave({loot:JSON.stringify(lo
 function renderStash(){
  const b=$('#stashbox');if(!b)return;b.replaceChildren();b.classList.remove('stashc');b.style.removeProperty('--cc');
  b.append(el('b','pn','Party stash'));
- if(!stashCol){b.append(el('div','note','Sign in to use the shared stash.'));return;}
+ if(!stashCol){b.append(el('div','note','Join a table to use the shared stash.'));return;}
  const open=stash.open!==false,can=isDM||open;
  const h=chars.find(c=>c.id===myHero&&!c.dead),dmMode=isDM&&!h;
  const col=cvar(h?colorMap[h.id]:myColor());
@@ -859,7 +864,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();
  if(userNS){try{me=await userNS.id();}catch{}try{isDM=await userNS.isOwner();}catch{}}
  if(!db||!me){
   quicks=lsGet();renderQuick();colorMap['ulocal']=lsColGet();renderMyColor();render();
-  $('#banner').textContent='Sign in to share rolls with your party. Rolling solo for now.';
+  $('#banner').textContent='';
   return;
  }
  qcol=db.collection('data/users/'+me);
