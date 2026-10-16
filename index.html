@@ -108,7 +108,7 @@ a.btnl{display:block;text-align:center;text-decoration:none;font-weight:700;bord
 </div>
 <div class="card"><label>Your color</label><div id="mycol"></div><div class="note">Your rolls show in this color for the whole party. Rolls made from a character card use that character's color.</div></div>
 </div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div></div><div id="pgLoot" hidden>
-<details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier. Even rolls also drop a soul core.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
+<details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
 <div class="card" id="boxlist"></div>
 <div class="card" id="lootmk">
  <b class="pn" id="lmkh">Make a loot box</b>
@@ -447,58 +447,76 @@ function empower(c,t,amt){
  if(lv>=100)xp=0n;
  const ex={coins:arr,gold:arr[0],xp:xp.toString()};if(g>0)ex.level=lv;put(c,ex);
  const m=c.name+' empowers their core with '+fmtN(a)+' '+LT[t]+' coins'+(g>0?' and reaches level '+lv+'!':'');toast(m);if(g>0)logEvent(m);}
+// ---------- ability tokens and training ----------
+// Tokens have no tier and stack into one count. Learning a new T1 ability costs 1 token + a T1 core or better.
+// Training an ability to Tn costs 1 token + a Tn core or better. A core's training tier (r) is the tier of the box it came from.
 let tokOpen=null;
+const crT=it=>it.r!=null?it.r:(it.t||0);
+const coreName=it=>'Level '+it.L+' soul core · T'+(crT(it)+1);
+const tokCount=l=>{const t=l.find(x=>x.k==='token');return t?t.q:0;};
+const findCore=(l,L,r)=>l.find(x=>x.k==='core'&&x.L===L&&crT(x)===r);
+// the cheapest core that can pay for a tier: the lowest training tier that is high enough, then the lowest level
+function pickCore(l,need){return l.filter(x=>x.k==='core'&&x.q>0&&crT(x)+1>=need).sort((a,b)=>crT(a)-crT(b)||a.L-b.L)[0]||null;}
+function spend(l,core){const t=l.find(x=>x.k==='token');t.q-=1;core.q-=1;return l.filter(x=>!((x.k==='token'||x.k==='core')&&x.q<=0));}
 function trainOpen(c,i){
  const a=atks(c)[i];if(!a)return;const r=a.r||1;
- const t=lootList(c).filter(x=>x.k==='token'&&x.t+1>r);
  if(r>=6)return toast(a.n+' is already T6');
- if(!t.length)return toast('No token can train this ability. It needs a token above T'+r);
- tokOpen=c.id+':'+t[0].id;renderParty();}
-function trainAb(c,tid,i){
- const l=lootList(c),tk=l.find(x=>x.id===tid),ab=atks(c),a=ab[i];if(!tk||!a)return;
- const r=a.r||1,N=tk.t+1;if(r>=N||r>=6)return toast('That token is too low to train this ability');
- const nr=r+1,m=/^(\d+)d6(.*)$/i.exec(a.e);let e=a.e,note='';
+ const l=lootList(c);if(!tokCount(l))return toast('Training needs an ability token');
+ if(!pickCore(l,r+1))return toast('Training '+a.n+' to T'+(r+1)+' needs a T'+(r+1)+' core or better');
+ tokOpen=c.id+':tokens';renderParty();}
+function trainAb(c,i){
+ const l=lootList(c),ab=atks(c),a=ab[i];if(!a)return;
+ const r=a.r||1,nr=r+1;if(r>=6)return toast(a.n+' is already T6');
+ const core=pickCore(l,nr);if(!tokCount(l)||!core)return toast('Training to T'+nr+' needs 1 token and a T'+nr+' core or better');
+ const m=/^(\d+)d6(.*)$/i.exec(a.e);let e=a.e,note='';
  if(m)e=nr+'d6'+m[2];else note=' (update its dice by hand)';
- ab[i]={...a,r:nr,e};tokOpen=null;
- put(c,{loot:JSON.stringify(l.filter(x=>x.id!==tid)),atk:JSON.stringify(ab)});
- const msg=c.name+' trains '+a.n+' to T'+nr+note;toast(msg);logEvent(msg);}
-function learnAb(c,tid,name,expr,type){
- const l=lootList(c),tk=l.find(x=>x.id===tid),ab=atks(c),k=calc(c);if(!tk)return;
+ const cn=coreName(core).replace('Level','level');ab[i]={...a,r:nr,e};tokOpen=null;
+ put(c,{loot:JSON.stringify(spend(l,core)),atk:JSON.stringify(ab)});
+ const msg=c.name+' trains '+a.n+' to T'+nr+' (1 token + a '+cn+')'+note;toast(msg);logEvent(msg);}
+function learnAb(c,name,expr,type){
+ const l=lootList(c),ab=atks(c),k=calc(c);
  const ee=(expr||'1d6').replace(/\s+/g,''),nm=(name||'').trim().slice(0,30);
  if(!nm||!parse(ee))return toast('Need a name and a valid roll');
  if(ab.length>=k.slots)return toast('No free ability slot');
- ab.push({n:nm,e:ee,t:type,r:1});tokOpen=null;
- put(c,{loot:JSON.stringify(l.filter(x=>x.id!==tid)),atk:JSON.stringify(ab)});
- const msg=c.name+' learns '+nm+' (T1)';toast(msg);logEvent(msg);}
-function tokPanel(c,it){
- const N=it.t+1,w=el('div','tp'),ab=atks(c),k=calc(c),full=isDM;
- w.append(el('b',null,'T'+N+' '+LT[it.t]+' token'));
- if(full)w.append(el('small',null,'Learn a new T1 ability'));
- if(!full)w.append(el('div','note','Players can use a token to train an ability one tier. Learning a new ability or consuming the token is up to the Core Master.'));
- else if(ab.length>=k.slots)w.append(el('div','note','No free ability slot. Remove an ability first.'));
- else{const r=el('div','row add'),n=document.createElement('input'),e=document.createElement('input'),t=document.createElement('select');
-  n.placeholder='Name';e.placeholder='1d6';e.value='1d6';
-  [['p','Physical (Str)'],['m','Magic (Int)'],['c','Lifeforce (Con)'],['s','Speed'],['h','Charm'],['l','Spirit/Luck']].forEach(([v,x])=>t.add(new Option(x,v)));
-  r.append(n,e,t,btn('Learn',()=>learnAb(c,it.id,n.value,e.value,t.value),'sm rb'));w.append(r);}
- w.append(el('small',null,'Train an ability one tier (up to T'+N+')'));
- const el2=ab.map((a,i)=>({a,i})).filter(x=>(x.a.r||1)<N);
- if(!el2.length)w.append(el('div','note','No ability can be trained by this token.'));
- el2.forEach(x=>w.append(btn(x.a.n+': T'+(x.a.r||1)+' → T'+((x.a.r||1)+1),()=>trainAb(c,it.id,x.i),'sm rb')));
- const f=el('div','row');if(full)f.append(btn('Consume to mimic once',()=>consumeLoot(c,it.id),'sm'));f.append(btn('Close',()=>{tokOpen=null;renderParty();}));w.append(f);
+ const core=pickCore(l,1);if(!tokCount(l)||!core)return toast('Learning needs 1 token and a soul core');
+ const cn=coreName(core).replace('Level','level');ab.push({n:nm,e:ee,t:type,r:1});tokOpen=null;
+ put(c,{loot:JSON.stringify(spend(l,core)),atk:JSON.stringify(ab)});
+ const msg=c.name+' learns '+nm+' (T1, 1 token + a '+cn+')';toast(msg);logEvent(msg);}
+function tokPanel(c){
+ const l=lootList(c),w=el('div','tp'),ab=atks(c),k=calc(c),full=isDM,n=tokCount(l);
+ w.append(el('b',null,'✨ '+n+' ability token'+(n===1?'':'s')));
+ w.append(el('div','note','Each new ability or training step costs 1 token plus a soul core of the new tier or better. The cheapest core that works is used.'));
+ if(full){
+  w.append(el('small',null,'Learn a new T1 ability'));
+  const c1=pickCore(l,1);
+  if(ab.length>=k.slots)w.append(el('div','note','No free ability slot. Remove an ability first.'));
+  else if(!c1)w.append(el('div','note','Needs a soul core.'));
+  else{const r=el('div','row add'),nm=document.createElement('input'),e=document.createElement('input'),t=document.createElement('select');
+   nm.placeholder='Name';e.placeholder='1d6';e.value='1d6';
+   [['p','Physical (Str)'],['m','Magic (Int)'],['c','Lifeforce (Con)'],['s','Speed'],['h','Charm'],['l','Spirit/Luck']].forEach(([v,x])=>t.add(new Option(x,v)));
+   r.append(nm,e,t,btn('Learn',()=>learnAb(c,nm.value,e.value,t.value),'sm rb'));w.append(r,el('div','note','Uses a '+coreName(c1).replace('Level','level')+'.'));}
+ }else w.append(el('div','note','Players can train an ability. Learning a new ability or consuming a token is up to the Core Master.'));
+ w.append(el('small',null,'Train an ability one tier'));
+ const list=ab.map((a,i)=>({a,i,r:a.r||1})).filter(x=>x.r<6);
+ if(!list.length)w.append(el('div','note','No abilities to train.'));
+ list.forEach(x=>{const nr=x.r+1,core=pickCore(l,nr),b=btn(x.a.n+': T'+x.r+' → T'+nr+(core?' · uses '+coreName(core).replace(' soul core',' core'):' · needs a T'+nr+' core'),()=>trainAb(c,x.i),'sm rb');b.disabled=!core;if(!core)b.style.opacity='.45';w.append(b);});
+ const f=el('div','row');if(full)f.append(btn('Consume 1 to mimic once',()=>consumeLoot(c),'sm'));f.append(btn('Close',()=>{tokOpen=null;renderParty();}));w.append(f);
  return w;}
 function lootList(c){
  let l;try{l=JSON.parse(c.loot)}catch{l=[]}
  if(!Array.isArray(l))l=[];
- const out=[],rg=[0,0,0,0,0,0],cs={};
+ const out=[],rg=[0,0,0,0,0,0],cs={};let tk=0;
  for(const it of l){
   if(it.k==='reagent'){if(Array.isArray(it.tot))it.tot.forEach((x,i)=>{rg[i]+=Math.max(0,+x||0)});else if(it.v!=null)rg[it.t||0]+=Math.max(0,+it.v||0);}
-  else if(it.k==='core'){const q=it.q||1;if(cs[it.L])cs[it.L].q+=q;else{cs[it.L]={...it,q};out.push(cs[it.L]);}}
+  else if(it.k==='token')tk+=it.q==null?1:Math.max(0,+it.q||0);
+  else if(it.k==='core'){const q=it.q||1,r=crT(it),key=it.L+':'+r;if(cs[key])cs[key].q+=q;else{cs[key]={...it,r,n:coreName({L:it.L,r}),q};out.push(cs[key]);}}
   else out.push(it);
  }
+ if(tk>0)out.unshift({id:'tokens',k:'token',n:'Ability tokens',q:tk});
  if(rg.some(x=>x>0))out.unshift({id:'reagents',k:'reagent',n:'Sellable reagents',tot:rg});
  return out;
 }
-function lootVal(it){return it.k==='token'?LT[it.t]+' tier':it.k==='item'?'sells for 1d100 '+LT[it.t||0]+' coins':'worth '+fmtN(it.v)+' '+LT[it.t]+' coins';}
+function lootVal(it){return it.k==='token'?'learn or train abilities':it.k==='item'?'sells for 1d100 '+LT[it.t||0]+' coins':'worth '+fmtN(it.v)+' '+LT[it.t]+' coins';}
 function setLoot(c,l,extra){put(c,{loot:JSON.stringify(l),...(extra||{})});}
 function sellLoot(c,id){
  const l=lootList(c),it=l.find(x=>x.id===id);if(!it)return;
@@ -511,36 +529,37 @@ function sellReagents(c){
  let arr=coinsOf(c);r.tot.forEach((x,i)=>{arr=coinAdd(arr,i,x);});
  setLoot(c,l.filter(x=>x.k!=='reagent'),{coins:arr,gold:arr[0]});
  toast('Sold the reagents for '+r.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' + ')+' coins');}
-function consumeLoot(c,id){
- const l=lootList(c),it=l.find(x=>x.id===id);if(!it)return;
- if(it.k==='token'){tokOpen=null;const m=c.name+' consumed an ability token ('+LT[it.t]+' tier)';toast(m);logEvent(m);setLoot(c,l.filter(x=>x.id!==id));}}
+function consumeLoot(c){
+ const l=lootList(c),t=l.find(x=>x.k==='token');if(!t)return;
+ t.q-=1;tokOpen=null;const m=c.name+' consumed an ability token to mimic an ability once';toast(m);logEvent(m);setLoot(c,l.filter(x=>!(x.k==='token'&&x.q<=0)));}
 let coreOpen=null;
 function needCores(c,L,t){
  const cost=costOf(c.level),xp=xpOf(c);let v=coreVal(L,t);if(v>cost)v=cost;
  return Number((cost-xp+v-1n)/v);}
-function useCores(c,L,n){
- const l=lootList(c),s=l.find(x=>x.k==='core'&&x.L===L);if(!s)return;
+function useCores(c,L,r,n){
+ const l=lootList(c),s=findCore(l,L,r);if(!s)return;
  n=Math.min(n,s.q);let lv=c.level,xp=xpOf(c),g=0;
  for(let i=0;i<n;i++){const cost=costOf(lv);let v=coreVal(L,s.t);if(v>cost)v=cost;xp+=v;if(xp>=cost){xp-=cost;lv++;g++;}}
  s.q-=n;coreOpen=null;
  const ex={xp:xp.toString()};if(g>0)ex.level=lv;
- setLoot(c,l.filter(x=>!(x.k==='core'&&x.L===L&&x.q<=0)),ex);
+ setLoot(c,l.filter(x=>!(x.k==='core'&&x.q<=0)),ex);
  const m=c.name+' uses '+n+' level '+L+' core'+(n>1?'s':'')+(g>0?' and reaches level '+lv+'!':'');toast(m);if(g>0)logEvent(m);}
-function sellCores(c,L,n){
- const l=lootList(c),s=l.find(x=>x.k==='core'&&x.L===L);if(!s)return;
+function sellCores(c,L,r,n){
+ const l=lootList(c),s=findCore(l,L,r);if(!s)return;
  n=Math.min(n,s.q);const arr=coinAdd(coinsOf(c),s.t,n*s.v);s.q-=n;coreOpen=null;
- setLoot(c,l.filter(x=>!(x.k==='core'&&x.L===L&&x.q<=0)),{coins:arr,gold:arr[0]});
+ setLoot(c,l.filter(x=>!(x.k==='core'&&x.q<=0)),{coins:arr,gold:arr[0]});
  toast('Sold '+n+' level '+L+' core'+(n>1?'s':'')+' for '+fmtN(n*s.v)+' '+LT[s.t]+' coins');}
 function corePanel(c,it,mode){
  const w=el('div','tp'),need=needCores(c,it.L,it.t),use=mode==='use';
- w.append(el('b',null,(use?'Use':'Sell')+' level '+it.L+' soul cores'));
+ w.append(el('b',null,(use?'Use':'Sell')+' '+it.n.replace('soul core','soul cores')));
  const r=el('div','row'),q=document.createElement('input');
  q.type='number';q.min=1;q.max=it.q;q.inputMode='numeric';q.value=String(use?Math.min(it.q,Math.max(1,need)):it.q);
  r.append(el('small',null,'Quantity (you have '+it.q+')'),q);w.append(r);
  w.append(el('div','note','You could use '+need+(need===1?' core':' cores')+' to reach the next level'+(need>it.q?', but this stack only has '+it.q:'')+'.'));
+ if(crT(it)>0)w.append(el('div','note','T'+(crT(it)+1)+' cores can also pay for training an ability up to T'+(crT(it)+1)+'.'));
  if(!use)w.append(el('div','note','Each is worth '+fmtN(it.v)+' '+LT[it.t]+' coins.'));
  const f=el('div','row');
- f.append(btn(use?'Use':'Sell',()=>{const n=Math.max(0,Math.min(it.q,Math.floor(+q.value)||0));if(!n)return toast('Pick a quantity');if(use)useCores(c,it.L,n);else sellCores(c,it.L,n);},use?'sm rb':'sm heal'),btn('Close',()=>{coreOpen=null;renderParty();}));
+ f.append(btn(use?'Use':'Sell',()=>{const n=Math.max(0,Math.min(it.q,Math.floor(+q.value)||0));if(!n)return toast('Pick a quantity');if(use)useCores(c,it.L,crT(it),n);else sellCores(c,it.L,crT(it),n);},use?'sm rb':'sm heal'),btn('Close',()=>{coreOpen=null;renderParty();}));
  w.append(f);return w;}
 function lootBox(c){
  const l=lootList(c),w=el('div','lb'),act=canAct(c);
@@ -550,6 +569,7 @@ function lootBox(c){
   const r=el('div','lrow'),t=el('div','lt');
   if(it.k==='reagent')t.append(el('b',null,it.n),el('small',null,it.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' · ')));
   else if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'worth '+fmtN(it.v)+' '+LT[it.t]+' coins each'));
+  else if(it.k==='token')t.append(el('b',null,'✨ Ability tokens × '+it.q),el('small',null,'1 token + a core learns or trains an ability'));
   else t.append(el('b',null,it.n),el('small',null,lootVal(it)));
   r.append(t);
   if(act){const b=el('div','lbtn'),key=c.id+':'+it.id;
@@ -559,7 +579,7 @@ function lootBox(c){
    else{if(itemType(it)!=='gem')b.append(btn('Equip',()=>equipItem(c,it.id),'sm rb'));b.append(btn('Sell',()=>sellLoot(c,it.id),'sm heal'));}
    if(isDM)b.append(btn('✕',()=>setLoot(c,l.filter(x=>x.id!==it.id))));r.append(b);}
   w.append(r);
-  if(act&&it.k==='token'&&tokOpen===c.id+':'+it.id)w.append(tokPanel(c,it));
+  if(act&&it.k==='token'&&tokOpen===c.id+':'+it.id)w.append(tokPanel(c));
   if(act&&it.k==='core'&&coreOpen&&coreOpen.key===c.id+':'+it.id)w.append(corePanel(c,it,coreOpen.mode));
  });
  return w;}
@@ -651,11 +671,11 @@ function lootBody(r){
  for(const e of o.loot){
   let t;
   if(e.k==='reagent')t='🧪 Sellable reagent · worth '+e.val+' '+LT[o.tier]+' coins';
-  else if(e.k==='token')t='✨ Ability token · tier '+(o.tier+1)+' '+LT[o.tier];
+  else if(e.k==='token')t='✨ Ability token';
   else t=(e.type==='Gem'?'💠 ':'🎒 ')+LT[o.tier]+' '+e.type.toLowerCase()+(e.plus>0&&e.type!=='Gem'?' (+'+e.plus+' '+e.stat+')':'')+' · sells for 1d100 '+LT[o.tier]+' coins';
   row(t+(e.core?'  💎':''),String(e.v));
  }
- if(o.cores>0)w.append(el('div','evt-t','💎 '+o.cores+' soul core'+(o.cores>1?'s':'')+' · level '+o.L+' · worth '+fmtN(o.core)+' '+LT[o.ct==null?0:o.ct]+' coins each'));
+ if(o.cores>0)w.append(el('div','evt-t','💎 '+o.cores+' T'+(o.tier+1)+' soul core'+(o.cores>1?'s':'')+' · level '+o.L+' · worth '+fmtN(o.core)+' '+LT[o.ct==null?0:o.ct]+' coins each'));
  return w;
 }
 function addLoot(l,arr,res){
@@ -663,10 +683,10 @@ function addLoot(l,arr,res){
  {const nc=coinAdd(arr,ct,res.coins);for(let i=0;i<6;i++)arr[i]=nc[i];}
  for(const e of res.loot){
   if(e.k==='reagent'){let r=l.find(x=>x.k==='reagent');if(!r){r={id:'reagents',k:'reagent',n:'Sellable reagents',tot:[0,0,0,0,0,0]};l.unshift(r);}r.tot[T]+=e.val;}
-  else if(e.k==='token')l.push({id:uid(),k:'token',n:'Ability token',t:T});
+  else if(e.k==='token'){const t=l.find(x=>x.k==='token');if(t)t.q+=1;else l.push({id:'tokens',k:'token',n:'Ability tokens',q:1});}
   else{const gem=e.type==='Gem',p=gem?0:e.plus;l.push({id:uid(),k:'item',ty:e.type.toLowerCase(),n:LT[T]+' '+e.type.toLowerCase()+(p>0?' +'+p+' '+e.stat:''),t:T,plus:p,sk:gem?'':(e.sk||'')});}
  }
- if(res.cores>0){const s=l.find(x=>x.k==='core'&&x.L===res.L);if(s)s.q+=res.cores;else l.push({id:uid(),k:'core',n:'Level '+res.L+' soul core',L:res.L,v:res.core,t:ct,q:res.cores});}
+ if(res.cores>0){const s=findCore(l,res.L,T);if(s)s.q+=res.cores;else l.push({id:uid(),k:'core',n:coreName({L:res.L,r:T}),L:res.L,v:res.core,t:ct,r:T,q:res.cores});}
 }
 async function applyLoot(ch,res){
  const cur=chars.find(x=>x.id===ch.id)||ch,arr=coinsOf(cur),l=lootList(cur);
@@ -882,7 +902,7 @@ try{myHero=localStorage.getItem('boomhero')||''}catch{}
 const suid=()=>Math.random().toString(36).slice(2,8);
 const stashList=()=>lootList({loot:stash.loot});
 function stashSave(p){stash={...stash,...p};stash.coins=coinNorm(stash.coins||[0,0,0,0,0,0]);return stashCol.doc('main').set({loot:stash.loot,coins:stash.coins,open:stash.open!==false,ts:Date.now()});}
-const iname=it=>it.k==='token'?'a '+LT[it.t||0]+' ability token':it.k==='core'?'level '+it.L+' soul core'+(it.q>1?'s':''):it.n;
+const iname=it=>it.n;
 function stashHero(){const h=chars.find(c=>c.id===myHero&&!c.dead);if(!h){toast(isDM?'Choose a hero in Act as first':'Pick your hero first');return null;}if(!isDM&&stash.open===false){toast('The Core Master has locked the stash');return null;}return h;}
 async function stashMove(h,hp,sp,msg){try{await putP(h,hp);await stashSave(sp);toast(msg);logEvent(msg);}catch{toast('Could not move that. Try again.');}}
 function takeItem(id){
@@ -893,13 +913,17 @@ function putItem(id){
  const h=stashHero();if(!h)return;const hl=lootList(h),it=hl.find(x=>x.id===id);if(!it)return;
  const sl=stashList();sl.push(it);
  stashMove(h,{loot:JSON.stringify(hl.filter(x=>x.id!==id))},{loot:JSON.stringify(sl)},h.name+' put '+iname(it)+' in the stash');}
-function moveCores(from,to,L,n){const s=from.find(x=>x.k==='core'&&x.L===L);if(!s)return 0;n=Math.min(n,s.q);if(n<1)return 0;s.q-=n;const d=to.find(x=>x.k==='core'&&x.L===L);if(d)d.q+=n;else to.push({...s,id:suid(),q:n});return n;}
-function takeCores(L,n){
- const h=stashHero();if(!h)return;const sl=stashList(),hl=lootList(h),m=moveCores(sl,hl,L,n);if(!m)return toast('No cores to take');
- stashMove(h,{loot:JSON.stringify(hl)},{loot:JSON.stringify(sl.filter(x=>!(x.k==='core'&&x.q<=0)))},h.name+' took '+m+' level '+L+' core'+(m>1?'s':'')+' from the stash');}
-function putCores(L,n){
- const h=stashHero();if(!h)return;const hl=lootList(h),sl=stashList(),m=moveCores(hl,sl,L,n);if(!m)return toast('No cores to put in');
- stashMove(h,{loot:JSON.stringify(hl.filter(x=>!(x.k==='core'&&x.q<=0)))},{loot:JSON.stringify(sl)},h.name+' put '+m+' level '+L+' core'+(m>1?'s':'')+' in the stash');}
+const stackOf=(l,it)=>it.k==='token'?l.find(x=>x.k==='token'):findCore(l,it.L,crT(it));
+const isStack=it=>it.k==='core'||it.k==='token';
+const dropEmpty=l=>l.filter(x=>!(isStack(x)&&x.q<=0));
+function moveStack(from,to,it,n){const s=stackOf(from,it);if(!s)return 0;n=Math.min(n,s.q);if(n<1)return 0;s.q-=n;const d=stackOf(to,it);if(d)d.q+=n;else to.push({...s,id:it.k==='token'?'tokens':suid(),q:n});return n;}
+const sname=(it,m)=>it.k==='token'?m+' ability token'+(m>1?'s':''):m+' level '+it.L+' T'+(crT(it)+1)+' core'+(m>1?'s':'');
+function takeStack(it,n){
+ const h=stashHero();if(!h)return;const sl=stashList(),hl=lootList(h),m=moveStack(sl,hl,it,n);if(!m)return toast('Nothing to take');
+ stashMove(h,{loot:JSON.stringify(hl)},{loot:JSON.stringify(dropEmpty(sl))},h.name+' took '+sname(it,m)+' from the stash');}
+function putStack(it,n){
+ const h=stashHero();if(!h)return;const hl=lootList(h),sl=stashList(),m=moveStack(hl,sl,it,n);if(!m)return toast('Nothing to put in');
+ stashMove(h,{loot:JSON.stringify(dropEmpty(hl))},{loot:JSON.stringify(sl)},h.name+' put '+sname(it,m)+' in the stash');}
 function takeCoins(t,a){
  const h=stashHero();if(!h)return;a=Math.floor(+a)||0;if(a<1)return toast('Enter an amount');
  const sc=coinSub(stash.coins,t,a);if(!sc)return toast('The stash does not have that much');
@@ -933,6 +957,7 @@ function renderStash(){
  const sl=stashList(),rowOf=(it,btns)=>{const r=el('div','lrow'),t=el('div','lt');
   if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'worth '+fmtN(it.v)+' '+LT[it.t]+' coins each'));
   else if(it.k==='reagent')t.append(el('b',null,it.n),el('small',null,it.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' · ')));
+  else if(it.k==='token')t.append(el('b',null,'✨ Ability tokens × '+it.q),el('small',null,lootVal(it)));
   else t.append(el('b',null,it.n),el('small',null,lootVal(it)));
   const bb=el('div','lbtn');btns.forEach(x=>bb.append(x));r.append(t,bb);return r;};
  b.append(el('div','sec','In the stash'));
@@ -940,7 +965,7 @@ function renderStash(){
  if(can&&h){const r=el('div','row hpc'),a=num('Amount'),t=csel();r.append(a,t,btn('Take coins',()=>takeCoins(+t.value,Math.floor(+a.value)||0),tb));b.append(r);}
  if(!sl.length)b.append(el('div','note','No items yet.'));
  sl.forEach(it=>{const btns=[];
-  if(it.k==='core'){if(can&&h){const q=num('Qty',1);q.style.width='64px';btns.push(q,btn('Take',()=>takeCores(it.L,Math.floor(+q.value)||0),tb));}}
+  if(isStack(it)){if(can&&h){const q=num('Qty',1);q.style.width='64px';btns.push(q,btn('Take',()=>takeStack(it,Math.floor(+q.value)||0),tb));}}
   else if(can&&h)btns.push(btn('Take',()=>takeItem(it.id),tb));
   if(dmMode)btns.push(btn('✕',()=>stashSave({loot:JSON.stringify(sl.filter(x=>x.id!==it.id))}).catch(()=>{})));
   b.append(rowOf(it,btns));});
@@ -950,7 +975,7 @@ function renderStash(){
   const hl=lootList(h).filter(x=>x.k!=='reagent');
   if(!hl.length)b.append(el('div','note','Nothing in their Loot list to put in.'));
   hl.forEach(it=>{const btns=[];
-   if(it.k==='core'){const q=num('Qty',1);q.style.width='64px';btns.push(q,btn('Put in',()=>putCores(it.L,Math.floor(+q.value)||0),pb));}
+   if(isStack(it)){const q=num('Qty',1);q.style.width='64px';btns.push(q,btn('Put in',()=>putStack(it,Math.floor(+q.value)||0),pb));}
    else btns.push(btn('Put in',()=>putItem(it.id),pb));
    b.append(rowOf(it,btns));});
  }
@@ -966,11 +991,11 @@ function renderStash(){
    const nm=ni.value.trim().slice(0,40)||(LT[t]+' '+typ+(plus>0?' +'+plus+' '+STATLAB[sk]:''));
    const l=stashList();l.push({id:suid(),k:'item',ty:typ,n:nm,t,plus,sk});dmAdd(l,stash.coins,'Added '+nm);ni.value='';},'sm rb dmb'));
   dmk.push(r1,r2,r3);
-  const tk=el('div','row add arow'),tt=document.createElement('select');LT.forEach((n,i)=>tt.add(new Option('T'+(i+1)+' '+n+' ability token',i)));
-  tk.append(tt,btn('Add token',()=>{const l=stashList();l.push({id:suid(),k:'token',n:'Ability token',t:+tt.value});dmAdd(l,stash.coins,'Added a token');},'sm rb dmb'));dmk.push(tk);
-  const cr=el('div','row add arow'),lv=num('Level'),qq=num('Amount');
-  cr.append(lv,qq,btn('Add cores',()=>{const L=Math.floor(+lv.value)||0,q=Math.floor(+qq.value)||0;if(L<1||L>99||q<1)return toast('Core level 1 to 99 and an amount');
-   const l=stashList(),s0=l.find(x=>x.k==='core'&&x.L===L);if(s0)s0.q+=q;else l.push({id:suid(),k:'core',n:'Level '+L+' soul core',L,v:L*100,t:band(L),q});dmAdd(l,stash.coins,'Added '+q+' level '+L+' core'+(q>1?'s':''));},'sm rb dmb'));dmk.push(cr);
+  const tk=el('div','row add arow'),tq=num('Tokens',1);
+  tk.append(tq,btn('Add tokens',()=>{const q=Math.floor(+tq.value)||0;if(q<1)return toast('Enter how many tokens');const l=stashList(),t=l.find(x=>x.k==='token');if(t)t.q+=q;else l.push({id:'tokens',k:'token',n:'Ability tokens',q});dmAdd(l,stash.coins,'Added '+q+' ability token'+(q>1?'s':''));},'sm rb dmb'));dmk.push(tk);
+  const cr=el('div','row add arow'),lv=num('Level'),qq=num('Amount'),crs=document.createElement('select');LT.forEach((n,i)=>crs.add(new Option('T'+(i+1),i)));crs.title='Training tier';
+  cr.append(lv,crs,qq,btn('Add cores',()=>{const L=Math.floor(+lv.value)||0,q=Math.floor(+qq.value)||0,r=+crs.value||0;if(L<1||L>99||q<1)return toast('Core level 1 to 99 and an amount');
+   const l=stashList(),s0=findCore(l,L,r);if(s0)s0.q+=q;else l.push({id:suid(),k:'core',n:coreName({L,r}),L,v:L*100,t:band(L),r,q});dmAdd(l,stash.coins,'Added '+q+' level '+L+' T'+(r+1)+' core'+(q>1?'s':''));},'sm rb dmb'));dmk.push(cr);
   const cc=el('div','row add arow'),ca=num('Amount'),ct=csel();
   cc.append(ca,ct,btn('Add coins',()=>{const a=Math.floor(+ca.value)||0;if(a<1)return;const sc=coinAdd(stash.coins,+ct.value,a);dmAdd(stashList(),sc,'Added '+fmtN(a)+' '+LT[+ct.value]+' coins');},'sm rb dmb'));dmk.push(cc);
   b.append(sec('stash:dm','CM: add to stash','',dmk));
