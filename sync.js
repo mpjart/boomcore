@@ -45,10 +45,11 @@
  }
 
  function bar(t){
-  const add=()=>{const m=document.querySelector('main');if(!m||document.getElementById('tbar'))return;
+  const add=()=>{const m=document.querySelector('main');if(!m)return;const old=document.getElementById('tbar');if(old)old.remove();
    const b=document.createElement('div');b.id='tbar';
    const left=document.createElement('span'),btn=document.createElement('button');btn.className='ghost sm';
-   if(t.solo){left.textContent=t.why?'Solo mode · '+t.why:'Playing solo on this device';btn.textContent=t.why?'Try again':'Join a table';btn.hidden=!configured&&!t.why;}
+   if(t.wait){left.textContent=t.wait;btn.hidden=true;}
+   else if(t.solo){left.textContent=t.why?'Solo mode · '+t.why:'Playing solo on this device';btn.textContent=t.why?'Try again':'Join a table';btn.hidden=!configured&&!t.why;}
    else{left.append('Table ');const c=document.createElement('b');c.textContent=t.code;left.append(c,' · '+(t.owner?'Core Master':t.name));btn.textContent='Leave table';}
    btn.onclick=()=>{if(t.why){location.reload();return;}if(!t.solo&&!confirm('Leave this table on this device? You can rejoin with the code '+t.code+'.'))return;lsSet(t.solo?{name:''}:{name:t.name,code:''});location.reload();};
    b.append(left,btn);m.prepend(b);};
@@ -70,22 +71,24 @@
    let t=saved&&saved.code&&saved.name?{name:saved.name,code:saved.code}:await gate(msg);
    saved=null;
    if(t.solo){lsSet({solo:true});bar({solo:true});return null;}
+   bar({wait:'Connecting to the table…'});
+   const T=p=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r({code:'timeout'}),12000))]);
    try{
     let ref,snap,owner;
     if(t.create){
-     for(let i=0;i<5;i++){t.code=newCode();ref=fs.doc('tables/'+t.code);snap=await ref.get();if(!snap.exists)break;}
-     await ref.set({owner:uid,ts:Date.now()});owner=uid;
+     for(let i=0;i<5;i++){t.code=newCode();ref=fs.doc('tables/'+t.code);snap=await T(ref.get());if(!snap.exists)break;}
+     await T(ref.set({owner:uid,ts:Date.now()}));owner=uid;
     }else{
-     ref=fs.doc('tables/'+t.code);snap=await ref.get();
+     ref=fs.doc('tables/'+t.code);snap=await T(ref.get());
      if(!snap.exists){msg='No table with the code '+t.code+'. Check it with your Core Master.';lsSet({name:t.name,code:''});continue;}
      owner=snap.data().owner;
     }
-    await ref.collection('members').doc(uid).set({name:t.name,ts:Date.now()});
+    await T(ref.collection('members').doc(uid).set({name:t.name,ts:Date.now()}));
     lsSet({name:t.name,code:t.code});
     const info={fs,uid,code:t.code,name:t.name,owner:owner===uid,base:'tables/'+t.code+'/'};
     bar({code:t.code,name:t.name,owner:info.owner});
     return info;
-   }catch(e){const c=(e&&e.code)||'';msg=c==='permission-denied'?'The database rules are blocking this. Publish firestore.rules in Firebase.':'Could not reach the table ('+(c||'network')+'). Try again.';}
+   }catch(e){const c=(e&&e.code)||'';msg=c==='permission-denied'?'The database rules are blocking this. Publish firestore.rules in Firebase (SETUP.md step 3).':/timeout|not-found|unavailable|failed-precondition/.test(c)?'Could not reach the database. Make sure the Firestore database is created (SETUP.md step 3), then try again.':'Could not reach the table ('+(c||'network')+'). Try again.';}
   }
  }
 
