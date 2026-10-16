@@ -689,15 +689,19 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td><strong>Boom:</strong> no loot; the die becomes 2d100</td>
 </tr>
 <tr>
-<td>2-50</td>
+<td>2-50, even</td>
 <td>A <strong>sellable reagent</strong> worth the number rolled in coins of the box's tier</td>
 </tr>
 <tr>
-<td>51-75</td>
+<td>3-49, odd</td>
+<td>A <strong>healing potion</strong> of the box's tier, in place of the reagent</td>
+</tr>
+<tr>
+<td>51-70</td>
 <td>An <strong>ability token</strong> of the monster's signature ability</td>
 </tr>
 <tr>
-<td>76-99</td>
+<td>71-99</td>
 <td>An <strong>item:</strong> d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat</td>
 </tr>
 <tr>
@@ -706,12 +710,13 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 </tr>
 </tbody>
 </table></div>
-<p><strong>Naming loot:</strong> roll a d100 clever name and a d100 base item from your theme's tables, such as Black Hawk Longbow (+2 Speed). Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. The full tables for Fantasy, Space, Horror, Street Grit, and the adults-only After Dark set are on the <a href="https://mpjart.github.io/boomcore/loot-names.html">Loot Name Tables</a> page, and the app rolls them for you.</p>
+<p><strong>Naming loot:</strong> roll a d100 clever name and a d100 base item from your theme's tables, such as Black Hawk Longbow (+2 Speed). Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. Adult tables can add the After Dark set (21+) to any theme's tables, so names come from both. The full tables for Fantasy, Space, Horror, Street Grit, and After Dark are on the <a href="https://mpjart.github.io/boomcore/loot-names.html">Loot Name Tables</a> page, and the app rolls them for you.</p>
 <p><strong>Any even roll from 2 to 98</strong> also drops a <strong>soul core</strong> of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.</p>
 <p><strong>Example:</strong> Bob opens a T1 box and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 38 and 79. At T2, the 64 is a token plus a T2 core, the 38 is a reagent worth 38 Uncommon coins plus a core, and the 79 is an item with +1 to a random stat.</p>
 <h3 id="using-loot">Using Loot</h3>
 <ul>
 <li><strong>Sell:</strong> reagents for their number, cores for L × 100 coins of their tier, and items for a d100 roll (which can boom) of coins of the item's tier.</li>
+<li><strong>Healing potions:</strong> drinking one is an action and heals <strong>one d6 per tier</strong> (a T3 potion heals 3d6), and the dice explode on a 1 as normal. The normal healing rules apply: you must be missing HP, and anything over your max becomes temp HP. Potions stack by tier, and an unused one sells for a d100 roll of coins of its tier.</li>
 <li><strong>Consume:</strong> cores fill your level meter (Chapter 2). A token plus a core of the right tier learns or trains an ability (Chapter 4).</li>
 <li><strong>Bosses, quests, and dungeons:</strong> see Party Loot in Chapter 8.</li>
 </ul>

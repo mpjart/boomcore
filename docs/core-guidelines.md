@@ -341,12 +341,13 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 | d100 roll | Result |
 | --- | --- |
 | 1 | **Boom:** no loot; the die becomes 2d100 |
-| 2-50 | A **sellable reagent** worth the number rolled in coins of the box's tier |
-| 51-75 | An **ability token** of the monster's signature ability |
-| 76-99 | An **item:** d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat |
+| 2-50, even | A **sellable reagent** worth the number rolled in coins of the box's tier |
+| 3-49, odd | A **healing potion** of the box's tier, in place of the reagent |
+| 51-70 | An **ability token** of the monster's signature ability |
+| 71-99 | An **item:** d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat |
 | 100 | **Upgrade:** no loot; the box goes up one tier (max T6) and the die becomes 2d100 |
 
-**Naming loot:** roll a d100 clever name and a d100 base item from your theme's tables, such as Black Hawk Longbow (+2 Speed). Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. The full tables for Fantasy, Space, Horror, Street Grit, and the adults-only After Dark set are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
+**Naming loot:** roll a d100 clever name and a d100 base item from your theme's tables, such as Black Hawk Longbow (+2 Speed). Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. Adult tables can add the After Dark set (21+) to any theme's tables, so names come from both. The full tables for Fantasy, Space, Horror, Street Grit, and After Dark are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
 
 **Any even roll from 2 to 98** also drops a **soul core** of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.
 
@@ -355,6 +356,7 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 ### Using Loot
 
 - **Sell:** reagents for their number, cores for L × 100 coins of their tier, and items for a d100 roll (which can boom) of coins of the item's tier.
+- **Healing potions:** drinking one is an action and heals **one d6 per tier** (a T3 potion heals 3d6), and the dice explode on a 1 as normal. The normal healing rules apply: you must be missing HP, and anything over your max becomes temp HP. Potions stack by tier, and an unused one sells for a d100 roll of coins of its tier.
 - **Consume:** cores fill your level meter (Chapter 2). A token plus a core of the right tier learns or trains an ability (Chapter 4).
 - **Bosses, quests, and dungeons:** see Party Loot in Chapter 8.
 

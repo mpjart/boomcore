@@ -127,7 +127,7 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
 </div>
 <div class="card"><label>Your color</label><div id="mycol"></div><div class="note">Your rolls show in this color for the whole party. Rolls made from a character card use that character's color.</div></div>
 </div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div></div><div id="pgLoot" hidden>
-<details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
+<details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier: 2 to 50 is a reagent to sell, but an odd roll there is a healing potion instead (heals the tier in d6, so a T3 potion heals 3d6, and the dice can boom); 51 to 70 is an ability token; 71 to 99 is an item. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
 <div class="card" id="boxlist"></div>
 <div class="card" id="lootmk">
  <b class="pn" id="lmkh">Make a loot box</b>
@@ -140,7 +140,7 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden>
-<div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: crude, punny item names from the After Dark list, with any theme.</div></div>
+<div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: adds the crude, punny After Dark names to the theme's loot tables, so drops are a mix of both.</div></div>
 <a class="btnl" id="cmscreen" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
 <div class="card" id="initbox"></div>
 <div class="card" id="mgen">
@@ -533,13 +533,16 @@ function lootList(c){
   if(it.k==='reagent'){if(Array.isArray(it.tot))it.tot.forEach((x,i)=>{rg[i]+=Math.max(0,+x||0)});else if(it.v!=null)rg[it.t||0]+=Math.max(0,+it.v||0);}
   else if(it.k==='token')tk+=it.q==null?1:Math.max(0,+it.q||0);
   else if(it.k==='core'){const q=it.q||1,r=crT(it),key=it.L+':'+r;if(cs[key])cs[key].q+=q;else{cs[key]={...it,r,n:coreName({L:it.L,r}),q};out.push(cs[key]);}}
+  else if(it.k==='potion'){const q=it.q||1,t=it.t||0,key='p'+t;if(cs[key])cs[key].q+=q;else{cs[key]={...it,t,n:potName(t),q};out.push(cs[key]);}}
   else out.push(it);
  }
  if(tk>0)out.unshift({id:'tokens',k:'token',n:'Ability tokens',q:tk});
  if(rg.some(x=>x>0))out.unshift({id:'reagents',k:'reagent',n:'Sellable reagents',tot:rg});
  return out;
 }
-function lootVal(it){return it.k==='token'?'learn or train abilities':it.k==='item'?'sells for 1d100 '+LT[it.t||0]+' coins':'worth '+fmtN(it.v)+' '+LT[it.t]+' coins';}
+const potName=t=>'T'+(t+1)+' healing potion';
+const potionOf=(t,q,id)=>({id:id||Math.random().toString(36).slice(2,8),k:'potion',n:potName(t),t,q});
+function lootVal(it){return it.k==='potion'?'heals '+(it.t+1)+'d6 (the dice can boom) · sells for 1d100 '+LT[it.t]+' coins':it.k==='token'?'learn or train abilities':it.k==='item'?'sells for 1d100 '+LT[it.t||0]+' coins':'worth '+fmtN(it.v)+' '+LT[it.t]+' coins';}
 function setLoot(c,l,extra){put(c,{loot:JSON.stringify(l),...(extra||{})});}
 function sellLoot(c,id){
  const l=lootList(c),it=l.find(x=>x.id===id);if(!it)return;
@@ -552,6 +555,19 @@ function sellReagents(c){
  let arr=coinsOf(c);r.tot.forEach((x,i)=>{arr=coinAdd(arr,i,x);});
  setLoot(c,l.filter(x=>x.k!=='reagent'),{coins:arr,gold:arr[0]});
  toast('Sold the reagents for '+r.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' + ')+' coins');}
+// Drink: (tier)d6 healing, the dice explode as normal. Healing needs a missing HP; extra over max becomes temp HP.
+function usePotion(c,t){
+ const cur0=chars.find(x=>x.id===c.id)||c,l=lootList(cur0),p=l.find(x=>x.k==='potion'&&x.t===t);if(!p||p.q<1)return;
+ const max=calc(cur0).hp,cur=Math.max(0,Math.min(max,cur0.hpCur==null?max:cur0.hpCur));
+ if(cur>=max)return toast(cur0.name+' is at full HP. A potion only works when you are missing HP.');
+ const r=doRoll((t+1)+'d6',cur0.name+' · '+potName(t),null,true,colorMap[cur0.id]);if(!r)return;
+ const h=Math.min(r.total,max-cur),extra=r.total-h;p.q-=1;
+ setLoot(cur0,l.filter(x=>!(x.k==='potion'&&x.q<=0)),{hpCur:cur+h,temp:(cur0.temp||0)+extra});
+ const m=cur0.name+' drinks a '+potName(t)+' and heals '+r.total+(extra>0?' ('+extra+' becomes temp HP)':'');toast(m);}
+function sellPotion(c,t){
+ const l=lootList(c),p=l.find(x=>x.k==='potion'&&x.t===t);if(!p)return;
+ const r=doRoll('1d100',c.name+' · Sell '+potName(t),null,false,colorMap[c.id]),v=r?r.total:0,arr=coinAdd(coinsOf(c),t,v);p.q-=1;
+ setLoot(c,l.filter(x=>!(x.k==='potion'&&x.q<=0)),{coins:arr,gold:arr[0]});toast('Sold a '+potName(t)+' for '+fmtN(v)+' '+LT[t]+' coins');}
 function consumeLoot(c){
  const l=lootList(c),t=l.find(x=>x.k==='token');if(!t)return;
  t.q-=1;tokOpen=null;const m=c.name+' consumed an ability token to mimic an ability once';toast(m);logEvent(m);setLoot(c,l.filter(x=>!(x.k==='token'&&x.q<=0)));}
@@ -593,11 +609,13 @@ function lootBox(c){
   if(it.k==='reagent')t.append(el('b',null,it.n),el('small',null,it.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' · ')));
   else if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'worth '+fmtN(it.v)+' '+LT[it.t]+' coins each'));
   else if(it.k==='token')t.append(el('b',null,'✨ Ability tokens × '+it.q),el('small',null,'1 token + a core learns or trains an ability'));
+  else if(it.k==='potion')t.append(el('b',null,'❤️ '+it.n+(it.q>1?' × '+it.q:'')),el('small',null,lootVal(it)));
   else t.append(el('b',null,it.n),el('small',null,lootVal(it)));
   r.append(t);
   if(act){const b=el('div','lbtn'),key=c.id+':'+it.id;
    if(it.k==='reagent')b.append(btn('Sell',()=>sellReagents(c),'sm heal'));
    else if(it.k==='core')b.append(btn('Use',()=>{coreOpen={key,mode:'use'};renderParty();},'sm rb'),btn('Sell',()=>{coreOpen={key,mode:'sell'};renderParty();},'sm heal'));
+   else if(it.k==='potion')b.append(btn('Drink',()=>usePotion(c,it.t),'sm heal'),btn('Sell 1',()=>sellPotion(c,it.t),'sm'));
    else if(it.k==='token')b.append(btn(isDM?'Use':'Train',()=>{tokOpen=tokOpen===key?null:key;renderParty();},'sm rb'));
    else{if(itemType(it)!=='gem')b.append(btn('Equip',()=>equipItem(c,it.id),'sm rb'));b.append(btn('Sell',()=>sellLoot(c,it.id),'sm heal'));}
    if(isDM)b.append(btn('✕',()=>setLoot(c,l.filter(x=>x.id!==it.id))));r.append(b);}
@@ -662,7 +680,9 @@ const LT=['Common','Uncommon','Rare','Epic','Legendary','Divine'],ITYPE=['Weapon
 const fmtN=n=>n<1e15?Math.round(n).toLocaleString('en-US'):n.toExponential(2);
 // ---------- item names (see names.js) ----------
 let adultLoot=false;
-const NSET=()=>{const B=window.BOOM_NAMES||{};return B[adultLoot?'adult':(skin==='core'?'fantasy':skin)]||B.fantasy||null;};
+// After Dark (21+) adds its names to the theme's tables instead of replacing them; quality words stay the theme's.
+const NSET=()=>{const B=window.BOOM_NAMES||{},T=B[skin==='core'?'fantasy':skin]||B.fantasy||null,A=B.adult;
+ if(!adultLoot||!A||!T)return T;const o={...T};for(const k of['n','w','a','j','g'])o[k]=[...(T[k]||[]),...(A[k]||[])];return o;};
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 // Clever name + base item; gems get the tier's quality word instead. Weapons carry hands/reach/damage, armor its type.
 function nameItem(type,tier){const S=NSET(),ty=String(type).toLowerCase();if(!S)return{n:LT[tier]+' '+ty};
@@ -686,8 +706,8 @@ function makeLoot(L,l,t0){
  for(const v of fin){
   const e={v};
   if(v%2===0){cores++;e.core=1;}
-  if(v<=50){e.k='reagent';e.val=v;}
-  else if(v<=75)e.k='token';
+  if(v<=50){if(v%2){e.k='potion';}else{e.k='reagent';e.val=v;}}
+  else if(v<=70)e.k='token';
   else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=e.type==='Gem'?0:tier;if(e.plus>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);e.nm=nameItem(e.type,tier);}
   loot.push(e);
  }
@@ -706,6 +726,7 @@ function lootBody(r){
   let t;
   if(e.k==='reagent')t='🧪 Sellable reagent · worth '+e.val+' '+LT[o.tier]+' coins';
   else if(e.k==='token')t='✨ Ability token';
+  else if(e.k==='potion')t='❤️ T'+(o.tier+1)+' healing potion · heals '+(o.tier+1)+'d6';
   else t=(e.type==='Gem'?'💠 ':'🎒 ')+(e.nm?e.nm.n:LT[o.tier]+' '+e.type.toLowerCase())+(e.plus>0&&e.type!=='Gem'?' (+'+e.plus+' '+e.stat+')':'')+' · '+LT[o.tier]+' '+e.type.toLowerCase()+', sells for 1d100 '+LT[o.tier]+' coins';
   row(t+(e.core?'  💎':''),String(e.v));
  }
@@ -718,6 +739,7 @@ function addLoot(l,arr,res){
  for(const e of res.loot){
   if(e.k==='reagent'){let r=l.find(x=>x.k==='reagent');if(!r){r={id:'reagents',k:'reagent',n:'Sellable reagents',tot:[0,0,0,0,0,0]};l.unshift(r);}r.tot[T]+=e.val;}
   else if(e.k==='token'){const t=l.find(x=>x.k==='token');if(t)t.q+=1;else l.push({id:'tokens',k:'token',n:'Ability tokens',q:1});}
+  else if(e.k==='potion'){const p=l.find(x=>x.k==='potion'&&x.t===T);if(p)p.q+=1;else l.push(potionOf(T,1,uid()));}
   else{const gem=e.type==='Gem',p=gem?0:e.plus,nm=e.nm||{n:LT[T]+' '+e.type.toLowerCase()};l.push({id:uid(),k:'item',ty:e.type.toLowerCase(),n:nm.n+(p>0?' +'+p+' '+e.stat:''),t:T,plus:p,sk:gem?'':(e.sk||''),...(nm.wh?{wh:nm.wh,wr:nm.wr,wt:nm.wt}:{}),...(nm.at?{at:nm.at}:{})});}
  }
  if(res.cores>0){const s=findCore(l,res.L,T);if(s)s.q+=res.cores;else l.push({id:uid(),k:'core',n:coreName({L:res.L,r:T}),L:res.L,v:res.core,t:ct,r:T,q:res.cores});}
@@ -947,11 +969,11 @@ function putItem(id){
  const h=stashHero();if(!h)return;const hl=lootList(h),it=hl.find(x=>x.id===id);if(!it)return;
  const sl=stashList();sl.push(it);
  stashMove(h,{loot:JSON.stringify(hl.filter(x=>x.id!==id))},{loot:JSON.stringify(sl)},h.name+' put '+iname(it)+' in the stash');}
-const stackOf=(l,it)=>it.k==='token'?l.find(x=>x.k==='token'):findCore(l,it.L,crT(it));
-const isStack=it=>it.k==='core'||it.k==='token';
+const stackOf=(l,it)=>it.k==='token'?l.find(x=>x.k==='token'):it.k==='potion'?l.find(x=>x.k==='potion'&&x.t===it.t):findCore(l,it.L,crT(it));
+const isStack=it=>it.k==='core'||it.k==='token'||it.k==='potion';
 const dropEmpty=l=>l.filter(x=>!(isStack(x)&&x.q<=0));
 function moveStack(from,to,it,n){const s=stackOf(from,it);if(!s)return 0;n=Math.min(n,s.q);if(n<1)return 0;s.q-=n;const d=stackOf(to,it);if(d)d.q+=n;else to.push({...s,id:it.k==='token'?'tokens':suid(),q:n});return n;}
-const sname=(it,m)=>it.k==='token'?m+' ability token'+(m>1?'s':''):m+' level '+it.L+' T'+(crT(it)+1)+' core'+(m>1?'s':'');
+const sname=(it,m)=>it.k==='potion'?m+' '+potName(it.t)+(m>1?'s':''):it.k==='token'?m+' ability token'+(m>1?'s':''):m+' level '+it.L+' T'+(crT(it)+1)+' core'+(m>1?'s':'');
 function takeStack(it,n){
  const h=stashHero();if(!h)return;const sl=stashList(),hl=lootList(h),m=moveStack(sl,hl,it,n);if(!m)return toast('Nothing to take');
  stashMove(h,{loot:JSON.stringify(hl)},{loot:JSON.stringify(dropEmpty(sl))},h.name+' took '+sname(it,m)+' from the stash');}
@@ -993,6 +1015,7 @@ function renderStash(){
   if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'worth '+fmtN(it.v)+' '+LT[it.t]+' coins each'));
   else if(it.k==='reagent')t.append(el('b',null,it.n),el('small',null,it.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' · ')));
   else if(it.k==='token')t.append(el('b',null,'✨ Ability tokens × '+it.q),el('small',null,lootVal(it)));
+  else if(it.k==='potion')t.append(el('b',null,'❤️ '+it.n+(it.q>1?' × '+it.q:'')),el('small',null,lootVal(it)));
   else t.append(el('b',null,it.n),el('small',null,lootVal(it)));
   const bb=el('div','lbtn');btns.forEach(x=>bb.append(x));r.append(t,bb);return r;};
  b.append(el('div','sec','In the stash'));
@@ -1028,6 +1051,8 @@ function renderStash(){
   dmk.push(r1,r2,r3);
   const tk=el('div','row add arow'),tq=num('Tokens',1);
   tk.append(tq,btn('Add tokens',()=>{const q=Math.floor(+tq.value)||0;if(q<1)return toast('Enter how many tokens');const l=stashList(),t=l.find(x=>x.k==='token');if(t)t.q+=q;else l.push({id:'tokens',k:'token',n:'Ability tokens',q});dmAdd(l,stash.coins,'Added '+q+' ability token'+(q>1?'s':''));},'sm rb dmb'));dmk.push(tk);
+  const po=el('div','row add arow'),pq=num('Potions',1),pt=document.createElement('select');LT.forEach((n,i)=>pt.add(new Option('T'+(i+1)+' potion',i)));
+  po.append(pt,pq,btn('Add potions',()=>{const q=Math.floor(+pq.value)||0,t=+pt.value||0;if(q<1)return toast('Enter how many potions');const l=stashList(),p=l.find(x=>x.k==='potion'&&x.t===t);if(p)p.q+=q;else l.push(potionOf(t,q,suid()));dmAdd(l,stash.coins,'Added '+q+' '+potName(t)+(q>1?'s':''));},'sm rb dmb'));dmk.push(po);
   const cr=el('div','row add arow'),lv=num('Level'),qq=num('Amount'),crs=document.createElement('select');LT.forEach((n,i)=>crs.add(new Option('T'+(i+1),i)));crs.title='Training tier';
   cr.append(lv,crs,qq,btn('Add cores',()=>{const L=Math.floor(+lv.value)||0,q=Math.floor(+qq.value)||0,r=+crs.value||0;if(L<1||L>99||q<1)return toast('Core level 1 to 99 and an amount');
    const l=stashList(),s0=findCore(l,L,r);if(s0)s0.q+=q;else l.push({id:suid(),k:'core',n:coreName({L,r}),L,v:L*100,t:band(L),r,q});dmAdd(l,stash.coins,'Added '+q+' level '+L+' T'+(r+1)+' core'+(q>1?'s':''));},'sm rb dmb'));dmk.push(cr);
@@ -1037,7 +1062,7 @@ function renderStash(){
  }
  // fold it all under one summary line: Party stash · coins · item count
  const kids=[...b.childNodes],d=document.createElement('details'),sm=document.createElement('summary'),sl0=stashList();
- const nItems=sl0.reduce((n,it)=>n+(it.k==='core'||it.k==='token'?(it.q||1):1),0);
+ const nItems=sl0.reduce((n,it)=>n+(isStack(it)?(it.q||1):1),0);
  const coinTxt=stash.coins.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).reverse().join(', ')||'0';
  d.className='sx stx';d.open=UI.s['stash:main']!==false;
  sm.append(el('span',null,'Party stash'),el('span','sumx',coinTxt+' coins · '+nItems+' item'+(nItems===1?'':'s')));d.append(sm,...kids);
