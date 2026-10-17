@@ -384,14 +384,14 @@ function removeQuick(id){
 }
 // ---------- party ----------
 const STATS=[['con','Constitution'],['str','Strength'],['int','Intellect'],['spd','Speed'],['cha','Charm'],['lck','Spirit/Luck']];
-const BT={p:'str',m:'int',c:'con',s:'spd',h:'cha',l:'lck'},TI={m:'✨',c:'❤️',s:'⚡',h:'💖',l:'🍀'};
+const BT={p:'str',m:'int',st:'str',in:'int',c:'con',s:'spd',h:'cha',l:'lck'},TI={m:'✨',c:'❤️',s:'⚡',h:'💖',l:'🍀'};
 const EQ=[['a','Armor 1'],['g','Armor 2'],['w','Weapon'],['w2','Weapon 2'],['m','Magic item'],['m2','Magic item 2']];
 const num=v=>/^[+-]?\d+$/.test(String(v).trim())?+String(v).trim():0;
 let chars=[],isDM=false,partyCol=null;
 const nSlots=l=>3+Math.floor(Math.min(l,20)/5)+Math.floor(Math.max(0,l-20)/10);
 function norm(d,id){return{id,name:'',level:1,con:0,str:0,int:0,spd:0,cha:0,lck:0,aN:'',aV:'',wN:'',wV:'',mN:'',mV:'',m2N:'',m2V:'',gN:'',gV:'',aT:'p',gT:'m',mT:'m',m2T:'m',wT:'p',w2T:'p',wH:'1',w2H:'1',wR:'t',w2R:'t',aI:'',gI:'',wI:'',w2I:'',mI:'',m2I:'',w2N:'',w2V:'',temp:0,dead:false,gold:0,xp:'0',loot:'[]',notes:'',conds:'[]',atk:'[]',hpCur:null,ts:0,...d};}
 const arm=c=>{let p=0,m=0;for(const s of['a','g']){const v=num(c[s+'V']);if(c[s+'T']==='m')m+=v;else p+=v;}return{p,m};};
-const MAGT=[['p','Phys'],['m','Magic'],['c','Con'],['s','Spd'],['h','Cha'],['l','Luck']],STATLAB=Object.fromEntries(STATS),SLOTS={weapon:['w','w2'],armor:['a','g'],magic:['m','m2']};
+const MAGT=[['p','Phys dmg'],['m','Magic dmg'],['st','Str'],['in','Int'],['c','Con'],['s','Spd'],['h','Cha'],['l','Luck']],STATLAB=Object.fromEntries(STATS),SLOTS={weapon:['w','w2'],armor:['a','g'],magic:['m','m2']};
 function slotItem(c,s){try{const t=c[s+'I'];return t?JSON.parse(t):null}catch{return null}}
 function itemType(it){if(it.ty)return it.ty;const n=(it.n||'').toLowerCase();return n.includes('weapon')?'weapon':n.includes('armor')?'armor':n.includes('jewelry')?'jewelry':n.includes('gem')?'gem':'jewelry';}
 function itemMeta(it){
@@ -400,7 +400,11 @@ function itemMeta(it){
  const m=/\+(\d+)\s+([A-Za-z\/]+)/.exec(it.n||'');let sk='';
  if(m){const f=STATS.find(x=>x[1].toLowerCase()===m[2].toLowerCase());if(f)sk=f[0];}
  return{ty:itemType(it),plus:m?+m[1]:0,sk};}
-function bonus(c,k){let b=0;for(const s of['a','g','w','w2','m','m2']){const it=slotItem(c,s);if(it){const m=itemMeta(it);if(m.sk===k&&m.plus>0)b+=m.plus;}}return b;}
+// a magic item slot with a flat number (not dice) is a passive bonus: Phys dmg / Magic dmg add to damage only, a stat type adds to that stat
+function magFlat(c,p){const v=String(c[p+'V']||'').replace(/\s+/g,'');if(!(c[p+'N']||'').trim()&&!slotItem(c,p))return 0;return /^\+?\d+$/.test(v)?+v.replace('+',''):0;}
+function magDmg(c,t){let b=0;for(const p of['m','m2'])if((c[p+'T']||'m')===t)b+=magFlat(c,p);return b;}
+function bonus(c,k){let b=0;for(const s of['a','g','w','w2','m','m2']){const it=slotItem(c,s);if(it){const m=itemMeta(it);if(m.sk===k&&m.plus>0)b+=m.plus;}}
+ for(const p of['m','m2']){const t=c[p+'T']||'m';if(t!=='p'&&t!=='m'&&BT[t]===k)b+=magFlat(c,p);}return b;}
 const eff=(c,k)=>(+c[k]||0)+bonus(c,k);
 function equipItem(c,id){
  const l=lootList(c),it=l.find(x=>x.id===id);if(!it)return;
@@ -423,6 +427,7 @@ function bothOk(c){const a=(c.wN||'').trim()||c.wI,b=(c.w2N||'').trim()||c.w2I;r
 function eqSub(c,k,p,lab,vv,can){
  const it=slotItem(c,p),filled=(c[p+'N']||'').trim()||it,sb=el('div','eqsub');
  if(it){const m=itemMeta(it);if(m.plus>0&&m.sk)sb.append(el('small',null,'+'+m.plus+' '+STATLAB[m.sk]));}
+ if((p==='m'||p==='m2')&&!can&&magFlat(c,p)){const t=c[p+'T']||'m';sb.append(el('small',null,'+'+magFlat(c,p)+' '+(t==='p'?'physical damage':t==='m'?'magic damage':STATLAB[BT[t]])));}
  if((p==='m'||p==='m2')&&can){const t=c[p+'T']||'m',bn=t==='p'?k.pd:t==='m'?k.md:eff(c,BT[t]||'str'),ex=vv+(bn>0?'+'+bn:bn<0?String(bn):'');
   sb.append(btn('🎲 Roll '+ex,()=>doRoll(ex,c.name+' · '+(c[p+'N']||lab),null,t==='p'||t==='m',colorMap[c.id]),'sm rb'));}
  if((p==='w'||p==='w2')&&filled){
@@ -438,7 +443,7 @@ function eqSub(c,k,p,lab,vv,can){
  if(filled&&canAct(c))sb.append(btn('Unequip',()=>unequip(c,p),'sm'));
  return sb.childNodes.length?sb:null;}
 
-const calc=c=>{const A=arm(c),E=k=>eff(c,k);return{hp:5*(c.level+E('con')),mv:5+c.level+E('spd'),na:1+Math.floor(E('spd')/4),pd:E('str')-A.m,md:E('int')-A.p,ar:A.p+A.m,free:c.level-1-STATS.reduce((a,[k])=>a+c[k],0),slots:nSlots(c.level)};};
+const calc=c=>{const A=arm(c),E=k=>eff(c,k);return{hp:5*(c.level+E('con')),mv:5+c.level+E('spd'),na:1+Math.floor(E('spd')/4),pd:E('str')-A.m+magDmg(c,'p'),md:E('int')-A.p+magDmg(c,'m'),ar:A.p+A.m,free:c.level-1-STATS.reduce((a,[k])=>a+c[k],0),slots:nSlots(c.level)};};
 // Who can equip, sell, and use loot on a sheet: the Core Master, or the player whose hero it is.
 const canAct=c=>!c.dead&&(isDM||(!!partyCol&&c.id===myHero));
 const SHORT={con:'CON',str:'STR',int:'INT',spd:'SPD',cha:'CHA',lck:'LCK'};
@@ -521,7 +526,7 @@ function charCard(c){
   r.append(n,e,t,btn('Add',()=>{const ee=e.value.replace(/\s+/g,'');if(!n.value.trim()||!parse(ee))return toast('Need a name and a valid roll');put(c,{atk:JSON.stringify([...list,{n:n.value.trim().slice(0,30),e:ee,t:t.value,r:1}])});},'sm'));box.append(r);}
  // gear
  const gk=[];let nEq=0;
- for(const[p,lab]of EQ){const filled=(c[p+'N']||'').trim()||slotItem(c,p);if(filled)nEq++;const r=el('div','eq'),vv=(c[p+'V']||'').replace(/\s+/g,''),can=/d/i.test(vv)&&parse(vv);const isW=p==='w'||p==='w2';const vel=isW?el('small','wx',wpn(c,k,p).ex):field(c,p+'V','Value'),lel=isW?btn('🎲',()=>rollWpn(c,k,p,lab),'sm rb'):eqLast(c,p,can,vv,lab);r.append(el('small',null,lab),field(c,p+'N','None'));gk.push(r);{const o=el('div','eqopts');o.append(vel,lel);const sb=eqSub(c,k,p,lab,vv,can);if(sb)while(sb.firstChild)o.append(sb.firstChild);gk.push(o);}}
+ for(const[p,lab]of EQ){const filled=(c[p+'N']||'').trim()||slotItem(c,p);if(filled)nEq++;const r=el('div','eq'),vv=(c[p+'V']||'').replace(/\s+/g,''),can=/d/i.test(vv)&&parse(vv);const isW=p==='w'||p==='w2';const vel=isW?el('small','wx',wpn(c,k,p).ex):field(c,p+'V',(p==='m'||p==='m2')?'+2 or 1d6':'Value'),lel=isW?btn('🎲',()=>rollWpn(c,k,p,lab),'sm rb'):eqLast(c,p,can,vv,lab);r.append(el('small',null,lab),field(c,p+'N','None'));gk.push(r);{const o=el('div','eqopts');o.append(vel,lel);const sb=eqSub(c,k,p,lab,vv,can);if(sb)while(sb.firstChild)o.append(sb.firstChild);gk.push(o);}}
  box.append(sec(c.id+':gear','Gear',nEq+' / '+EQ.length+' equipped',gk));
  // coins & loot
  const cs=coinsOf(c),ll=lootList(c),hi=cs.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).reverse()[0]||'0 coins';
