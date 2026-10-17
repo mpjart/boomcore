@@ -2,6 +2,10 @@
 
 **Beyond Our Own Maximum.** A free, open-source tabletop RPG framework built for speed and fun, with exploding dice and a companion app that tracks the math and the booms.
 
+## Logo
+
+The Boom logo is a cartoon bomb shaped like a d20 with a lit fuse, next to the BOOM wordmark (Alfa Slab One with an offset shadow) and the tagline **Beyond Our Own Maximum**. It is the same in every theme and only its colors change. See every theme at https://mpjart.github.io/boomcore/logo.html. Files: `logo.svg` (full lockup, Core Light colors) and `logo-mark.svg` (the mark alone, also the favicon).
+
 ## Boom Dice app
 
 `index.html` is the Boom Dice app: exploding dice, party character sheets, loot boxes, a shared party stash, initiative, and a Core Master tab for monsters.
