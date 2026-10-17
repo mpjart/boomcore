@@ -136,8 +136,19 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 :root[data-layout="full"] #pgDice,:root[data-layout="full"] #pgParty,:root[data-layout="full"] #pgLoot,:root[data-layout="full"] #pgDM{grid-area:page;min-width:0}
 :root[data-layout="full"] #side{grid-area:side;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;min-width:0}
 }
+
+/* handouts */
+#hobox textarea{width:100%;font:inherit;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:110px;margin-top:8px}
+#hobox input[type=file]{width:100%;padding:9px;margin-top:8px}
+.seg{display:flex;background:var(--chip);border-radius:var(--rb);padding:3px;gap:3px;margin:10px 0 4px}.seg button{flex:1;background:none;color:var(--mute);padding:8px 10px}.seg button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
+#hprev{display:block;width:100%;max-height:70vh;object-fit:contain;margin-top:12px;border-radius:var(--rb);background:var(--chip)}
+.hogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:10px}.hot img{display:block;width:100%;aspect-ratio:3/4;object-fit:contain;border-radius:var(--rb);border:1px solid var(--line);cursor:zoom-in;background:var(--chip)}
+.hocap{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:13px;font-weight:600}.hocap span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hox{padding:3px 8px;flex:none}
+.hofeed{display:block;max-width:220px;width:100%;margin-top:8px;border-radius:var(--rb);border:1px solid var(--line);cursor:zoom-in}
+#hview{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.82);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom))}
+#hview[hidden]{display:none!important}#hview img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.6)}#hview .hvbar{display:flex;gap:8px;align-items:center;width:100%;max-width:900px}#hview .hvbar b{flex:1;color:#fff;font-size:17px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style></head><body>
-<canvas id="fx"></canvas><div id="toast"></div>
+<canvas id="fx"></canvas><div id="hview" hidden role="dialog" aria-label="Handout"><div class="hvbar"><b id="hvt"></b><button id="hvdl" class="ghost sm">⬇ Download</button><button id="hvx" class="sm">Close</button></div><img id="hvimg" alt="Handout"></div><div id="toast"></div>
 <main>
 <div class="hdr"><h1>🎲 Boom Dice</h1><div class="lay" role="group" aria-label="Layout"><button id="layM" type="button">📱 Mobile</button><button id="layF" type="button">🖥️ Full</button></div></div><div class="tabs"><button id="tD" class="on" onclick="tab('d')">Dice</button><button id="tP" onclick="tab('p')">Party</button><button id="tL" onclick="tab('l')">Loot</button><button id="tM" onclick="tab('m')" hidden>CM</button></div><div id="pgDice">
 <details class="how"><summary>Dice that hit their max or min <b>explode</b> 💥 <span class="hw">How it works</span></summary><p>Every die that lands on its max or min <b>explodes</b> (d6 and smaller only explode on a 1; d21 and larger explode on a flat 10% chance instead): it's discarded and 2 new dice are rolled. Everything left adds up.</p><p>Boom cap: one die group stops exploding after 100 dice in total (a d1 would explode forever, and a d2 can run very long).</p></details>
@@ -150,7 +161,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="row" style="margin-top:10px"><input id="qname" placeholder="Name (e.g. Sword)" style="flex:.8"><button class="ghost" id="save">＋ Save current</button></div>
 </div>
 <div class="card"><label>Your color</label><div id="mycol"></div><div class="note">Your rolls show in this color for the whole party. Rolls made from a character card use that character's color.</div></div>
-</div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div></div><div id="pgLoot" hidden>
+</div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div><div class="card" id="holist" hidden></div></div><div id="pgLoot" hidden>
 <details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier: 2 to 50 is a reagent to sell, but an odd roll there is a healing potion instead (heals the tier in d6, so a T3 potion heals 3d6, and the dice can boom); 51 to 70 is an ability token; 71 to 99 is an item. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
 <div class="card" id="boxlist"></div>
 <div class="card" id="lootmk">
@@ -167,6 +178,14 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 <div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
 <a class="btnl" id="cmscreen" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
 <div class="card" id="dawnbox"><div class="row" style="align-items:center;justify-content:space-between;gap:10px"><div><b class="pn">Dawn</b><div class="note">A new day: clears every hero's temp HP.</div></div><button id="dawn" class="rbu">🌅 Dawn</button></div></div>
+<div class="card" id="hobox"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
+ <div class="seg" role="group" aria-label="Handout type"><button id="hmN" type="button" class="on">✍️ Note</button><button id="hmI" type="button">🖼️ Picture</button></div>
+ <div id="hnote"><input id="htitle" maxlength="60" placeholder="Title (optional)" style="width:100%;margin-top:8px"><textarea id="htext" maxlength="2000" placeholder="What does the note say?"></textarea><input id="hsign" maxlength="40" placeholder="Signed (optional)" style="width:100%"></div>
+ <div id="himg" hidden><input id="hfile" type="file" accept="image/*"><input id="hcap" maxlength="60" placeholder="Caption (optional)" style="width:100%;margin-top:8px"></div>
+ <img id="hprev" hidden alt="Handout preview">
+ <div class="row" id="hacts" style="margin-top:10px" hidden><button id="hgive" class="rbu" style="flex:1">📜 Give to party</button><button id="hdl" class="ghost">⬇ Download</button></div>
+ <div class="err" id="herr"></div>
+</div>
 <div class="card" id="initbox"></div>
 <div class="card" id="mgen">
  <b class="pn">Monster generator</b>
@@ -221,6 +240,8 @@ function timeAgo(ts){const s=Math.max(0,(Date.now()-ts)/1000|0);return s<60?'jus
 function logEvent(text){const r={uid:me||'local',who:'',expr:'',total:0,booms:0,note:text,ts:Date.now(),detail:'{"parts":[],"mod":0}'};
  if(db&&me)db.collection('rolls').doc(r.ts+'-'+Math.random().toString(36).slice(2,7)).set(r).catch(()=>{});else{rolls.unshift(r);render();}}
 function card(r){
+ if(r.handout){const c=el('div','card roll evt'),t=el('div','top'),h=handouts.find(x=>x.id===r.handout);t.append(el('span',null,'📜 Handout'),el('span',null,timeAgo(r.ts)));c.append(t,el('div','evt-t',h?h.title:(r.note||'').replace(/^📜 New handout: /,'')));
+  if(h){const im=el('img','hofeed');im.src=h.img;im.alt=h.title||'Handout';im.onclick=()=>hoView(h);c.append(im);}else if(handoutCol)c.append(el('div','note','This handout was removed.'));return c;}
  if(r.note){const c=el('div','card roll evt'),t=el('div','top');t.append(el('span',null,'⚠ Event'),el('span',null,timeAgo(r.ts)));c.append(t,el('div','evt-t',r.note));return c;}
  let det;try{det=JSON.parse(r.detail)}catch{det={parts:[],mod:0}}
  const c=el('div','card roll'+(r.booms>0?' boom':'')),rc=cvar(r.col);if(rc){c.classList.add('colored');c.style.setProperty('--cc',rc);}
@@ -710,6 +731,119 @@ $('#layM').onclick=()=>setLayout('mobile');$('#layF').onclick=()=>setLayout('ful
 wideMQ.addEventListener('change',()=>renderInit());
 setLayout(layout);
 function tab(t){$('#pgDice').hidden=t!=='d';$('#pgParty').hidden=t!=='p';$('#pgLoot').hidden=t!=='l';$('#pgDM').hidden=t!=='m';$('#tD').classList.toggle('on',t==='d');$('#tP').classList.toggle('on',t==='p');$('#tL').classList.toggle('on',t==='l');$('#tM').classList.toggle('on',t==='m');}
+// ---------- handouts: the CM turns text into a themed note (or frames a picture) and gives it to the party ----------
+// Each handout is drawn on a canvas in the table's theme at the moment it is made, saved as a JPEG, and stored in 'handouts'.
+const HS={
+ core:   {f:'Caveat',w:700,g:'Caveat:wght@700',sz:52,tsz:68,lh:1.2,ink:'#1f4e5f',tink:'#b83a12',fb:'cursive'},
+ fantasy:{f:'Fondamento',w:400,g:'Fondamento',sz:40,tsz:58,lh:1.5,ink:'#3b2410',tink:'#8b1e1e',fb:'serif'},
+ space:  {f:'Share Tech Mono',w:400,g:'Share+Tech+Mono',sz:33,tsz:44,lh:1.55,ink:'#bff3ff',tink:'#ff9a3c',fb:'monospace'},
+ horror: {f:'Reenie Beanie',w:400,g:'Reenie+Beanie',sz:60,tsz:76,lh:1.1,ink:'#2b0a0a',tink:'#7d1016',fb:'cursive'},
+ grit:   {f:'Permanent Marker',w:400,g:'Permanent+Marker',sz:40,tsz:56,lh:1.45,ink:'#121212',tink:'#b3241a',fb:'cursive'}};
+let handouts=[],handoutCol=null,hoMode='note',hoImg=null,hoURL='',hoTimer=0;
+async function hoFont(st){
+ if(!document.getElementById('hof-'+st.f)){const l=document.createElement('link');l.id='hof-'+st.f;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+st.g+'&display=swap';document.head.append(l);}
+ try{await Promise.race([document.fonts.load(st.w+' '+st.sz+'px "'+st.f+'"'),new Promise(r=>setTimeout(r,2500))]);}catch{}}
+function hoWrap(c,text,maxW){const out=[];for(const para of String(text||'').split('\n')){if(!para.trim()){out.push('');continue;}let line='';
+ for(const w of para.trim().split(/\s+/)){const t=line?line+' '+w:w;if(c.measureText(t).width>maxW&&line){out.push(line);line=w;}else line=t;}out.push(line);}
+ while(out.length&&out[out.length-1]==='')out.pop();return out;}
+function hoDraw(o){
+ const sk=HS[o.skin]?o.skin:'core',st=HS[sk],cv=document.createElement('canvas'),c=cv.getContext('2d');
+ let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+ const fnt=(sz,w)=>(w||st.w)+' '+sz+'px "'+st.f+'", '+st.fb;
+ const W=1000,M={core:34,fantasy:0,space:26,horror:0,grit:46}[sk],img=o.mode==='image'?o.img:null;
+ const padL=img?60:(sk==='core'||sk==='grit'?130:sk==='fantasy'||sk==='horror'?100:80),padR=img?60:80,PW=W-2*M,maxW=PW-padL-padR;
+ // measure the content
+ c.font=fnt(st.tsz);const tl=img?[]:hoWrap(c,o.title,maxW);
+ const bsz=img?Math.round(st.sz*.9):st.sz;c.font=fnt(bsz);
+ const bl=hoWrap(c,img?o.cap:o.text,img?PW-120:maxW),lh=Math.round(bsz*st.lh),tlh=Math.round(st.tsz*1.15);
+ let iw=0,ih=0;if(img){const s=Math.min((PW-120)/img.width,1000/img.height,1);iw=Math.round(img.width*s);ih=Math.round(img.height*s);}
+ const top=sk==='space'?130:sk==='fantasy'||sk==='horror'?120:110,bot=img?(bl.length?50:70):(o.sign?60:90);
+ let body=img?ih+(bl.length?40+bl.length*lh:0):tl.length*tlh+(tl.length?34:0)+Math.round(bsz*.9)+Math.max(1,bl.length)*lh+(o.sign?lh+20:0);
+ const H=Math.max(img?0:640,top+body+bot+2*M);cv.width=W;cv.height=H;
+ const P={x:M,y:M,w:PW,h:H-2*M};
+ // background and paper
+ c.fillStyle={core:'#e9e3d8',fantasy:'#2a1a0e',space:'#030610',horror:'#0d0a0a',grit:'#bdb8ad'}[sk];c.fillRect(0,0,W,H);
+ if(sk==='grit'){for(let i=0;i<2500;i++){c.fillStyle='rgba(0,0,0,'+(rnd()*.08)+')';c.fillRect(rnd()*W,rnd()*H,2,2);}c.save();c.translate(W/2,H/2);c.rotate(-.012);c.translate(-W/2,-H/2);}
+ if(sk==='core'){c.save();c.shadowColor='rgba(31,26,23,.28)';c.shadowBlur=24;c.shadowOffsetY=8;c.fillStyle=img?'#fffdf8':'#fdfaf1';c.fillRect(P.x,P.y,P.w,P.h);c.restore();}
+ else if(sk==='fantasy'){c.fillStyle='#ead6a6';c.fillRect(P.x,P.y,P.w,P.h);
+  for(let i=0;i<26;i++){const x=rnd()*W,y=rnd()*H,r=40+rnd()*160,g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(150,100,40,'+(.04+rnd()*.07)+')');g.addColorStop(1,'rgba(150,100,40,0)');c.fillStyle=g;c.fillRect(x-r,y-r,2*r,2*r);}
+  const g=c.createRadialGradient(W/2,H/2,Math.min(W,H)*.35,W/2,H/2,Math.max(W,H)*.75);g.addColorStop(0,'rgba(80,40,5,0)');g.addColorStop(1,'rgba(70,35,5,.75)');c.fillStyle=g;c.fillRect(0,0,W,H);
+  c.strokeStyle='rgba(60,30,5,.55)';c.lineWidth=3;c.strokeRect(36,36,W-72,H-72);c.lineWidth=1;c.strokeRect(46,46,W-92,H-92);}
+ else if(sk==='space'){c.fillStyle='#08142e';c.fillRect(P.x,P.y,P.w,P.h);c.strokeStyle='rgba(79,216,247,.07)';c.lineWidth=1;
+  for(let x=P.x;x<P.x+P.w;x+=40){c.beginPath();c.moveTo(x,P.y);c.lineTo(x,P.y+P.h);c.stroke();}for(let y=P.y;y<P.y+P.h;y+=40){c.beginPath();c.moveTo(P.x,y);c.lineTo(P.x+P.w,y);c.stroke();}
+  c.save();c.shadowColor='#4fd8f7';c.shadowBlur=16;c.strokeStyle='#4fd8f7';c.lineWidth=3;c.strokeRect(P.x+6,P.y+6,P.w-12,P.h-12);c.lineWidth=7;
+  for(const[x,y,dx,dy]of[[P.x+6,P.y+6,1,1],[P.x+P.w-6,P.y+6,-1,1],[P.x+6,P.y+P.h-6,1,-1],[P.x+P.w-6,P.y+P.h-6,-1,-1]]){c.beginPath();c.moveTo(x+dx*50,y);c.lineTo(x,y);c.lineTo(x,y+dy*50);c.stroke();}c.restore();
+  c.font='400 22px "'+st.f+'", monospace';c.fillStyle='#4fd8f7';c.fillText(img?'▮ IMAGE RECEIVED':'▮ INCOMING TRANSMISSION',P.x+padL,P.y+70);c.textAlign='right';c.fillStyle='#ff9a3c';c.fillText('BOOM//NET',P.x+P.w-padR,P.y+70);c.textAlign='left';}
+ else if(sk==='horror'){c.fillStyle='#cfc2a3';c.fillRect(0,0,W,H);
+  for(let i=0;i<30;i++){const x=rnd()*W,y=rnd()*H,r=30+rnd()*140,g=c.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(90,60,20,'+(.05+rnd()*.12)+')');g.addColorStop(1,'rgba(90,60,20,0)');c.fillStyle=g;c.fillRect(x-r,y-r,2*r,2*r);}
+  const g=c.createRadialGradient(W/2,H/2,Math.min(W,H)*.3,W/2,H/2,Math.max(W,H)*.75);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(10,0,0,.8)');c.fillStyle=g;c.fillRect(0,0,W,H);}
+ else if(sk==='grit'){c.save();c.shadowColor='rgba(0,0,0,.35)';c.shadowOffsetX=6;c.shadowOffsetY=6;c.shadowBlur=0;c.fillStyle='#f6f3ea';c.beginPath();c.moveTo(P.x,P.y+14);
+  for(let x=P.x;x<=P.x+P.w;x+=18)c.lineTo(x,P.y+(x/18%2?2:16)+rnd()*6);c.lineTo(P.x+P.w,P.y+P.h);c.lineTo(P.x,P.y+P.h);c.closePath();c.fill();c.restore();}
+ // ruled lines for the note papers
+ const by0=P.y+top+(tl.length?tl.length*tlh+34:0)+Math.round(bsz*.9);
+ if(!img&&(sk==='core'||sk==='grit')){c.strokeStyle=sk==='core'?'rgba(31,78,95,.35)':'rgba(18,18,18,.18)';c.lineWidth=2;
+  for(let y=by0+12;y<P.y+P.h-20;y+=lh){c.beginPath();c.moveTo(P.x+(sk==='grit'?0:20),y);c.lineTo(P.x+P.w-(sk==='grit'?0:20),y);c.stroke();}
+  c.strokeStyle=sk==='core'?'rgba(184,58,18,.75)':'rgba(179,36,26,.6)';c.lineWidth=3;c.beginPath();c.moveTo(P.x+padL-30,P.y+(sk==='grit'?20:0));c.lineTo(P.x+padL-30,P.y+P.h);c.stroke();
+  if(tl.length&&sk==='core'){const ty=by0-Math.round(bsz*.9)-14;c.beginPath();c.moveTo(P.x,ty);c.lineTo(P.x+P.w,ty);c.stroke();c.beginPath();c.moveTo(P.x,ty+7);c.lineTo(P.x+P.w,ty+7);c.stroke();}}
+ // content
+ let y=P.y+top;c.textBaseline='alphabetic';
+ if(img){const ix=Math.round((W-iw)/2);
+  if(sk==='horror')c.filter='sepia(.55) contrast(1.15) brightness(.9)';
+  c.save();if(sk==='grit'||sk==='core'){c.shadowColor='rgba(0,0,0,.25)';c.shadowBlur=10;}c.drawImage(img,ix,y,iw,ih);c.restore();c.filter='none';
+  if(sk==='space'){c.strokeStyle='#4fd8f7';c.lineWidth=2;c.strokeRect(ix-1,y-1,iw+2,ih+2);for(let s=y;s<y+ih;s+=4){c.fillStyle='rgba(0,10,30,.18)';c.fillRect(ix,s,iw,2);}}
+  if(sk==='fantasy'){c.strokeStyle='#5a3a12';c.lineWidth=5;c.strokeRect(ix,y,iw,ih);}
+  if(sk==='horror'){const g=c.createRadialGradient(W/2,y+ih/2,Math.min(iw,ih)*.3,W/2,y+ih/2,Math.max(iw,ih)*.7);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(20,0,0,.6)');c.fillStyle=g;c.fillRect(ix,y,iw,ih);}
+  if(sk==='grit'){c.fillStyle='rgba(245,196,0,.55)';for(const[x0,ang]of[[ix-30,-.5],[ix+iw-90,.5]]){c.save();c.translate(x0+60,y+6);c.rotate(ang);c.fillRect(-70,-18,140,36);c.restore();}}
+  y+=ih+(bl.length?40+bsz*.8:0);c.font=fnt(bsz);c.fillStyle=st.ink;c.textAlign='center';for(const l of bl){c.fillText(l,W/2,y);y+=lh;}c.textAlign='left';}
+ else{c.font=fnt(st.tsz);c.fillStyle=st.tink;for(const l of tl){y+=st.tsz*.85;c.fillText(l,P.x+padL,y);y+=tlh-st.tsz*.85;}
+  y=by0;c.font=fnt(bsz);c.fillStyle=st.ink;
+  for(const l of bl.length?bl:['']){const jx=sk==='horror'?(rnd()-.5)*10:0;c.fillText(l,P.x+padL+jx,y);y+=lh;}
+  if(o.sign){y+=20;c.textAlign='right';c.fillText('— '+o.sign,P.x+P.w-padR,y);c.textAlign='left';}
+  if(sk==='fantasy'&&o.sign){const sx=P.x+padL+40,sy=y-12,g=c.createRadialGradient(sx-10,sy-10,4,sx,sy,48);g.addColorStop(0,'#c0392b');g.addColorStop(1,'#6e1010');c.fillStyle=g;c.beginPath();c.arc(sx,sy,44,0,7);c.fill();
+   c.strokeStyle='rgba(255,220,180,.35)';c.lineWidth=3;c.beginPath();c.arc(sx,sy,30,0,7);c.stroke();c.fillStyle='rgba(255,225,190,.8)';c.font='700 34px Georgia,serif';c.textAlign='center';c.fillText('B',sx,sy+12);c.textAlign='left';}}
+ // finishing touches
+ if(sk==='grit'){if(!img){c.fillStyle='rgba(245,196,0,.6)';for(const[x0,ang]of[[P.x-20,-.6],[P.x+P.w-130,.6]]){c.save();c.translate(x0+75,P.y+18);c.rotate(ang);c.fillRect(-80,-20,160,40);c.restore();}}c.restore();}
+ if(sk==='horror'){for(let i=0;i<5;i++){const x=60+rnd()*(W-120),len=25+rnd()*(top-55),w=8+rnd()*14;c.fillStyle='rgba(110,8,14,.88)';c.fillRect(x-w/2,0,w,len);c.beginPath();c.arc(x,len,w*.75,0,7);c.fill();}
+  for(let i=0;i<40;i++){c.fillStyle='rgba(110,8,14,'+(.4+rnd()*.5)+')';c.beginPath();c.arc(rnd()*W,rnd()*(top-20),1+rnd()*5,0,7);c.fill();}}
+ if(sk==='space')for(let s=0;s<H;s+=4){c.fillStyle='rgba(0,0,0,.12)';c.fillRect(0,s,W,1);}
+ return cv;}
+function hoJpeg(cv){let q=.88,u=cv.toDataURL('image/jpeg',q);while(u.length>600000&&q>.5){q-=.1;u=cv.toDataURL('image/jpeg',q);}
+ while(u.length>600000){const s=document.createElement('canvas');s.width=cv.width*.8|0;s.height=cv.height*.8|0;s.getContext('2d').drawImage(cv,0,0,s.width,s.height);cv=s;u=cv.toDataURL('image/jpeg',.7);}return u;}
+async function hoPreview(){
+ const st=HS[skin]||HS.core,mode=hoMode,err=$('#herr');err.textContent='';
+ const o={mode,skin,title:$('#htitle').value.trim(),text:$('#htext').value,sign:$('#hsign').value.trim(),cap:$('#hcap').value.trim(),img:hoImg};
+ if(mode==='image'&&!hoImg){hoURL='';$('#hprev').hidden=true;$('#hacts').hidden=true;return;}
+ if(mode==='note'&&!o.title&&!o.text.trim()){hoURL='';$('#hprev').hidden=true;$('#hacts').hidden=true;return;}
+ await hoFont(st);hoURL=hoJpeg(hoDraw(o));$('#hprev').src=hoURL;$('#hprev').hidden=false;$('#hacts').hidden=false;}
+const hoSoon=()=>{clearTimeout(hoTimer);hoTimer=setTimeout(hoPreview,350);};
+function hoSetMode(m){hoMode=m;$('#hmN').classList.toggle('on',m==='note');$('#hmI').classList.toggle('on',m==='image');$('#hnote').hidden=m!=='note';$('#himg').hidden=m!=='image';hoPreview();}
+$('#hmN').onclick=()=>hoSetMode('note');$('#hmI').onclick=()=>hoSetMode('image');
+['#htitle','#htext','#hsign','#hcap'].forEach(s=>$(s).addEventListener('input',hoSoon));
+$('#hfile').onchange=e=>{const f=e.target.files&&e.target.files[0];if(!f)return;if(!/^image\//.test(f.type)){$('#herr').textContent='That file is not a picture.';return;}
+ const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{hoImg=im;hoPreview();};im.onerror=()=>{$('#herr').textContent='Could not read that picture.';};im.src=u;};
+const hoName=()=>(($('#htitle').value||$('#hcap').value||'handout').trim().replace(/[^\w\- ]+/g,'').replace(/\s+/g,'-').slice(0,40)||'handout')+'.jpg';
+function hoDownload(url,name){const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();}
+$('#hdl').onclick=()=>{if(hoURL)hoDownload(hoURL,hoName());};
+$('#hgive').onclick=async()=>{
+ if(!hoURL)return;if(!handoutCol){$('#herr').textContent='Start or join a table to give handouts.';return;}
+ const title=(hoMode==='image'?$('#hcap').value:$('#htitle').value).trim().slice(0,60)||(hoMode==='image'?'A picture':'A note');
+ const id=Date.now()+'-'+Math.random().toString(36).slice(2,7),ts=Date.now(),b=$('#hgive');b.disabled=true;
+ try{await handoutCol.doc(id).set({title,img:hoURL,skin,ts,by:me||''});
+  const r={uid:me||'local',who:'',expr:'',total:0,booms:0,note:'📜 New handout: '+title,handout:id,ts,detail:'{"parts":[],"mod":0}'};
+  db.collection('rolls').doc(ts+'-'+Math.random().toString(36).slice(2,7)).set(r).catch(()=>{});
+  toast('Handout given to the party');['#htitle','#htext','#hsign','#hcap'].forEach(s=>$(s).value='');$('#hfile').value='';hoImg=null;hoPreview();}
+ catch(e){$('#herr').textContent='Could not save the handout'+(/size|large|quota|exceed/i.test(String(e&&(e.message||e.code)))?' (the picture is too big).':'.');}
+ b.disabled=false;};
+function hoView(h){const v=$('#hview');if(!h)return;$('#hvimg').src=h.img;$('#hvt').textContent=h.title||'Handout';$('#hvdl').onclick=()=>hoDownload(h.img,(h.title||'handout').replace(/[^\w\- ]+/g,'').replace(/\s+/g,'-').slice(0,40)+'.jpg');v.hidden=false;}
+$('#hvx').onclick=()=>$('#hview').hidden=true;$('#hview').onclick=e=>{if(e.target.id==='hview')$('#hview').hidden=true;};
+addEventListener('keydown',e=>{if(e.key==='Escape')$('#hview').hidden=true;});
+function renderHandouts(){const b=$('#holist');b.replaceChildren();b.hidden=!handouts.length;if(!handouts.length)return;
+ b.append(el('b','pn','📜 Handouts'));const g=el('div','hogrid');
+ handouts.forEach(h=>{const t=el('div','hot'),im=el('img');im.src=h.img;im.alt=h.title||'Handout';im.loading='lazy';im.onclick=()=>hoView(h);
+  const cap=el('div','hocap');cap.append(el('span',null,h.title||'Handout'));
+  if(isDM){let armed=0;const x=btn('✕',()=>{if(!armed){armed=1;x.textContent='Remove?';setTimeout(()=>{armed=0;x.textContent='✕';},3000);return;}handoutCol.doc(h.id).delete().catch(()=>{});},'ghost sm hox');cap.append(x);}
+  t.append(im,cap);g.append(t);});
+ b.append(g);}
 // ---------- loot box ----------
 const LT=['Common','Uncommon','Rare','Epic','Legendary','Divine'],ITYPE=['Weapon','Armor','Jewelry','Gem'],LOOTCAP=100,band=n=>n<=10?0:n<=20?1:n<=40?2:n<=60?3:n<=80?4:5;
 const fmtN=n=>n<1e15?Math.round(n).toLocaleString('en-US'):n.toExponential(2);
@@ -1131,7 +1265,7 @@ function applySkin(k){
  if(S.font&&!document.getElementById('skf-'+S.k)){const l=document.createElement('link');l.id='skf-'+S.k;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+S.font+'&display=swap';document.head.append(l);}
  try{localStorage.setItem('boomskin',S.k)}catch{}
  $('#cmscreen').href=LINKS.cmScreen+'?theme='+S.k;
- renderSkins();
+ renderSkins();if(typeof hoPreview==='function'&&!$('#hprev').hidden)hoPreview();
  // redraw so every label picks up the new words
  render();renderParty();renderMon();renderQuick();swapAll(document.body);}
 function renderSkins(){const w=$('#skins');if(!w)return;w.replaceChildren();
@@ -1164,6 +1298,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');
  colorsCol.onSnapshot(s=>{colorMap={};s.docs.forEach(d=>{colorMap[d.id]=(d.data()||{}).c||'';});renderMyColor();renderParty();render();});
+ handoutCol=db.collection('handouts');handoutCol.onSnapshot(s=>{handouts=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.ts||0)-(a.ts||0));renderHandouts();render();});
  recCol=db.collection('records');
  recCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='best');best=d?d.data():null;renderBest();});
  partyCol.onSnapshot(s=>{chars=s.docs.map(d=>norm(d.data(),d.id)).sort((a,b)=>a.ts-b.ts);renderParty();});

@@ -14,6 +14,10 @@ The Core Master starts a table and shares its 6-letter code; players join with t
 
 **Play solo** gives you the full Core Master view (party, loot boxes, stash, monsters, initiative, and the theme picker) on a private table saved on that device. There's no code and nobody else can join. Use it for solo games, prep, or one shared screen at the table.
 
+## Handouts
+
+The CM tab has a handout creator: type a note (title, text, and an optional signature) or upload a picture with a caption. It's drawn in the table's current theme: a ruled index card for Core, sealed parchment for Fantasy, a transmission screen for Space, a bloodstained page for Horror, and taped notebook paper for Street Grit. Give to party saves it to the table, posts it in the feed, and adds it to the Handouts list in the Party tab, where anyone can open or download it.
+
 ## Themes
 
 The Core Master picks the table's theme in the CM tab: Core, Fantasy, Space, Horror, or Street Grit. Core in light mode uses the CM screen's look: slate blue and burnt orange on cream, with Alfa Slab One titles. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
