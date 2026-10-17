@@ -51,6 +51,7 @@ button.sm{padding:6px 11px;font-size:14px}
 .add{margin:6px 0 10px;flex-wrap:wrap}.add input{min-width:80px}
 .hpb{margin-bottom:8px}.bar{height:10px;background:var(--chip);border-radius:99px;overflow:hidden;margin:4px 0 8px}.fill{height:100%;background:var(--hp)}.fill.low{background:#dc2626}.hpc input{max-width:90px}.hpc{flex-wrap:wrap}.tmp{color:var(--acc);font-weight:700;margin-left:10px}.st>button{margin-top:4px;width:100%}
 .conds{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.conds:empty{display:none}.chip{background:var(--boom);color:#fff;border-radius:99px;padding:3px 10px;font-size:13px;font-weight:700}.conds input{max-width:140px}
+textarea.notes{display:block;width:100%;max-width:100%;box-sizing:border-box;resize:none;overflow:hidden;min-height:3.2em;font:inherit;font-size:15px;line-height:1.4;padding:8px 10px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);margin:0 0 8px}
 .xb{margin:8px 0}.xb textarea{width:100%;font:inherit;font-size:14px;padding:8px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);margin:6px 0}.pre{white-space:pre-wrap}
 .irow{display:flex;justify-content:space-between;padding:7px 10px;border-radius:8px}.irow.now{background:var(--chip);color:var(--acc);font-weight:700}
 .evt{border-left-color:#dc2626}.evt-t{font-weight:700;margin-top:2px}
@@ -453,6 +454,11 @@ function statChips(c){const w=el('div','stc');
  for(const[key,lab]of STATS){const b=btn('',()=>statRoll(c,key,lab),'');b.append(el('small',null,SHORT[key]),String(eff(c,key)));b.title=lab+(bonus(c,key)>0?' ('+c[key]+' +'+bonus(c,key)+' from gear)':'')+' · tap to roll';b.disabled=!!c.dead;w.append(b);}
  const A=arm(c),a=el('span','arm');a.append(el('small',null,'ARM'),String(A.p+A.m));a.title='Total armor: '+A.p+' physical + '+A.m+' magical';w.append(a);
  return w;}
+// notes grow with their text, never wider than the card, and can't be dragged bigger
+function notesBox(c){const t=document.createElement('textarea');t.className='notes';t.id='notes-'+c.id;t.value=c.notes||'';t.placeholder='Notes';t.maxLength=500;t.rows=2;t.setAttribute('aria-label','Notes for '+(c.name||'this hero'));
+ t.grow=()=>{if(!t.isConnected||!t.offsetParent)return;t.style.height='auto';t.style.height=(t.scrollHeight+2)+'px';};
+ t.addEventListener('input',t.grow);t.onchange=()=>put(c,{notes:t.value.slice(0,500)});requestAnimationFrame(t.grow);return t;}
+addEventListener('resize',()=>document.querySelectorAll('textarea.notes').forEach(t=>t.grow&&t.grow()));
 function atks(c){try{return JSON.parse(c.atk)}catch{return[]}}
 function put(c,p){Object.assign(c,p);const{id,...d}=c;partyCol.doc(id).set(d).catch(()=>{});}
 function putP(c,p){Object.assign(c,p);const{id,...d}=c;return partyCol.doc(id).set(d);}
@@ -535,7 +541,7 @@ function charCard(c){
  const force=(tokOpen&&String(tokOpen).startsWith(c.id+':'))||(coreOpen&&String(coreOpen.key).startsWith(c.id+':'));
  box.append(sec(c.id+':loot','Coins & Loot',hi+(ll.length?' · '+ll.length+' item'+(ll.length>1?'s':''):''),[coinBox(c),mineBox(c),lootBox(c)],force));
  // notes
- if(isDM){const t=document.createElement('textarea');t.value=c.notes;t.placeholder='Notes';t.rows=3;t.onchange=()=>put(c,{notes:t.value.slice(0,500)});box.append(sec(c.id+':notes','Notes',c.notes?'Has notes':'',[t]));}
+ if(isDM){const t=notesBox(c),d=sec(c.id+':notes','Notes',c.notes?'Has notes':'',[t]);d.addEventListener('toggle',t.grow);box.append(d);}
  else if(c.notes)box.append(sec(c.id+':notes','Notes','',[el('div','note pre',c.notes)]));
  if(isDM||c.id===myHero){const cr=el('div','colrow'),lb=el('label',null,'Color');lb.htmlFor='col-'+c.id;const pr=(...k)=>{const d=el('span','cpair');d.append(...k);return d;};cr.append(pr(lb,colorSel(ck,v=>setColor(c.id,v),'col-'+c.id)));
   if(c.id===myHero){const tl=el('label',null,'Theme');tl.htmlFor='myskin';tl.title='Changes the colors and fonts on this device only';cr.append(pr(tl,skinSel('myskin')));}
@@ -761,7 +767,7 @@ function coinBox(c){
  return w;}
 function extraBox(c){
  const w=el('div','xb');w.append(coinBox(c),lootBox(c));
- if(isDM){const t=document.createElement('textarea');t.value=c.notes;t.placeholder='Notes';t.rows=2;t.onchange=()=>put(c,{notes:t.value.slice(0,500)});w.append(t);}
+ if(isDM){w.append(notesBox(c));}
  else if(c.notes)w.append(el('div','note pre',c.notes));
  return w;}
 function rollInit(c){const r=doRoll('1d20'+(eff(c,'spd')>0?'+'+eff(c,'spd'):''),c.name+' · Initiative',null,false,colorMap[c.id]);if(r&&initCol)initCol.doc(c.id).set({name:c.name,v:r.total,ts:Date.now()}).catch(()=>{});}
