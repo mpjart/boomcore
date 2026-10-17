@@ -372,7 +372,9 @@ There is no master list of weapons or armor. When loot or a story gives you gear
 
 ### Slots
 
-You have **2 weapon slots, 2 armor slots, and 2 magic item slots**. What an item *does* decides its slot, not what it looks like:
+You have **2 weapon slots, 2 armor slots, and 2 magic item slots**. What an item *does* decides its slot, not what it looks like.
+
+**Damage** means an attack: the swing or shot of a weapon, or the use of an ability. A bonus number added to that roll, like +2 from Strength, is not damage.
 
 - Deals damage → weapon slot (even jewelry)
 - Gives armor → armor slot (a shield, or a mage's ring of shielding)
@@ -405,7 +407,7 @@ Each piece is one number, equal to its tier, marked **physical or magical**. Two
 
 ### Magic Items and Jewelry
 
-A magic item does one thing that isn't damage or armor. Healing and shielding items roll tier d6. Choose how often it works: always on for small effects, once per fight, or once per day for big ones. Use the table above as a guide.
+A magic item does one thing that isn't damage or armor. It never attacks on its own, but it can raise a number you already use: +N to a stat, or +N to your physical or magic damage bonus. That bonus rides on your weapon or ability roll; the item itself deals no damage. Healing and shielding items roll tier d6. Choose how often it works: always on for small effects, once per fight, or once per day for big ones. Use the table above as a guide.
 
 ### Gems
 
