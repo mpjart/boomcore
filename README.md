@@ -61,7 +61,7 @@ Every item a loot box drops gets a name from its theme's d100 tables in `names.j
 
 ## Rules and Core Master screen
 
-- **Rules:** https://mpjart.github.io/boomcore/rules.html (source: `docs/core-guidelines.md`)
+- **Rules:** https://mpjart.github.io/boomcore/rules.html (source: `docs/core-guidelines.md`). Tap the Boom logo at the top of the app to open them.
 - **Core Master screen:** https://mpjart.github.io/boomcore/cm-screen.html — three panels that print on letter paper, landscape. Add `?theme=space` (or fantasy, horror, grit) to match a theme; the app's CM tab opens it in the table's theme.
 - **Loot name tables:** https://mpjart.github.io/boomcore/loot-names.html (source: `docs/loot-names.md`)
 - **Sample adventure:** https://mpjart.github.io/boomcore/the-hollow-crown.pdf — The Hollow Crown, a three-session starter adventure for levels 1 to 3.
