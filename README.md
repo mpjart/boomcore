@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.svg" alt="Boom: Beyond Our Own Maximum" width="520"></p>
+
 # Boom Core
 
 **Beyond Our Own Maximum.** A free, open-source tabletop RPG framework built for speed and fun, with exploding dice and a companion app that tracks the math and the booms.

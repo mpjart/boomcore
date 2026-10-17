@@ -63,7 +63,7 @@
    if(!document.getElementById('tgcss')){const s=document.createElement('style');s.id='tgcss';s.textContent=css;document.head.append(s);}
    const saved=lsGet()||{};
    const w=document.createElement('div');w.id='tgate';
-   w.innerHTML=`<div class="gbox"><h1>🎲 Boom Dice</h1><p class="gsub">Start a table for your group, or join one with the code your Core Master shares.</p>
+   w.innerHTML=`<div class="gbox"><h1 class="glogo">Boom Dice</h1><p class="gsub">Start a table for your group, or join one with the code your Core Master shares.</p>
 <div class="card"><label for="gname">Your name</label><input id="gname" maxlength="40" placeholder="Name the party will see" autocomplete="nickname"></div>
 <div class="card"><button id="gstart">Start a new table (I'm the Core Master)</button></div>
 <div class="or">or</div>
@@ -71,6 +71,7 @@
 <div class="gerr" id="gerr"></div>
 <div class="card"><button id="gsolo" class="ghost">Play solo on this device</button><div class="gsub" style="margin:0">You're the Core Master of a private table saved on this device: party, loot, monsters, and themes, with no code to share.</div></div></div>`;
    document.body.append(w);
+   {const lg=document.querySelector('.brand .bw'),h=w.querySelector('.glogo');if(lg&&h){h.textContent='';const c=lg.cloneNode(true);c.style.cssText='height:72px;width:auto;display:block';h.append(c);}}
    const $g=s=>w.querySelector(s),err=$g('#gerr');
    $g('#gname').value=saved.name||'';$g('#gcode').value=saved.code||'';err.textContent=msg||'';
    const name=()=>{const n=$g('#gname').value.trim().slice(0,40);if(!n){err.textContent='Enter your name first.';$g('#gname').focus();}return n;};
