@@ -119,6 +119,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 :root[data-skin="grit"] .tabs button,:root[data-skin="grit"] .total{letter-spacing:.03em}
 :root[data-skin="grit"] body{font-size:18px}
 :root[data-skin="fantasy"] body,:root[data-skin="horror"] body{font-size:17px}
+.colsel,#skinsel{font:inherit;font-size:15px;padding:9px 10px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}.colsel{border-left-width:8px}.cmsel{margin-top:8px;flex-wrap:wrap}.cmsel+.note{margin-top:6px}.cmsel .col{min-width:150px}.cmsel select{width:100%}.colrow{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}.colrow label{margin:0;flex:none}.colrow select{flex:1;min-width:0;max-width:240px}
 .skins{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px;margin-top:8px}
 .skb{display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:8px;background:var(--chip);color:var(--ink);font-weight:600;border:2px solid transparent}
 .skb.on{border-color:var(--acc)}.skb span.sp{display:flex;height:22px;border-radius:4px;overflow:hidden}.skb span.sp i{flex:1}
@@ -214,7 +215,6 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="quick" id="quick"></div>
  <div class="row" style="margin-top:10px"><input id="qname" placeholder="Name (e.g. Sword)" style="flex:.8"><button class="ghost" id="save">＋ Save current</button></div>
 </div>
-<div class="card"><label>Your color</label><div id="mycol"></div><div class="note">Your rolls show in this color for the whole party. Rolls made from a character card use that character's color.</div></div>
 </div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div><div class="card" id="holist" hidden></div></div><div id="pgLoot" hidden>
 <details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier: 2 to 50 is a reagent to sell, but an odd roll there is a healing potion instead (heals the tier in d6, so a T3 potion heals 3d6, and the dice can boom); 51 to 70 is an ability token; 71 to 99 is an item. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
 <div class="card" id="boxlist"></div>
@@ -231,7 +231,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div><div id="pgDM" hidden>
 <div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
 <div class="note" id="cmnone" hidden style="text-align:center;margin:4px 0 12px">All cards are hidden. Tap a button above to show its cards.</div>
-<div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
+<div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
  <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
  <div class="seg" role="group" aria-label="Handout type"><button id="hmN" type="button" class="on">✍️ Note</button><button id="hmI" type="button">🖼️ Picture</button></div>
@@ -493,7 +493,7 @@ function charCard(c){
  h.onclick=e=>{if(e.target.closest('button,input,select,textarea'))return;UI.c[c.id]=!open;if(open)editing.delete(c.id);uiSave();renderParty();};
  box.append(h);
  if(!open){box.append(hpBox(c,k,true),statChips(c),condBox(c,true));EDIT=false;return box;}
- if(ED){const er=el('div','edrow'),cro=el('div','crow');cro.append(el('small',null,'Color'),swatches(ck,v=>setColor(c.id,v)));er.append(cro);
+ if(ED){const er=el('div','edrow');
   if(isDM){const lr=el('div','row');lr.append(el('small',null,'Level'),btn('Level up',()=>put(c,{level:c.level+1}),'sm rb'));
    if(c.level>1&&k.free>0)lr.append(btn('− Level',()=>{const f=fitAtks(c,c.level-1);put(c,{level:c.level-1,atk:f.atk});if(f.gone.length){toast('Lost ability: '+f.gone.join(', '));logEvent(c.name+' lost ability: '+f.gone.join(', '));}}));
    let armed=0;const d=btn('Remove player',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove player';},3000);}else partyCol.doc(c.id).delete();},'sm dmg');lr.append(d);er.append(lr);}
@@ -530,9 +530,10 @@ function charCard(c){
  // notes
  if(isDM){const t=document.createElement('textarea');t.value=c.notes;t.placeholder='Notes';t.rows=3;t.onchange=()=>put(c,{notes:t.value.slice(0,500)});box.append(sec(c.id+':notes','Notes',c.notes?'Has notes':'',[t]));}
  else if(c.notes)box.append(sec(c.id+':notes','Notes','',[el('div','note pre',c.notes)]));
+ if(isDM||c.id===myHero){const cr=el('div','colrow'),lb=el('label',null,'Color');lb.htmlFor='col-'+c.id;cr.append(lb,colorSel(ck,v=>setColor(c.id,v),'col-'+c.id));box.append(cr);}
  EDIT=false;
  return box;}
-function renderParty(){if(window.mapRefresh)mapRefresh();renderInit();fillHeroes();if(typeof hoFillTo==='function'){hoFillTo();renderHandouts();}renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
+function renderParty(){renderMyColor();if(window.mapRefresh)mapRefresh();renderInit();fillHeroes();if(typeof hoFillTo==='function'){hoFillTo();renderHandouts();}renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
  if(!partyCol)return b.append(el('div','note','Join a table to see the party.'));
  if(!chars.length)return b.append(el('div','note',isDM?'No players yet. Add one above.':'The Core Master has not added players yet.'));
  chars.forEach(c=>b.append(charCard(c)));}
@@ -1115,7 +1116,7 @@ setInterval(()=>{if(boxes.some(b=>b.until&&b.st==='ready')){renderBoxes();checkB
 const COLORS=[['red','Red'],['amber','Amber'],['green','Green'],['teal','Teal'],['blue','Blue'],['purple','Purple'],['pink','Pink'],['slate','Slate']];
 let colorMap={},colorsCol=null;
 const cvar=k=>k&&COLORS.some(x=>x[0]===k)?'var(--col-'+k+')':'';
-const myKey=()=>'u'+(me||'local'),myColor=()=>colorMap[myKey()]||'';
+const myKey=()=>'u'+(me||'local'),myColor=()=>colorMap[myKey()]||(!isDM&&typeof myHero!=='undefined'&&myHero?colorMap[myHero]||'':'');
 function lsColGet(){try{return localStorage.getItem('boomcol')||''}catch{return''}}
 function setColor(key,k){
  if(colorsCol)colorsCol.doc(key).set({c:k}).catch(()=>{});
@@ -1127,7 +1128,9 @@ function swatches(cur,pick){
   b.setAttribute('aria-label',n+(cur===k?' (selected, tap to clear)':''));b.onclick=()=>pick(k===cur?'':k);w.append(b);}
  return w;
 }
-function renderMyColor(){document.documentElement.style.setProperty('--ub',cvar(myColor())||'var(--acc)');const m=$('#mycol');if(m)m.replaceChildren(swatches(myColor(),k=>setColor(myKey(),k)));}
+function colorSel(cur,pick,id){const s=document.createElement('select');s.className='colsel';if(id)s.id=id;s.add(new Option('Default',''));COLORS.forEach(([k,n])=>s.add(new Option(n,k)));s.value=cur||'';
+ const tint=()=>{s.style.borderLeftColor=cvar(s.value)||'';};tint();s.onchange=()=>{tint();pick(s.value);};return s;}
+function renderMyColor(){document.documentElement.style.setProperty('--ub',cvar(myColor())||'var(--acc)');const m=$('#cmcolsel');if(m&&document.activeElement!==m){const n=colorSel(colorMap[myKey()]||'',k=>setColor(myKey(),k),'cmcolsel');m.replaceWith(n);}}
 // ---------- monsters (DM tab) ----------
 const KINDS=[['minion','Minion'],['standard','Standard'],['boss','Boss']];
 let monsters=[],monCol=null;
@@ -1348,8 +1351,7 @@ function applySkin(k){
  renderSkins();if(typeof hoPreview==='function'&&!$('#hprev').hidden)hoPreview();
  // redraw so every label picks up the new words
  render();renderParty();renderMon();renderQuick();swapAll(document.body);}
-function renderSkins(){const w=$('#skins');if(!w)return;w.replaceChildren();
- SKINS.forEach(S=>{const b=el('button','skb'+(S.k===skin?' on':''));const sp=el('span','sp');S.sw.forEach(c=>{const i=document.createElement('i');i.style.background=c;sp.append(i);});b.append(sp,el('span',null,S.n));b.setAttribute('aria-pressed',S.k===skin?'true':'false');b.onclick=()=>setSkin(S.k);w.append(b);});}
+function renderSkins(){const w=$('#skinsel');if(!w)return;if(!w.options.length){SKINS.forEach(S=>w.add(new Option(S.n,S.k)));w.onchange=()=>setSkin(w.value);}w.value=skin;}
 function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,adult:adultLoot,ts:Date.now()}).catch(()=>toast('Could not change the theme'));else applySkin(k);}
 function applyAdult(v){adultLoot=!!v;const c=$('#adultchk');if(c)c.checked=adultLoot;try{localStorage.setItem('boomadult',adultLoot?'1':'')}catch{}}
 $('#adultchk').onchange=e=>{const v=e.target.checked;if(settingsCol)settingsCol.doc('theme').set({skin,adult:v,ts:Date.now()}).catch(()=>toast('Could not change the setting'));else applyAdult(v);};
