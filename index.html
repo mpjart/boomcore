@@ -146,7 +146,9 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 /* CM tab: one group of cards at a time, picked from the button bar (All shows everything) */
 .cmnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:6px;margin-bottom:12px}.cmnav button:not(.cmact){background:var(--chip);color:var(--ink);padding:9px 8px;font-size:14px;white-space:nowrap}.cmnav .cmact{display:flex;align-items:center;justify-content:center;font:inherit;font-size:14px;font-weight:700;padding:9px 8px;border-radius:var(--rb);white-space:nowrap;text-decoration:none;background:transparent;color:var(--acc);border:2px solid var(--acc)}.cmnav .cmact.arm{background:var(--acc);color:var(--accfg)}
 .cmnav button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
-#pgDM:not([data-on~="table"])>[data-g="table"],#pgDM:not([data-on~="loot"])>[data-g="loot"],#pgDM:not([data-on~="hand"])>[data-g="hand"],#pgDM:not([data-on~="mon"])>[data-g="mon"]{display:none!important}
+#pgDM:not([data-on~="table"])>[data-g="table"],#pgDM:not([data-on~="loot"])>[data-g="loot"],#pgDM:not([data-on~="hand"])>[data-g="hand"],#pgDM:not([data-on~="mon"])>[data-g="mon"],#pgDM:not([data-on~="save"])>[data-g="save"]{display:none!important}
+.filebtn{display:inline-flex;align-items:center;justify-content:center;position:relative;cursor:pointer;border-radius:var(--rb);padding:11px 16px;background:var(--chip);color:var(--ink);font-weight:600}.filebtn input{position:absolute;opacity:0;width:1px;height:1px}.filebtn:focus-within{outline:2px solid var(--acc);outline-offset:2px}
+#savebox .row{flex-wrap:wrap;margin-top:10px}#savestat{margin-top:8px}#savestat:empty{display:none}.prow{display:flex;justify-content:flex-end;margin-top:8px}
 /* handouts */
 #hobox textarea{width:100%;font:inherit;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:110px;margin-top:8px}
 #hobox select{font:inherit;width:100%;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
@@ -231,7 +233,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden>
-<div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
+<div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="save" type="button">💾 Save</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
 <div class="note" id="cmnone" hidden style="text-align:center;margin:4px 0 12px">All cards are hidden. Tap a button above to show its cards.</div>
 <div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
@@ -243,6 +245,9 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="row" id="hacts" style="margin-top:10px" hidden><button id="hgive" class="rbu" style="flex:1">📜 Give to party</button><button id="hdl" class="ghost">⬇ Download</button></div>
  <div class="err" id="herr"></div>
 </div>
+<div class="card" id="savebox" data-g="save"><b class="pn">Save and load</b><div class="note">Export saves this table to a file: heroes, loot, the stash, monsters, initiative, handouts, the map, and the roll log. Import it later, on this device or another. An encounter file holds just the monsters and the map, so you can prep fights solo and drop them into any table.</div>
+ <div class="row"><button id="savexs" class="rbu" type="button">⬇ Export session</button><button id="savexe" class="ghost" type="button">⬇ Export encounter</button><label class="filebtn" for="savefile">⬆ Import…<input type="file" id="savefile" accept=".json,application/json"></label></div>
+ <div class="row" id="saveacts"></div><div class="note" id="savestat" role="status"></div></div>
 <div class="card" id="initbox"></div>
 <div class="card" id="mgen" data-g="mon">
  <b class="pn">Monster generator</b>
@@ -546,6 +551,7 @@ function charCard(c){
  if(isDM||c.id===myHero){const cr=el('div','colrow'),lb=el('label',null,'Color');lb.htmlFor='col-'+c.id;const pr=(...k)=>{const d=el('span','cpair');d.append(...k);return d;};cr.append(pr(lb,colorSel(ck,v=>setColor(c.id,v),'col-'+c.id)));
   if(c.id===myHero){const tl=el('label',null,'Theme');tl.htmlFor='myskin';tl.title='Changes the colors and fonts on this device only';cr.append(pr(tl,skinSel('myskin')));}
   box.append(cr);}
+ {const pr=el('div','prow');pr.append(btn('🖨 Print sheet',()=>window.printSheet&&printSheet(c),'ghost sm'));box.append(pr);}
  EDIT=false;
  return box;}
 function renderParty(){renderMyColor();if(window.mapRefresh)mapRefresh();renderInit();fillHeroes();if(typeof hoFillTo==='function'){hoFillTo();renderHandouts();}renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
@@ -802,7 +808,7 @@ $('#layM').onclick=()=>setLayout('mobile');$('#layF').onclick=()=>setLayout('ful
 wideMQ.addEventListener('change',()=>renderInit());
 setLayout(layout);
 // CM tab: each group button toggles its cards on or off (any mix, all, or none); each device remembers the set
-const CMG=['table','loot','hand','mon'];
+const CMG=['table','loot','hand','mon','save'];
 let cmOn=['loot'];try{const v=JSON.parse(localStorage.getItem('boomcmon')||'null');if(Array.isArray(v))cmOn=v.filter(x=>CMG.includes(x));else{const o=localStorage.getItem('boomcmsec');if(o)cmOn=o==='all'?CMG.slice():CMG.includes(o)?[o]:['loot'];}}catch{}
 function setCmOn(list){cmOn=CMG.filter(g=>list.includes(g));const pg=$('#pgDM');
  pg.dataset.on=cmOn.join(' ');
@@ -1422,5 +1428,6 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  },()=>{$('#banner').textContent='Could not load shared rolls.';});
 })();
 </script>
-<script src="map.js?v=1"></script>
+<script src="map.js?v=2"></script>
+<script src="session.js?v=1"></script>
 </body></html>

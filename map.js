@@ -242,6 +242,68 @@ function renderTray(){
   w.append(ch,r);return w;};
  B.tray.append(box('Party',chars.filter(c=>!c.dead),'hero'),box('Monsters',monsters||[],'mon'));}
 
+/* ---------- encounter generator (CM): monsters, traps, and cover, sized by the Chapter 8 threat points ---------- */
+const FOES={
+ fantasy:{m:['Goblin','Kobold','Skeleton','Giant Rat','Cultist','Bandit'],s:['Orc','Hobgoblin','Ghoul','Bandit Brute','Giant Spider','Lizardfolk'],b:['Goblin Chief','Ogre','Bandit Captain','Necromancer','Troll','Wyvern']},
+ space:{m:['Drone','Scav','Sentry Bot','Swarmling','Raider','Spore Mite'],s:['Xeno Hunter','Mech Trooper','Void Raider','Turret','Bounty Hunter','Cyborg'],b:['Warlord','Hive Queen','Battle Mech','Pirate Admiral','Rogue AI Core','Star Wyrm']},
+ horror:{m:['Zombie','Rat Swarm','Cultist','Crawler','Bat Swarm','Shade'],s:['Ghoul','Wraith','Werewolf','Butcher','Mire Hag','Revenant'],b:['Vampire Lord','Abomination','Lich','Witch of the Wood','The Hollow Man','Elder Thing']},
+ grit:{m:['Thug','Lookout','Street Punk','Guard Dog','Runner','Goon'],s:['Enforcer','Biker','Hitman','Bruiser','Dirty Cop','Fixer'],b:['Kingpin','Gang Boss','Cartel Lieutenant','Crooked Captain','The Butcher','Underboss']}};
+const TRAPS=[['Tripwire darts','Speed'],['Swinging blade','Speed'],['Collapsing floor (Prone)','Speed'],['Poison gas (Poisoned)','Con'],['Lava vent (Burning)','Speed'],['Tear in reality (Stunned)','Luck']];
+const COVER=[['tree','#8fdc98'],['rocks','#f1efe6'],['pillar','#f1efe6'],['wall','#f1efe6'],['water','#9fd3f0'],['crates','#f3d77a']];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function addStroke(doc){const id=newId(),s={id,...doc};strokes.push(s);drawStroke(s);drawn.add(id);maxTs=Math.max(maxTs,doc.ts);strokeCol&&strokeCol.doc(id).set(doc).catch(()=>{});}
+function shapePts(kind,cx,cy,r){const ar=W/H,pts=[],P=(x,y)=>pts.push([Math.round(Math.max(0,Math.min(U,x))),Math.round(Math.max(0,Math.min(U,y)))]);
+ if(kind==='tree'){for(let i=0;i<=26;i++){const a=i/26*6.3;P(cx+Math.cos(a)*r*(.9+Math.random()*.2),cy+Math.sin(a)*r*ar*(.9+Math.random()*.2));}}
+ else if(kind==='rocks'){const n=7;for(let i=0;i<=n;i++){const a=i%n/n*6.28,k=.7+Math.random()*.5;P(cx+Math.cos(a)*r*k,cy+Math.sin(a)*r*ar*k);}}
+ else if(kind==='pillar'){const h=r*.6;[[-1,-1],[1,-1],[1,1],[-1,1],[-1,-1]].forEach(([a,b])=>P(cx+a*h,cy+b*h*ar));}
+ else if(kind==='wall'){const len=r*3,ang=Math.random()*Math.PI;P(cx-Math.cos(ang)*len,cy-Math.sin(ang)*len*ar);P(cx+Math.cos(ang)*len,cy+Math.sin(ang)*len*ar);}
+ else if(kind==='water'){for(let i=0;i<=16;i++){const t=i/16;P(cx-r*2+t*r*4,cy+Math.sin(t*12)*r*.25*ar);}}
+ else if(kind==='crates'){const h=r*.45;[[-2.2,-1],[0,-1],[0,1],[-2.2,1],[-2.2,-1]].forEach(([a,b])=>P(cx+a*h+h,cy+b*h*ar));[[0,-1],[2.2,-1],[2.2,1],[0,1]].forEach(([a,b])=>P(cx+a*h+h,cy+b*h*ar));}
+ return pts.map(p=>p.join(',')).join(';');}
+let genArm='',genT=0;
+async function genEncounter(diff,b){
+ if(!isDM||!monCol)return toast('Only the Core Master can make encounters.');
+ if(genArm!==diff){genArm=diff;clearTimeout(genT);renderTools();genT=setTimeout(()=>{genArm='';renderTools();},3500);return;}
+ genArm='';clearTimeout(genT);
+ const party=chars.filter(c=>!c.dead),n=party.length||4,avg=party.length?Math.max(1,Math.round(party.reduce((a,c)=>a+c.level,0)/party.length)):1;
+ const per={easy:1,fair:1.5,hard:2}[diff];let budget=Math.max(1,Math.round(per*n*(avg<=2?.5:1)));const threat=budget;
+ const kinds=[];
+ if(diff==='hard'&&budget>=4){kinds.push('boss');budget-=4;}else if(diff==='fair'&&budget>=6&&Math.random()<.5){kinds.push('boss');budget-=4;}
+ while(budget>0&&kinds.length<8){if(budget>=2&&Math.random()<(diff==='easy'?.35:.65)){kinds.push('standard');budget-=2;}else{kinds.push('minion');budget-=1;}}
+ const F=FOES[skin==='core'||skin==='coredark'?'fantasy':skin]||FOES.fantasy,mName=pick(F.m),sNames=F.s.slice().sort(()=>Math.random()-.5);
+ let mi=0,si=0;const made=[];
+ // clear the last generated encounter: its monsters, the chalk, and monster tokens
+ (monsters||[]).filter(m=>m.gen).forEach(m=>{monCol.doc(m.id).delete().catch(()=>{});initCol&&initCol.doc('m'+m.id).delete().catch(()=>{});});
+ Object.values(tokens).filter(t=>t.kind!=='hero').forEach(t=>{delete tokens[t.id];tokCol.doc(t.id).delete().catch(()=>{});});
+ strokes.map(s=>s.id).forEach(id=>strokeCol.doc(id).delete().catch(()=>{}));strokes=[];redrawAll();
+ const spots=[],free=(x,y)=>spots.every(([a,c])=>Math.hypot(a-x,(c-y)*.6)>9);
+ const spot=(x0,x1,y0,y1)=>{for(let i=0;i<40;i++){const x=x0+Math.random()*(x1-x0),y=y0+Math.random()*(y1-y0);if(free(x,y)){spots.push([x,y]);return[x,y];}}const x=x0+Math.random()*(x1-x0),y=y0+Math.random()*(y1-y0);spots.push([x,y]);return[x,y];};
+ // heroes on the left
+ party.forEach(c=>{if(tokens[c.id]){spots.push([tokens[c.id].x,tokens[c.id].y]);return;}const[x,y]=spot(5,20,15,88),t={ref:c.id,kind:'hero',name:c.name||'',boss:false,x:+x.toFixed(2),y:+y.toFixed(2),ts:Date.now()};tokens[c.id]={id:c.id,...t};tokCol.doc(c.id).set(t).catch(()=>{});});
+ kinds.forEach((k,i)=>{
+  const name=k==='boss'?pick(F.b):k==='standard'?sNames[si++%sNames.length]:mName+' '+(++mi);
+  const lvl=Math.max(1,Math.min(99,avg+(k==='minion'?-1:0)+(diff==='hard'&&k!=='minion'?1:0)));
+  const m={...genMon(name,lvl,k,k==='boss'?3:0),gen:true,ts:Date.now()+i},id='m'+Date.now().toString(36)+i+Math.random().toString(36).slice(2,5);
+  monCol.doc(id).set(m).catch(()=>{});made.push({...m,id});
+  const[x,y]=spot(62,93,12,88),t={ref:id,kind:'mon',name,boss:k==='boss',x:+x.toFixed(2),y:+y.toFixed(2),ts:Date.now()};
+  tokens[id]={id,...t};tokCol.doc(id).set(t).catch(()=>{});});
+ // cover and terrain in the middle
+ let ts=Date.now();const nc=3+Math.floor(Math.random()*3);
+ for(let i=0;i<nc;i++){const[kind,col]=pick(COVER),[x,y]=spot(26,56,14,86),cx=x*100,cy=y*100,r=kind==='wall'?380:kind==='water'?520:kind==='tree'?420:360;
+  addStroke({t:'c',c:col,s:kind==='wall'?24:10,p:shapePts(kind,cx,cy,r),ts:ts++,by:me||'local'});
+  if(kind==='tree')addStroke({t:'c',c:col,s:6,p:shapePts('tree',cx,cy,r*.4),ts:ts++,by:me||'local'});
+  addStroke({t:'x',c:col,s:30,p:Math.round(cx-300)+','+Math.round(Math.min(9600,cy+r*W/H+260)),txt:kind,ts:ts++,by:me||'local'});}
+ // traps
+ const nt=diff==='easy'?(Math.random()<.5?1:0):diff==='fair'?1:2,tier=Math.min(6,Math.max(1,Math.ceil(avg/5))+(diff==='hard'?1:0)),traps=[];
+ for(let i=0;i<nt;i++){const tt=Math.min(6,Math.max(1,tier-(i?1:0))),[tn,st]=TRAPS[tt-1],[x,y]=spot(32,52,18,82),cx=x*100,cy=y*100,d=170,ar=W/H;
+  addStroke({t:'c',c:'#e8705f',s:12,p:[[cx-d,cy-d*ar],[cx+d,cy+d*ar]].map(p=>p.map(Math.round).join(',')).join(';'),ts:ts++,by:me||'local'});
+  addStroke({t:'c',c:'#e8705f',s:12,p:[[cx+d,cy-d*ar],[cx-d,cy+d*ar]].map(p=>p.map(Math.round).join(',')).join(';'),ts:ts++,by:me||'local'});
+  addStroke({t:'x',c:'#e8705f',s:28,p:Math.round(Math.max(200,cx-1400))+','+Math.round(Math.min(9600,cy+d*ar+300)),txt:tn+' T'+tt+' · '+tt+'d6 · '+st,ts:ts++,by:me||'local'});traps.push(tn);}
+ const D=diff[0].toUpperCase()+diff.slice(1);
+ addStroke({t:'x',c:'#f2a3b8',s:40,p:'300,500',txt:D+' encounter · '+threat+' threat · level '+avg+(party.length?'':' (no party yet: sized for 4)'),ts:ts++,by:me||'local'});
+ renderTokens();renderTray();summary();
+ toast(D+' encounter: '+made.map(m=>m.name).join(', ')+(traps.length?' · '+traps.length+' trap'+(traps.length>1?'s':''):''));}
+
 /* ---------- toolbar ---------- */
 function setTool(t){tool=t;if(t!=='text')closeText(true);if(B.board){B.board.classList.toggle('draw',t!=='select');B.board.classList.toggle('erase',t==='erase');B.board.classList.toggle('text',t==='text');}renderTools();}
 function renderTools(){
@@ -262,6 +324,7 @@ function renderTools(){
   const w=btn('Wipe chalk',()=>wipe(w),'sm dmg');
   const lb=el('label','chk'),cb=document.createElement('input');cb.type='checkbox';cb.id='mapdraw';cb.checked=!!mstate.draw;cb.onchange=()=>{mstate.draw=cb.checked;mapCol.doc('state').set({draw:cb.checked,ts:Date.now()}).catch(()=>{});};lb.append(cb,document.createTextNode('Players can draw'));
   T.append(g('',btn('Undo',undo),w,lb));
+  T.append(g('New encounter',...['easy','fair','hard'].map(d=>{const b=btn(genArm===d?'Tap again':d[0].toUpperCase()+d.slice(1),()=>genEncounter(d,b),'sm'+(genArm===d?' dmg':' rb'));b.title='Replaces the chalk and the last generated monsters';return b;})));
   T.append(el('div','minfo',bg.img?'Map '+bg.w+' × '+bg.h+' px · the board takes the picture\'s shape':'Slate · any picture size works, the board reshapes to match it'));
  }else T.append(g('',btn('Undo my last line',undo)));}
 
