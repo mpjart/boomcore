@@ -137,6 +137,9 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 :root[data-layout="full"] #side{grid-area:side;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;min-width:0}
 }
 
+/* CM tab: one group of cards at a time, picked from the button bar (All shows everything) */
+.cmnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:6px;margin-bottom:12px}.cmnav button{background:var(--chip);color:var(--ink);padding:9px 8px;font-size:14px;white-space:nowrap}.cmnav button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
+#pgDM:not([data-sec="all"])>[data-g]:not(.cmshow){display:none!important}
 /* handouts */
 #hobox textarea{width:100%;font:inherit;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:110px;margin-top:8px}
 #hobox select{font:inherit;width:100%;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
@@ -166,7 +169,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div><div class="card" id="holist" hidden></div></div><div id="pgLoot" hidden>
 <details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier: 2 to 50 is a reagent to sell, but an odd roll there is a healing potion instead (heals the tier in d6, so a T3 potion heals 3d6, and the dice can boom); 51 to 70 is an ability token; 71 to 99 is an item. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
 <div class="card" id="boxlist"></div>
-<div class="card" id="lootmk">
+<div class="card" id="lootmk" data-g="loot">
  <b class="pn" id="lmkh">Make a loot box</b>
  <label style="margin-top:8px">For</label><select id="lhero"></select>
  <div class="row lrow3" style="margin-top:10px"><div class="col lc-n"><label>Enemy lvl</label><input id="lmon" type="number" min="1" max="99" value="1" inputmode="numeric"></div><div class="col lc-n" id="lhlw"><label>Hero lvl</label><input id="lhl" type="number" min="1" max="100" value="1" inputmode="numeric"></div><div class="col lc-t"><label>Box tier</label><select id="ltier"></select></div></div>
@@ -176,11 +179,12 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="err" id="lerr"></div>
 </div>
 <div class="card" id="stashbox"></div>
-</div><div id="pgDM" hidden>
-<div class="card" id="skinbox"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
-<a class="btnl" id="cmscreen" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
-<div class="card" id="dawnbox"><div class="row" style="align-items:center;justify-content:space-between;gap:10px"><div><b class="pn">Dawn</b><div class="note">A new day: clears every hero's temp HP.</div></div><button id="dawn" class="rbu">🌅 Dawn</button></div></div>
-<div class="card" id="hobox"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
+</div><div id="pgDM" hidden data-sec="loot">
+<div class="cmnav" role="tablist" aria-label="Core Master tools"><button data-s="table" type="button">🎨 Table</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="all" type="button">▦ All</button></div>
+<div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
+<a class="btnl" id="cmscreen" data-g="table" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
+<div class="card" id="dawnbox" data-g="table"><div class="row" style="align-items:center;justify-content:space-between;gap:10px"><div><b class="pn">Dawn</b><div class="note">A new day: clears every hero's temp HP.</div></div><button id="dawn" class="rbu">🌅 Dawn</button></div></div>
+<div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
  <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
  <div class="seg" role="group" aria-label="Handout type"><button id="hmN" type="button" class="on">✍️ Note</button><button id="hmI" type="button">🖼️ Picture</button></div>
  <div id="hnote"><input id="htitle" maxlength="60" placeholder="Title (optional)" style="width:100%;margin-top:8px"><textarea id="htext" maxlength="2000" placeholder="What does the note say?"></textarea><input id="hsign" maxlength="40" placeholder="Signed (optional)" style="width:100%"></div>
@@ -190,7 +194,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="err" id="herr"></div>
 </div>
 <div class="card" id="initbox"></div>
-<div class="card" id="mgen">
+<div class="card" id="mgen" data-g="mon">
  <b class="pn">Monster generator</b>
  <div class="row" style="margin-top:8px"><input id="mname" placeholder="Monster name"><input id="mlvl" type="number" min="1" max="99" value="1" inputmode="numeric" style="max-width:90px" aria-label="Level"></div>
  <div class="row" style="margin-top:8px"><select id="mkind" aria-label="Type"></select><select id="mrar" aria-label="Rarity"></select></div>
@@ -198,7 +202,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="err" id="merr"></div>
  <div class="note">The app deals out random stat points (fewer for minions, more for bosses), sets armor, and gives a 2d6 melee and a 2d4 ranged attack. Add up to 3 abilities on each card.</div> <div class="row" style="margin-top:10px"><button id="mclr" class="sm dmg" style="flex:1" hidden>Remove all monsters</button></div>
 </div>
-<div id="mlist"></div>
+<div id="mlist" data-g="mon"></div>
 </div><aside id="side"><div id="banner" class="note" style="margin-bottom:8px"></div>
 <div id="best" class="card" hidden></div><div id="clrrow" class="row" style="justify-content:flex-end;margin-bottom:8px" hidden><button class="ghost sm" id="clr">Clear rolls</button></div><div id="feed"></div></aside>
 </main>
@@ -706,7 +710,7 @@ function rollInit(c){const r=doRoll('1d20'+(eff(c,'spd')>0?'+'+eff(c,'spd'):''),
 function nextTurn(){if(!inits.length)return;const i=inits.findIndex(x=>x.id===turn),n=(i+1)%inits.length;initCol.doc('_turn').set({id:inits[n].id,round:(i>=0&&n===0)?round+1:round}).catch(()=>{});}
 function clearInit(){inits.forEach(x=>initCol.doc(x.id).delete().catch(()=>{}));initCol.doc('_turn').delete().catch(()=>{});}
 function renderInit(){
- const b=$('#initbox');b.replaceChildren();b.hidden=!partyCol;const host=fullLayout()?$('#side'):isDM?$('#pgDM'):$('#pgParty');if(b.parentElement!==host)host.prepend(b);
+ const b=$('#initbox');b.replaceChildren();b.hidden=!partyCol;const host=fullLayout()||isDM?$('#side'):$('#pgParty');if(b.parentElement!==host)host.prepend(b);
  const h=el('div','pch');h.append(el('b','pn','Initiative'+(inits.length?' · Round '+round:'')));
  if(isDM&&initCol)h.append(btn('Roll all',()=>{chars.forEach(rollInit);monsters.forEach(rollMonInit);},'sm'),btn('Next',nextTurn,'sm'),btn('Clear',clearInit));
  b.append(h);
@@ -733,6 +737,13 @@ function setLayout(v){layout=v==='mobile'?'mobile':'full';document.documentEleme
 $('#layM').onclick=()=>setLayout('mobile');$('#layF').onclick=()=>setLayout('full');
 wideMQ.addEventListener('change',()=>renderInit());
 setLayout(layout);
+let cmSec='loot';try{cmSec=localStorage.getItem('boomcmsec')||'loot'}catch{}
+function setCmSec(v){cmSec=['table','loot','hand','mon','all'].includes(v)?v:'loot';const pg=$('#pgDM');pg.dataset.sec=cmSec;
+ pg.querySelectorAll(':scope>[data-g]').forEach(x=>x.classList.toggle('cmshow',x.dataset.g===cmSec));
+ pg.querySelectorAll('.cmnav button').forEach(b=>{b.classList.toggle('on',b.dataset.s===cmSec);b.setAttribute('aria-selected',b.dataset.s===cmSec);});
+ try{localStorage.setItem('boomcmsec',cmSec)}catch{}}
+$('#pgDM').querySelectorAll('.cmnav button').forEach(b=>b.onclick=()=>setCmSec(b.dataset.s));
+setCmSec(cmSec);
 function tab(t){$('#pgDice').hidden=t!=='d';$('#pgParty').hidden=t!=='p';$('#pgLoot').hidden=t!=='l';$('#pgDM').hidden=t!=='m';$('#tD').classList.toggle('on',t==='d');$('#tP').classList.toggle('on',t==='p');$('#tL').classList.toggle('on',t==='l');$('#tM').classList.toggle('on',t==='m');}
 // ---------- handouts: the CM turns text into a themed note (or frames a picture) and gives it to the party ----------
 // Each handout is drawn on a canvas in the table's theme at the moment it is made, saved as a JPEG, and stored in 'handouts'.
@@ -1109,7 +1120,7 @@ function monCard(m){
   w.append(nn,ee,tt,btn('Add',()=>{const x=ee.value.replace(/\s+/g,'');if(!nn.value.trim()||!parse(x))return toast('Need a name and a valid roll');putM(m,{abil:JSON.stringify([...ab,{n:nn.value.trim().slice(0,30),e:x,t:tt.value}])});},'sm'));box.append(w);}
  const ft=el('div','row');
  ft.append(btn('Reroll stats',()=>{const g=genMon(m.name,m.level,m.kind,m.rarity);putM(m,{con:g.con,str:g.str,int:g.int,spd:g.spd,cha:g.cha,lck:g.lck,hpCur:null});}),
-  btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
+  btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();if(cmSec!=='all')setCmSec('loot');$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
  let armed=0;const d=btn('Remove',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove';},3000);}else{if(initCol)initCol.doc('m'+m.id).delete().catch(()=>{});monCol.doc(m.id).delete();}});ft.append(d);box.append(ft);
  return box;}
 function renderMon(){
