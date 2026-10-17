@@ -16,7 +16,7 @@ The Core Master starts a table and shares its 6-letter code; players join with t
 
 ## Themes
 
-The Core Master picks the table's theme in the CM tab: Core, Fantasy, Space, Horror, or Street Grit. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
+The Core Master picks the table's theme in the CM tab: Core, Fantasy, Space, Horror, or Street Grit. Core in light mode uses the CM screen's look: slate blue and burnt orange on cream, with Alfa Slab One titles. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
 
 ## Loot names
 

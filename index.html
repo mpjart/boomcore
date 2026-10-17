@@ -4,9 +4,9 @@
 <title>Boom Dice</title>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#f6f3ee;--card:#fff;--ink:#1f1b16;--mute:#7a7268;--line:#e5dfd6;--acc:#c2410c;--accfg:#fff;--boom:#ea580c;--chip:#f0ebe3}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17140f;--card:#221e17;--ink:#f3ede3;--mute:#a1978a;--line:#363025;--acc:#f97316;--accfg:#1a1208;--boom:#fb923c;--chip:#2e2820}}
-:root[data-theme="dark"]{--bg:#17140f;--card:#221e17;--ink:#f3ede3;--mute:#a1978a;--line:#363025;--acc:#f97316;--accfg:#1a1208;--boom:#fb923c;--chip:#2e2820}
+--bg:#e9e3d8;--card:#fbf7ef;--ink:#1f1a17;--mute:#5e554b;--line:#cdc1ad;--acc:#b83a12;--accfg:#fff;--boom:#d24a14;--chip:#f1eadc;--head:#1f4e5f;--tabbg:#1f4e5f;--tabfg:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17140f;--card:#221e17;--ink:#f3ede3;--mute:#a1978a;--line:#363025;--acc:#f97316;--accfg:#1a1208;--boom:#fb923c;--chip:#2e2820;--head:var(--ink);--tabbg:var(--acc);--tabfg:var(--accfg)}}
+:root[data-theme="dark"]{--bg:#17140f;--card:#221e17;--ink:#f3ede3;--mute:#a1978a;--line:#363025;--acc:#f97316;--accfg:#1a1208;--boom:#fb923c;--chip:#2e2820;--head:var(--ink);--tabbg:var(--acc);--tabfg:var(--accfg)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*:before,*:after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 var(--fb)}
@@ -96,8 +96,17 @@ a.btnl{display:block;text-align:center;text-decoration:none;font-weight:700;bord
 details.stx{border:0;margin:0}details.stx>summary{padding:0;font-size:18px;font-weight:700;text-transform:none;color:var(--cc,var(--ink));font-family:var(--fd)}details.stx>summary .sumx{font-family:var(--fb)}details.stx[open]>summary{padding-bottom:6px}
 
 /* ---------- table themes (the CM picks one for the whole table) ---------- */
-:root{--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--fd:var(--fb);--r:14px;--rb:10px;--bw:1px;--sh:none;--hp:#16a34a;--boomfg:#fff}
-h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
+:root{--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--fd:var(--fb);--fc:var(--fd);--r:14px;--rb:10px;--bw:1px;--sh:none;--hp:#16a34a;--boomfg:#fff}
+h1,.total,.bxh b,.cd{font-family:var(--fd)}.pn,.tabs button,.lv,.badge{font-family:var(--fc)}
+/* Core, light: the CM screen's 80s look (Alfa Slab One titles, Barlow Condensed heads, slate blue + burnt orange) */
+:root:not([data-skin]){--fd:'Alfa Slab One',Georgia,serif;--fc:'Barlow Condensed','Arial Narrow',sans-serif;--fb:'Barlow',system-ui,sans-serif;--r:8px;--rb:6px}
+@media(prefers-color-scheme:dark){:root:not([data-skin]):not([data-theme="light"]){--fd:var(--fb);--fc:var(--fd);--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--r:14px;--rb:10px}}
+:root[data-theme="dark"]:not([data-skin]){--fd:var(--fb);--fc:var(--fd);--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--r:14px;--rb:10px}
+:root[data-skin]{--head:var(--ink);--tabbg:var(--acc);--tabfg:var(--accfg)}
+h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tabfg)}
+:root:not([data-skin]) h1{font-weight:400;letter-spacing:.01em}
+:root:not([data-skin]) .pn,:root:not([data-skin]) .tabs button,:root:not([data-skin]) .badge{text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+:root:not([data-skin]) .total{font-weight:400}
 :root[data-skin="fantasy"]{--bg:#efe3c8;--card:#f7eedb;--ink:#2b1d0e;--mute:#6b5538;--line:#b8862b;--acc:#8b1e1e;--accfg:#f7eedb;--boom:#8b4a12;--boomfg:#fff;--chip:#e8d9b8;--hp:#4f6b2a;--r:3px;--rb:4px;--fd:Cinzel,Georgia,serif;--fb:'EB Garamond',Georgia,serif;color-scheme:light}
 :root[data-skin="space"]{--bg:#070b1a;--card:#0e1530;--ink:#e4eaff;--mute:#9aa6cc;--line:#27345e;--acc:#4fd8f7;--accfg:#06101f;--boom:#ff9a3c;--boomfg:#1a0d00;--chip:#1a2448;--hp:#3ee08f;--r:10px;--rb:6px;--fd:Orbitron,sans-serif;--fb:'Exo 2',sans-serif;color-scheme:dark}
 :root[data-skin="horror"]{--bg:#0d0a0a;--card:#171111;--ink:#e6dccf;--mute:#a39686;--line:#3a2c29;--acc:#c62a32;--accfg:#fff;--boom:#e0424a;--boomfg:#0d0a0a;--chip:#2a1d1b;--hp:#a3161d;--r:0px;--rb:0px;--fd:'IM Fell English SC',Georgia,serif;--fb:'Crimson Pro',Georgia,serif;color-scheme:dark}
@@ -1098,7 +1107,7 @@ function renderStash(){
 
 // ---------- table themes: look + words ----------
 const SKINS=[
- {k:'core',n:'Core',sw:['#f6f3ee','#c2410c','#1f1b16'],w:{}},
+ {k:'core',n:'Core',sw:['#fbf7ef','#1f4e5f','#b83a12'],font:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',w:{}},
  {k:'fantasy',n:'Fantasy',sw:['#efe3c8','#8b1e1e','#b8862b'],font:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',w:{box:['chest','chests']}},
  {k:'space',n:'Space',sw:['#070b1a','#4fd8f7','#ff9a3c'],font:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',w:{coin:['credit','credits'],token:['data chip','data chips'],core:['power core','power cores'],box:['crate','crates']}},
  {k:'horror',n:'Horror',sw:['#0d0a0a','#c62a32','#e6dccf'],font:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',w:{coin:['grave coin','grave coins'],token:['rite','rites'],box:['coffer','coffers']}},
