@@ -16,7 +16,7 @@ The Core Master starts a table and shares its 6-letter code; players join with t
 
 ## Core Master tab
 
-A button bar at the top of the CM tab shows one group of tools at a time: **🎨 Table** (theme, CM screen link, Dawn), **🎁 Loot** (loot box maker), **📜 Handouts**, and **👹 Monsters**. **▦ All** shows everything at once. Each device remembers its choice. Initiative always sits with the roll feed, not in the CM tab.
+A button bar at the top of the CM tab shows one group of tools at a time: **🎨 Theme**, **🎁 Loot** (loot box maker), **📜 Handouts**, and **👹 Monsters**. **▦ All** shows everything at once. Two action buttons sit on the same bar: **📋 CM screen** opens the screen in a new tab, and **🌅 Dawn** starts a new day (tap twice). Each device remembers its choice. Initiative always sits with the roll feed, not in the CM tab.
 
 ## Handouts
 
@@ -24,7 +24,7 @@ The CM tab has a handout creator: type a note (title, text, and an optional sign
 
 ## Themes
 
-The Core Master picks the table's theme in the CM tab: Core, Fantasy, Space, Horror, or Street Grit. Core in light mode uses the CM screen's look: slate blue and burnt orange on cream, with Alfa Slab One titles. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
+The Core Master picks the table's theme in the CM tab: Core Light, Core Dark, Fantasy, Space, Horror, or Street Grit. Core Light uses the CM screen's look: slate blue and burnt orange on cream, with Alfa Slab One titles. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
 
 ## Loot names
 

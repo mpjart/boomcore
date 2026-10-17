@@ -101,7 +101,8 @@ h1,.total,.bxh b,.cd{font-family:var(--fd)}.pn,.tabs button,.lv,.badge{font-fami
 /* Core, light: the CM screen's 80s look (Alfa Slab One titles, Barlow Condensed heads, slate blue + burnt orange) */
 :root:not([data-skin]){--fd:'Alfa Slab One',Georgia,serif;--fc:'Barlow Condensed','Arial Narrow',sans-serif;--fb:'Barlow',system-ui,sans-serif;--r:8px;--rb:6px}
 @media(prefers-color-scheme:dark){:root:not([data-skin]):not([data-theme="light"]){--fd:var(--fb);--fc:var(--fd);--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--r:14px;--rb:10px}}
-:root[data-theme="dark"]:not([data-skin]){--fd:var(--fb);--fc:var(--fd);--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--r:14px;--rb:10px}
+:root[data-theme="light"]:not([data-skin]){color-scheme:light}
+:root[data-theme="dark"]:not([data-skin]){color-scheme:dark;--fd:var(--fb);--fc:var(--fd);--fb:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;--r:14px;--rb:10px}
 :root[data-skin]{--head:var(--ink);--tabbg:var(--acc);--tabfg:var(--accfg)}
 h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tabfg)}
 :root:not([data-skin]) h1{font-weight:400;letter-spacing:.01em}
@@ -138,7 +139,8 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 }
 
 /* CM tab: one group of cards at a time, picked from the button bar (All shows everything) */
-.cmnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:6px;margin-bottom:12px}.cmnav button{background:var(--chip);color:var(--ink);padding:9px 8px;font-size:14px;white-space:nowrap}.cmnav button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
+.cmnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:6px;margin-bottom:12px}.cmnav button:not(.cmact){background:var(--chip);color:var(--ink);padding:9px 8px;font-size:14px;white-space:nowrap}.cmnav .cmact{display:flex;align-items:center;justify-content:center;font:inherit;font-size:14px;font-weight:700;padding:9px 8px;border-radius:var(--rb);white-space:nowrap;text-decoration:none;background:transparent;color:var(--acc);border:2px solid var(--acc)}.cmnav .cmact.arm{background:var(--acc);color:var(--accfg)}
+.cmnav button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
 #pgDM:not([data-sec="all"])>[data-g]:not(.cmshow){display:none!important}
 /* handouts */
 #hobox textarea{width:100%;font:inherit;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:110px;margin-top:8px}
@@ -180,10 +182,8 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden data-sec="loot">
-<div class="cmnav" role="tablist" aria-label="Core Master tools"><button data-s="table" type="button">🎨 Table</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="all" type="button">▦ All</button></div>
+<div class="cmnav" role="tablist" aria-label="Core Master tools"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="all" type="button">▦ All</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
 <div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
-<a class="btnl" id="cmscreen" data-g="table" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
-<div class="card" id="dawnbox" data-g="table"><div class="row" style="align-items:center;justify-content:space-between;gap:10px"><div><b class="pn">Dawn</b><div class="note">A new day: clears every hero's temp HP.</div></div><button id="dawn" class="rbu">🌅 Dawn</button></div></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
  <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
  <div class="seg" role="group" aria-label="Handout type"><button id="hmN" type="button" class="on">✍️ Note</button><button id="hmI" type="button">🖼️ Picture</button></div>
@@ -1268,7 +1268,8 @@ function renderStash(){
 
 // ---------- table themes: look + words ----------
 const SKINS=[
- {k:'core',n:'Core',sw:['#fbf7ef','#1f4e5f','#b83a12'],font:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',w:{}},
+ {k:'core',n:'Core Light',sw:['#fbf7ef','#1f4e5f','#b83a12'],font:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',w:{}},
+ {k:'coredark',n:'Core Dark',sw:['#17140f','#f97316','#f3ede3'],w:{}},
  {k:'fantasy',n:'Fantasy',sw:['#efe3c8','#8b1e1e','#b8862b'],font:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',w:{box:['chest','chests']}},
  {k:'space',n:'Space',sw:['#070b1a','#4fd8f7','#ff9a3c'],font:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',w:{coin:['credit','credits'],token:['data chip','data chips'],core:['power core','power cores'],box:['crate','crates']}},
  {k:'horror',n:'Horror',sw:['#0d0a0a','#c62a32','#e6dccf'],font:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',w:{coin:['grave coin','grave coins'],token:['rite','rites'],box:['coffer','coffers']}},
@@ -1288,7 +1289,7 @@ const wordObs=new MutationObserver(ms=>{if(!Object.keys(WORDS).length)return;for
 wordObs.observe(document.body,{subtree:true,childList:true,characterData:true});
 function applySkin(k){
  const S=SKINS.find(x=>x.k===k)||SKINS[0];skin=S.k;WORDS=S.w;
- if(S.k==='core')document.documentElement.removeAttribute('data-skin');else document.documentElement.setAttribute('data-skin',S.k);
+ const de=document.documentElement;if(S.k==='core'||S.k==='coredark'){de.removeAttribute('data-skin');de.dataset.theme=S.k==='core'?'light':'dark';}else{de.setAttribute('data-skin',S.k);de.removeAttribute('data-theme');}
  if(S.font&&!document.getElementById('skf-'+S.k)){const l=document.createElement('link');l.id='skf-'+S.k;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+S.font+'&display=swap';document.head.append(l);}
  try{localStorage.setItem('boomskin',S.k)}catch{}
  $('#cmscreen').href=LINKS.cmScreen+'?theme='+S.k;
@@ -1301,7 +1302,9 @@ function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,adult:ad
 function applyAdult(v){adultLoot=!!v;const c=$('#adultchk');if(c)c.checked=adultLoot;try{localStorage.setItem('boomadult',adultLoot?'1':'')}catch{}}
 $('#adultchk').onchange=e=>{const v=e.target.checked;if(settingsCol)settingsCol.doc('theme').set({skin,adult:v,ts:Date.now()}).catch(()=>toast('Could not change the setting'));else applyAdult(v);};
 // Dawn: temp HP resets for the whole party.
-$('#dawn').onclick=()=>{if(!partyCol)return toast('Add heroes in the Party tab first');const hit=chars.filter(c=>(c.temp||0)>0);
+{const d=$('#dawn');let armed=0,tm=0;d.onclick=()=>{if(!armed){armed=1;d.classList.add('arm');d.textContent='🌅 Tap again';clearTimeout(tm);tm=setTimeout(()=>{armed=0;d.classList.remove('arm');d.textContent='🌅 Dawn';},3000);return;}
+ armed=0;clearTimeout(tm);d.classList.remove('arm');d.textContent='🌅 Dawn';dawnRun();};}
+const dawnRun=()=>{if(!partyCol)return toast('Add heroes in the Party tab first');const hit=chars.filter(c=>(c.temp||0)>0);
  hit.forEach(c=>put(c,{temp:0}));const m='🌅 Dawn breaks'+(hit.length?': temp HP cleared for '+hit.map(c=>c.name||'a hero').join(', '):'. No one had temp HP');toast(m);logEvent(m);};
 // ---------- startup (page works alone, lights up with db) ----------
 renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
