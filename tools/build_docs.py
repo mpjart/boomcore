@@ -44,7 +44,7 @@ code{{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}}
 </style>
 </head>
 <body>
-<nav class="bar" aria-label="Boom pages"><span class="logo" style="color:#fff">BOOM</span><a href="./">Boom Dice app</a><a href="rules.html"{cur_rules}>Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html"{cur_loot}>Loot Names</a></nav>
+<nav class="bar" aria-label="Boom pages"><span class="logo" style="color:#fff">BOOM</span><a href="./">Boom Dice app</a><a href="rules.html"{cur_rules}>Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html"{cur_loot}>Loot Names</a><a href="the-hollow-crown.pdf" target="_blank" rel="noopener">Sample Adventure</a></nav>
 <main class="page" id="top">
 {toc}
 {body}
