@@ -8,6 +8,8 @@
 
 Play it in your browser: https://mpjart.github.io/boomcore/ (works best on a tablet or larger).
 
+**Mobile / Full layout:** on screens 900px or wider, a switch by the title picks the layout. Full keeps the current tab on the left and puts initiative and the roll feed in a right panel that stays on screen; Mobile is the single column. Phones always use Mobile.
+
 The Core Master starts a table and shares its 6-letter code; players join with the code and everyone sees each other's rolls live. Shared tables run on Firebase's free plan: see `SETUP.md` to connect it. Until then the app runs in solo mode.
 
 **Play solo** gives you the full Core Master view (party, loot boxes, stash, monsters, initiative, and the theme picker) on a private table saved on that device. There's no code and nobody else can join. Use it for solo games, prep, or one shared screen at the table.

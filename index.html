@@ -112,10 +112,25 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
 .skb.on{border-color:var(--acc)}.skb span.sp{display:flex;height:22px;border-radius:4px;overflow:hidden}.skb span.sp i{flex:1}
 
 .lrow3{align-items:flex-end;gap:8px}.lrow3 .lc-n{flex:0 0 74px}.lrow3 .lc-t{flex:1 1 0}.lrow3 input,.lrow3 select{width:100%;display:block;padding-left:10px;padding-right:6px}.lrow3 input::-webkit-inner-spin-button{display:none}#lhlnote{margin-top:6px}#lhlnote:empty{display:none}
+
+/* layout toggle: Mobile (one column) or Full (rolls + initiative in a right panel), Full only on wide screens */
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.lay{display:none;background:var(--chip);border-radius:var(--rb);padding:3px;gap:3px;flex:none}
+.lay button{background:none;color:var(--mute);padding:6px 10px;font-size:13px;font-weight:700}
+.lay button.on{background:var(--acc);color:var(--accfg)}
+@media(min-width:900px){
+.lay{display:flex}
+:root[data-layout="full"] main{max-width:1320px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,420px);grid-template-areas:"bar bar" "hdr hdr" "tabs side" "page side";grid-template-rows:auto auto auto 1fr;column-gap:18px;align-items:start}
+:root[data-layout="full"] #tbar{grid-area:bar}
+:root[data-layout="full"] .hdr{grid-area:hdr}
+:root[data-layout="full"] main>.tabs{grid-area:tabs}
+:root[data-layout="full"] #pgDice,:root[data-layout="full"] #pgParty,:root[data-layout="full"] #pgLoot,:root[data-layout="full"] #pgDM{grid-area:page;min-width:0}
+:root[data-layout="full"] #side{grid-area:side;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow-y:auto;overscroll-behavior:contain;min-width:0}
+}
 </style></head><body>
 <canvas id="fx"></canvas><div id="toast"></div>
 <main>
-<h1>🎲 Boom Dice</h1><div class="tabs"><button id="tD" class="on" onclick="tab('d')">Dice</button><button id="tP" onclick="tab('p')">Party</button><button id="tL" onclick="tab('l')">Loot</button><button id="tM" onclick="tab('m')" hidden>CM</button></div><div id="pgDice">
+<div class="hdr"><h1>🎲 Boom Dice</h1><div class="lay" role="group" aria-label="Layout"><button id="layM" type="button">📱 Mobile</button><button id="layF" type="button">🖥️ Full</button></div></div><div class="tabs"><button id="tD" class="on" onclick="tab('d')">Dice</button><button id="tP" onclick="tab('p')">Party</button><button id="tL" onclick="tab('l')">Loot</button><button id="tM" onclick="tab('m')" hidden>CM</button></div><div id="pgDice">
 <details class="how"><summary>Dice that hit their max or min <b>explode</b> 💥 <span class="hw">How it works</span></summary><p>Every die that lands on its max or min <b>explodes</b> (d6 and smaller only explode on a 1; d21 and larger explode on a flat 10% chance instead): it's discarded and 2 new dice are rolled. Everything left adds up.</p><p>Boom cap: one die group stops exploding after 100 dice in total (a d1 would explode forever, and a d2 can run very long).</p></details>
 <div class="card">
  <div class="lh"><label>Roll</label><a class="book" id="hbook" href="#" target="_blank" rel="noopener" title="guidelines" aria-label="guidelines"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="guidelines"><title>guidelines</title><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></a></div>
@@ -153,8 +168,8 @@ h1,.pn,.total,.tabs button,.lv,.bxh b,.badge,.cd{font-family:var(--fd)}
  <div class="note">The app deals out random stat points (fewer for minions, more for bosses), sets armor, and gives a 2d6 melee and a 2d4 ranged attack. Add up to 3 abilities on each card.</div> <div class="row" style="margin-top:10px"><button id="mclr" class="sm dmg" style="flex:1" hidden>Remove all monsters</button></div>
 </div>
 <div id="mlist"></div>
-</div><div id="banner" class="note" style="margin-bottom:8px"></div>
-<div id="best" class="card" hidden></div><div id="clrrow" class="row" style="justify-content:flex-end;margin-bottom:8px" hidden><button class="ghost sm" id="clr">Clear rolls</button></div><div id="feed"></div>
+</div><aside id="side"><div id="banner" class="note" style="margin-bottom:8px"></div>
+<div id="best" class="card" hidden></div><div id="clrrow" class="row" style="justify-content:flex-end;margin-bottom:8px" hidden><button class="ghost sm" id="clr">Clear rolls</button></div><div id="feed"></div></aside>
 </main>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
@@ -658,7 +673,7 @@ function rollInit(c){const r=doRoll('1d20'+(eff(c,'spd')>0?'+'+eff(c,'spd'):''),
 function nextTurn(){if(!inits.length)return;const i=inits.findIndex(x=>x.id===turn),n=(i+1)%inits.length;initCol.doc('_turn').set({id:inits[n].id,round:(i>=0&&n===0)?round+1:round}).catch(()=>{});}
 function clearInit(){inits.forEach(x=>initCol.doc(x.id).delete().catch(()=>{}));initCol.doc('_turn').delete().catch(()=>{});}
 function renderInit(){
- const b=$('#initbox');b.replaceChildren();b.hidden=!partyCol;const host=isDM?$('#pgDM'):$('#pgParty');if(b.parentElement!==host)host.prepend(b);
+ const b=$('#initbox');b.replaceChildren();b.hidden=!partyCol;const host=fullLayout()?$('#side'):isDM?$('#pgDM'):$('#pgParty');if(b.parentElement!==host)host.prepend(b);
  const h=el('div','pch');h.append(el('b','pn','Initiative'+(inits.length?' · Round '+round:'')));
  if(isDM&&initCol)h.append(btn('Roll all',()=>{chars.forEach(rollInit);monsters.forEach(rollMonInit);},'sm'),btn('Next',nextTurn,'sm'),btn('Clear',clearInit));
  b.append(h);
@@ -675,6 +690,16 @@ let clearing=false,armedC=0;
 $('#clr').onclick=()=>{const b=$('#clr');if(!armedC){armedC=1;b.textContent='Tap again to clear all';setTimeout(()=>{armedC=0;b.textContent='Clear rolls';},3000);return;}
  armedC=0;b.textContent='Clear rolls';
  if(db&&me){clearing=true;rolls.forEach(r=>db.collection('rolls').doc(r.id).delete().catch(()=>{}));}else{rolls=[];render();}};
+// ---------- layout: Mobile (one column) or Full (two panels) ----------
+// Full puts initiative and the roll feed in a right panel beside the current tab. It only applies on screens 900px or wider;
+// smaller screens always get the mobile layout. With no saved choice, wide screens start in Full.
+const wideMQ=matchMedia('(min-width:900px)');
+let layout='full';try{layout=localStorage.getItem('boomlayout')||'full'}catch{}
+function fullLayout(){return layout==='full'&&wideMQ.matches;}
+function setLayout(v){layout=v==='mobile'?'mobile':'full';document.documentElement.dataset.layout=layout;$('#layM').classList.toggle('on',layout==='mobile');$('#layF').classList.toggle('on',layout==='full');try{localStorage.setItem('boomlayout',layout)}catch{}renderInit();}
+$('#layM').onclick=()=>setLayout('mobile');$('#layF').onclick=()=>setLayout('full');
+wideMQ.addEventListener('change',()=>renderInit());
+setLayout(layout);
 function tab(t){$('#pgDice').hidden=t!=='d';$('#pgParty').hidden=t!=='p';$('#pgLoot').hidden=t!=='l';$('#pgDM').hidden=t!=='m';$('#tD').classList.toggle('on',t==='d');$('#tP').classList.toggle('on',t==='p');$('#tL').classList.toggle('on',t==='l');$('#tM').classList.toggle('on',t==='m');}
 // ---------- loot box ----------
 const LT=['Common','Uncommon','Rare','Epic','Legendary','Divine'],ITYPE=['Weapon','Armor','Jewelry','Gem'],LOOTCAP=100,band=n=>n<=10?0:n<=20?1:n<=40?2:n<=60?3:n<=80?4:5;
