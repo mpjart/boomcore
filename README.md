@@ -4,7 +4,13 @@
 
 ## Logo
 
-The Boom logo is a cartoon bomb shaped like a d20 with a lit fuse, next to the BOOM wordmark (Alfa Slab One with an offset shadow) and the tagline **Beyond Our Own Maximum**. It is the same in every theme and only its colors change. See every theme at https://mpjart.github.io/boomcore/logo.html. Files: `logo.svg` (full lockup, Core Light colors) and `logo-mark.svg` (the mark alone, also the favicon).
+The Boom logo comes in three versions, the same in every theme with only the colors changing:
+
+- **Icon:** the d20 bomb alone (a d20 showing 20, with a cap and a lit fuse). Use it for app and social media icons. Files: `logo-mark.svg`, `app-icon.png`, `app-icon-dark.png` (512 × 512).
+- **Wordmark:** BOOM in a heavy sans-serif (Archivo Black) where the first O is the d20 bomb and the second O is a plain, unlit d20 showing a 1. Use it in the app and anywhere like Boom Dice. File: `logo-wordmark.svg`.
+- **Full logo:** the wordmark with **Beyond Our Own Maximum** underneath, for larger places like documents and the rules. File: `logo.svg`.
+
+The letters are drawn as shapes, so the files look right anywhere without the fonts installed. See every theme at https://mpjart.github.io/boomcore/logo.html.
 
 ## Boom Dice app
 
