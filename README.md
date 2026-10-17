@@ -16,7 +16,7 @@ The letters are drawn as shapes, so the files look right anywhere without the fo
 
 ## Boom Dice app
 
-`index.html` is the Boom Dice app: exploding dice, party character sheets, loot boxes, a shared party stash, initiative, and a Core Master tab for monsters.
+`index.html` is the Boom Dice app: exploding dice, a shared chalkboard map, party character sheets, loot boxes, a shared party stash, initiative, and a Core Master tab for monsters.
 
 Play it in your browser: https://mpjart.github.io/boomcore/ (works best on a tablet or larger).
 
@@ -25,6 +25,16 @@ Play it in your browser: https://mpjart.github.io/boomcore/ (works best on a tab
 The Core Master starts a table and shares its 6-letter code; players join with the code and everyone sees each other's rolls live. Shared tables run on Firebase's free plan: see `SETUP.md` to connect it. Until then the app runs in solo mode.
 
 **Play solo** gives you the full Core Master view (party, loot boxes, stash, monsters, initiative, and the theme picker) on a private table saved on that device. There's no code and nobody else can join. Use it for solo games, prep, or one shared screen at the table.
+
+## Map
+
+The Dice tab opens with a **🗺️ Map** section, folded shut until you tap it; the dice log stays below. It's a shared chalkboard for when position matters, not a battle grid: no squares, measuring, or fog, and the Core Master's call on distance is final.
+
+- **Core Master tools** (players never see them): Select, Chalk, Eraser, and Text, six chalk colors including black for light maps, three sizes, Undo, and Wipe chalk (tap twice). **Map image…** puts a picture behind the chalk; the board takes the picture's shape, and a Dim slider keeps chalk readable. **Back to slate** returns to the green board.
+- **Tokens:** the CM places party heroes and monsters from the tray under the board (or Place all), drags any token, and taps one to select it and take it off with its ×. Players drag only their own hero (set with 🙋 This is me in the Party tab). Tokens show an HP bar; monster HP shows only to the CM.
+- **Players can draw:** a CM checkbox that gives players Select, Chalk, Eraser, colors, sizes, and Undo for their own lines. Off by default.
+- **Roll card:** the d20 bomb in the board's corner opens a card in the table's theme with HP, the six stats and armor as tap-to-roll chips, Init, attacks, abilities, and a box for any roll like 2d6+3. Rolls go to the shared feed. Players get their own hero's card; the CM can pick any hero or monster, or tap a token to switch to it. HP buttons stay CM-only, as on the Party tab.
+- Chalk lines, tokens, and the map image are shared with the whole table (`map`, `mapstrokes`, and `maptokens` under the table).
 
 ## Core Master tab
 
