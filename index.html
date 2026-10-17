@@ -141,7 +141,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 /* CM tab: one group of cards at a time, picked from the button bar (All shows everything) */
 .cmnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:6px;margin-bottom:12px}.cmnav button:not(.cmact){background:var(--chip);color:var(--ink);padding:9px 8px;font-size:14px;white-space:nowrap}.cmnav .cmact{display:flex;align-items:center;justify-content:center;font:inherit;font-size:14px;font-weight:700;padding:9px 8px;border-radius:var(--rb);white-space:nowrap;text-decoration:none;background:transparent;color:var(--acc);border:2px solid var(--acc)}.cmnav .cmact.arm{background:var(--acc);color:var(--accfg)}
 .cmnav button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
-#pgDM:not([data-sec="all"])>[data-g]:not(.cmshow){display:none!important}
+#pgDM:not([data-on~="table"])>[data-g="table"],#pgDM:not([data-on~="loot"])>[data-g="loot"],#pgDM:not([data-on~="hand"])>[data-g="hand"],#pgDM:not([data-on~="mon"])>[data-g="mon"]{display:none!important}
 /* handouts */
 #hobox textarea{width:100%;font:inherit;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:110px;margin-top:8px}
 #hobox select{font:inherit;width:100%;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
@@ -181,8 +181,9 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="err" id="lerr"></div>
 </div>
 <div class="card" id="stashbox"></div>
-</div><div id="pgDM" hidden data-sec="loot">
-<div class="cmnav" role="tablist" aria-label="Core Master tools"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="all" type="button">▦ All</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
+</div><div id="pgDM" hidden>
+<div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
+<div class="note" id="cmnone" hidden style="text-align:center;margin:4px 0 12px">All cards are hidden. Tap a button above to show its cards.</div>
 <div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="skins" id="skins" data-noswap></div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
  <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
@@ -737,13 +738,17 @@ function setLayout(v){layout=v==='mobile'?'mobile':'full';document.documentEleme
 $('#layM').onclick=()=>setLayout('mobile');$('#layF').onclick=()=>setLayout('full');
 wideMQ.addEventListener('change',()=>renderInit());
 setLayout(layout);
-let cmSec='loot';try{cmSec=localStorage.getItem('boomcmsec')||'loot'}catch{}
-function setCmSec(v){cmSec=['table','loot','hand','mon','all'].includes(v)?v:'loot';const pg=$('#pgDM');pg.dataset.sec=cmSec;
- pg.querySelectorAll(':scope>[data-g]').forEach(x=>x.classList.toggle('cmshow',x.dataset.g===cmSec));
- pg.querySelectorAll('.cmnav button').forEach(b=>{b.classList.toggle('on',b.dataset.s===cmSec);b.setAttribute('aria-selected',b.dataset.s===cmSec);});
- try{localStorage.setItem('boomcmsec',cmSec)}catch{}}
-$('#pgDM').querySelectorAll('.cmnav button').forEach(b=>b.onclick=()=>setCmSec(b.dataset.s));
-setCmSec(cmSec);
+// CM tab: each group button toggles its cards on or off (any mix, all, or none); each device remembers the set
+const CMG=['table','loot','hand','mon'];
+let cmOn=['loot'];try{const v=JSON.parse(localStorage.getItem('boomcmon')||'null');if(Array.isArray(v))cmOn=v.filter(x=>CMG.includes(x));else{const o=localStorage.getItem('boomcmsec');if(o)cmOn=o==='all'?CMG.slice():CMG.includes(o)?[o]:['loot'];}}catch{}
+function setCmOn(list){cmOn=CMG.filter(g=>list.includes(g));const pg=$('#pgDM');
+ pg.dataset.on=cmOn.join(' ');
+ pg.querySelectorAll('.cmnav [data-s]').forEach(b=>{const on=cmOn.includes(b.dataset.s);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
+ $('#cmnone').hidden=cmOn.length>0;
+ try{localStorage.setItem('boomcmon',JSON.stringify(cmOn))}catch{}}
+const cmShow=g=>{if(!cmOn.includes(g))setCmOn([...cmOn,g]);};
+$('#pgDM').querySelectorAll('.cmnav [data-s]').forEach(b=>b.onclick=()=>setCmOn(cmOn.includes(b.dataset.s)?cmOn.filter(x=>x!==b.dataset.s):[...cmOn,b.dataset.s]));
+setCmOn(cmOn);
 function tab(t){$('#pgDice').hidden=t!=='d';$('#pgParty').hidden=t!=='p';$('#pgLoot').hidden=t!=='l';$('#pgDM').hidden=t!=='m';$('#tD').classList.toggle('on',t==='d');$('#tP').classList.toggle('on',t==='p');$('#tL').classList.toggle('on',t==='l');$('#tM').classList.toggle('on',t==='m');}
 // ---------- handouts: the CM turns text into a themed note (or frames a picture) and gives it to the party ----------
 // Each handout is drawn on a canvas in the table's theme at the moment it is made, saved as a JPEG, and stored in 'handouts'.
@@ -1120,7 +1125,7 @@ function monCard(m){
   w.append(nn,ee,tt,btn('Add',()=>{const x=ee.value.replace(/\s+/g,'');if(!nn.value.trim()||!parse(x))return toast('Need a name and a valid roll');putM(m,{abil:JSON.stringify([...ab,{n:nn.value.trim().slice(0,30),e:x,t:tt.value}])});},'sm'));box.append(w);}
  const ft=el('div','row');
  ft.append(btn('Reroll stats',()=>{const g=genMon(m.name,m.level,m.kind,m.rarity);putM(m,{con:g.con,str:g.str,int:g.int,spd:g.spd,cha:g.cha,lck:g.lck,hpCur:null});}),
-  btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();if(cmSec!=='all')setCmSec('loot');$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
+  btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();cmShow('loot');$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
  let armed=0;const d=btn('Remove',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove';},3000);}else{if(initCol)initCol.doc('m'+m.id).delete().catch(()=>{});monCol.doc(m.id).delete();}});ft.append(d);box.append(ft);
  return box;}
 function renderMon(){

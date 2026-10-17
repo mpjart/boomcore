@@ -16,7 +16,7 @@ The Core Master starts a table and shares its 6-letter code; players join with t
 
 ## Core Master tab
 
-A button bar at the top of the CM tab shows one group of tools at a time: **🎨 Theme**, **🎁 Loot** (loot box maker), **📜 Handouts**, and **👹 Monsters**. **▦ All** shows everything at once. Two action buttons sit on the same bar: **📋 CM screen** opens the screen in a new tab, and **🌅 Dawn** starts a new day (tap twice). Each device remembers its choice. Initiative always sits with the roll feed, not in the CM tab.
+A button bar at the top of the CM tab toggles each group of cards on or off: **🎨 Theme**, **🎁 Loot** (loot box maker), **📜 Handouts**, and **👹 Monsters**. Turn on any mix, all of them, or none. Two action buttons sit on the same bar: **📋 CM screen** opens the screen in a new tab, and **🌅 Dawn** starts a new day (tap twice). Each device remembers which are on. Initiative always sits with the roll feed, not in the CM tab.
 
 ## Handouts
 
