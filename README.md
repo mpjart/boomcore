@@ -46,7 +46,7 @@ The CM tab has a handout creator: type a note (title, text, and an optional sign
 
 ## Themes
 
-**Colors:** each hero's color is a dropdown at the bottom of their open sheet (the hero's player and the Core Master can change it), and a player's free rolls use their hero's color. The Core Master's own roll color sits next to the theme dropdown in the CM tab.
+**Colors:** each hero's color is a dropdown at the bottom of their open sheet (the hero's player and the Core Master can change it), and a player's free rolls use their hero's color. Next to it, a player's own hero has a **Theme** dropdown that changes only the colors and fonts on their device; the loot words (coins, tokens, cores, boxes) always follow the table's theme. It starts on the Core Master's pick. The Core Master's own roll color sits next to the theme dropdown in the CM tab.
 
 The Core Master picks the table's theme from a dropdown in the CM tab: Core Light, Core Dark, Fantasy, Space, Horror, or Street Grit. Core Light uses the CM screen's look: slate blue and burnt orange on cream, with Alfa Slab One titles. It changes the look for everyone and renames the loot words (Space: credits, data chips, power cores, crates; Horror: grave coins, rites, coffers; Street Grit: bucks, favors, rep, duffel bags; Fantasy: chests).
 

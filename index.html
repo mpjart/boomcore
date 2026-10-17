@@ -119,7 +119,8 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 :root[data-skin="grit"] .tabs button,:root[data-skin="grit"] .total{letter-spacing:.03em}
 :root[data-skin="grit"] body{font-size:18px}
 :root[data-skin="fantasy"] body,:root[data-skin="horror"] body{font-size:17px}
-.colsel,#skinsel{font:inherit;font-size:15px;padding:9px 10px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}.colsel{border-left-width:8px}.cmsel{margin-top:8px;flex-wrap:wrap}.cmsel+.note{margin-top:6px}.cmsel .col{min-width:150px}.cmsel select{width:100%}.colrow{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}.colrow label{margin:0;flex:none}.colrow select{flex:1;min-width:0;max-width:240px}
+.skinpick{border-left-width:1px!important}.cpair{display:flex;align-items:center;gap:8px;flex:1 1 200px;min-width:0}.cpair label{width:52px}
+.colsel,#skinsel{font:inherit;font-size:15px;padding:9px 10px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}.colsel{border-left-width:8px}.cmsel{margin-top:8px;flex-wrap:wrap}.cmsel+.note{margin-top:6px}.cmsel .col{min-width:150px}.cmsel select{width:100%}.colrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}.colrow label{margin:0;flex:none}.colrow select{flex:1;min-width:0}
 .skins{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px;margin-top:8px}
 .skb{display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:8px;background:var(--chip);color:var(--ink);font-weight:600;border:2px solid transparent}
 .skb.on{border-color:var(--acc)}.skb span.sp{display:flex;height:22px;border-radius:4px;overflow:hidden}.skb span.sp i{flex:1}
@@ -536,7 +537,9 @@ function charCard(c){
  // notes
  if(isDM){const t=document.createElement('textarea');t.value=c.notes;t.placeholder='Notes';t.rows=3;t.onchange=()=>put(c,{notes:t.value.slice(0,500)});box.append(sec(c.id+':notes','Notes',c.notes?'Has notes':'',[t]));}
  else if(c.notes)box.append(sec(c.id+':notes','Notes','',[el('div','note pre',c.notes)]));
- if(isDM||c.id===myHero){const cr=el('div','colrow'),lb=el('label',null,'Color');lb.htmlFor='col-'+c.id;cr.append(lb,colorSel(ck,v=>setColor(c.id,v),'col-'+c.id));box.append(cr);}
+ if(isDM||c.id===myHero){const cr=el('div','colrow'),lb=el('label',null,'Color');lb.htmlFor='col-'+c.id;const pr=(...k)=>{const d=el('span','cpair');d.append(...k);return d;};cr.append(pr(lb,colorSel(ck,v=>setColor(c.id,v),'col-'+c.id)));
+  if(c.id===myHero){const tl=el('label',null,'Theme');tl.htmlFor='myskin';tl.title='Changes the colors and fonts on this device only';cr.append(pr(tl,skinSel('myskin')));}
+  box.append(cr);}
  EDIT=false;
  return box;}
 function renderParty(){renderMyColor();if(window.mapRefresh)mapRefresh();renderInit();fillHeroes();if(typeof hoFillTo==='function'){hoFillTo();renderHandouts();}renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
@@ -1348,10 +1351,18 @@ function swapText(n){const p=n.parentNode;if(p&&(/^(SCRIPT|STYLE|TEXTAREA)$/.tes
 function swapAll(root){if(!Object.keys(WORDS).length)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode()))swapText(n);}
 const wordObs=new MutationObserver(ms=>{if(!Object.keys(WORDS).length)return;for(const m of ms){if(m.type==='characterData')swapText(m.target);else m.addedNodes.forEach(x=>x.nodeType===3?swapText(x):x.nodeType===1&&swapAll(x));}});
 wordObs.observe(document.body,{subtree:true,childList:true,characterData:true});
+// the look (colors and fonts) can be a player's own pick on this device; the words always follow the table's theme
+let mySkin='';try{mySkin=localStorage.getItem('boommyskin')||''}catch{}
+function applyLook(k){
+ const S=SKINS.find(x=>x.k===k)||SKINS[0],de=document.documentElement;
+ if(S.k==='core'||S.k==='coredark'){de.removeAttribute('data-skin');de.dataset.theme=S.k==='core'?'light':'dark';}else{de.setAttribute('data-skin',S.k);de.removeAttribute('data-theme');}
+ if(S.font&&!document.getElementById('skf-'+S.k)){const l=document.createElement('link');l.id='skf-'+S.k;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+S.font+'&display=swap';document.head.append(l);}}
+function setMySkin(k){mySkin=SKINS.some(x=>x.k===k)?k:'';try{localStorage.setItem('boommyskin',mySkin)}catch{}applyLook(mySkin||skin);if(window.mapRefresh)mapRefresh();}
+function skinSel(id){const s=document.createElement('select');s.className='colsel skinpick';s.id=id;s.setAttribute('data-noswap','');
+ s.add(new Option('Table ('+((SKINS.find(x=>x.k===skin)||SKINS[0]).n)+')',''));SKINS.forEach(S=>s.add(new Option(S.n,S.k)));s.value=mySkin;s.onchange=()=>setMySkin(s.value);return s;}
 function applySkin(k){
  const S=SKINS.find(x=>x.k===k)||SKINS[0];skin=S.k;WORDS=S.w;
- const de=document.documentElement;if(S.k==='core'||S.k==='coredark'){de.removeAttribute('data-skin');de.dataset.theme=S.k==='core'?'light':'dark';}else{de.setAttribute('data-skin',S.k);de.removeAttribute('data-theme');}
- if(S.font&&!document.getElementById('skf-'+S.k)){const l=document.createElement('link');l.id='skf-'+S.k;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+S.font+'&display=swap';document.head.append(l);}
+ applyLook(mySkin||S.k);
  try{localStorage.setItem('boomskin',S.k)}catch{}
  $('#cmscreen').href=LINKS.cmScreen+'?theme='+S.k;
  renderSkins();if(typeof hoPreview==='function'&&!$('#hprev').hidden)hoPreview();
