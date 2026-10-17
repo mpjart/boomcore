@@ -16,7 +16,7 @@ The Core Master starts a table and shares its 6-letter code; players join with t
 
 ## Handouts
 
-The CM tab has a handout creator: type a note (title, text, and an optional signature) or upload a picture with a caption. It's drawn in the table's current theme: a ruled index card for Core, sealed parchment for Fantasy, a transmission screen for Space, a bloodstained page for Horror, and taped notebook paper for Street Grit. Give to party saves it to the table, posts it in the feed, and adds it to the Handouts list in the Party tab, where anyone can open or download it.
+The CM tab has a handout creator: type a note (title, text, and an optional signature) or upload a picture with a caption. It's drawn in the table's current theme: a ruled index card for Core, sealed parchment for Fantasy, a transmission screen for Space, a bloodstained page for Horror, and taped notebook paper for Street Grit. The **For** picker sends it to the whole party (the Handouts list in the Party tab), the party stash (anyone acting as a hero can Take it), or one hero privately (only that hero's player and the Core Master see it; the feed just says a private handout was given). A hero holding a handout can put it back in the stash to pass it on. Private handouts are hidden in the app, not encrypted, so a player poking at the table's data could still find them.
 
 ## Themes
 

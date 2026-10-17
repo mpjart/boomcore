@@ -139,10 +139,12 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 
 /* handouts */
 #hobox textarea{width:100%;font:inherit;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical;min-height:110px;margin-top:8px}
+#hobox select{font:inherit;width:100%;padding:11px 12px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink)}
 #hobox input[type=file]{width:100%;padding:9px;margin-top:8px}
 .seg{display:flex;background:var(--chip);border-radius:var(--rb);padding:3px;gap:3px;margin:10px 0 4px}.seg button{flex:1;background:none;color:var(--mute);padding:8px 10px}.seg button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
 #hprev{display:block;width:100%;max-height:70vh;object-fit:contain;margin-top:12px;border-radius:var(--rb);background:var(--chip)}
 .hogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:10px}.hot img{display:block;width:100%;aspect-ratio:3/4;object-fit:contain;border-radius:var(--rb);border:1px solid var(--line);cursor:zoom-in;background:var(--chip)}
+.hotag{display:block;font-size:11px;font-weight:700;color:var(--mute);margin-top:2px}.hostash{display:flex;gap:10px;align-items:center}.hostash img{width:56px;height:72px;object-fit:contain;border-radius:6px;border:1px solid var(--line);background:var(--chip);cursor:zoom-in;flex:none}
 .hocap{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:13px;font-weight:600}.hocap span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hox{padding:3px 8px;flex:none}
 .hofeed{display:block;max-width:220px;width:100%;margin-top:8px;border-radius:var(--rb);border:1px solid var(--line);cursor:zoom-in}
 #hview{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.82);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom))}
@@ -179,6 +181,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 <a class="btnl" id="cmscreen" href="#" target="_blank" rel="noopener">📋 Open the CM screen (new tab)</a>
 <div class="card" id="dawnbox"><div class="row" style="align-items:center;justify-content:space-between;gap:10px"><div><b class="pn">Dawn</b><div class="note">A new day: clears every hero's temp HP.</div></div><button id="dawn" class="rbu">🌅 Dawn</button></div></div>
 <div class="card" id="hobox"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
+ <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
  <div class="seg" role="group" aria-label="Handout type"><button id="hmN" type="button" class="on">✍️ Note</button><button id="hmI" type="button">🖼️ Picture</button></div>
  <div id="hnote"><input id="htitle" maxlength="60" placeholder="Title (optional)" style="width:100%;margin-top:8px"><textarea id="htext" maxlength="2000" placeholder="What does the note say?"></textarea><input id="hsign" maxlength="40" placeholder="Signed (optional)" style="width:100%"></div>
  <div id="himg" hidden><input id="hfile" type="file" accept="image/*"><input id="hcap" maxlength="60" placeholder="Caption (optional)" style="width:100%;margin-top:8px"></div>
@@ -240,8 +243,8 @@ function timeAgo(ts){const s=Math.max(0,(Date.now()-ts)/1000|0);return s<60?'jus
 function logEvent(text){const r={uid:me||'local',who:'',expr:'',total:0,booms:0,note:text,ts:Date.now(),detail:'{"parts":[],"mod":0}'};
  if(db&&me)db.collection('rolls').doc(r.ts+'-'+Math.random().toString(36).slice(2,7)).set(r).catch(()=>{});else{rolls.unshift(r);render();}}
 function card(r){
- if(r.handout){const c=el('div','card roll evt'),t=el('div','top'),h=handouts.find(x=>x.id===r.handout);t.append(el('span',null,'📜 Handout'),el('span',null,timeAgo(r.ts)));c.append(t,el('div','evt-t',h?h.title:(r.note||'').replace(/^📜 New handout: /,'')));
-  if(h){const im=el('img','hofeed');im.src=h.img;im.alt=h.title||'Handout';im.onclick=()=>hoView(h);c.append(im);}else if(handoutCol)c.append(el('div','note','This handout was removed.'));return c;}
+ if(r.handout){const c=el('div','card roll evt'),t=el('div','top'),h=handouts.find(x=>x.id===r.handout),ok=h&&hoSee(h);t.append(el('span',null,'📜 Handout'),el('span',null,timeAgo(r.ts)));c.append(t,el('div','evt-t',ok?h.title+(hoTo(h)==='stash'?' (in the stash)':hoTo(h)!=='party'?' (only '+hoWho(hoTo(h))+')':''):(r.note||'').replace(/^📜 /,'')));
+  if(ok){const im=el('img','hofeed');im.src=h.img;im.alt=h.title||'Handout';im.onclick=()=>hoView(h);c.append(im);}else if(handoutCol&&!h)c.append(el('div','note','This handout was removed.'));return c;}
  if(r.note){const c=el('div','card roll evt'),t=el('div','top');t.append(el('span',null,'⚠ Event'),el('span',null,timeAgo(r.ts)));c.append(t,el('div','evt-t',r.note));return c;}
  let det;try{det=JSON.parse(r.detail)}catch{det={parts:[],mod:0}}
  const c=el('div','card roll'+(r.booms>0?' boom':'')),rc=cvar(r.col);if(rc){c.classList.add('colored');c.style.setProperty('--cc',rc);}
@@ -477,7 +480,7 @@ function charCard(c){
  else if(c.notes)box.append(sec(c.id+':notes','Notes','',[el('div','note pre',c.notes)]));
  EDIT=false;
  return box;}
-function renderParty(){renderInit();fillHeroes();renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
+function renderParty(){renderInit();fillHeroes();if(typeof hoFillTo==='function'){hoFillTo();renderHandouts();}renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
  if(!partyCol)return b.append(el('div','note','Join a table to see the party.'));
  if(!chars.length)return b.append(el('div','note',isDM?'No players yet. Add one above.':'The Core Master has not added players yet.'));
  chars.forEach(c=>b.append(charCard(c)));}
@@ -739,6 +742,9 @@ const HS={
  space:  {f:'Share Tech Mono',w:400,g:'Share+Tech+Mono',sz:33,tsz:44,lh:1.55,ink:'#bff3ff',tink:'#ff9a3c',fb:'monospace'},
  horror: {f:'Reenie Beanie',w:400,g:'Reenie+Beanie',sz:60,tsz:76,lh:1.1,ink:'#2b0a0a',tink:'#7d1016',fb:'cursive'},
  grit:   {f:'Permanent Marker',w:400,g:'Permanent+Marker',sz:40,tsz:56,lh:1.45,ink:'#121212',tink:'#b3241a',fb:'cursive'}};
+const hoTo=h=>h.to||'party',hoSee=h=>isDM||hoTo(h)==='party'||hoTo(h)==='stash'||hoTo(h)===myHero,hoWho=id=>((chars.find(c=>c.id===id)||{}).name||'a hero');
+function hoFillTo(){const s=$('#hto');if(!s)return;const cur=s.value;s.replaceChildren(new Option('Whole party (everyone sees it)','party'),new Option('Party stash (anyone can take it)','stash'));
+ living().forEach(c=>s.add(new Option('Only '+(c.name||'Unnamed')+' (private)',c.id)));s.value=[...s.options].some(o=>o.value===cur)?cur:'party';}
 let handouts=[],handoutCol=null,hoMode='note',hoImg=null,hoURL='',hoTimer=0;
 async function hoFont(st){
  if(!document.getElementById('hof-'+st.f)){const l=document.createElement('link');l.id='hof-'+st.f;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+st.g+'&display=swap';document.head.append(l);}
@@ -828,21 +834,30 @@ $('#hgive').onclick=async()=>{
  if(!hoURL)return;if(!handoutCol){$('#herr').textContent='Start or join a table to give handouts.';return;}
  const title=(hoMode==='image'?$('#hcap').value:$('#htitle').value).trim().slice(0,60)||(hoMode==='image'?'A picture':'A note');
  const id=Date.now()+'-'+Math.random().toString(36).slice(2,7),ts=Date.now(),b=$('#hgive');b.disabled=true;
- try{await handoutCol.doc(id).set({title,img:hoURL,skin,ts,by:me||''});
-  const r={uid:me||'local',who:'',expr:'',total:0,booms:0,note:'📜 New handout: '+title,handout:id,ts,detail:'{"parts":[],"mod":0}'};
+ const to=$('#hto').value||'party',note=to==='party'?'📜 New handout: '+title:to==='stash'?'📜 A handout was put in the stash: '+title:'📜 A private handout for '+hoWho(to);
+ try{await handoutCol.doc(id).set({title,img:hoURL,skin,ts,by:me||'',to});
+  const r={uid:me||'local',who:'',expr:'',total:0,booms:0,note,handout:id,ts,detail:'{"parts":[],"mod":0}'};
   db.collection('rolls').doc(ts+'-'+Math.random().toString(36).slice(2,7)).set(r).catch(()=>{});
-  toast('Handout given to the party');['#htitle','#htext','#hsign','#hcap'].forEach(s=>$(s).value='');$('#hfile').value='';hoImg=null;hoPreview();}
+  toast(to==='party'?'Handout given to the party':to==='stash'?'Handout put in the stash':'Handout given to '+hoWho(to));['#htitle','#htext','#hsign','#hcap'].forEach(s=>$(s).value='');$('#hfile').value='';hoImg=null;hoPreview();}
  catch(e){$('#herr').textContent='Could not save the handout'+(/size|large|quota|exceed/i.test(String(e&&(e.message||e.code)))?' (the picture is too big).':'.');}
  b.disabled=false;};
 function hoView(h){const v=$('#hview');if(!h)return;$('#hvimg').src=h.img;$('#hvt').textContent=h.title||'Handout';$('#hvdl').onclick=()=>hoDownload(h.img,(h.title||'handout').replace(/[^\w\- ]+/g,'').replace(/\s+/g,'-').slice(0,40)+'.jpg');v.hidden=false;}
 $('#hvx').onclick=()=>$('#hview').hidden=true;$('#hview').onclick=e=>{if(e.target.id==='hview')$('#hview').hidden=true;};
 addEventListener('keydown',e=>{if(e.key==='Escape')$('#hview').hidden=true;});
+function hoMove(h,to){if(!handoutCol)return;handoutCol.doc(h.id).update({to}).catch(()=>{});
+ logEvent(to==='stash'?'📜 '+hoWho(hoTo(h))+' put a handout in the stash: '+(h.title||'Handout'):'📜 '+hoWho(to)+' took a handout from the stash: '+(h.title||'Handout'));}
+function hoStashRows(b,can,hero){const l=handouts.filter(h=>hoTo(h)==='stash');if(!l.length)return;b.append(el('div','sec','Handouts'));
+ l.forEach(h=>{const r=el('div','lrow'),t=el('div','hostash'),im=el('img');im.src=h.img;im.alt=h.title||'Handout';im.onclick=()=>hoView(h);
+  const tx=el('div','lt');tx.append(el('b',null,'📜 '+(h.title||'Handout')),el('small',null,'Tap the picture to read it'));t.append(im,tx);
+  const bb=el('div','lbtn');if(can&&hero)bb.append(btn('Take',()=>hoMove(h,hero.id),'sm'));r.append(t,bb);b.append(r);});}
 function renderHandouts(){const b=$('#holist');b.replaceChildren();b.hidden=!handouts.length;if(!handouts.length)return;
+ const vis=handouts.filter(h=>hoTo(h)!=='stash'&&hoSee(h));b.hidden=!vis.length;if(!vis.length)return;
  b.append(el('b','pn','📜 Handouts'));const g=el('div','hogrid');
- handouts.forEach(h=>{const t=el('div','hot'),im=el('img');im.src=h.img;im.alt=h.title||'Handout';im.loading='lazy';im.onclick=()=>hoView(h);
-  const cap=el('div','hocap');cap.append(el('span',null,h.title||'Handout'));
+ vis.forEach(h=>{const t=el('div','hot'),im=el('img');im.src=h.img;im.alt=h.title||'Handout';im.loading='lazy';im.onclick=()=>hoView(h);
+  const cap=el('div','hocap'),to=hoTo(h);cap.append(el('span',null,h.title||'Handout'));
+  if(to!=='party'&&(isDM||to===myHero)&&stashCol)cap.append(btn('→ Stash',()=>hoMove(h,'stash'),'ghost sm hox'));
   if(isDM){let armed=0;const x=btn('✕',()=>{if(!armed){armed=1;x.textContent='Remove?';setTimeout(()=>{armed=0;x.textContent='✕';},3000);return;}handoutCol.doc(h.id).delete().catch(()=>{});},'ghost sm hox');cap.append(x);}
-  t.append(im,cap);g.append(t);});
+  t.append(im,cap);if(to!=='party')t.append(el('small','hotag','🔒 Only '+hoWho(to)));g.append(t);});
  b.append(g);}
 // ---------- loot box ----------
 const LT=['Common','Uncommon','Rare','Epic','Legendary','Divine'],ITYPE=['Weapon','Armor','Jewelry','Gem'],LOOTCAP=100,band=n=>n<=10?0:n<=20?1:n<=40?2:n<=60?3:n<=80?4:5;
@@ -1196,6 +1211,7 @@ function renderStash(){
   else if(can&&h)btns.push(btn('Take',()=>takeItem(it.id),tb));
   if(dmMode)btns.push(btn('✕',()=>stashSave({loot:JSON.stringify(sl.filter(x=>x.id!==it.id))}).catch(()=>{})));
   b.append(rowOf(it,btns));});
+ hoStashRows(b,can,h);
  if(can&&h){
   b.append(el('div','sec','Put in the stash from '+(h.name||'your hero')));
   const r=el('div','row hpc'),a=num('Amount'),t=csel();r.append(a,t,btn('Put in coins',()=>putCoins(+t.value,Math.floor(+a.value)||0),pb));b.append(r);
@@ -1231,7 +1247,7 @@ function renderStash(){
  }
  // fold it all under one summary line: Party stash · coins · item count
  const kids=[...b.childNodes],d=document.createElement('details'),sm=document.createElement('summary'),sl0=stashList();
- const nItems=sl0.reduce((n,it)=>n+(isStack(it)?(it.q||1):1),0);
+ const nItems=(sl0.reduce((n,it)=>n+(isStack(it)?(it.q||1):1),0))+handouts.filter(h=>hoTo(h)==='stash').length;
  const coinTxt=stash.coins.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).reverse().join(', ')||'0';
  d.className='sx stx';d.open=UI.s['stash:main']!==false;
  sm.append(el('span',null,'Party stash'),el('span','sumx',coinTxt+' coins · '+nItems+' item'+(nItems===1?'':'s')));d.append(sm,...kids);
@@ -1298,7 +1314,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');
  colorsCol.onSnapshot(s=>{colorMap={};s.docs.forEach(d=>{colorMap[d.id]=(d.data()||{}).c||'';});renderMyColor();renderParty();render();});
- handoutCol=db.collection('handouts');handoutCol.onSnapshot(s=>{handouts=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.ts||0)-(a.ts||0));renderHandouts();render();});
+ handoutCol=db.collection('handouts');handoutCol.onSnapshot(s=>{handouts=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.ts||0)-(a.ts||0));renderHandouts();renderStash();render();});
  recCol=db.collection('records');
  recCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='best');best=d?d.data():null;renderBest();});
  partyCol.onSnapshot(s=>{chars=s.docs.map(d=>norm(d.data(),d.id)).sort((a,b)=>a.ts-b.ts);renderParty();});
