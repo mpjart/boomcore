@@ -21,6 +21,10 @@ Boom stands for **Beyond Our Own Maximum**. Exploding dice carry you past the to
 - The Boom Dice app, which rolls and explodes the dice and shows the whole party every roll
 - Imagination
 
+### Theater of the Mind
+
+We recommend playing in theater of the mind: the Core Master describes the scene and everyone pictures it. If your table wants a virtual tabletop (VTT), we can't stop you. Try to keep movement loose and off the grid, or sketch the scene on a chalkboard. The Boom Dice app includes one: the Map at the top of the Dice tab.
+
 ### The Boom Rule
 
 When a die explodes, throw out its result and roll **two dice of the same size** in its place. If a new die explodes, replace it the same way. A chain of explosions is a **boom**.
@@ -136,7 +140,9 @@ When combat starts, everyone rolls **d20 + Speed**. Turns go from highest to low
 
 ### Your Turn
 
-**Movement:** move up to **5 + level + Speed spaces (1 space = 5 ft)**, before your actions, after them, or split between them.
+**Movement:** move up to **5 + level + Speed steps**, before your actions, after them, or split between them. A step is one large stride, about 5 ft.
+
+Boom doesn't use squares or hexes and isn't built for any pre-made grid. If your table likes one, go for it. Setting up maps and virtual tabletops tends to slow the story, so use theater of the mind whenever you can.
 
 **Actions:** each of these takes one action:
 
@@ -188,19 +194,19 @@ That is the trade-off of armor. A warrior in plate struggles to cast a fireball,
 
 A condition is any effect the Core Master allows. The Core Master decides which conditions exist in their game and can invent any they need.
 
-**Conditions never roll.** Use **T**, the tier of whatever caused the condition, as a flat number: T damage, T rounds in combat, T hours outside combat, and T spaces of movement. A T3 condition is 3 damage, 3 rounds, 3 hours, and 3 spaces (15 ft). If nothing gives a tier, the Core Master picks one.
+**Conditions never roll.** Use **T**, the tier of whatever caused the condition, as a flat number: T damage, T rounds in combat, T hours outside combat, and T steps of movement. A T3 condition is 3 damage, 3 rounds, 3 hours, and 3 steps (about 15 ft). If nothing gives a tier, the Core Master picks one.
 
 | Condition | What it does (for T rounds) |
 | --- | --- |
 | Bleeding | Take T damage at the start of your turn. Armor doesn't stop it. Any healing ends it. |
 | Blessed | +T to every roll you make. |
 | Burning | Take T damage at the start of your turn. Spend an action to put it out. |
-| Exhausted | −T spaces of movement and −T to every roll. Lasts until a 10-hour rest, not T rounds. |
+| Exhausted | −T steps of movement and −T to every roll. Lasts until a 10-hour rest, not T rounds. |
 | Frightened | You can't move toward the source or make touch attacks against it. |
 | Invisible | Enemies can't target you unless they guess your spot. Ends when you attack. |
 | Poisoned | −T to every roll. Healing magic or an antidote ends it. |
-| Prone | Standing up costs T spaces. Touch attacks on you deal +T; ranged attacks on you deal −T. |
-| Slowed | −T spaces of movement. |
+| Prone | Standing up costs T steps. Touch attacks on you deal +T; ranged attacks on you deal −T. |
+| Slowed | −T steps of movement. |
 | Stunned | Lose your turns: no movement, no actions. |
 | Unconscious | Can't move or act. Ends when you are healed or the fight ends. |
 
