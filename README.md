@@ -32,9 +32,22 @@ The Dice tab opens with a **🗺️ Map** section, folded shut until you tap it;
 
 - **Core Master tools** (players never see them): Select, Chalk, Eraser, and Text, six chalk colors including black for light maps, three sizes, Undo, and Wipe chalk (tap twice). **Map image…** puts a picture behind the chalk; the board takes the picture's shape, and a Dim slider keeps chalk readable. **Back to slate** returns to the green board.
 - **Tokens:** the CM places party heroes and monsters from the tray under the board (or Place all), drags any token, and taps one to select it and take it off with its ×. Players drag only their own hero (set with 🙋 This is me in the Party tab). Tokens show an HP bar; monster HP shows only to the CM.
+- **New encounter (Easy / Fair / Hard):** a CM button set (tap twice) that builds a fight from the Chapter 8 threat points: 1, 1.5, or 2 points per hero (halved at party level 1-2), with Minions worth 1, Standard monsters 2, and Bosses 4. Hard always tries for a boss, and Fair sometimes does. Monster names match the table's theme, and their levels follow the party's average. It also chalks in 3 to 5 pieces of cover (trees, rocks, pillars, a wall, water, crates) and traps by difficulty (Easy 0 or 1, Fair 1, Hard 2), each labeled with its tier, dice, and the stat to dodge or resist. A new encounter replaces the chalk and the last generated monsters; monsters you made by hand stay.
 - **Players can draw:** a CM checkbox that gives players Select, Chalk, Eraser, colors, sizes, and Undo for their own lines. Off by default.
 - **Roll card:** the d20 bomb in the board's corner opens a card in the table's theme with HP, the six stats and armor as tap-to-roll chips, Init, attacks, abilities, and a box for any roll like 2d6+3. Rolls go to the shared feed. Players get their own hero's card; the CM can pick any hero or monster, or tap a token to switch to it. HP buttons stay CM-only, as on the Party tab.
 - Chalk lines, tokens, and the map image are shared with the whole table (`map`, `mapstrokes`, and `maptokens` under the table).
+
+## Character sheets
+
+Every open sheet has a **🖨 Print sheet** button that prints a clean, ink-friendly one-page sheet: HP, armor, move, actions, initiative, damage bonuses, the six stats, attacks and abilities with their dice, gear, coins, loot, conditions, and notes.
+
+## Save and load
+
+The CM tab's **💾 Save** card exports the table to a `.json` file and imports it again, on the same device or another one.
+
+- **Export session:** heroes, loot, the stash, monsters, initiative, handouts, the theme, the map (chalk, tokens, image), and the roll log.
+- **Export encounter:** just the monsters and the map, for fights prepped ahead of time (in solo mode, say).
+- **Import:** shows what's in the file first. **Add encounter only** adds its monsters and map and keeps your party. **Replace the whole table** (session files only, tap twice) swaps in everything from the file.
 
 ## Core Master tab
 
