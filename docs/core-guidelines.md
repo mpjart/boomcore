@@ -1,6 +1,6 @@
 # Boom Core Guidelines
 
-*Updated October 16, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, and roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html).*
+*Updated October 21, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, and roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html).*
 
 ## Chapter 1: What Is Boom?
 
@@ -8,22 +8,26 @@ Boom is a fast tabletop RPG. Its rules are simple enough to learn in one sitting
 
 Boom stands for **Beyond Our Own Maximum**. Exploding dice carry you past the top of the die, and heroes grow past their limits.
 
+### An Open Framework
+
+These guidelines are an open framework for building the characters and stories you imagine, and for telling those stories together as a group. That is why Boom has **no classes, subclasses, races, species, religions, or any other built-in model** that hands out or takes away options for how you play. A knight, a pirate, a hacker, or something no one has named yet: if your Core Master allows it, you can play it.
+
 ### Three Goals
 
 - **Fast:** few dice and little math, so combat and checks keep moving.
 - **Simple:** six stats, one stat point per level, and one rule for exploding dice.
-- **Open:** these guidelines give formulas, not lists. Where the rules are silent, the Core Master decides.
+- **Open:** formulas, not lists. Where the rules are silent, the Core Master decides.
 
 ### What You Need
 
 - These guidelines
 - A Core Master (CM) and one or more players
-- The Boom Dice app, which rolls and explodes the dice and shows the whole party every roll
+- The Boom Dice app
 - Imagination
 
 ### Theater of the Mind
 
-We recommend playing in theater of the mind: the Core Master describes the scene and everyone pictures it. If your table wants a virtual tabletop (VTT), we can't stop you. Try to keep movement loose and off the grid, or sketch the scene on a chalkboard. The Boom Dice app includes one: the Map at the top of the Dice tab.
+Boom is built for theater of the mind: the Core Master describes the scene and everyone pictures it. There are no squares or hexes. If your table wants a map, keep movement loose and sketch it like a chalkboard. The Boom Dice app has one: the Map in the Dice tab.
 
 ### The Boom Rule
 
@@ -43,23 +47,15 @@ The app shows every roll to the whole party, so when someone's dice go wild, che
 
 ## Chapter 2: Your Character
 
-Every hero starts at **level 1** as a commoner: no stat points and no abilities. Your choices begin when you level up.
+Every hero starts at **level 1** as a commoner, with no stat points and no abilities. You still have **3 ability slots**, and the Core Master can allow up to 3 abilities before level 2, such as a racial power (see Who You Are). Otherwise, your choices begin when you level up.
 
 **Hit points (HP) = 5 × (level + Constitution points).** A level 1 commoner has 5 HP. A level 3 hero with 2 Constitution has 25 HP.
 
-### Race and Background
+### Who You Are
 
-**Race and background are flavor only.** No race is better than another. When the core is empowered, anyone can become a hero, no matter where they came from or what they were before.
-
-Invent any race or background you like, but it gives **no advantage** once you become a core hero. There are no built-in abilities: no dark sight, no tremor sense, no burrowing, flight, or swim speed. An ability that fits your theme is learned the same way as any other, with an ability token and a trainer (see Learning Abilities in Chapter 4).
+**Your background is your story, not your stats.** Race, species, homeland, faith, and calling are flavor (see An Open Framework in Chapter 1). None is better than another, and none comes with built-in abilities like dark sight, flight, or a swim speed. What sets your hero apart is the stats you raise and the abilities you learn (Chapter 4). When the core is empowered, anyone can become a hero, no matter where they came from.
 
 **Core Master note:** if you want a race to have a special ability, like water breathing, flight, or mental powers, assign it to the player as a **T1 ability**. It fills an ability slot and trains up one tier at a time, the same as every other ability.
-
-### Classes and Professions
-
-**There are no classes, subclasses, or professions.** You can be anything you want that your Core Master allows: a knight, a pirate, a healer, a hacker, or something no one has named yet.
-
-Damage is already defined for everyone (see Attacks and Damage in Chapter 3), so what you call yourself is flavor. What makes your hero different is the **abilities** you learn and the stats you raise. Abilities exist for exactly this reason: they are how you build the hero you imagine.
 
 ### The Six Stats
 
@@ -106,9 +102,9 @@ The full chart to level 100, and how to build it in Excel, is in the Index.
 
 ### Falling in Battle
 
-**Level 2 and up:** if you drop below 1 HP, you **go down a level** and come back at full HP for that level. Extra damage does not carry over. The coins spent on that level are gone, and you rebuild it from the bottom. You also lose a stat point (an unspent one first, otherwise a random stat). If you now have more abilities than slots, you lose one at random. Being knocked out, or any other effect, is a condition the Core Master applies.
+**Level 2 and up:** if you drop below 1 HP, you **go down a level** and come back at full HP for that level. Extra damage does not carry over. The coins spent on that level are gone, and you rebuild it from the bottom. You also lose a stat point (an unspent one first, otherwise a random stat). If you now have more abilities than slots, you lose one at random. Each fall costs another level, all the way down to level 1. Being knocked out, or any other effect, is a condition the Core Master applies.
 
-**Level 1:** a commoner who drops to 0 HP **dies**. We recommend the party gets **24 hours** to resurrect them, or the player makes a new level 1 character. The Core Master can use any window they like. Resurrection can be an ability (like Return Spark in Chapter 4), a trainer's service, a quest, or a token.
+**Level 1:** a level 1 character, whether they started there or fell there, **dies** on dropping below 1 HP. We recommend the party gets **24 hours** to resurrect them, or the player makes a new level 1 character. The Core Master can use any window they like. Resurrection can be an ability (like Return Spark in Chapter 4), a trainer's service, a quest, or an item like a resurrection scroll.
 
 ### Eating, Resting, and Healing
 
@@ -120,7 +116,7 @@ The full chart to level 100, and how to build it in Excel, is in the Index.
 
 You can also gain temp HP with an ability before or during a fight. For example, a Constitution (lifeforce) ability can be designed to grant temp HP or a shield.
 
-**Commoners (level 1)** need to eat and rest about **10 hours a day**. A commoner who goes without may fall ill, become malnourished, or grow weak, as conditions the Core Master applies. One spirit coin buys enough food to stave off malnutrition for a day.
+**Commoners (level 1)** need food and about **10 hours of rest** every day. A commoner who goes without may fall ill, become malnourished, or grow weak, as conditions the Core Master applies. A day's food costs one spirit coin (Chapter 6).
 
 **Heroes (level 2 and up)** have bodies that use everything with no waste. Consume **one spirit coin** and you need no food or sleep that day, and not even a trip to the toilet.
 
@@ -141,8 +137,6 @@ When combat starts, everyone rolls **d20 + Speed**. Turns go from highest to low
 ### Your Turn
 
 **Movement:** move up to **5 + level + Speed steps**, before your actions, after them, or split between them. A step is one large stride, about 5 ft.
-
-Boom doesn't use squares or hexes and isn't built for any pre-made grid. If your table likes one, go for it. Setting up maps and virtual tabletops tends to slow the story, so use theater of the mind whenever you can.
 
 **Actions:** each of these takes one action:
 
@@ -174,7 +168,7 @@ The dice depend only on how many hands (or limbs) you use and whether the attack
 - **Sword and shield:** the sword rolls 1d6 and the shield takes an armor slot.
 - **Unarmed:** a kick or headbutt is flavor and counts as one hand.
 - **Range:** no range penalty. The Core Master sets the maximum distance. Smaller dice explode more, so ranged attacks boom more often.
-- **Magic** needs a free hand and a spoken word unless the ability says otherwise. A spell that does anything beyond damage is an ability (Chapter 4).
+- **Magic** needs a free hand and a spoken word, unless the ability says otherwise. A one-handed spell needs one free hand and a two-handed spell needs both, so with a sword and shield you can't cast. This applies to spell abilities too. A spell that does anything beyond damage is an ability (Chapter 4).
 - **Plus weapons:** a +N weapon rolls N extra copies of its dice (see Chapter 7).
 
 ### Bonus Damage and Armor
@@ -188,20 +182,22 @@ That is the trade-off of armor. A warrior in plate struggles to cast a fireball,
 
 **No penalty for the other four stats.** A roll that uses Constitution, Speed, Charm, or Spirit/Luck adds the full stat, whatever armor you wear. That keeps healing, charms, smites, and lifeforce working as intended.
 
-**Taking damage:** the attacker rolls damage, and your **total armor** (physical + magical) is subtracted from it. **Example:** 10 damage against 4 physical and 4 magical armor deals 2.
+**Taking damage:** the attacker rolls damage, and your **total armor** (physical + magical) is subtracted from it. **Example:** 10 damage against 4 physical and 4 magical armor deals 2. Damage never goes below 0.
 
 ### Conditions
 
 A condition is any effect the Core Master allows. The Core Master decides which conditions exist in their game and can invent any they need.
 
-**Conditions never roll.** Use **T**, the tier of whatever caused the condition, as a flat number: T damage, T rounds in combat, T hours outside combat, and T steps of movement. A T3 condition is 3 damage, 3 rounds, 3 hours, and 3 steps (about 15 ft). If nothing gives a tier, the Core Master picks one.
+**Conditions never roll.** Use **T**, the tier of whatever caused the condition, as a flat number: T damage, T rounds in combat, and T steps of movement. A T3 condition deals 3 damage, lasts 3 rounds, and costs 3 steps (about 15 ft). Outside combat, the Core Master decides how long it lasts. If nothing gives a tier, the Core Master picks one.
+
+**"Every roll" means every roll:** attacks, abilities, healing, checks, initiative, and loot. No roll's total ever goes below 0.
 
 | Condition | What it does (for T rounds) |
 | --- | --- |
 | Bleeding | Take T damage at the start of your turn. Armor doesn't stop it. Any healing ends it. |
 | Blessed | +T to every roll you make. |
 | Burning | Take T damage at the start of your turn. Spend an action to put it out. |
-| Exhausted | −T steps of movement and −T to every roll. Lasts until a 10-hour rest, not T rounds. |
+| Exhausted | All or nothing: −2 steps of movement and −2 to every roll. Lasts until a 10-hour rest, not T rounds. |
 | Frightened | You can't move toward the source or make touch attacks against it. |
 | Invisible | Enemies can't target you unless they guess your spot. Ends when you attack. |
 | Poisoned | −T to every roll. Healing magic or an antidote ends it. |
@@ -261,9 +257,9 @@ Leveling never grants abilities. They come only from **ability tokens** and **tr
 
 - **Slots:** you can know as many abilities as you have ability slots (Chapter 2). The limit keeps combat fast. To make room, unlearn an ability; it is gone for good.
 - **Start at T1:** every ability is learned at T1 and trained up one tier at a time.
-- **Tokens and cores:** ability tokens have no tier and stack. Learning a **new T1 ability** costs **1 token + a T1 soul core** or better. Training an ability **up one tier** costs **1 token + a soul core of the new tier** or better: T2 needs a T2 core, and T6 needs a T6 core. A core's tier is the tier of the loot box it came from, so a level 5 hero only reaches strong abilities by beating rare monsters or getting lucky upgrades. A core spent on training does not fill the level meter, so every core is a choice between leveling and training.
-- **Trainers** take an ability token and a core of the right tier. A coin tip or good roleplay can raise your standing and unlock better abilities. The Core Master can place a trainer anywhere or build a quest to find one.
-- **Using a token directly:** the Core Master may let you consume a token to mimic its ability once, or to gain a random ability. Be careful: a high-tier power can break the game for a young hero.
+- **Tokens and cores:** ability tokens have no tier and stack. A token does one of three things: learns a **new ability at T1** (with a T1 soul core or better), trains an ability **up one tier** (with a soul core of the new tier or better: T2 needs a T2 core, T6 a T6 core), or **mimics** a monster's signature ability once (below). A core's tier is the tier of the loot box it came from, so a level 5 hero only reaches strong abilities by beating rare monsters or getting lucky upgrades. A core spent on training does not fill the level meter, so every core is a choice between leveling and training.
+- **Trainers** do the learning and training. A coin tip or good roleplay can raise your standing and unlock better abilities. The Core Master can place a trainer anywhere or build a quest to find one.
+- **Mimic:** spend a token to use the signature ability of the monster it came from, once. The Core Master rolls it, and the token is gone.
 
 ## Chapter 5: Stat Checks
 
@@ -316,7 +312,7 @@ Money in the main setting is **spirit coins**. In another story it can be gold, 
 - **Labor:** anyone can make coins with time. One hour of work makes one coin, and one coin feeds a person for a day.
 - **Daily limit:** at most 10 hours (10 coins) a day, then 10 hours of rest before working again.
 - **Example:** a peasant family of four works 8 hours between them and makes 8 coins: 4 for food, 2 for shelter, and 2 for savings and taxes.
-- **Heroes:** once a day, a hero can roll their Spirit/Luck dice (the same dice as a Spirit/Luck check) and make that many coins without working. A new hero rolls one non-exploding d6, so they still need jobs.
+- **Heroes:** once a day, a hero can roll their Spirit/Luck dice (the same dice as a Spirit/Luck check) and make that many coins, in coins of their level's tier, without working. A new hero rolls one non-exploding d6, so they still need jobs.
 - **Tithes and taxes:** optional. If your story uses them, the Core Master sets the amount.
 
 ### Coin Tiers
@@ -340,7 +336,7 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 
 **Coins:** roll **(monster level + your level)d6**, at least 2d6, in coins of the monster's tier.
 
-**Box tier:** the monster's rarity sets the box, from Common (T1) to Divine (T6). The Core Master can upgrade any box. The tier sets item quality (Chapter 7) and coin tier for reagents.
+**Box tier:** the monster's rarity sets the box, from Common (T1) to Divine (T6). The Core Master can upgrade any box. The box tier sets item quality (Chapter 7), the tier of any soul cores, and the coins reagents are worth. A lucky box is lucky. The coin roll always uses the monster's coin tier.
 
 **The d100 pool:** start with 1d100. Dice never add; each die is its own pull. Roll the whole pool, then resolve every die at the **highest tier the box reached**.
 
@@ -349,7 +345,7 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 | 1 | **Boom:** no loot; the die becomes 2d100 |
 | 2-50, even | A **sellable reagent** worth the number rolled in coins of the box's tier |
 | 3-49, odd | A **healing potion** of the box's tier, in place of the reagent |
-| 51-70 | An **ability token** of the monster's signature ability |
+| 51-70 | An **ability token**, which can also mimic this monster's signature ability once (Chapter 4) |
 | 71-99 | An **item:** d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat |
 | 100 | **Upgrade:** no loot; the box goes up one tier (max T6) and the die becomes 2d100 |
 
@@ -357,12 +353,12 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 
 **Any even roll from 2 to 98** also drops a **soul core** of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.
 
-**Example:** Bob opens a T1 box and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 38 and 79. At T2, the 64 is a token plus a T2 core, the 38 is a reagent worth 38 Uncommon coins plus a core, and the 79 is an item with +1 to a random stat.
+**Example:** Bob opens a T1 box from a level 3 monster and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 38 and 79. At T2, the 64 is a token plus a T2 core, the 38 is a reagent worth 38 Uncommon coins (the box's tier) plus a T2 core, and the 79 is an item with +1 to a random stat.
 
 ### Using Loot
 
-- **Sell:** reagents for their number, cores for L × 100 coins of their tier, and items for a d100 roll (which can boom) of coins of the item's tier.
-- **Healing potions:** drinking one is an action and heals **one d6 per tier** (a T3 potion heals 3d6), and the dice explode on a 1 as normal. The normal healing rules apply: you must be missing HP, and anything over your max becomes temp HP. Potions stack by tier, and an unused one sells for a d100 roll of coins of its tier.
+- **Sell:** reagents for their number, cores for L × 100 coins of their level's tier, and items, gems, and unused potions for a d100 roll (which can boom) of coins of the box tier they dropped at. A lucky box pays off.
+- **Healing potions:** drinking one is an action and heals **one d6 per tier** (a T3 potion heals 3d6), and the dice explode on a 1 as normal. The normal healing rules apply: you must be missing HP, and anything over your max becomes temp HP. Potions stack by tier.
 - **Consume:** cores fill your level meter (Chapter 2). A token plus a core of the right tier learns or trains an ability (Chapter 4).
 - **Bosses, quests, and dungeons:** see Party Loot in Chapter 8.
 
@@ -372,13 +368,13 @@ There is no master list of weapons or armor. When loot or a story gives you gear
 
 ### Slots
 
-You have **2 weapon slots, 2 armor slots, and 2 magic item slots**. What an item *does* decides its slot, not what it looks like.
-
-**Damage** means an attack: the swing or shot of a weapon, or the use of an ability. A bonus number added to that roll, like +2 from Strength, is not damage.
+You have **2 weapon slots, 2 armor slots, and 2 magic item slots**. What an item *does* decides its slot, not what it looks like:
 
 - Deals damage → weapon slot (even jewelry)
 - Gives armor → armor slot (a shield, or a mage's ring of shielding)
 - Anything else → magic item slot
+
+**Damage** means an attack: the swing or shot of a weapon, or the use of an ability. A bonus number added to that roll, like +2 from Strength, is not damage.
 
 While equipped, an item's +N adds to the stat it names. Unequip it and the bonus goes with it. If the right slots are full, unequip something first.
 
@@ -389,17 +385,15 @@ While equipped, an item's +N adds to the stat it names. Unequip it and the bonus
 | T1 Common | none | 1 | Lantern ring: lights a room (always on) |
 | T2 Uncommon | +1 | 2 | Cloak of shadows: Invisible 2 rounds, once per fight |
 | T3 Rare | +2 | 3 | Necklace: heals 3d6 when you drop below 2 HP, once per day |
-| T4 Epic | +3 | 4 | Hover board: double your speed (always on) |
+| T4 Epic | +3 | 4 | Hover board: double your movement (always on) |
 | T5 Legendary | +4 | 5 | Ring: +5 Speed for 5 rounds, once per day |
 | T6 Divine | +5 | 6 | Compass that points to what you most desire |
-
-Any item sells for a d100 roll (which can boom) of coins of its tier.
 
 ### Weapons
 
 A weapon can be a sword, a gun, punching gloves, an exploding football, or a broken bottle. Its damage comes only from hands and range (Chapter 3). Mark each weapon **physical or magical**, **one or two hands**, and **touch or ranged**.
 
-**Plus weapons:** a +N weapon rolls **N extra copies** of its dice and adds +N to its stat. A +1 one-handed gun rolls 2d4, a +2 rolls 3d4, and a +1 two-handed 2d4 weapon rolls 4d4.
+**Plus weapons:** a +N weapon rolls **N extra copies** of its dice and adds +N to the stat its loot roll gave it. A +1 one-handed gun rolls 2d4, a +2 rolls 3d4, and a +1 two-handed 2d4 weapon rolls 4d4.
 
 ### Armor
 
@@ -411,7 +405,7 @@ A magic item does one thing that isn't damage or armor. It never attacks on its 
 
 ### Gems
 
-A gem is treasure to sell, with no stat bonus at any tier. It sells for a d100 roll of coins of its tier. The Core Master can also let a gem power an item or ability once.
+A gem is treasure to sell (see Using Loot in Chapter 6), with no stat bonus at any tier. The Core Master can also let a gem power an item or ability once.
 
 ## Chapter 8: The Core Master's Toolkit
 
@@ -422,10 +416,10 @@ Boom is a framework, not a rulebook. **Speed and fun are the goal of this system
 The Boom Dice app rolls and explodes the dice, does the math, and shows everyone's rolls. Only the Core Master sees the CM tab and the editing controls.
 
 - **Table:** the Core Master starts a table and shares its 6-letter code; players join with the code. Everyone sees every roll live.
-- **Dice:** quick rolls, your color, the shared roll feed, and a book icon that opens these guidelines.
+- **Dice:** quick rolls, initiative, your color, the shared roll feed, and the Map (a chalkboard the Core Master controls). Tap the Boom logo to open these guidelines.
 - **Party:** every character sheet. Collapsed sheets show the six stats at a glance. The Core Master edits everything; a player can equip, sell, and train on their own hero.
 - **Loot:** loot boxes waiting to be opened, and the party stash. A hero's box is opened by its player; a group box has a timer and everyone grabs it.
-- **CM:** the table theme (and the After Dark loot names switch), a link to the Core Master screen, the initiative tracker, the loot box maker, and the monster generator.
+- **CM:** the table theme (and the After Dark loot names switch), the Core Master screen, the loot box maker, and the monster generator.
 
 **A round at the table:** the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.
 
@@ -443,6 +437,8 @@ About half of all boxes hold a core, so a level takes roughly **20 boxes**. At f
 
 - **Faster:** give a box per dungeon room or objective, use tougher monsters (a higher-level core fills more of the meter, up to one level), use party loot, or level at milestones.
 - **Slower:** give fewer boxes and let milestones carry the story.
+
+**Lucky heroes:** a lucky box is meant to be lucky. If a hero gets too strong for the story, let a villain knock them down a few levels.
 
 ## Chapter 9: Encounters and Monsters
 
@@ -462,10 +458,10 @@ Round everything down, except a minion's HP, which rounds up.
 
 - **Stats:** deal points one at a time with a d6: 1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck.
 - **Attacks:** melee 2d6 + Strength and ranged 2d4 + Intellect. This is by design, to keep monsters quick to build. Flavor them to fit: a wolf bites with its melee attack and howls with its ranged one. Armor is one total, with no physical or magical split. The Core Master can always build outside this template.
-- **Abilities:** built as in Chapter 4. The first is its **signature ability**, which can drop as a token.
+- **Abilities:** built as in Chapter 4. The first is its **signature ability**, which a token from it can mimic once.
 - **Initiative and actions:** the same as a hero.
 - **Rarity** (Common to Divine) is a loose guide to toughness and sets its loot box tier. A boss is usually Epic.
-- **Tier** is the coin tier for its level (Chapter 6) and sets the coins and cores it drops. Monsters carry no coins of their own.
+- **Tier** is its coin tier, set by its level (Chapter 6). It sets the coins it drops and what its cores are worth. Its rarity, not its coin tier, sets the tier of its cores. Monsters carry no coins of their own.
 
 **Example, level 5 standard:** 4 points (1 Con, 2 Str, 1 Spd). HP 30, armor 1, melee 2d6 + 2, ranged 2d4, one ability.
 
@@ -493,7 +489,7 @@ Add up the monsters' threat points and compare with the party size.
 Build a hazard like an ability: its tier sets its dice, targets, rounds, and effects (Chapter 4). For example: T1 tripwire darts, T2 swinging blade, T3 collapsing floor (Prone), T4 poison gas (Poisoned), T5 lava vent (Burning), T6 a tear in reality (Stunned).
 
 1. **Give a clue first.** Let the heroes notice something before it fires.
-2. **Call for a check** to avoid it: Speed to dodge, Strength to push through, or Constitution to resist.
+2. **Call for a check** to avoid it: Speed to dodge, Strength to push through, or Constitution to resist. Set the target with the table in Chapter 5.
 3. **On a failure,** roll its dice against each target (armor applies) and add its effects. On a success, nothing happens.
 
 ## Chapter 10: Adapting Boom to Any Story
@@ -522,16 +518,16 @@ A Pirate theme is on the way. Until then, try doubloons for coins and a sea ches
 ### What Changes Easily
 
 - **Abilities** can be spells, gadgets, implants, martial arts, or curses.
-- **Magic** needs a free hand and a voice in the main setting. Elsewhere, a free hand and a power source, or whatever fits.
+- **Magic** can swap the spoken word for a power source, or whatever fits the setting. The free-hand rule stays.
 - **Weapons and armor** keep the same rules. A wrench is melee; armor might be plating and an energy field.
 - **Conditions** fit the setting, like Overheated, Jammed, Spooked, or Seasick.
 - **Monsters** can be aliens, gangs, ghosts, a rival crew, or a ship. Its guns are its attacks and its crew its abilities.
-- **Money and leveling:** tithes and taxes are optional. For a short game, level at milestones or stop at level 10 or 20.
+- **Leveling:** for a short game, level at milestones or stop at level 10 or 20.
 
 ### Tips
 
 - Rename a few things first, not everything at once.
-- Keep a one-page cheat sheet of the formulas at the table.
+- Keep the Core Master screen at the table as your cheat sheet.
 - When the rules are silent, the Core Master decides and the story keeps moving.
 
 ## Index
@@ -540,7 +536,7 @@ Reference tables too long for the chapters.
 
 ### Full Level Chart
 
-Cost and core value are counted in coins of the tier shown. You always need 10 cores of the level below.
+Cost and core value are counted in coins of the tier shown. You always need 10 cores of the level you are leaving.
 
 | Reaching level | Cost | Cores needed | Core value | Ability slots |
 | --- | --- | --- | --- | --- |
