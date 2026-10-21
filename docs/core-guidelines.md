@@ -301,7 +301,11 @@ The Index has the full chart with minimum, most likely, and maximum rolls. You c
 - **Roll only when failure is interesting.** If nothing is at stake, say yes.
 - **Failure changes the story,** like costing time or raising an alarm. It never stops the game.
 - **Group rolls:** when the party tries something together, one roll decides it. The group or the Core Master picks who rolls, or the Core Master simply decides the group passes or fails.
-- **No rerolls, no passive checks,** and **no helping** unless the Core Master gives someone an ability that helps.
+- **No rerolls (except ties), no passive checks,** and **no helping** unless the Core Master gives someone an ability that helps.
+
+### Ties
+
+When two rollers tie, such as two heroes in initiative or a hero against a monster, either side can **concede** and take the loss. Otherwise, both **reroll** and use the new roll. Keep rerolling until the tie breaks or someone concedes. This is the only time Boom allows a reroll.
 
 ## Chapter 6: Spirit Coins and Loot
 
