@@ -1341,6 +1341,336 @@ Whatever's in the trunk. Magical means shock, fire, or chemicals. Bling fills th
 | T5 | Museum |
 | T6 | Crown-Jewel |
 
+## Pirate
+
+Salt, steel, and powder smoke. Magical means sea magic: storms, tides, curses, and voodoo. Trinkets fill the jewelry role, and treasure fills the gem role.
+
+### Weapons
+
+| d100 | Weapon | Hands | Reach | Damage |
+| --- | --- | --- | --- | --- |
+| 1 | Cutlass | 1 | Touch | Physical |
+| 2 | Twin Cutlasses | 2 | Touch | Physical |
+| 3 | Boarding Axe | 1 | Touch | Physical |
+| 4 | Boarding Pike | 2 | Touch | Physical |
+| 5 | Belaying Pin | 1 | Touch | Physical |
+| 6 | Marlinspike | 1 | Touch | Physical |
+| 7 | Dirk | 1 | Touch | Physical |
+| 8 | Twin Dirks | 2 | Touch | Physical |
+| 9 | Hook Hand | 1 | Touch | Physical |
+| 10 | Twin Hooks | 2 | Touch | Physical |
+| 11 | Sabre | 1 | Touch | Physical |
+| 12 | Officer's Sword | 1 | Touch | Physical |
+| 13 | Hanger | 1 | Touch | Physical |
+| 14 | Smallsword | 1 | Touch | Physical |
+| 15 | Rapier | 1 | Touch | Physical |
+| 16 | Broadsword | 1 | Touch | Physical |
+| 17 | Claymore | 2 | Touch | Physical |
+| 18 | Boarding Hatchet | 1 | Touch | Physical |
+| 19 | Grappling Hook | 1 | Touch | Physical |
+| 20 | Anchor | 2 | Touch | Physical |
+| 21 | Oar | 2 | Touch | Physical |
+| 22 | Gaff Hook | 2 | Touch | Physical |
+| 23 | Whaling Lance | 2 | Touch | Physical |
+| 24 | Flensing Knife | 1 | Touch | Physical |
+| 25 | Gutting Knife | 1 | Touch | Physical |
+| 26 | Trident | 2 | Touch | Physical |
+| 27 | Capstan Bar | 2 | Touch | Physical |
+| 28 | Handspike | 1 | Touch | Physical |
+| 29 | Rum Bottle | 1 | Touch | Physical |
+| 30 | Broken Rum Bottle | 1 | Touch | Physical |
+| 31 | Spare Peg Leg | 1 | Touch | Physical |
+| 32 | Brass Knuckles | 1 | Touch | Physical |
+| 33 | Cat o' Nine Tails | 1 | Touch | Physical |
+| 34 | Chain Flail | 1 | Touch | Physical |
+| 35 | Wheel Spoke | 1 | Touch | Physical |
+| 36 | Deck Mop | 2 | Touch | Physical |
+| 37 | Bilge Pump Handle | 1 | Touch | Physical |
+| 38 | Holystone | 1 | Touch | Physical |
+| 39 | Galley Cleaver | 1 | Touch | Physical |
+| 40 | Galley Skillet | 1 | Touch | Physical |
+| 41 | Swordfish Bill | 2 | Touch | Physical |
+| 42 | Shark Jawbone | 1 | Touch | Physical |
+| 43 | Narwhal Tusk | 2 | Touch | Physical |
+| 44 | Whalebone Club | 1 | Touch | Physical |
+| 45 | Sword Cane | 1 | Touch | Physical |
+| 46 | Bayonet Musket | 2 | Touch | Physical |
+| 47 | Boarding Spear | 2 | Touch | Physical |
+| 48 | Boarding Halberd | 2 | Touch | Physical |
+| 49 | Machete | 1 | Touch | Physical |
+| 50 | Kris | 1 | Touch | Physical |
+| 51 | Twin Sailor's Knives | 2 | Touch | Physical |
+| 52 | Cutlass and Dirk | 2 | Touch | Physical |
+| 53 | Eel-Skin Whip | 1 | Touch | Physical |
+| 54 | Ship's Lantern | 1 | Touch | Physical |
+| 55 | Knotted Rope | 1 | Touch | Physical |
+| 56 | Flintlock Pistol | 1 | Ranged | Physical |
+| 57 | Twin Flintlocks | 2 | Ranged | Physical |
+| 58 | Brace of Pistols | 2 | Ranged | Physical |
+| 59 | Blunderbuss | 2 | Ranged | Physical |
+| 60 | Musket | 2 | Ranged | Physical |
+| 61 | Long Rifle | 2 | Ranged | Physical |
+| 62 | Dragoon Pistol | 1 | Ranged | Physical |
+| 63 | Duck-Foot Pistol | 1 | Ranged | Physical |
+| 64 | Swivel Gun | 2 | Ranged | Physical |
+| 65 | Hand Cannon | 2 | Ranged | Physical |
+| 66 | Grenado | 1 | Ranged | Physical |
+| 67 | Harpoon | 2 | Ranged | Physical |
+| 68 | Harpoon Gun | 2 | Ranged | Physical |
+| 69 | Throwing Knives | 1 | Ranged | Physical |
+| 70 | Throwing Hatchets | 1 | Ranged | Physical |
+| 71 | Grapple Gun | 1 | Ranged | Physical |
+| 72 | Crossbow | 2 | Ranged | Physical |
+| 73 | Speargun | 2 | Ranged | Physical |
+| 74 | Sling | 1 | Ranged | Physical |
+| 75 | Bag of Coconuts | 1 | Ranged | Physical |
+| 76 | Flare Pistol | 1 | Ranged | Physical |
+| 77 | Bottle Bombs | 1 | Ranged | Physical |
+| 78 | Chain Shot Bolas | 1 | Ranged | Physical |
+| 79 | Stink Pot | 1 | Ranged | Physical |
+| 80 | Weighted Net | 2 | Ranged | Physical |
+| 81 | Storm Staff | 2 | Ranged | Magical |
+| 82 | Conch Shell | 1 | Ranged | Magical |
+| 83 | Voodoo Doll | 1 | Ranged | Magical |
+| 84 | Twin Voodoo Dolls | 2 | Ranged | Magical |
+| 85 | Siren's Harp | 2 | Ranged | Magical |
+| 86 | Sea Witch's Wand | 1 | Ranged | Magical |
+| 87 | Tide Orb | 1 | Ranged | Magical |
+| 88 | Compass of Storms | 1 | Ranged | Magical |
+| 89 | Cursed Doubloon | 1 | Ranged | Magical |
+| 90 | Shanty Squeezebox | 2 | Ranged | Magical |
+| 91 | Fiddle | 2 | Ranged | Magical |
+| 92 | Bone Rattle | 1 | Ranged | Magical |
+| 93 | Coral Wand | 1 | Ranged | Magical |
+| 94 | Kraken Ink Flask | 1 | Ranged | Magical |
+| 95 | Ghost Lantern | 1 | Ranged | Magical |
+| 96 | Trident of Tides | 2 | Touch | Magical |
+| 97 | Stormglass Cutlass | 1 | Touch | Magical |
+| 98 | Drowned Man's Hook | 1 | Touch | Magical |
+| 99 | Leviathan Fang | 1 | Touch | Magical |
+| 100 | Barnacle Blade | 1 | Touch | Magical |
+
+### Armor
+
+| d100 | Armor | Type |
+| --- | --- | --- |
+| 1 | Tricorn Hat | Physical |
+| 2 | Bicorne Hat | Physical |
+| 3 | Captain's Coat | Physical |
+| 4 | Frock Coat | Physical |
+| 5 | Leather Doublet | Physical |
+| 6 | Buff Coat | Physical |
+| 7 | Sea Boots | Physical |
+| 8 | Boarding Breastplate | Physical |
+| 9 | Cuirass | Physical |
+| 10 | Gorget | Physical |
+| 11 | Bandana | Physical |
+| 12 | Eye Patch | Physical |
+| 13 | Peg Leg | Physical |
+| 14 | Sailcloth Vest | Physical |
+| 15 | Oilskin Coat | Physical |
+| 16 | Sou'wester Hat | Physical |
+| 17 | Wool Peacoat | Physical |
+| 18 | Leather Gloves | Physical |
+| 19 | Leather Bracers | Physical |
+| 20 | Shark-Skin Vest | Physical |
+| 21 | Turtle Shell Shield | Physical |
+| 22 | Buckler | Physical |
+| 23 | Hatch Cover Shield | Physical |
+| 24 | Barrel Armor | Physical |
+| 25 | Cork Life Vest | Physical |
+| 26 | Diving Helmet | Physical |
+| 27 | Diving Suit | Physical |
+| 28 | Chain Shirt | Physical |
+| 29 | Wide Sash | Physical |
+| 30 | Boarding Gauntlets | Physical |
+| 31 | Bandolier | Physical |
+| 32 | Crab Shell Pauldrons | Physical |
+| 33 | Whalebone Corset | Physical |
+| 34 | Leather Jerkin | Physical |
+| 35 | Striped Shirt | Physical |
+| 36 | Monkey Jacket | Physical |
+| 37 | Navy Greatcoat | Physical |
+| 38 | Admiral's Epaulettes | Physical |
+| 39 | Marine's Shako | Physical |
+| 40 | Stocking Cap | Physical |
+| 41 | Ruffled Cuffs | Physical |
+| 42 | Sea Turtle Helm | Physical |
+| 43 | Rope Harness | Physical |
+| 44 | Life Ring | Physical |
+| 45 | Shin Splints | Physical |
+| 46 | Fish-Scale Mail | Physical |
+| 47 | Canvas Gaiters | Physical |
+| 48 | Galley Apron | Physical |
+| 49 | Tarred Wraps | Physical |
+| 50 | Iron Collar | Physical |
+| 51 | Ship's Bell Helm | Physical |
+| 52 | Cook Pot Helm | Physical |
+| 53 | Gun Port Shield | Physical |
+| 54 | Knee Breeches | Physical |
+| 55 | Powder-Burned Gloves | Physical |
+| 56 | Hook Arm Brace | Physical |
+| 57 | Cabin Door Shield | Physical |
+| 58 | Sealskin Boots | Physical |
+| 59 | Cutlass Baldric | Physical |
+| 60 | Quilted Gambeson | Physical |
+| 61 | Mermaid Scale Vest | Magical |
+| 62 | Siren's Shawl | Magical |
+| 63 | Ghost Ship Cloak | Magical |
+| 64 | Kraken Ink Cloak | Magical |
+| 65 | Sea Witch Robe | Magical |
+| 66 | Voodoo Mask | Magical |
+| 67 | Coral Crown | Magical |
+| 68 | Pearl Diver's Veil | Magical |
+| 69 | Tidecaller Robe | Magical |
+| 70 | Storm Cloak | Magical |
+| 71 | Fog Shroud | Magical |
+| 72 | Seaweed Wrap | Magical |
+| 73 | Barnacle Mantle | Magical |
+| 74 | Davy Jones' Coat | Magical |
+| 75 | Drowned Captain's Hat | Magical |
+| 76 | Albatross Feather Cape | Magical |
+| 77 | Saint Elmo's Mantle | Magical |
+| 78 | Glowing Plankton Sash | Magical |
+| 79 | Jellyfish Veil | Magical |
+| 80 | Sea Serpent Scales | Magical |
+| 81 | Selkie Pelt | Magical |
+| 82 | Shark-Tooth Headdress | Magical |
+| 83 | Shell Bracers | Magical |
+| 84 | Starfish Pauldrons | Magical |
+| 85 | Moonlit Sailcloth | Magical |
+| 86 | Trade Wind Scarf | Magical |
+| 87 | Mariner's Tattoos | Magical |
+| 88 | Compass Rose Tattoo | Magical |
+| 89 | Lucky Bandana | Magical |
+| 90 | Rum-Soaked Rags | Magical |
+| 91 | Sea Foam Cloak | Magical |
+| 92 | Lighthouse Lens Visor | Magical |
+| 93 | Whale Song Vest | Magical |
+| 94 | Stormglass Goggles | Magical |
+| 95 | Ghostly Chains | Magical |
+| 96 | Cursed Treasure Cloak | Magical |
+| 97 | Weather Eye Patch | Magical |
+| 98 | Kraken-Hide Coat | Magical |
+| 99 | Pearl Mail | Magical |
+| 100 | Abyssal Diving Suit | Magical |
+
+### Clever Names, Trinkets, and Treasure
+
+| d100 | Clever name | Trinket | Treasure |
+| --- | --- | --- | --- |
+| 1 | Kraken | Gold Hoop Earring | Pearl |
+| 2 | Jolly Roger | Skull Ring | Black Pearl |
+| 3 | Salty | Doubloon Necklace | Pink Pearl |
+| 4 | Davy Jones' | Compass Pendant | Baroque Pearl |
+| 5 | Sea Dog | Pocket Watch | Ruby |
+| 6 | Bilge Rat | Locket | Sapphire |
+| 7 | Barnacle | Gold Tooth | Emerald |
+| 8 | Crimson Tide | Signet Ring | Diamond |
+| 9 | Black Spot | Captain's Medal | Amethyst |
+| 10 | Dead Man's | Anchor Pendant | Topaz |
+| 11 | Cap'n Redbeard's | Shark Tooth Necklace | Aquamarine |
+| 12 | One-Eyed Jack's | Pearl Necklace | Coral |
+| 13 | Peg-Leg Pete's | Pearl Earring | Red Coral |
+| 14 | Mad Molly's | Toe Ring | Amber |
+| 15 | Calico | Nose Ring | Jet |
+| 16 | Scurvy | Ankle Chain | Jade |
+| 17 | Landlubber's | Bone Bracelet | Opal |
+| 18 | Powder Monkey's | Cowrie Shell Necklace | Fire Opal |
+| 19 | Quartermaster's | Sailor's Knot Bracelet | Garnet |
+| 20 | Bosun's | Rope Bracelet | Peridot |
+| 21 | First Mate's | Spyglass Charm | Tourmaline |
+| 22 | Cabin Boy's | Ship in a Bottle | Moonstone |
+| 23 | Admiral's | Message in a Bottle | Sunstone |
+| 24 | Commodore's | Treasure Map Locket | Onyx |
+| 25 | Privateer's | Pieces of Eight Bracelet | Lapis Lazuli |
+| 26 | Buccaneer's | Admiral's Star | Turquoise |
+| 27 | Corsair's | Letter of Marque | Carnelian |
+| 28 | Marooned | Parrot Feather Earring | Citrine |
+| 29 | Mutineer's | Mermaid Comb | Spinel |
+| 30 | Stowaway's | Conch Pendant | Zircon |
+| 31 | Shipwright's | Starfish Brooch | Sea Glass |
+| 32 | Navigator's | Coral Bangle | Abalone |
+| 33 | Gunner's | Kraken Ring | Mother of Pearl |
+| 34 | Ship's Surgeon's | Crossbones Pin | Ambergris |
+| 35 | Galley Cook's | Jolly Roger Patch | Gold Nugget |
+| 36 | Harpooner's | Bosun's Whistle | Silver Ingot |
+| 37 | Smuggler's | Ship's Bell Charm | Gold Bar |
+| 38 | Rumrunner's | Sextant Pendant | Mermaid's Tear |
+| 39 | Wrecker's | Lighthouse Charm | Kraken's Eye |
+| 40 | Tortuga | Rabbit's Foot | Siren Stone |
+| 41 | Port Royal | Monkey's Paw | Stormglass |
+| 42 | Barbary | Lucky Die | Davy Jones' Pearl |
+| 43 | Spanish Main | Dice Bracelet | Sailor's Sapphire |
+| 44 | Seven Seas | Gold Chain | Leviathan Scale |
+| 45 | Hurricane | Ring of Keys | Sea Serpent Eye |
+| 46 | Squall | Captain's Key | Abyssal Onyx |
+| 47 | Doldrums | Brass Buttons | Tidestone |
+| 48 | Trade Wind | Rum Flask | Moon Pearl |
+| 49 | Riptide | Tobacco Pipe | Bloodstone |
+| 50 | Maelstrom | Corncob Pipe | Heliodor |
+| 51 | Whirlpool | Gold Nose Stud | Chrysoberyl |
+| 52 | Fog-Bound | Jeweled Eye Patch | Alexandrite |
+| 53 | Storm-Tossed | Glass Eye | Tanzanite |
+| 54 | Sunken | Wedding Band | Morganite |
+| 55 | Drowned | Mourning Ring | Kunzite |
+| 56 | Ghost Ship | Puzzle Ring | Beryl |
+| 57 | Flying | Navy Medal | Agate |
+| 58 | Leviathan | Coat of Arms Ring | Fire Agate |
+| 59 | Siren's | Pirate Lord's Seal | Moss Agate |
+| 60 | Mermaid's | Harbor Master's Badge | Labradorite |
+| 61 | Sea Witch's | Lighthouse Keeper's Ring | Obsidian |
+| 62 | Shark-Tooth | Scrimshaw Tooth | Hematite |
+| 63 | Albatross | Scrimshaw Pendant | Malachite |
+| 64 | Parrot's | Sea Glass Necklace | Rhodochrosite |
+| 65 | Gull | Sea Glass Earrings | Chalcedony |
+| 66 | Seahorse | Tortoiseshell Comb | Jasper |
+| 67 | Octopus | Seahorse Brooch | Quartz |
+| 68 | Kraken-Bane | Octopus Ring | Rose Quartz |
+| 69 | Black Flag | Mermaid Tear Pendant | Smoky Quartz |
+| 70 | Skull-and-Bones | Siren's Locket | Star Sapphire |
+| 71 | Crow's Nest | Voodoo Charm | Star Ruby |
+| 72 | Plank-Walker's | Gris-Gris Bag | Cat's Eye |
+| 73 | Keelhauled | Juju Beads | Tiger's Eye |
+| 74 | Grog-Soaked | Bone Nose Ring | Lodestone |
+| 75 | Rum-Soaked | Gold Anklet | Meteorite Shard |
+| 76 | Tar-Stained | Silver Cuff | Sunken Diamond |
+| 77 | Salt-Crusted | Iron Shackle Bracelet | Spanish Emerald |
+| 78 | Briny | Broken Manacle | Cursed Ruby |
+| 79 | Brass | Anchor Chain Necklace | Lagoon Jade |
+| 80 | Gilded | Hourglass Charm | Reef Opal |
+| 81 | Pieces-of-Eight | Compass Ring | Coral Rose |
+| 82 | Doubloon | Sundial Ring | Conch Pearl |
+| 83 | Buried | Astrolabe Pendant | Blue Pearl |
+| 84 | X-Marks-the-Spot | Star Chart Locket | Golden Pearl |
+| 85 | Lucky Seven | North Star Brooch | Ghost Pearl |
+| 86 | Dead Calm | Captain's Ring | Tortoiseshell |
+| 87 | High Tide | Quartermaster's Chain | Benitoite |
+| 88 | Ebb Tide | Cabin Boy's Medal | Larimar |
+| 89 | Neptune's | Mermaid Scale Earring | Amazonite |
+| 90 | Old Salt's | Pearl Toe Ring | Sodalite |
+| 91 | Iron Anne's | Shrunken Head | Iolite |
+| 92 | Bloody Bess's | Lock of Hair Locket | Ametrine |
+| 93 | Gentleman Jim's | Barnacle Ring | Prasiolite |
+| 94 | Ironjaw's | Krakenbone Bangle | Sphene |
+| 95 | Mad Jack's | Pocket Compass | Demantoid |
+| 96 | Scarlet Sally's | Ruby Cufflinks | Andalusite |
+| 97 | Captain Squid's | Silver Buckle | Danburite |
+| 98 | Admiral Gull's | Gold Belt Buckle | Euclase |
+| 99 | Barnacle Bart's | Feathered Hat Pin | Kyanite |
+| 100 | Sea Hag's | Trade Bead Necklace | Fluorite |
+
+### Treasure Quality by Tier
+
+| Tier | Treasure quality |
+| --- | --- |
+| T1 | Barnacled |
+| T2 | Sea-Worn |
+| T3 | Polished |
+| T4 | Flawless |
+| T5 | Sunken-Treasure |
+| T6 | King's Ransom |
+
 ## After Dark (21+)
 
 Loot only, for adult tables: bad puns, crude jokes, and novelty gear. It has no app look of its own; it is bonus names for Street Grit and mixes with any tables you toggle on. Magical means vibration, heat, sauce, or sheer awkwardness. Twin weapons and prosthetics follow the same hands rule as everything else.

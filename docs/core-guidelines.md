@@ -353,7 +353,7 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 | 71-99 | An **item:** d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat |
 | 100 | **Upgrade:** no loot; the box goes up one tier (max T6) and the die becomes 2d100 |
 
-**Naming loot:** roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as space, Street Grit, and After Dark, or horror and fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. After Dark (21+) is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Space, Horror, Street Grit, and After Dark are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
+**Naming loot:** roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as space, Street Grit, and After Dark, or horror and fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. After Dark (21+) is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Space, Horror, Street Grit, Pirate, and After Dark are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
 
 **Any even roll from 2 to 98** also drops a **soul core** of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.
 
@@ -504,20 +504,20 @@ Build a hazard like an ability: its tier sets its dice, targets, rounds, and eff
 
 In the app, the table theme changes the look only (colors and fonts); the loot words stay Core. Every row here is an optional name for the table to use out loud.
 
-| Boom (Core) | Fantasy | Space | Horror | Street Grit |
-| --- | --- | --- | --- | --- |
-| Spirit coins | Spirit coins | Credits | Grave coins | Bucks |
-| Ability tokens | Ability tokens | Data chips | Rites | Favors |
-| Soul cores | Soul cores | Power cores | Soul cores | Rep |
-| Loot box | Chest | Crate | Coffer | Duffel bag |
-| Constitution | Constitution | Resilience | Grit | Toughness |
-| Strength | Strength | Might | Strength | Strength |
-| Intellect | Intellect | Tech | Wits | Smarts |
-| Speed | Speed | Reflex | Agility | Agility |
-| Charm | Charm | Presence | Charisma | Swagger |
-| Spirit/Luck | Spirit/Luck | Fortune | Fate | Luck |
+| Boom (Core) | Fantasy | Space | Horror | Street Grit | Pirate |
+| --- | --- | --- | --- | --- | --- |
+| Spirit coins | Spirit coins | Credits | Grave coins | Bucks | Doubloons |
+| Ability tokens | Ability tokens | Data chips | Rites | Favors | Shanties |
+| Soul cores | Soul cores | Power cores | Soul cores | Rep | Pearls |
+| Loot box | Chest | Crate | Coffer | Duffel bag | Sea chest |
+| Constitution | Constitution | Resilience | Grit | Toughness | Sea legs |
+| Strength | Strength | Might | Strength | Strength | Brawn |
+| Intellect | Intellect | Tech | Wits | Smarts | Cunning |
+| Speed | Speed | Reflex | Agility | Agility | Swiftness |
+| Charm | Charm | Presence | Charisma | Swagger | Parley |
+| Spirit/Luck | Spirit/Luck | Fortune | Fate | Luck | Luck o' the sea |
 
-A Pirate theme is on the way. Until then, try doubloons for coins and a sea chest for the loot box.
+The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look in the app, handouts painted on a ship's planks, and its own [loot name tables](https://mpjart.github.io/boomcore/loot-names.html). Conditions might be Seasick, Overboard, or Keelhauled.
 
 ### What Changes Easily
 

@@ -246,6 +246,7 @@ function renderTray(){
 const FOES={
  fantasy:{m:['Goblin','Kobold','Skeleton','Giant Rat','Cultist','Bandit'],s:['Orc','Hobgoblin','Ghoul','Bandit Brute','Giant Spider','Lizardfolk'],b:['Goblin Chief','Ogre','Bandit Captain','Necromancer','Troll','Wyvern']},
  space:{m:['Drone','Scav','Sentry Bot','Swarmling','Raider','Spore Mite'],s:['Xeno Hunter','Mech Trooper','Void Raider','Turret','Bounty Hunter','Cyborg'],b:['Warlord','Hive Queen','Battle Mech','Pirate Admiral','Rogue AI Core','Star Wyrm']},
+ pirate:{m:['Deckhand','Bilge Rat','Powder Monkey','Cutthroat','Gull Swarm','Drowned Sailor'],s:['Boarding Brute','Bosun','Sea Hag','Shark','Marine Sergeant','Smuggler'],b:['Pirate Captain','Kraken','Sea Witch','Ghost Ship Captain','Navy Commodore','Leviathan']},
  horror:{m:['Zombie','Rat Swarm','Cultist','Crawler','Bat Swarm','Shade'],s:['Ghoul','Wraith','Werewolf','Butcher','Mire Hag','Revenant'],b:['Vampire Lord','Abomination','Lich','Witch of the Wood','The Hollow Man','Elder Thing']},
  grit:{m:['Thug','Lookout','Street Punk','Guard Dog','Runner','Goon'],s:['Enforcer','Biker','Hitman','Bruiser','Dirty Cop','Fixer'],b:['Kingpin','Gang Boss','Cartel Lieutenant','Crooked Captain','The Butcher','Underboss']}};
 const TRAPS=[['Tripwire darts','Speed'],['Swinging blade','Speed'],['Collapsing floor (Prone)','Speed'],['Poison gas (Poisoned)','Con'],['Lava vent (Burning)','Speed'],['Tear in reality (Stunned)','Luck']];
