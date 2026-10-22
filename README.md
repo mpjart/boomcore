@@ -69,7 +69,13 @@ Every item a loot box drops gets a name from the d100 tables in `names.js` (Fant
 
 ## To do next
 
-Nothing on the list right now. Holding a turn is handled at the table: the player says they're holding and acts later in the round, and the app's initiative order doesn't need to move.
+1. **Explosion animation:** show each boom one die at a time, so the table can cheer the chain (the most-requested part of the experience).
+2. **In-person map, full screen:** a full-screen map view for a tablet or TV in the middle of the table.
+3. **One-shot kits:** a quickstart, premade heroes, and a short adventure for one-session games.
+4. **Table uploader:** let the Core Master upload their own loot name tables and monster lists.
+5. **More humor in the rules:** add jokes and fun examples to the Core Guidelines.
+
+Holding a turn is handled at the table: the player says they're holding and acts later in the round, and the app's initiative order doesn't need to move.
 
 ## Rules and Core Master screen
 
