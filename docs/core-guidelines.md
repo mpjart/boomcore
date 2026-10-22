@@ -70,11 +70,15 @@ Every hero starts at **level 1** as a commoner, with no stat points and no abili
 
 Each level after the first gives you **one stat point** to spend on any stat.
 
-You level up by filling your level meter, in one of two ways:
+**Milestone leveling is the preferred way to level up.** The Core Master levels the party at story milestones, like finishing a quest, beating a boss, or reaching a turning point in the story. It keeps the party at the same level and keeps the story moving, with nothing to track.
+
+**The level meter (XP).** If your table wants to earn levels instead, every hero has a level meter. It is Boom's version of experience points: fill it and you gain a level. There are two ways to fill it:
 
 **Consume soul cores**, which monsters and dungeons drop at the monster's level. **Ten cores of your own level** fill the meter. One core never fills more than one full level, so a high-level core can't skip you past a level.
 
-**Empower your core with coins.** Spend spirit coins to fill the meter. Coins can buy as many levels as you can afford, which makes them the quickest way to win back levels lost in a hard fight. Cores you don't need, like lower-level ones, can be sold for coins and spent the same way.
+**Empower your core with coins.** Spend spirit coins to fill the meter. Coins can buy as many levels as you can afford, which makes them the quickest way to win back levels lost in a hard fight. Cores you don't need can be sold for coins while the market is open, and spent the same way.
+
+**Selling cores:** cores can only be sold while the market is open (see The Market in Chapter 6). Turning a pile of high-level cores into coins would power-level a hero, and that is not how the level meter is built to work, so the Core Master decides when selling happens.
 
 Cores and levels have a coin value, in coins of your level's tier (see Coin Tiers in Chapter 6):
 
@@ -98,8 +102,6 @@ The full chart to level 100, and how to build it in Excel, is in the Index.
 
 **Ability slots:** 3, plus 1 every 5 levels up to level 20, then plus 1 every 10 levels. Leveling never grants abilities; see Chapter 4.
 
-**Milestone leveling:** the Core Master can skip cores and coins and level the party at story milestones instead.
-
 ### Falling in Battle
 
 **Level 2 and up:** if you drop below 1 HP, you **go down a level** and come back at full HP for that level. Extra damage does not carry over. The coins spent on that level are gone, and you rebuild it from the bottom. You also lose a stat point (an unspent one first, otherwise a random stat). If you now have more abilities than slots, you lose one at random. Each fall costs another level, all the way down to level 1. Being knocked out, or any other effect, is a condition the Core Master applies.
@@ -122,7 +124,7 @@ You can also gain temp HP with an ability before or during a fight. For example,
 
 **Food buffs.** Food never restores HP, but the Core Master may let special food or drink grant a buff. A dwarven ale might make your beard grow, or elven cookies might double your movement for 10 minutes.
 
-**Exhaustion** is optional, for Core Masters who want it. It is all or nothing, with no levels: you are exhausted or you are not. **One 10-hour rest** clears it.
+**Exhaustion** is optional, for Core Masters who want it. It is all or nothing, with no levels: you are exhausted or you are not. An exhausted hero **moves at half speed and can't work, fight, or cast spells**. You can still eat, drink, and take potions, but you are too worn out to do anything useful. **One 10-hour rest** clears it.
 
 ## Chapter 3: Combat
 
@@ -136,7 +138,7 @@ When combat starts, everyone rolls **d20 + Speed**. Turns go from highest to low
 
 ### Your Turn
 
-**Movement:** move up to **5 + level + Speed steps**, before your actions, after them, or split between them. A step is one large stride, about 5 ft.
+**Movement:** move up to **5 + level + Speed steps**, before your actions, after them, or split between them. A step is about one large stride; the Core Master has the final say on how far that goes.
 
 **Actions:** each of these takes one action:
 
@@ -154,6 +156,12 @@ You get **1 action, plus 1 more for every 4 points of Speed**.
 | 12-15 | 4 |
 | 16-19 | 5 |
 | 20-23 | 6 |
+
+**It's all just actions.** Boom has no reactions, bonus actions, or surprise actions to keep track of. Anything you do is an action.
+
+**Saving actions:** you can use all of your actions on your turn, or use some and save the rest for later in the round. Use a saved action when you need it: throw up a shield, heal an ally, or wait for the monster that's hiding to show its cowardly face so you can shoot it. **Saved actions must be used by the end of the round, or they are lost.**
+
+**Core Master note:** if saving actions slows combat down more than you like, don't allow it.
 
 ### Attacks and Damage
 
@@ -188,7 +196,7 @@ That is the trade-off of armor. A warrior in plate struggles to cast a fireball,
 
 A condition is any effect the Core Master allows. The Core Master decides which conditions exist in their game and can invent any they need.
 
-**Conditions never roll.** Use **T**, the tier of whatever caused the condition, as a flat number: T damage, T rounds in combat, and T steps of movement. A T3 condition deals 3 damage, lasts 3 rounds, and costs 3 steps (about 15 ft). Outside combat, the Core Master decides how long it lasts. If nothing gives a tier, the Core Master picks one.
+**Conditions never roll.** Use **T**, the tier of whatever caused the condition, as a flat number: T damage, T rounds in combat, and T steps of movement. A T3 condition deals 3 damage, lasts 3 rounds, and costs 3 steps. Outside combat, the Core Master decides how long it lasts. If nothing gives a tier, the Core Master picks one.
 
 **"Every roll" means every roll:** attacks, abilities, healing, checks, initiative, and loot. No roll's total ever goes below 0.
 
@@ -197,7 +205,7 @@ A condition is any effect the Core Master allows. The Core Master decides which 
 | Bleeding | Take T damage at the start of your turn. Armor doesn't stop it. Any healing ends it. |
 | Blessed | +T to every roll you make. |
 | Burning | Take T damage at the start of your turn. Spend an action to put it out. |
-| Exhausted | All or nothing: −2 steps of movement and −2 to every roll. Lasts until a 10-hour rest, not T rounds. |
+| Exhausted | Half movement; can't work, fight, or cast. Can still eat, drink, and take potions. Lasts until a 10-hour rest. |
 | Frightened | You can't move toward the source or make touch attacks against it. |
 | Invisible | Enemies can't target you unless they guess your spot. Ends when you attack. |
 | Poisoned | −T to every roll. Healing magic or an antidote ends it. |
@@ -361,10 +369,20 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 
 ### Using Loot
 
-- **Sell:** reagents for their number, cores for L × 100 coins of their level's tier, and items, gems, and unused potions for a d100 roll (which can boom) of coins of the box tier they dropped at. A lucky box pays off.
+- **Sell** (only while the market is open, below): reagents for their number, cores for L × 100 coins of their level's tier, and items, gems, and unused potions for a d100 roll (which can boom) of coins of the box tier they dropped at. A lucky box pays off.
 - **Healing potions:** drinking one is an action and heals **one d6 per tier** (a T3 potion heals 3d6), and the dice explode on a 1 as normal. The normal healing rules apply: you must be missing HP, and anything over your max becomes temp HP. Potions stack by tier.
 - **Consume:** cores fill your level meter (Chapter 2). A token plus a core of the right tier learns or trains an ability (Chapter 4).
 - **Bosses, quests, and dungeons:** see Party Loot in Chapter 8.
+
+### The Market
+
+Heroes can only sell loot **while the market is open**. The Core Master opens and closes it whenever the story allows, like a trip to town between adventures. In the app, the **Market** button in the CM tab opens and closes it, and the roll feed notes each time. If a player tries to sell while it's closed, the app tells them the market is closed. The Core Master can always sell for anyone. This keeps heroes from cashing in a pile of loot mid-dungeon and power-leveling in the open.
+
+- **Magic items:** we suggest the market never sells them. Heroes hunt for them or earn them as quest rewards.
+- **Keep shopping short.** A trip to market shouldn't eat a 4-hour session, unless the players and the Core Master really want it to.
+- **Carrying your stuff:** each player keeps notes of their own items. Whether a bag of holding, a pocket dimension, a cargo drone, or anything else gives unlimited storage is the Core Master's call. Either way, tracking is the player's job.
+- **No crafting or businesses.** Boom isn't built for crafting, running a shop, or anything like it. Other systems out there will happily let you play World of Business-craft. We highly suggest leaving crafting and business to the NPCs, while the players go out and be heroes, villains, or something in between. Just not NPCs.
+- **No haggling rules.** The app sells automatically, for speed. If your table really wants to play Used Car Salesman Simulator, we won't stop you: agree on a price, delete the item, and punch in the coins yourself.
 
 ## Chapter 7: Gear
 
@@ -423,7 +441,7 @@ The Boom Dice app rolls and explodes the dice, does the math, and shows everyone
 - **Dice:** quick rolls, initiative, your color, the shared roll feed, and the Map (a chalkboard the Core Master controls). Tap the Boom logo to open these guidelines.
 - **Party:** every character sheet. Collapsed sheets show the six stats at a glance. The Core Master edits everything; a player can equip, sell, and train on their own hero.
 - **Loot:** loot boxes waiting to be opened, and the party stash. A hero's box is opened by its player; a group box has a timer and everyone grabs it.
-- **CM:** the table theme (the look) and the currency name, the Core Master screen, the loot box maker (with toggles for which loot name tables to mix), and the monster generator.
+- **CM:** the table theme (the look) and the currency name, the Core Master screen, the Dawn and Market buttons, the loot box maker (with toggles for which loot name tables to mix), and the monster generator.
 
 **A round at the table:** the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.
 
@@ -542,7 +560,7 @@ Reference tables too long for the chapters.
 
 ### Full Level Chart
 
-Cost and core value are counted in coins of the tier shown. You always need 10 cores of the level you are leaving.
+Cost and core value are counted in coins of the tier shown. You always need 10 cores of the level you are leaving. Core value is what a core sells for while the market is open.
 
 | Reaching level | Cost | Cores needed | Core value | Ability slots |
 | --- | --- | --- | --- | --- |

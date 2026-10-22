@@ -156,6 +156,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 
 /* CM tab: one group of cards at a time, picked from the button bar (All shows everything) */
 .cmnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:6px;margin-bottom:12px}.cmnav button:not(.cmact){background:var(--chip);color:var(--ink);padding:9px 8px;font-size:14px;white-space:nowrap}.cmnav .cmact{display:flex;align-items:center;justify-content:center;font:inherit;font-size:14px;font-weight:700;padding:9px 8px;border-radius:var(--rb);white-space:nowrap;text-decoration:none;background:transparent;color:var(--acc);border:2px solid var(--acc)}.cmnav .cmact.arm{background:var(--acc);color:var(--accfg)}
+.mkt{margin:0 0 10px;padding:8px 12px;border-radius:var(--rb);border:1px dashed var(--line);color:var(--mute);font-size:14px;font-weight:600}.mkt.open{border:2px solid var(--acc);color:var(--acc)}
 .cmnav button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
 .ltabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:6px;margin-top:4px}.ltabs button{background:var(--chip);color:var(--ink);padding:8px 6px;font-size:14px;white-space:nowrap}.ltabs button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
 #pgDM:not([data-on~="table"])>[data-g="table"],#pgDM:not([data-on~="loot"])>[data-g="loot"],#pgDM:not([data-on~="hand"])>[data-g="hand"],#pgDM:not([data-on~="mon"])>[data-g="mon"],#pgDM:not([data-on~="save"])>[data-g="save"]{display:none!important}
@@ -237,7 +238,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div>
 </div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div><div class="card" id="holist" hidden></div></div><div id="pgLoot" hidden>
 <details class="how"><summary>Open a loot box for coins, cores, and treasure 🎁 <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier: 2 to 50 is a reagent to sell, but an odd roll there is a healing potion instead (heals the tier in d6, so a T3 potion heals 3d6, and the dice can boom); 51 to 70 is an ability token; 71 to 99 is an item. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
-<div class="card" id="boxlist"></div>
+<div class="mkt" id="mktnote" role="status"></div><div class="card" id="boxlist"></div>
 <div class="card" id="lootmk" data-g="loot">
  <b class="pn" id="lmkh">Make a loot box</b>
  <label style="margin-top:8px">For</label><select id="lhero"></select>
@@ -251,7 +252,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden>
-<div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="save" type="button">💾 Save</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
+<div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="save" type="button">💾 Save</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button><button class="cmact" id="market" type="button" aria-pressed="false" title="Open or close the market. Players can only sell loot while it is open.">🏪 Market closed</button></div>
 <div class="note" id="cmnone" hidden style="text-align:center;margin:4px 0 12px">All cards are hidden. Tap a button above to show its cards.</div>
 <div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look (colors and fonts) for the table. Players can pick their own look on their sheet. Loot names come from the tables you toggle in Make a loot box.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div><div class="row cmsel" data-noswap><div class="col"><label for="cursel">Currency name</label><select id="cursel"></select></div></div><div class="row cmsel" id="curcust" hidden data-noswap><div class="col"><label for="curs">One</label><input id="curs" maxlength="24" placeholder="gold piece"></div><div class="col"><label for="curp">Many</label><input id="curp" maxlength="24" placeholder="gold pieces"></div></div><div class="note" data-noswap>The whole table sees this name for coins, whatever look each player picks. Soul cores, ability tokens, and loot boxes keep their Core names in every theme.</div></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the look you pick here (the table theme unless you change it), and Give to party puts it in everyone's feed and Party tab.</div>
@@ -686,13 +687,13 @@ const potName=t=>'T'+(t+1)+' healing potion';
 const potionOf=(t,q,id)=>({id:id||Math.random().toString(36).slice(2,8),k:'potion',n:potName(t),t,q});
 function lootVal(it){return it.k==='potion'?'heals '+(it.t+1)+'d6 (the dice can boom) · sells for 1d100 '+LT[it.t]+' coins':it.k==='token'?'learn or train abilities':it.k==='item'?'sells for 1d100 '+LT[it.t||0]+' coins':'worth '+fmtN(it.v)+' '+LT[it.t]+' coins';}
 function setLoot(c,l,extra){put(c,{loot:JSON.stringify(l),...(extra||{})});}
-function sellLoot(c,id){
+function sellLoot(c,id){if(!canSell())return;
  const l=lootList(c),it=l.find(x=>x.id===id);if(!it)return;
  const r=doRoll('1d100',c.name+' · Sell '+it.n,null,false,colorMap[c.id]),v=r?r.total:0;
  const arr=coinAdd(coinsOf(c),it.t||0,v);
  setLoot(c,l.filter(x=>x.id!==id),{coins:arr,gold:arr[0]});
  toast('Sold '+it.n+' for '+fmtN(v)+' '+LT[it.t||0]+' coins');}
-function sellReagents(c){
+function sellReagents(c){if(!canSell())return;
  const l=lootList(c),r=l.find(x=>x.k==='reagent');if(!r)return;
  let arr=coinsOf(c);r.tot.forEach((x,i)=>{arr=coinAdd(arr,i,x);});
  setLoot(c,l.filter(x=>x.k!=='reagent'),{coins:arr,gold:arr[0]});
@@ -706,7 +707,7 @@ function usePotion(c,t){
  const h=Math.min(r.total,max-cur),extra=r.total-h;p.q-=1;
  setLoot(cur0,l.filter(x=>!(x.k==='potion'&&x.q<=0)),{hpCur:cur+h,temp:(cur0.temp||0)+extra});
  const m=cur0.name+' drinks a '+potName(t)+' and heals '+r.total+(extra>0?' ('+extra+' becomes temp HP)':'');toast(m);}
-function sellPotion(c,t){
+function sellPotion(c,t){if(!canSell())return;
  const l=lootList(c),p=l.find(x=>x.k==='potion'&&x.t===t);if(!p)return;
  const r=doRoll('1d100',c.name+' · Sell '+potName(t),null,false,colorMap[c.id]),v=r?r.total:0,arr=coinAdd(coinsOf(c),t,v);p.q-=1;
  setLoot(c,l.filter(x=>!(x.k==='potion'&&x.q<=0)),{coins:arr,gold:arr[0]});toast('Sold a '+potName(t)+' for '+fmtN(v)+' '+LT[t]+' coins');}
@@ -725,7 +726,7 @@ function useCores(c,L,r,n){
  const ex={xp:xp.toString()};if(g>0)ex.level=lv;
  setLoot(c,l.filter(x=>!(x.k==='core'&&x.q<=0)),ex);
  const m=c.name+' uses '+n+' level '+L+' core'+(n>1?'s':'')+(g>0?' and reaches level '+lv+'!':'');toast(m);if(g>0)logEvent(m);}
-function sellCores(c,L,r,n){
+function sellCores(c,L,r,n){if(!canSell())return;
  const l=lootList(c),s=findCore(l,L,r);if(!s)return;
  n=Math.min(n,s.q);const arr=coinAdd(coinsOf(c),s.t,n*s.v);s.q-=n;coreOpen=null;
  setLoot(c,l.filter(x=>!(x.k==='core'&&x.q<=0)),{coins:arr,gold:arr[0]});
@@ -756,7 +757,7 @@ function lootBox(c){
   r.append(t);
   if(act){const b=el('div','lbtn'),key=c.id+':'+it.id;
    if(it.k==='reagent')b.append(btn('Sell',()=>sellReagents(c),'sm heal'));
-   else if(it.k==='core')b.append(btn('Use',()=>{coreOpen={key,mode:'use'};renderParty();},'sm rb'),btn('Sell',()=>{coreOpen={key,mode:'sell'};renderParty();},'sm heal'));
+   else if(it.k==='core')b.append(btn('Use',()=>{coreOpen={key,mode:'use'};renderParty();},'sm rb'),btn('Sell',()=>{if(!canSell())return;coreOpen={key,mode:'sell'};renderParty();},'sm heal'));
    else if(it.k==='potion')b.append(btn('Drink',()=>usePotion(c,it.t),'sm heal'),btn('Sell 1',()=>sellPotion(c,it.t),'sm'));
    else if(it.k==='token')b.append(btn(isDM?'Use':'Train',()=>{tokOpen=tokOpen===key?null:key;renderParty();},'sm rb'));
    else{if(itemType(it)!=='gem')b.append(btn('Equip',()=>equipItem(c,it.id),'sm rb'));b.append(btn('Sell',()=>sellLoot(c,it.id),'sm heal'));}
@@ -1580,6 +1581,17 @@ function renderCur(){const s=$('#cursel');if(!s)return;if(!s.options.length){s.a
  armed=0;clearTimeout(tm);d.classList.remove('arm');d.textContent='🌅 Dawn';dawnRun();};}
 const dawnRun=()=>{if(!partyCol)return toast('Add heroes in the Party tab first');const hit=chars.filter(c=>(c.temp||0)>0);
  hit.forEach(c=>put(c,{temp:0}));const m='🌅 Dawn breaks'+(hit.length?': temp HP cleared for '+hit.map(c=>c.name||'a hero').join(', '):'. No one had temp HP');toast(m);logEvent(m);};
+// Market: the CM opens and closes it for the whole table. Players can only sell while it is open; the CM can always sell.
+let marketOpen=false;
+function renderMarket(){const b=$('#market');if(b){b.textContent=marketOpen?'🏪 Market open':'🏪 Market closed';b.classList.toggle('arm',marketOpen);b.setAttribute('aria-pressed',marketOpen);}
+ const n=$('#mktnote');if(n){n.textContent=marketOpen?'🏪 The market is open: you can sell loot.':'🏪 The market is closed: no selling until the Core Master opens it.';n.classList.toggle('open',marketOpen);}}
+function setMarket(v){v=!!v;if(v===marketOpen)return;
+ if(settingsCol)settingsCol.doc('market').set({open:v,ts:Date.now()}).catch(()=>toast('Could not change the market'));else marketOpen=v,renderMarket();
+ const m=v?'🏪 The market is open':'🏪 The market is closed';toast(m);logEvent(m);}
+$('#market').onclick=()=>setMarket(!marketOpen);
+// every sell checks this first
+function canSell(){if(marketOpen||isDM)return true;toast('🏪 The market is closed');return false;}
+renderMarket();
 // ---------- startup (page works alone, lights up with db) ----------
 renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
 {let k0='core',c0={};try{k0=localStorage.getItem('boomskin')||'core';c0=JSON.parse(localStorage.getItem('boomcur')||'{}')||{}}catch{}applyTheme({skin:k0,cur:c0.cur||'',curS:(c0.c||[])[0],curP:(c0.c||[])[1]});}
@@ -1598,7 +1610,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  $('#tM').hidden=!isDM;if(isDM){monCol=db.collection('monsters');monCol.onSnapshot(s=>{monsters=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderMon();});}
  initCol=db.collection('init');
  initCol.onSnapshot(s=>{inits=s.docs.filter(d=>d.id!=='_turn').map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.v-a.v||a.ts-b.ts);const t=s.docs.find(d=>d.id==='_turn');turn=t?t.data().id:null;round=t?(t.data().round||1):1;renderInit();});
- settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applyTheme(v);});
+ settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applyTheme(v);const mk=s.docs.find(x=>x.id==='market');marketOpen=!!(mk&&mk.data().open);renderMarket();});
  boxCol=db.collection('boxes');boxCol.onSnapshot(s=>{boxes=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderBoxes();checkBoxes();});fillHeroes();
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');

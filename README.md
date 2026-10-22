@@ -51,7 +51,7 @@ The CM tab's **💾 Save** card exports the table to a `.json` file and imports 
 
 ## Core Master tab
 
-A button bar at the top of the CM tab toggles each group of cards on or off: **🎨 Theme**, **🎁 Loot** (loot box maker), **📜 Handouts**, and **👹 Monsters**, and **💾 Save**. Turn on any mix, all of them, or none. Two action buttons sit on the same bar: **📋 CM screen** opens the screen in a new tab, and **🌅 Dawn** starts a new day (tap twice). Each device remembers which are on. Initiative always sits with the roll feed, not in the CM tab.
+A button bar at the top of the CM tab toggles each group of cards on or off: **🎨 Theme**, **🎁 Loot** (loot box maker), **📜 Handouts**, and **👹 Monsters**, and **💾 Save**. Turn on any mix, all of them, or none. Two action buttons sit on the same bar: **📋 CM screen** opens the screen in a new tab, **🌅 Dawn** starts a new day (tap twice), and **🏪 Market** opens or closes the market for the whole table. Players can only sell loot while the market is open (the CM can always sell); a player who tries while it's closed gets a "The market is closed" message, and the roll feed notes each time it opens or closes. A new table starts with the market closed. Each device remembers which card groups are on. Initiative always sits with the roll feed, not in the CM tab.
 
 ## Handouts
 
