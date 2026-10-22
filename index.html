@@ -146,6 +146,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 /* CM tab: one group of cards at a time, picked from the button bar (All shows everything) */
 .cmnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:6px;margin-bottom:12px}.cmnav button:not(.cmact){background:var(--chip);color:var(--ink);padding:9px 8px;font-size:14px;white-space:nowrap}.cmnav .cmact{display:flex;align-items:center;justify-content:center;font:inherit;font-size:14px;font-weight:700;padding:9px 8px;border-radius:var(--rb);white-space:nowrap;text-decoration:none;background:transparent;color:var(--acc);border:2px solid var(--acc)}.cmnav .cmact.arm{background:var(--acc);color:var(--accfg)}
 .cmnav button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
+.ltabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:6px;margin-top:4px}.ltabs button{background:var(--chip);color:var(--ink);padding:8px 6px;font-size:14px;white-space:nowrap}.ltabs button.on{background:var(--tabbg,var(--acc));color:var(--tabfg,var(--accfg))}
 #pgDM:not([data-on~="table"])>[data-g="table"],#pgDM:not([data-on~="loot"])>[data-g="loot"],#pgDM:not([data-on~="hand"])>[data-g="hand"],#pgDM:not([data-on~="mon"])>[data-g="mon"],#pgDM:not([data-on~="save"])>[data-g="save"]{display:none!important}
 .filebtn{display:inline-flex;align-items:center;justify-content:center;position:relative;cursor:pointer;border-radius:var(--rb);padding:11px 16px;background:var(--chip);color:var(--ink);font-weight:600}.filebtn input{position:absolute;opacity:0;width:1px;height:1px}.filebtn:focus-within{outline:2px solid var(--acc);outline-offset:2px}
 #savebox .row{flex-wrap:wrap;margin-top:10px}#savestat{margin-top:8px}#savestat:empty{display:none}.prow{display:flex;justify-content:flex-end;margin-top:8px}
@@ -227,6 +228,8 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <label style="margin-top:8px">For</label><select id="lhero"></select>
  <div class="row lrow3" style="margin-top:10px"><div class="col lc-n"><label>Enemy lvl</label><input id="lmon" type="number" min="1" max="99" value="1" inputmode="numeric"></div><div class="col lc-n" id="lhlw"><label>Hero lvl</label><input id="lhl" type="number" min="1" max="100" value="1" inputmode="numeric"></div><div class="col lc-t"><label>Box tier</label><select id="ltier"></select></div></div>
  <div class="note" id="lhlnote"></div>
+ <label style="margin-top:10px">Loot name tables</label><div class="ltabs" id="ltabs" role="group" aria-label="Loot name tables" data-noswap></div>
+ <div class="note" id="ltabnote"></div>
  <div id="lextra"><div class="row" style="margin-top:10px"><div class="col"><label>Note (optional)</label><input id="lnote" maxlength="40" placeholder="e.g. Goblin chief"></div><div class="col lc-t" id="ltw" style="flex:0 0 120px"><label>Timer</label><select id="ltime"><option value="15">15 sec</option><option value="30" selected>30 sec</option><option value="60">1 min</option><option value="120">2 min</option><option value="300">5 min</option></select></div></div></div>
  <div class="row" style="margin-top:12px"><button id="lgo" class="rbu" style="flex:1">🎁 Make loot box</button></div>
  <div class="err" id="lerr"></div>
@@ -235,7 +238,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div><div id="pgDM" hidden>
 <div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="save" type="button">💾 Save</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
 <div class="note" id="cmnone" hidden style="text-align:center;margin:4px 0 12px">All cards are hidden. Tap a button above to show its cards.</div>
-<div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look and the loot words for everyone at the table.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div><label class="chk" style="margin-top:12px"><input type="checkbox" id="adultchk"> After Dark loot names (21+)</label><div class="note">Adult tables only: each item rolls 1d2 first. On a 1 it is named from the theme's tables, on a 2 from the crude, punny After Dark tables.</div></div>
+<div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look (colors and fonts) for the table. Players can pick their own look on their sheet. Loot names come from the tables you toggle in Make a loot box.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
  <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
  <div class="seg" role="group" aria-label="Handout type"><button id="hmN" type="button" class="on">✍️ Note</button><button id="hmI" type="button">🖼️ Picture</button></div>
@@ -989,19 +992,25 @@ function renderHandouts(){const b=$('#holist');b.replaceChildren();b.hidden=!han
 const LT=['Common','Uncommon','Rare','Epic','Legendary','Divine'],ITYPE=['Weapon','Armor','Jewelry','Gem'],LOOTCAP=100,band=n=>n<=10?0:n<=20?1:n<=40?2:n<=60?3:n<=80?4:5;
 const fmtN=n=>n<1e15?Math.round(n).toLocaleString('en-US'):n.toExponential(2);
 // ---------- item names (see names.js) ----------
-let adultLoot=false;
-// After Dark (21+): roll 1d2 per item first. 1 = the theme's tables, 2 = the After Dark tables; the whole name comes from that table.
-const NSET=()=>{const B=window.BOOM_NAMES||{},T=B[skin==='core'?'fantasy':skin]||B.fantasy||null;
- return adultLoot&&B.adult&&Math.random()<0.5?B.adult:T;};
+// Loot name tables: the CM toggles any mix. Each part of a name rolls its own table,
+// so the clever name can come from one table and the base item from another. None on = Core/Fantasy.
+const LTABS=[['fantasy','🗡️ Fantasy'],['space','🚀 Space'],['horror','🕯️ Horror'],['grit','🧢 Street Grit'],['adult','🔞 After Dark']];
+let lootTabs=['fantasy'];try{const v=JSON.parse(localStorage.getItem('boomloottabs')||'null');if(Array.isArray(v))lootTabs=v.filter(k=>LTABS.some(t=>t[0]===k));}catch{}
+const tabSets=tabs=>{const B=window.BOOM_NAMES||{},l=(Array.isArray(tabs)?tabs:[]).map(k=>B[k]).filter(Boolean);return l.length?l:(B.fantasy?[B.fantasy]:[]);};
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 // Clever name + base item; gems get the tier's quality word instead. Weapons carry hands/reach/damage, armor its type.
-function nameItem(type,tier){const S=NSET(),ty=String(type).toLowerCase();if(!S)return{n:LT[tier]+' '+ty};
- if(ty==='gem')return{n:S.q[tier]+' '+pick(S.g)};
- const c=pick(S.n);
- if(ty==='weapon'){const w=pick(S.w);return{n:c+' '+w[0],wh:String(w[1]),wr:w[2],wt:w[3]};}
- if(ty==='armor'){const a=pick(S.a);return{n:c+' '+a[0],at:a[1]};}
- return{n:c+' '+pick(S.j)};}
-function makeLoot(L,l,t0){
+function nameItem(type,tier,tabs){const L=tabSets(tabs===undefined?lootTabs:tabs),ty=String(type).toLowerCase();if(!L.length)return{n:LT[tier]+' '+ty};
+ if(ty==='gem')return{n:pick(L).q[tier]+' '+pick(pick(L).g)};
+ const c=pick(pick(L).n);
+ if(ty==='weapon'){const w=pick(pick(L).w);return{n:c+' '+w[0],wh:String(w[1]),wr:w[2],wt:w[3]};}
+ if(ty==='armor'){const a=pick(pick(L).a);return{n:c+' '+a[0],at:a[1]};}
+ return{n:c+' '+pick(pick(L).j)};}
+function renderLootTabs(){const w=$('#ltabs');if(!w)return;w.replaceChildren();
+ LTABS.forEach(([k,n])=>{const b=document.createElement('button');b.type='button';b.textContent=n;const on=lootTabs.includes(k);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);
+  b.onclick=()=>{lootTabs=on?lootTabs.filter(x=>x!==k):[...lootTabs,k];try{localStorage.setItem('boomloottabs',JSON.stringify(lootTabs))}catch{}renderLootTabs();};w.append(b);});
+ const nm=lootTabs.map(k=>LTABS.find(t=>t[0]===k)[1].replace(/^\S+\s/,''));
+ $('#ltabnote').textContent=!nm.length?'None on: names come from Core/Fantasy.':nm.length===1?'Names come from '+nm[0]+'.':'Each name mixes '+nm.slice(0,-1).join(', ')+' and '+nm[nm.length-1]+': the clever name and the base item each roll their own table.'+(lootTabs.includes('adult')?' After Dark is 21+.':'');}
+function makeLoot(L,l,t0,tabs){
  const cr=rollExpr([{sign:1,n:Math.max(2,L+l),s:6}]);
  let tier=t0,made=0,pending=1,up=0,booms=0;const seq=[],fin=[];
  while(pending>0){
@@ -1018,7 +1027,7 @@ function makeLoot(L,l,t0){
   if(v%2===0){cores++;e.core=1;}
   if(v<=50){if(v%2){e.k='potion';}else{e.k='reagent';e.val=v;}}
   else if(v<=70)e.k='token';
-  else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=e.type==='Gem'?0:tier;if(e.plus>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);e.nm=nameItem(e.type,tier);}
+  else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=e.type==='Gem'?0:tier;if(e.plus>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);e.nm=nameItem(e.type,tier,tabs);}
   loot.push(e);
  }
  return{L,l,t0,tier,coins:cr.total,coinParts:cr.parts,booms:cr.booms+booms,up,seq,loot,cores,core:L*100,ct:band(L)};
@@ -1090,7 +1099,7 @@ function fillHeroes(){
  $('#lgo').textContent=sh?'🎁 Make loot box':'🎁 Open loot box';
  syncHL();
 }
-LT.forEach((n,i)=>$('#ltier').add(new Option('T'+(i+1)+' '+n,i)));
+LT.forEach((n,i)=>$('#ltier').add(new Option('T'+(i+1)+' '+n,i)));renderLootTabs();
 $('#lhero').onchange=e=>{if(e&&e.isTrusted)lheroTouched=true;syncHL();const v=$('#lhero').value;if(GROUP(v)){$('#lhl').value=avgLvl();return;}const c=chars.find(x=>x.id===v);if(c)$('#lhl').value=c.level;};
 // Roll a box and hand out the loot. spec: {to:'hero'|'party'|'stash'|'none', hero, L, t0, l (only for 'none'), note}
 async function openLoot(spec,by){
@@ -1098,7 +1107,7 @@ async function openLoot(spec,by){
  if(spec.to==='hero'&&(!ch||ch.dead)){toast('That hero can no longer take this box');return false;}
  if(spec.to==='party'&&!heroes.length){toast('No living heroes in the party');return false;}
  const l=spec.to==='none'?spec.l:spec.to==='hero'?ch.level:avgLvl();
- const res=makeLoot(spec.L,l,spec.t0),pv=spec.to==='party',sv=spec.to==='stash';
+ const res=makeLoot(spec.L,l,spec.t0,Array.isArray(spec.tabs)?spec.tabs:['fantasy']),pv=spec.to==='party',sv=spec.to==='stash';
  const r={uid:me||'local',who:pv?'The party':sv?'The stash':ch?ch.name:'',col:(ch&&colorMap[ch.id])||myColor()||'',expr:'Loot box · T'+(res.tier+1)+' '+LT[res.tier]+(spec.note?' · '+spec.note:''),total:res.coins,booms:res.booms,ts:Date.now(),detail:JSON.stringify({parts:res.coinParts,mod:0}),loot:JSON.stringify(res),by:by||''};
  toast((pv?'The party opened':sv?'The stash got':ch?ch.name+' opened':'You opened')+' a loot box'+(res.booms?'  💥×'+res.booms:''));
  if(res.booms>0||res.up>0)burst(Math.min(260,60+res.booms*30+res.up*60));
@@ -1118,9 +1127,9 @@ $('#lgo').onclick=async()=>{
  if(L<1||l<1||L>99||l>100){$('#lerr').textContent='Enemy level 1 to 99, hero level 1 to 100.';return;}
  $('#lerr').textContent='';
  const to=hv==='__party'?'party':hv==='__stash'?'stash':hv?'hero':'none';
- if(!sh){const ch=chars.find(c=>c.id===hv);await openLoot({to,hero:hv,L,t0,l},ch?'Opened by '+ch.name:'');return;}
+ if(!sh){const ch=chars.find(c=>c.id===hv);await openLoot({to,hero:hv,L,t0,l,tabs:[...lootTabs]},ch?'Opened by '+ch.name:'');return;}
  const ch=chars.find(c=>c.id===hv),note=$('#lnote').value.trim().slice(0,40),grp=GROUP(hv),secs=+$('#ltime').value||30;
- const b={to,hero:ch?ch.id:'',heroName:ch?ch.name:'',L,t0,note,st:'ready',hands:{},ts:Date.now(),...(grp?{secs,until:Date.now()+secs*1000}:{})};
+ const b={to,hero:ch?ch.id:'',heroName:ch?ch.name:'',L,t0,note,tabs:[...lootTabs],st:'ready',hands:{},ts:Date.now(),...(grp?{secs,until:Date.now()+secs*1000}:{})};
  try{await boxCol.doc('b'+Date.now().toString(36)+Math.random().toString(36).slice(2,5)).set(b);}catch{$('#lerr').textContent='Could not make the box. Try again.';return;}
  $('#lnote').value='';
  const who=to==='party'?'the whole party':to==='stash'?'the party stash':ch.name;
@@ -1404,7 +1413,7 @@ function swapText(n){const p=n.parentNode;if(p&&(/^(SCRIPT|STYLE|TEXTAREA)$/.tes
 function swapAll(root){if(!Object.keys(WORDS).length)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode()))swapText(n);}
 const wordObs=new MutationObserver(ms=>{if(!Object.keys(WORDS).length)return;for(const m of ms){if(m.type==='characterData')swapText(m.target);else m.addedNodes.forEach(x=>x.nodeType===3?swapText(x):x.nodeType===1&&swapAll(x));}});
 wordObs.observe(document.body,{subtree:true,childList:true,characterData:true});
-// the look (colors and fonts) can be a player's own pick on this device; the words always follow the table's theme
+// the look (colors and fonts) can be a player's own pick on this device; themes never change the loot words
 let mySkin='';try{mySkin=localStorage.getItem('boommyskin')||''}catch{}
 function applyLook(k){
  const S=SKINS.find(x=>x.k===k)||SKINS[0],de=document.documentElement;
@@ -1414,7 +1423,7 @@ function setMySkin(k){mySkin=SKINS.some(x=>x.k===k)?k:'';try{localStorage.setIte
 function skinSel(id){const s=document.createElement('select');s.className='colsel skinpick';s.id=id;s.setAttribute('data-noswap','');
  s.add(new Option('Table ('+((SKINS.find(x=>x.k===skin)||SKINS[0]).n)+')',''));SKINS.forEach(S=>s.add(new Option(S.n,S.k)));s.value=mySkin;s.onchange=()=>setMySkin(s.value);return s;}
 function applySkin(k){
- const S=SKINS.find(x=>x.k===k)||SKINS[0];skin=S.k;WORDS=S.w;
+ const S=SKINS.find(x=>x.k===k)||SKINS[0];skin=S.k;WORDS={}; // the table theme is looks only; loot words stay Core
  applyLook(mySkin||S.k);
  try{localStorage.setItem('boomskin',S.k)}catch{}
  $('#cmscreen').href=LINKS.cmScreen+'?theme='+S.k;
@@ -1422,9 +1431,7 @@ function applySkin(k){
  // redraw so every label picks up the new words
  render();renderParty();renderMon();renderQuick();swapAll(document.body);}
 function renderSkins(){const w=$('#skinsel');if(!w)return;if(!w.options.length){SKINS.forEach(S=>w.add(new Option(S.n,S.k)));w.onchange=()=>setSkin(w.value);}w.value=skin;}
-function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,adult:adultLoot,ts:Date.now()}).catch(()=>toast('Could not change the theme'));else applySkin(k);}
-function applyAdult(v){adultLoot=!!v;const c=$('#adultchk');if(c)c.checked=adultLoot;try{localStorage.setItem('boomadult',adultLoot?'1':'')}catch{}}
-$('#adultchk').onchange=e=>{const v=e.target.checked;if(settingsCol)settingsCol.doc('theme').set({skin,adult:v,ts:Date.now()}).catch(()=>toast('Could not change the setting'));else applyAdult(v);};
+function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,ts:Date.now()}).catch(()=>toast('Could not change the theme'));else applySkin(k);}
 // Dawn: temp HP resets for the whole party.
 {const d=$('#dawn');let armed=0,tm=0;d.onclick=()=>{if(!armed){armed=1;d.classList.add('arm');d.textContent='🌅 Tap again';clearTimeout(tm);tm=setTimeout(()=>{armed=0;d.classList.remove('arm');d.textContent='🌅 Dawn';},3000);return;}
  armed=0;clearTimeout(tm);d.classList.remove('arm');d.textContent='🌅 Dawn';dawnRun();};}
@@ -1432,7 +1439,7 @@ const dawnRun=()=>{if(!partyCol)return toast('Add heroes in the Party tab first'
  hit.forEach(c=>put(c,{temp:0}));const m='🌅 Dawn breaks'+(hit.length?': temp HP cleared for '+hit.map(c=>c.name||'a hero').join(', '):'. No one had temp HP');toast(m);logEvent(m);};
 // ---------- startup (page works alone, lights up with db) ----------
 renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
-{let k0='core',a0='';try{k0=localStorage.getItem('boomskin')||'core';a0=localStorage.getItem('boomadult')||''}catch{}applyAdult(a0);applySkin(k0);}
+{let k0='core';try{k0=localStorage.getItem('boomskin')||'core'}catch{}applySkin(k0);}
 (async()=>{
  try{userNS=await claude.use('user');}catch{}
  try{db=await claude.use('db');}catch{}
@@ -1448,7 +1455,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  $('#tM').hidden=!isDM;if(isDM){monCol=db.collection('monsters');monCol.onSnapshot(s=>{monsters=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderMon();});}
  initCol=db.collection('init');
  initCol.onSnapshot(s=>{inits=s.docs.filter(d=>d.id!=='_turn').map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.v-a.v||a.ts-b.ts);const t=s.docs.find(d=>d.id==='_turn');turn=t?t.data().id:null;round=t?(t.data().round||1):1;renderInit();});
- settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applyAdult(v.adult);applySkin(v.skin||'core');});
+ settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applySkin(v.skin||'core');});
  boxCol=db.collection('boxes');boxCol.onSnapshot(s=>{boxes=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderBoxes();checkBoxes();});fillHeroes();
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');

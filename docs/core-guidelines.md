@@ -353,7 +353,7 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 | 71-99 | An **item:** d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat |
 | 100 | **Upgrade:** no loot; the box goes up one tier (max T6) and the die becomes 2d100 |
 
-**Naming loot:** roll a d100 clever name and a d100 base item from your theme's tables, such as Black Hawk Longbow (+2 Speed). Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. Adult tables can add the After Dark set (21+) to any theme: for each item, roll 1d2 first. On a 1, roll on the theme's tables; on a 2, roll on the After Dark tables. The full tables for Fantasy, Space, Horror, Street Grit, and After Dark are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
+**Naming loot:** roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as space, Street Grit, and After Dark, or horror and fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. After Dark (21+) is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Space, Horror, Street Grit, and After Dark are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
 
 **Any even roll from 2 to 98** also drops a **soul core** of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.
 
@@ -502,7 +502,7 @@ Build a hazard like an ability: its tier sets its dice, targets, rounds, and eff
 
 ### Rename Anything
 
-The app's table theme (in the CM tab) renames the loot words for everyone, as the first four rows show. Stat names stay the same in the app; the stat rows are optional names for the table to use out loud.
+In the app, the table theme changes the look only (colors and fonts); the loot words stay Core. Every row here is an optional name for the table to use out loud.
 
 | Boom (Core) | Fantasy | Space | Horror | Street Grit |
 | --- | --- | --- | --- | --- |
