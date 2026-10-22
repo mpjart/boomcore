@@ -272,7 +272,7 @@ async function genEncounter(diff,b){
  const kinds=[];
  if(diff==='hard'&&budget>=4){kinds.push('boss');budget-=4;}else if(diff==='fair'&&budget>=6&&Math.random()<.5){kinds.push('boss');budget-=4;}
  while(budget>0&&kinds.length<8){if(budget>=2&&Math.random()<(diff==='easy'?.35:.65)){kinds.push('standard');budget-=2;}else{kinds.push('minion');budget-=1;}}
- const F=FOES[skin==='core'||skin==='coredark'?'fantasy':skin]||FOES.fantasy,mName=pick(F.m),sNames=F.s.slice().sort(()=>Math.random()-.5);
+ const F=FOES[skin==='core'||skin==='coredark'||skin==='fantasydark'?'fantasy':skin]||FOES.fantasy,mName=pick(F.m),sNames=F.s.slice().sort(()=>Math.random()-.5);
  let mi=0,si=0;const made=[];
  // clear the last generated encounter: its monsters, the chalk, and monster tokens
  (monsters||[]).filter(m=>m.gen).forEach(m=>{monCol.doc(m.id).delete().catch(()=>{});initCol&&initCol.doc('m'+m.id).delete().catch(()=>{});});

@@ -7,11 +7,13 @@
 <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l9 5v10l-9 5-9-5V7z' fill='%23B83A12'/%3E%3C/svg%3E">
 <style>
-/* Each theme sets these; panels only use the variables. ?theme=fantasy|space|horror|grit|pirate|steampunk picks one. */
+/* Each theme sets these; panels only use the variables. ?theme=fantasy|fantasydark|space|horror|grit|pirate|steampunk picks one. */
 :root{--bg:#FBF7EF;--ink:#1F1A17;--head:#1F4E5F;--thbg:#1F4E5F;--thfg:#fff;--acc:#B83A12;--accfg:#fff;--line:#9C8F7E;--alt:#F1EADC;--mute:#5E554B;--page:#e9e3d8;
  --fd:'Alfa Slab One',serif;--fc:'Barlow Condensed',sans-serif;--fb:'Barlow',sans-serif}
 :root[data-skin="fantasy"]{--bg:#f6ecd6;--ink:#2b1d0e;--head:#8b1e1e;--thbg:#8b1e1e;--thfg:#f7eedb;--acc:#2b1d0e;--accfg:#e0b44f;--line:#b8862b;--alt:#ecdcb9;--mute:#6b5538;--page:#d9c7a0;
  --fd:Cinzel,Georgia,serif;--fc:Cinzel,Georgia,serif;--fb:'EB Garamond',Georgia,serif}
+:root[data-skin="fantasydark"]{--bg:#140d1d;--ink:#e9defa;--head:#c9a4ff;--thbg:#2a1b3e;--thfg:#e9defa;--acc:#3ddc84;--accfg:#04140a;--line:#4a3566;--alt:#1c1428;--mute:#a596b8;--page:#07040c;
+ --fd:Cinzel,Georgia,serif;--fc:Cinzel,Georgia,serif;--fb:'Cormorant Garamond',Georgia,serif}
 :root[data-skin="space"]{--bg:#0b1124;--ink:#e4eaff;--head:#4fd8f7;--thbg:#12244a;--thfg:#e4eaff;--acc:#4fd8f7;--accfg:#06101f;--line:#2c3b68;--alt:#111a36;--mute:#9aa6cc;--page:#05070f;
  --fd:Orbitron,sans-serif;--fc:Orbitron,sans-serif;--fb:'Exo 2',sans-serif}
 :root[data-skin="horror"]{--bg:#141010;--ink:#e6dccf;--head:#e0424a;--thbg:#3a1416;--thfg:#f3e9dc;--acc:#7d1016;--accfg:#f3e9dc;--line:#4a3a36;--alt:#1d1717;--mute:#a39686;--page:#060505;
@@ -57,6 +59,7 @@ b{color:var(--ink)}
 /* Boom logo colors, one set per theme */
 :root{--lg-f1:#5b97ad;--lg-f2:#3a7a91;--lg-fr:#2a6276;--lg-f3:#1f4e5f;--lg-f4:#163a47;--lg-o:#1f1a17;--lg-l:#1f1a17;--lg-n:#fbf7ef;--lg-cap:#5e554b;--lg-fuse:#b58b57;--lg-s1:#f2a33a;--lg-s2:#b83a12;--lg-gl:rgba(255,255,255,.45);--lg-w:#1f4e5f;--lg-ws:#b83a12;--lg-t:#b83a12}
 :root[data-skin="fantasy"]{--lg-f1:#7a5530;--lg-f2:#5c3d1e;--lg-fr:#4a3016;--lg-f3:#3b2410;--lg-f4:#28180a;--lg-o:#1a0f05;--lg-l:#1a0f05;--lg-n:#e0b44f;--lg-cap:#8b1e1e;--lg-fuse:#b8862b;--lg-s1:#f0c75e;--lg-s2:#8b1e1e;--lg-gl:rgba(255,240,200,.4);--lg-w:#8b1e1e;--lg-ws:#c89a3a;--lg-t:#6b5538}
+:root[data-skin="fantasydark"]{--lg-f1:#4a3368;--lg-f2:#36244f;--lg-fr:#2a1b3e;--lg-f3:#1f142e;--lg-f4:#120b1c;--lg-o:#a56cf0;--lg-l:rgba(165,108,240,.8);--lg-n:#3ddc84;--lg-cap:#3b2a4d;--lg-fuse:#a596b8;--lg-s1:#b6ffd6;--lg-s2:#3ddc84;--lg-gl:rgba(220,200,255,.35);--lg-w:#a56cf0;--lg-ws:#3ddc84;--lg-t:#a596b8}
 :root[data-skin="space"]{--lg-f1:#2f56a0;--lg-f2:#1f3d78;--lg-fr:#173060;--lg-f3:#12244a;--lg-f4:#0a1632;--lg-o:#4fd8f7;--lg-l:rgba(79,216,247,.75);--lg-n:#4fd8f7;--lg-cap:#27345e;--lg-fuse:#9aa6cc;--lg-s1:#ffd36b;--lg-s2:#ff9a3c;--lg-gl:rgba(200,240,255,.4);--lg-w:#4fd8f7;--lg-ws:#ff9a3c;--lg-t:#9aa6cc}
 :root[data-skin="horror"]{--lg-f1:#4a3533;--lg-f2:#352523;--lg-fr:#2a1d1b;--lg-f3:#1d1414;--lg-f4:#110b0b;--lg-o:#a3161d;--lg-l:#000000;--lg-n:#e0424a;--lg-cap:#4a3a36;--lg-fuse:#8a7a66;--lg-s1:#ff6a4d;--lg-s2:#a3161d;--lg-gl:rgba(255,220,210,.25);--lg-w:#e0424a;--lg-ws:#5a0a0e;--lg-t:#a39686}
 :root[data-skin="grit"]{--lg-f1:#4a4a4a;--lg-f2:#333333;--lg-fr:#262626;--lg-f3:#1c1c1c;--lg-f4:#0e0e0e;--lg-o:#121212;--lg-l:#121212;--lg-n:#f5c400;--lg-cap:#f5c400;--lg-fuse:#4a4741;--lg-s1:#f5c400;--lg-s2:#b3241a;--lg-gl:rgba(255,255,255,.3);--lg-w:#121212;--lg-ws:#f5c400;--lg-t:#121212}
@@ -69,7 +72,7 @@ b{color:var(--ink)}
 <body>
 <nav class="bar" aria-label="Boom pages" data-noswap>
  <div><img src="logo-mark.svg" alt="" width="26" height="26" style="display:inline-block;vertical-align:middle;margin-right:8px"><a href="./">Boom Dice app</a><a href="rules.html">Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html">Loot Names</a><a href="the-hollow-crown.pdf" target="_blank" rel="noopener">Sample Adventure</a></div>
- <div class="ctl"><label for="skin">Theme</label><select id="skin"><option value="core">Core</option><option value="fantasy">Fantasy</option><option value="pirate">Pirate</option><option value="steampunk">Steampunk</option><option value="horror">Horror</option><option value="grit">Street Grit</option><option value="space">Space</option></select><button id="print" type="button">Print</button></div>
+ <div class="ctl"><label for="skin">Theme</label><select id="skin"><option value="core">Core</option><option value="fantasy">Fantasy Light</option><option value="fantasydark">Fantasy Dark</option><option value="pirate">Pirate</option><option value="steampunk">Steampunk</option><option value="horror">Horror</option><option value="grit">Street Grit</option><option value="space">Space</option></select><button id="print" type="button">Print</button></div>
 </nav>
 <main class="wrap" id="wrap">
 <div class="fit" id="fit">
@@ -378,10 +381,10 @@ b{color:var(--ink)}
 </main>
 <script>
 // Theme: ?theme= wins (the app passes the table's theme), else the last one picked here.
-const FONTS={core:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',fantasy:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',space:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',horror:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',grit:'Anton&family=Barlow+Condensed:wght@500;600;700',pirate:'Pirata+One&family=Alegreya:wght@400;600;700',steampunk:'Abril+Fatface&family=Libre+Baskerville:wght@400;700'};
+const FONTS={core:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',fantasy:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',fantasydark:'Cinzel:wght@600;800&family=Cormorant+Garamond:wght@500;600;700',space:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',horror:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',grit:'Anton&family=Barlow+Condensed:wght@500;600;700',pirate:'Pirata+One&family=Alegreya:wght@400;600;700',steampunk:'Abril+Fatface&family=Libre+Baskerville:wght@400;700'};
 // Only the coin name changes, like the app: the CM's table setting (?coin=&coins=) wins, else the theme's usual currency.
 // Soul cores, ability tokens, and loot boxes keep their Core names in every theme.
-const WORDS={core:{},fantasy:{},space:{coin:['credit','credits']},horror:{coin:['grave coin','grave coins']},grit:{coin:['buck','bucks']},pirate:{coin:['doubloon','doubloons']},steampunk:{coin:['cog','cogs']}};
+const WORDS={core:{},fantasy:{},fantasydark:{},space:{coin:['credit','credits']},horror:{coin:['grave coin','grave coins']},grit:{coin:['buck','bucks']},pirate:{coin:['doubloon','doubloons']},steampunk:{coin:['cog','cogs']}};
 const QS=new URLSearchParams(location.search),COIN=QS.get('coins')?{coin:[QS.get('coin')||QS.get('coins'),QS.get('coins')]}:null;
 const WRE=/\b(spirit coins?|coins?|ability tokens?|tokens?|soul cores?|cores?(?! Master)|loot box(?:es)?|box(?:es)?)\b/gi;
 const orig=new WeakMap();
