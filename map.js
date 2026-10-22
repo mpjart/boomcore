@@ -370,7 +370,7 @@ function renderCard(){
   h.append(sel,el('span','lv','Lv '+m.level+(m.kind==='boss'?' · Boss':m.kind==='minion'?' · Minion':'')),btn('🎲 Init',()=>{rollMonInit(m);last=null;renderCard();},'sm rb'),close);C.append(h);
   const hb=el('div','hpb');hb.append(el('b',null,cur<=0?'☠ Defeated':'HP '+cur+' / '+hp));const bar=el('div','bar'),fill=el('div','fill'+(cur<=hp*.25?' low':''));fill.style.width=(hp?cur/hp*100:0)+'%';bar.append(fill);hb.append(bar);
   const r=el('div','row hpc'),n=document.createElement('input');n.type='number';n.min=1;n.placeholder='Amount';n.inputMode='numeric';n.id='mrcamt';const amt=()=>Math.max(0,Math.floor(+n.value)||0);
-  r.append(n,btn('Damage',()=>{const a=amt();if(!a)return;const nc=Math.max(0,cur-a);putM(m,{hpCur:nc});if(nc===0&&cur>0){toast(m.name+' is defeated');logEvent('☠ '+m.name+' is defeated');}n.blur();renderCard();renderTokens();},'sm dmg'),
+  r.append(n,btn('Dmg',()=>{const a=amt();if(!a)return;const nc=Math.max(0,cur-a);putM(m,{hpCur:nc});if(nc===0&&cur>0){toast(m.name+' is defeated');logEvent('☠ '+m.name+' is defeated');}n.blur();renderCard();renderTokens();},'sm dmg'),
    btn('Heal',()=>{const a=amt();if(a)putM(m,{hpCur:Math.min(hp,cur+a)});n.blur();renderCard();renderTokens();},'sm heal'),btn('Full',()=>{putM(m,{hpCur:hp});renderCard();renderTokens();}));hb.append(r);C.append(hb);
   C.append(chipRow(STATS.map(([key,lab])=>[key,lab,+m[key]||0]),m.armor||0,m.name,'',cur<=0));
   C.append(el('div','note','Move '+(5+m.level+m.spd)+' · '+(1+Math.floor(m.spd/4))+' action'+(m.spd>=4?'s':'')+' per turn'));
