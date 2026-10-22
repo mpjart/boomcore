@@ -7,7 +7,7 @@
 <link rel="icon" href="logo-mark.svg" type="image/svg+xml">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l9 5v10l-9 5-9-5V7z' fill='%23B83A12'/%3E%3C/svg%3E">
 <style>
-/* Each theme sets these; panels only use the variables. ?theme=fantasy|space|horror|grit|pirate picks one. */
+/* Each theme sets these; panels only use the variables. ?theme=fantasy|space|horror|grit|pirate|steampunk picks one. */
 :root{--bg:#FBF7EF;--ink:#1F1A17;--head:#1F4E5F;--thbg:#1F4E5F;--thfg:#fff;--acc:#B83A12;--accfg:#fff;--line:#9C8F7E;--alt:#F1EADC;--mute:#5E554B;--page:#e9e3d8;
  --fd:'Alfa Slab One',serif;--fc:'Barlow Condensed',sans-serif;--fb:'Barlow',sans-serif}
 :root[data-skin="fantasy"]{--bg:#f6ecd6;--ink:#2b1d0e;--head:#8b1e1e;--thbg:#8b1e1e;--thfg:#f7eedb;--acc:#2b1d0e;--accfg:#e0b44f;--line:#b8862b;--alt:#ecdcb9;--mute:#6b5538;--page:#d9c7a0;
@@ -20,6 +20,8 @@
  --fd:Anton,Impact,sans-serif;--fc:Anton,Impact,sans-serif;--fb:'Barlow Condensed','Arial Narrow',sans-serif}
 :root[data-skin="pirate"]{--bg:#f3e6c8;--ink:#2a1708;--head:#0f2a2e;--thbg:#0f2a2e;--thfg:#f3e6c8;--acc:#e3a93b;--accfg:#1a1205;--line:#6b4423;--alt:#e6d4ab;--mute:#5e4a30;--page:#3a230f;
  --fd:'Pirata One',Georgia,serif;--fc:'Pirata One',Georgia,serif;--fb:Alegreya,Georgia,serif}
+:root[data-skin="steampunk"]{--bg:#efe2c6;--ink:#2a1a10;--head:#2a1a10;--thbg:#2a1a10;--thfg:#e8c27a;--acc:#c9953b;--accfg:#1a0f06;--line:#8a6a3a;--alt:#e2d1ab;--mute:#5e4a30;--page:#1a110b;
+ --fd:'Abril Fatface',Georgia,serif;--fc:'Abril Fatface',Georgia,serif;--fb:'Libre Baskerville',Georgia,serif}
 *{box-sizing:border-box}
 body{margin:0;background:var(--page);color:var(--ink);font-family:var(--fb)}
 .bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--thbg);color:var(--thfg);font-family:var(--fc)}
@@ -59,6 +61,7 @@ b{color:var(--ink)}
 :root[data-skin="horror"]{--lg-f1:#4a3533;--lg-f2:#352523;--lg-fr:#2a1d1b;--lg-f3:#1d1414;--lg-f4:#110b0b;--lg-o:#a3161d;--lg-l:#000000;--lg-n:#e0424a;--lg-cap:#4a3a36;--lg-fuse:#8a7a66;--lg-s1:#ff6a4d;--lg-s2:#a3161d;--lg-gl:rgba(255,220,210,.25);--lg-w:#e0424a;--lg-ws:#5a0a0e;--lg-t:#a39686}
 :root[data-skin="grit"]{--lg-f1:#4a4a4a;--lg-f2:#333333;--lg-fr:#262626;--lg-f3:#1c1c1c;--lg-f4:#0e0e0e;--lg-o:#121212;--lg-l:#121212;--lg-n:#f5c400;--lg-cap:#f5c400;--lg-fuse:#4a4741;--lg-s1:#f5c400;--lg-s2:#b3241a;--lg-gl:rgba(255,255,255,.3);--lg-w:#121212;--lg-ws:#f5c400;--lg-t:#121212}
 :root[data-skin="pirate"]{--lg-f1:#9a6a3a;--lg-f2:#7a5028;--lg-fr:#65411f;--lg-f3:#513318;--lg-f4:#3a230f;--lg-o:#2a1708;--lg-l:#1a1006;--lg-n:#f3e6c8;--lg-cap:#3a6466;--lg-fuse:#c9a26b;--lg-s1:#ffd36b;--lg-s2:#d4502f;--lg-gl:rgba(255,240,210,.35);--lg-w:#0f2a2e;--lg-ws:#e3a93b;--lg-t:#5e4a30}
+:root[data-skin="steampunk"]{--lg-f1:#e0b25a;--lg-f2:#c08a34;--lg-fr:#a87526;--lg-f3:#8a5e1c;--lg-f4:#5e3f12;--lg-o:#1a0f06;--lg-l:#3a2410;--lg-n:#2a1a10;--lg-cap:#6b4a2a;--lg-fuse:#8a6a3a;--lg-s1:#ffd36b;--lg-s2:#e0662a;--lg-gl:rgba(255,245,215,.45);--lg-w:#2a1a10;--lg-ws:#c9953b;--lg-t:#5e4a30}
 .bm-f1{fill:var(--lg-f1)}.bm-f2{fill:var(--lg-f2)}.bm-f3{fill:var(--lg-f3)}.bm-f4{fill:var(--lg-f4)}.bm-front{fill:var(--lg-fr)}.bm-lines{stroke:var(--lg-l)}.bm-out{stroke:var(--lg-o)}.bm-n{fill:var(--lg-n)}.bm-cap{fill:var(--lg-cap);stroke:var(--lg-o)}.bm-fuse{stroke:var(--lg-fuse)}.bm-s1{fill:var(--lg-s1)}.bm-s2{fill:var(--lg-s2)}.bm-glint{fill:var(--lg-gl)}.bm-w{fill:var(--lg-w)}.bm-ws{fill:var(--lg-ws);stroke:var(--lg-ws)}path.bm-ws{stroke:none}.bm-t{fill:var(--lg-t)}
 .cmhead{display:flex;align-items:center;justify-content:space-between;gap:16px;height:57px;box-sizing:border-box;padding:0 0 6px;border-bottom:3px solid var(--acc)}.cmbrand{display:flex;align-items:center;gap:14px}.cmbrand svg{height:50px;width:auto;flex:none}.cmtitle{font-family:var(--fc);font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--head);line-height:1.05}.cmtag{font-family:var(--fc);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-top:3px}.cmpanel{font-family:var(--fc);font-weight:600;font-size:17px;text-transform:uppercase;letter-spacing:.06em;background:var(--acc);color:var(--accfg);padding:5px 12px;border-radius:4px;white-space:nowrap}:root[data-skin="space"] .cmbrand svg{filter:drop-shadow(0 0 3px rgba(79,216,247,.5))}
 </style>
@@ -66,7 +69,7 @@ b{color:var(--ink)}
 <body>
 <nav class="bar" aria-label="Boom pages" data-noswap>
  <div><img src="logo-mark.svg" alt="" width="26" height="26" style="display:inline-block;vertical-align:middle;margin-right:8px"><a href="./">Boom Dice app</a><a href="rules.html">Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html">Loot Names</a><a href="the-hollow-crown.pdf" target="_blank" rel="noopener">Sample Adventure</a></div>
- <div class="ctl"><label for="skin">Theme</label><select id="skin"><option value="core">Core</option><option value="fantasy">Fantasy</option><option value="space">Space</option><option value="horror">Horror</option><option value="pirate">Pirate</option><option value="grit">Street Grit</option></select><button id="print" type="button">Print</button></div>
+ <div class="ctl"><label for="skin">Theme</label><select id="skin"><option value="core">Core</option><option value="fantasy">Fantasy</option><option value="space">Space</option><option value="horror">Horror</option><option value="pirate">Pirate</option><option value="steampunk">Steampunk</option><option value="grit">Street Grit</option></select><button id="print" type="button">Print</button></div>
 </nav>
 <main class="wrap" id="wrap">
 <div class="fit" id="fit">
@@ -375,10 +378,10 @@ b{color:var(--ink)}
 </main>
 <script>
 // Theme: ?theme= wins (the app passes the table's theme), else the last one picked here.
-const FONTS={core:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',fantasy:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',space:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',horror:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',grit:'Anton&family=Barlow+Condensed:wght@500;600;700',pirate:'Pirata+One&family=Alegreya:wght@400;600;700'};
+const FONTS={core:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',fantasy:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',space:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',horror:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',grit:'Anton&family=Barlow+Condensed:wght@500;600;700',pirate:'Pirata+One&family=Alegreya:wght@400;600;700',steampunk:'Abril+Fatface&family=Libre+Baskerville:wght@400;700'};
 // Only the coin name changes, like the app: the CM's table setting (?coin=&coins=) wins, else the theme's usual currency.
 // Soul cores, ability tokens, and loot boxes keep their Core names in every theme.
-const WORDS={core:{},fantasy:{},space:{coin:['credit','credits']},horror:{coin:['grave coin','grave coins']},grit:{coin:['buck','bucks']},pirate:{coin:['doubloon','doubloons']}};
+const WORDS={core:{},fantasy:{},space:{coin:['credit','credits']},horror:{coin:['grave coin','grave coins']},grit:{coin:['buck','bucks']},pirate:{coin:['doubloon','doubloons']},steampunk:{coin:['cog','cogs']}};
 const QS=new URLSearchParams(location.search),COIN=QS.get('coins')?{coin:[QS.get('coin')||QS.get('coins'),QS.get('coins')]}:null;
 const WRE=/\b(spirit coins?|coins?|ability tokens?|tokens?|soul cores?|cores?(?! Master)|loot box(?:es)?|box(?:es)?)\b/gi;
 const orig=new WeakMap();

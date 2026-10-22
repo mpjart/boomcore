@@ -1671,6 +1671,336 @@ Salt, steel, and powder smoke. Magical means sea magic: storms, tides, curses, a
 | T5 | Sunken-Treasure |
 | T6 | King's Ransom |
 
+## Steampunk
+
+Brass, leather, and steam. Magical means aether, lightning, alchemy, and the occult. Gadgets and trinkets fill the jewelry role, and gems and ingots fill the gem role.
+
+### Weapons
+
+| d100 | Weapon | Hands | Reach | Damage |
+| --- | --- | --- | --- | --- |
+| 1 | Sword Cane | 1 | Touch | Physical |
+| 2 | Cavalry Sabre | 1 | Touch | Physical |
+| 3 | Pipe Wrench | 1 | Touch | Physical |
+| 4 | Monkey Wrench | 1 | Touch | Physical |
+| 5 | Piston Hammer | 2 | Touch | Physical |
+| 6 | Steam Hammer | 2 | Touch | Physical |
+| 7 | Rivet Gauntlet | 1 | Touch | Physical |
+| 8 | Twin Rivet Gauntlets | 2 | Touch | Physical |
+| 9 | Brass Knuckles | 1 | Touch | Physical |
+| 10 | Clockwork Rapier | 1 | Touch | Physical |
+| 11 | Bowie Knife | 1 | Touch | Physical |
+| 12 | Twin Stilettos | 2 | Touch | Physical |
+| 13 | Fire Axe | 2 | Touch | Physical |
+| 14 | Coal Shovel | 2 | Touch | Physical |
+| 15 | Crowbar | 1 | Touch | Physical |
+| 16 | Chainsaw Sword | 2 | Touch | Physical |
+| 17 | Buzz-Saw Blade | 1 | Touch | Physical |
+| 18 | Drill Lance | 2 | Touch | Physical |
+| 19 | Hydraulic Fist | 1 | Touch | Physical |
+| 20 | Twin Hydraulic Fists | 2 | Touch | Physical |
+| 21 | Gear-Toothed Mace | 1 | Touch | Physical |
+| 22 | Boiler Poker | 1 | Touch | Physical |
+| 23 | Railroad Spike | 1 | Touch | Physical |
+| 24 | Rail Hammer | 2 | Touch | Physical |
+| 25 | Bayonet Rifle | 2 | Touch | Physical |
+| 26 | Umbrella Sword | 1 | Touch | Physical |
+| 27 | Walking Stick | 1 | Touch | Physical |
+| 28 | Bladed Fan | 1 | Touch | Physical |
+| 29 | Cleaver | 1 | Touch | Physical |
+| 30 | Surgeon's Bone Saw | 1 | Touch | Physical |
+| 31 | Scalpel | 1 | Touch | Physical |
+| 32 | Piston Glaive | 2 | Touch | Physical |
+| 33 | Spring-Loaded Spear | 2 | Touch | Physical |
+| 34 | Clockwork Claws | 2 | Touch | Physical |
+| 35 | Anvil on a Chain | 2 | Touch | Physical |
+| 36 | Brass Cudgel | 1 | Touch | Physical |
+| 37 | Tuning-Fork Halberd | 2 | Touch | Physical |
+| 38 | Lead Pipe | 1 | Touch | Physical |
+| 39 | Garrote Wire | 2 | Touch | Physical |
+| 40 | Spanner and Hammer | 2 | Touch | Physical |
+| 41 | Revolver | 1 | Ranged | Physical |
+| 42 | Twin Revolvers | 2 | Ranged | Physical |
+| 43 | Derringer | 1 | Ranged | Physical |
+| 44 | Pepperbox Pistol | 1 | Ranged | Physical |
+| 45 | Gatling Gun | 2 | Ranged | Physical |
+| 46 | Rivet Gun | 1 | Ranged | Physical |
+| 47 | Harpoon Launcher | 2 | Ranged | Physical |
+| 48 | Blunderbuss | 2 | Ranged | Physical |
+| 49 | Elephant Gun | 2 | Ranged | Physical |
+| 50 | Grapnel Pistol | 1 | Ranged | Physical |
+| 51 | Throwing Cogs | 1 | Ranged | Physical |
+| 52 | Dart Pistol | 1 | Ranged | Physical |
+| 53 | Flare Gun | 1 | Ranged | Physical |
+| 54 | Repeating Crossbow | 2 | Ranged | Physical |
+| 55 | Air Rifle | 2 | Ranged | Physical |
+| 56 | Steam Cannon | 2 | Ranged | Physical |
+| 57 | Grenade Launcher | 2 | Ranged | Physical |
+| 58 | Bolas | 1 | Ranged | Physical |
+| 59 | Sniper Rifle | 2 | Ranged | Physical |
+| 60 | Shotgun | 2 | Ranged | Physical |
+| 61 | Sawn-Off Shotgun | 1 | Ranged | Physical |
+| 62 | Dynamite Sticks | 1 | Ranged | Physical |
+| 63 | Smoke Bombs | 1 | Ranged | Physical |
+| 64 | Nail Thrower | 2 | Ranged | Physical |
+| 65 | Spring-Gun | 1 | Ranged | Physical |
+| 66 | Wrist Crossbow | 1 | Ranged | Physical |
+| 67 | Twin Wrist Crossbows | 2 | Ranged | Physical |
+| 68 | Slingshot | 1 | Ranged | Physical |
+| 69 | Throwing Spanners | 1 | Ranged | Physical |
+| 70 | Pneumatic Bolt Gun | 2 | Ranged | Physical |
+| 71 | Cane Gun | 1 | Ranged | Physical |
+| 72 | Duck-Foot Pistol | 1 | Ranged | Physical |
+| 73 | Mortar Tube | 2 | Ranged | Physical |
+| 74 | Flechette Rifle | 2 | Ranged | Physical |
+| 75 | Clockwork Pistol | 1 | Ranged | Physical |
+| 76 | Tesla Coil Staff | 2 | Ranged | Magical |
+| 77 | Lightning Gun | 2 | Ranged | Magical |
+| 78 | Aether Pistol | 1 | Ranged | Magical |
+| 79 | Ray Gun | 1 | Ranged | Magical |
+| 80 | Twin Ray Guns | 2 | Ranged | Magical |
+| 81 | Alchemical Flasks | 1 | Ranged | Magical |
+| 82 | Phlogiston Thrower | 2 | Ranged | Magical |
+| 83 | Sonic Horn | 2 | Ranged | Magical |
+| 84 | Death Ray | 2 | Ranged | Magical |
+| 85 | Mesmer Watch | 1 | Ranged | Magical |
+| 86 | Spirit Phonograph | 2 | Ranged | Magical |
+| 87 | Aetheric Wand | 1 | Ranged | Magical |
+| 88 | Static Rod | 1 | Ranged | Magical |
+| 89 | Luminiferous Lantern | 1 | Ranged | Magical |
+| 90 | Orrery of Doom | 2 | Ranged | Magical |
+| 91 | Galvanic Gauntlet | 1 | Touch | Magical |
+| 92 | Arc Blade | 1 | Touch | Magical |
+| 93 | Voltaic Whip | 1 | Touch | Magical |
+| 94 | Chrono Blade | 1 | Touch | Magical |
+| 95 | Spark Lance | 2 | Touch | Magical |
+| 96 | Thunder Umbrella | 1 | Touch | Magical |
+| 97 | Ectoplasm Gloves | 2 | Touch | Magical |
+| 98 | Radium Knife | 1 | Touch | Magical |
+| 99 | Magnetic Hammer | 2 | Touch | Magical |
+| 100 | Galvanic Saber | 1 | Touch | Magical |
+
+### Armor
+
+| d100 | Armor | Type |
+| --- | --- | --- |
+| 1 | Leather Duster | Physical |
+| 2 | Brass Goggles | Physical |
+| 3 | Top Hat | Physical |
+| 4 | Bowler Hat | Physical |
+| 5 | Corset | Physical |
+| 6 | Waistcoat | Physical |
+| 7 | Frock Coat | Physical |
+| 8 | Leather Apron | Physical |
+| 9 | Welding Mask | Physical |
+| 10 | Gas Mask | Physical |
+| 11 | Plague Doctor Mask | Physical |
+| 12 | Brass Diving Helmet | Physical |
+| 13 | Riveted Pauldron | Physical |
+| 14 | Clockwork Arm | Physical |
+| 15 | Brass Greaves | Physical |
+| 16 | Hobnail Boots | Physical |
+| 17 | Spats | Physical |
+| 18 | Leather Gloves | Physical |
+| 19 | Asbestos Gloves | Physical |
+| 20 | Boiler Plate | Physical |
+| 21 | Stovepipe Hat | Physical |
+| 22 | Pith Helmet | Physical |
+| 23 | Aviator Cap | Physical |
+| 24 | Flight Jacket | Physical |
+| 25 | Bandolier | Physical |
+| 26 | Tool Belt | Physical |
+| 27 | Riveted Vest | Physical |
+| 28 | Chainmail Waistcoat | Physical |
+| 29 | Steel Bustle | Physical |
+| 30 | Cog Shield | Physical |
+| 31 | Manhole Cover Shield | Physical |
+| 32 | Umbrella Shield | Physical |
+| 33 | Exo-Frame | Physical |
+| 34 | Piston Legs | Physical |
+| 35 | Hydraulic Arm | Physical |
+| 36 | Brass Breastplate | Physical |
+| 37 | Bulletproof Corset | Physical |
+| 38 | Copper Bracers | Physical |
+| 39 | Leather Bracers | Physical |
+| 40 | Iron Lung | Physical |
+| 41 | Mechanical Spine | Physical |
+| 42 | Spring Heels | Physical |
+| 43 | Tweed Jacket | Physical |
+| 44 | Greatcoat | Physical |
+| 45 | Conductor's Coat | Physical |
+| 46 | Fireman's Helmet | Physical |
+| 47 | Miner's Helmet | Physical |
+| 48 | Engineer's Overalls | Physical |
+| 49 | Stoker's Smock | Physical |
+| 50 | Leather Kilt | Physical |
+| 51 | Riveted Cuirass | Physical |
+| 52 | Boilermaker's Gauntlets | Physical |
+| 53 | Cast-Iron Kneecaps | Physical |
+| 54 | Clockwork Leg | Physical |
+| 55 | Brass Collar | Physical |
+| 56 | Padded Tailcoat | Physical |
+| 57 | Aether Shield Belt | Magical |
+| 58 | Tesla Armor | Magical |
+| 59 | Galvanic Coat | Magical |
+| 60 | Lightning Rod Hat | Magical |
+| 61 | Faraday Cloak | Magical |
+| 62 | Phlogiston Vest | Magical |
+| 63 | Alchemist's Robe | Magical |
+| 64 | Spiritualist's Shawl | Magical |
+| 65 | Mesmerist's Cape | Magical |
+| 66 | Clockwork Heart | Magical |
+| 67 | Chrono Vest | Magical |
+| 68 | Gyroscopic Harness | Magical |
+| 69 | Etheric Goggles | Magical |
+| 70 | Luminous Goggles | Magical |
+| 71 | Rocket Pack | Magical |
+| 72 | Static Gloves | Magical |
+| 73 | Arc-Field Bracers | Magical |
+| 74 | Ectoplasm Veil | Magical |
+| 75 | Seance Robes | Magical |
+| 76 | Magnetic Boots | Magical |
+| 77 | Electro-Corset | Magical |
+| 78 | Voltaic Cuirass | Magical |
+| 79 | Rubber Insulation Suit | Magical |
+| 80 | Copper Coil Crown | Magical |
+| 81 | Radium-Painted Coat | Magical |
+| 82 | Perpetual Motion Belt | Magical |
+| 83 | Prism Monocle | Magical |
+| 84 | Aether-Weave Gloves | Magical |
+| 85 | Occultist's Waistcoat | Magical |
+| 86 | Glowing Vacuum Tube Vest | Magical |
+| 87 | Spirit-Lens Spectacles | Magical |
+| 88 | Hypnotic Bow Tie | Magical |
+| 89 | Mercury Cloak | Magical |
+| 90 | Ether Mask | Magical |
+| 91 | Tesla Halo | Magical |
+| 92 | Dirigible Cape | Magical |
+| 93 | Thunder-Silk Scarf | Magical |
+| 94 | Clockwork Wings | Magical |
+| 95 | Phantom Opera Mask | Magical |
+| 96 | Voltaic Top Hat | Magical |
+| 97 | Aurora Parasol | Magical |
+| 98 | Galvanized Gown | Magical |
+| 99 | Lodestone Girdle | Magical |
+| 100 | Moon-Ray Visor | Magical |
+
+### Clever Names, Trinkets, and Gems
+
+| d100 | Clever name | Trinket | Gem |
+| --- | --- | --- | --- |
+| 1 | Brass | Pocket Watch | Ruby |
+| 2 | Copper | Monocle | Sapphire |
+| 3 | Cogwheel | Cufflinks | Emerald |
+| 4 | Clockwork | Tie Pin | Diamond |
+| 5 | Aether | Cameo Brooch | Pearl |
+| 6 | Tesla | Locket | Opal |
+| 7 | Gaslight | Gear Pendant | Topaz |
+| 8 | Soot-Stained | Key Pendant | Amethyst |
+| 9 | Coal-Fired | Signet Ring | Garnet |
+| 10 | Steam-Powered | Watch Fob | Jet |
+| 11 | Lord Ashcombe's | Chatelaine | Moonstone |
+| 12 | Professor Thistle's | Hat Pin | Onyx |
+| 13 | Lady Cogsworth's | Brass Compass | Jade |
+| 14 | Dr. Vellum's | Copper Bangle | Turquoise |
+| 15 | Baron Von Gearhart's | Brass Ring | Aquamarine |
+| 16 | Madame Sprocket's | Tesla Coil Earrings | Peridot |
+| 17 | Captain Bellows' | Vacuum Tube Necklace | Citrine |
+| 18 | Inspector Grimsby's | Clockwork Beetle Brooch | Tourmaline |
+| 19 | Old Tinker's | Wind-Up Songbird | Agate |
+| 20 | The Duchess' | Gyroscope Pendant | Carnelian |
+| 21 | Mad Professor's | Mainspring Bracelet | Bloodstone |
+| 22 | Engineer's | Escapement Earrings | Tiger's Eye |
+| 23 | Stoker's | Pressure Gauge Charm | Lapis Lazuli |
+| 24 | Chimney Sweep's | Thermometer Pendant | Malachite |
+| 25 | Airship | Lightbulb Locket | Hematite |
+| 26 | Dirigible | Spark Plug Pin | Obsidian |
+| 27 | Zeppelin | Valve Wheel Ring | Quartz |
+| 28 | Ironclad | Rivet Ring | Rose Quartz |
+| 29 | Locomotive | Bolt Earrings | Smoky Quartz |
+| 30 | Furnace | Washer Bracelet | Amber |
+| 31 | Boilerworks | Spectacles | Coal Diamond |
+| 32 | Foundry | Opera Glasses | Aether Crystal |
+| 33 | Smog | Lorgnette | Phlogiston Ember |
+| 34 | Fog-Choked | Pince-Nez | Radium Shard |
+| 35 | Midnight Express | Ear Trumpet | Quartz Oscillator |
+| 36 | Victorian | Snuff Tin | Voltaic Crystal |
+| 37 | Imperial | Cigar Cutter | Watch Jewel |
+| 38 | Royal Society | Pocket Knife | Industrial Diamond |
+| 39 | Patent-Pending | Hip Flask | Brass Ingot |
+| 40 | Prototype | Lucky Horseshoe | Copper Ingot |
+| 41 | Overclocked | Railway Pass | Silver Ingot |
+| 42 | Spring-Loaded | Airship Wings Pin | Gold Ingot |
+| 43 | Pneumatic | Inventor's Medal | Platinum Nugget |
+| 44 | Hydraulic | Patent Medallion | Mercury Bead |
+| 45 | Galvanic | Royal Society Badge | Lodestone |
+| 46 | Voltaic | Guild Ring | Meteorite Iron |
+| 47 | Phlogiston | Mourning Brooch | Lightning Glass |
+| 48 | Radium | Hair Locket | Glowstone |
+| 49 | Mercury | Cog Cufflinks | Ectoplasm Pearl |
+| 50 | Quicksilver | Skeleton Key | Clockwork Ruby |
+| 51 | Lightning | Clockwork Heart Pendant | Black Opal |
+| 52 | Thunderclap | Brass Choker | Fire Opal |
+| 53 | Storm-Engine | Lace Choker | Star Sapphire |
+| 54 | Perpetual | Velvet Ribbon Choker | Star Ruby |
+| 55 | Chrono | Pearl Drop Earrings | Cat's Eye |
+| 56 | Gyroscopic | Jet Bead Necklace | Alexandrite |
+| 57 | Magnetic | Garnet Bracelet | Spinel |
+| 58 | Electromagnetic | Moonstone Ring | Zircon |
+| 59 | Ethereal | Opal Tiara | Chrysoberyl |
+| 60 | Luminiferous | Copper Wire Torc | Tanzanite |
+| 61 | Mesmeric | Mechanical Spider Brooch | Morganite |
+| 62 | Spiritualist's | Wind-Up Mouse | Kunzite |
+| 63 | Occult | Pocket Sundial | Beryl |
+| 64 | Alchemist's | Pocket Barometer | Heliodor |
+| 65 | Apothecary's | Slide Rule Charm | Iolite |
+| 66 | Watchmaker's | Calipers Pendant | Labradorite |
+| 67 | Gunsmith's | Gear Earrings | Sunstone |
+| 68 | Blacksmith's | Sprocket Ring | Fluorite |
+| 69 | Tinkerer's | Ratchet Bracelet | Apatite |
+| 70 | Inventor's | Hourglass Pendant | Kyanite |
+| 71 | Rivet | Telegraph Key Charm | Moss Agate |
+| 72 | Gearbox | Morse Code Bracelet | Fire Agate |
+| 73 | Pistonhead | Radium Ring | Chalcedony |
+| 74 | Flywheel | Glowing Vial Pendant | Jasper |
+| 75 | Sprocket | Mercury Vial Necklace | Sodalite |
+| 76 | Valve | Aether Crystal Pendant | Amazonite |
+| 77 | Ratchet | Lightning Jar Charm | Rhodonite |
+| 78 | Crank | Galvanic Ring | Rhodochrosite |
+| 79 | Bolt | Magnet Ring | Sphene |
+| 80 | Tick-Tock | Lodestone Pendant | Demantoid |
+| 81 | Smokestack | Clockwork Hummingbird | Andalusite |
+| 82 | Coalheart | Mechanical Owl Brooch | Danburite |
+| 83 | Ironside | Tin Soldier Charm | Benitoite |
+| 84 | Steelwhistle | Brass Thimble | Painite |
+| 85 | Brassbound | Sewing Bird | Taaffeite |
+| 86 | Copperpot | Locomotive Charm | Musgravite |
+| 87 | Leatherback | Zeppelin Pendant | Pink Diamond |
+| 88 | Silvergear | Balloon Pendant | Blue Diamond |
+| 89 | Gilded Age | Propeller Earrings | Yellow Diamond |
+| 90 | Grand Exhibition | Steam Whistle | Champagne Diamond |
+| 91 | Whitechapel | Pressure Valve Pendant | Steam Pearl |
+| 92 | Ironworks | Boiler Badge | Smog Opal |
+| 93 | Gutter | Engineer's Ring | Furnace Garnet |
+| 94 | Chimney | Foundry Medal | Engine Emerald |
+| 95 | Rooftop | Gentleman's Club Ring | Gaslight Topaz |
+| 96 | Sky Pirate | Calling Card Case | Tesla Sapphire |
+| 97 | Clocktower | Brass Buttons | Boiler Ruby |
+| 98 | Big Brass | Silver Shoe Buckles | Foundry Onyx |
+| 99 | Uncle Gizmo's | Silk Pocket Square | Chrono Quartz |
+| 100 | Granny Wrench's | Gilded Watch Chain | Gearstone |
+
+### Gem Quality by Tier
+
+| Tier | Gem quality |
+| --- | --- |
+| T1 | Sooty |
+| T2 | Tarnished |
+| T3 | Polished |
+| T4 | Precision-Cut |
+| T5 | Royal Society |
+| T6 | Imperial |
+
 ## After Dark (21+)
 
 Loot only, for adult tables: bad puns, crude jokes, and novelty gear. It has no app look of its own; it is bonus names for Street Grit and mixes with any tables you toggle on. Magical means vibration, heat, sauce, or sheer awkwardness. Twin weapons and prosthetics follow the same hands rule as everything else.

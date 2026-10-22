@@ -750,7 +750,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 </tr>
 </tbody>
 </table></div>
-<p><strong>Naming loot:</strong> roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as space, Street Grit, and After Dark, or horror and fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. After Dark (21+) is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Space, Horror, Street Grit, Pirate, and After Dark are on the <a href="https://mpjart.github.io/boomcore/loot-names.html">Loot Name Tables</a> page, and the app rolls them for you.</p>
+<p><strong>Naming loot:</strong> roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as space, Street Grit, and After Dark, or horror and fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. After Dark (21+) is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Space, Horror, Street Grit, Pirate, Steampunk, and After Dark are on the <a href="https://mpjart.github.io/boomcore/loot-names.html">Loot Name Tables</a> page, and the app rolls them for you.</p>
 <p><strong>Any even roll from 2 to 98</strong> also drops a <strong>soul core</strong> of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.</p>
 <p><strong>Example:</strong> Bob opens a T1 box from a level 3 monster and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 38 and 79. At T2, the 64 is a token plus a T2 core, the 38 is a reagent worth 38 Uncommon coins (the box's tier) plus a T2 core, and the 79 is an item with +1 to a random stat.</p>
 <h3 id="using-loot">Using Loot</h3>
@@ -970,6 +970,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <th>Horror</th>
 <th>Street Grit</th>
 <th>Pirate</th>
+<th>Steampunk</th>
 </tr>
 </thead>
 <tbody>
@@ -980,6 +981,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Grave coins</td>
 <td>Bucks</td>
 <td>Doubloons</td>
+<td>Cogs</td>
 </tr>
 <tr>
 <td>Ability tokens</td>
@@ -988,8 +990,10 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Rites</td>
 <td>Favors</td>
 <td>Shanties</td>
+<td>Blueprints</td>
 </tr>
 <tr>
+<td>Soul cores</td>
 <td>Soul cores</td>
 <td>Soul cores</td>
 <td>Soul cores</td>
@@ -1004,6 +1008,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Coffer</td>
 <td>Duffel bag</td>
 <td>Sea chest</td>
+<td>Steamer trunk</td>
 </tr>
 <tr>
 <td>Constitution</td>
@@ -1012,6 +1017,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Grit</td>
 <td>Toughness</td>
 <td>Sea legs</td>
+<td>Fortitude</td>
 </tr>
 <tr>
 <td>Strength</td>
@@ -1020,6 +1026,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Strength</td>
 <td>Strength</td>
 <td>Brawn</td>
+<td>Muscle</td>
 </tr>
 <tr>
 <td>Intellect</td>
@@ -1028,6 +1035,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Wits</td>
 <td>Smarts</td>
 <td>Cunning</td>
+<td>Ingenuity</td>
 </tr>
 <tr>
 <td>Speed</td>
@@ -1036,6 +1044,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Agility</td>
 <td>Agility</td>
 <td>Swiftness</td>
+<td>Dexterity</td>
 </tr>
 <tr>
 <td>Charm</td>
@@ -1044,6 +1053,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Charisma</td>
 <td>Swagger</td>
 <td>Parley</td>
+<td>Etiquette</td>
 </tr>
 <tr>
 <td>Spirit/Luck</td>
@@ -1052,10 +1062,12 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td>Fate</td>
 <td>Luck</td>
 <td>Luck o' the sea</td>
+<td>Aether</td>
 </tr>
 </tbody>
 </table></div>
 <p>The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look in the app, handouts painted on a ship's planks, and its own <a href="https://mpjart.github.io/boomcore/loot-names.html">loot name tables</a>. Conditions might be Seasick, Overboard, or Keelhauled.</p>
+<p>The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leather and brass look, handouts typed onto leather in a riveted brass frame with gears, and its own loot name tables. Conditions might be Scalded, Overwound, or Short-Circuited.</p>
 <h3 id="what-changes-easily">What Changes Easily</h3>
 <ul>
 <li><strong>Abilities</strong> can be spells, gadgets, implants, martial arts, or curses.</li>
