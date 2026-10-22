@@ -423,7 +423,7 @@ The Boom Dice app rolls and explodes the dice, does the math, and shows everyone
 - **Dice:** quick rolls, initiative, your color, the shared roll feed, and the Map (a chalkboard the Core Master controls). Tap the Boom logo to open these guidelines.
 - **Party:** every character sheet. Collapsed sheets show the six stats at a glance. The Core Master edits everything; a player can equip, sell, and train on their own hero.
 - **Loot:** loot boxes waiting to be opened, and the party stash. A hero's box is opened by its player; a group box has a timer and everyone grabs it.
-- **CM:** the table theme (and the After Dark loot names switch), the Core Master screen, the loot box maker, and the monster generator.
+- **CM:** the table theme (the look only), the Core Master screen, the loot box maker (with toggles for which loot name tables to mix), and the monster generator.
 
 **A round at the table:** the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.
 
