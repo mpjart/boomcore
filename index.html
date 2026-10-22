@@ -1067,7 +1067,7 @@ const fmtN=n=>n<1e15?Math.round(n).toLocaleString('en-US'):n.toExponential(2);
 // ---------- item names (see names.js) ----------
 // Loot name tables: the CM toggles any mix. Each part of a name rolls its own table,
 // so the clever name can come from one table and the base item from another. None on = Core/Fantasy.
-const LTABS=[['fantasy','🗡️ Fantasy'],['space','🚀 Space'],['horror','🕯️ Horror'],['grit','🧢 Street Grit'],['pirate','⚓ Pirate'],['steampunk','⚙️ Steampunk'],['adult','🔞 After Dark']];
+const LTABS=[['fantasy','🗡️ Fantasy'],['pirate','⚓ Pirate'],['steampunk','⚙️ Steampunk'],['horror','🕯️ Horror'],['grit','🧢 Street Grit'],['adult','🔞 Grit 18+'],['space','🚀 Space']];
 let lootTabs=['fantasy'];try{const v=JSON.parse(localStorage.getItem('boomloottabs')||'null');if(Array.isArray(v))lootTabs=v.filter(k=>LTABS.some(t=>t[0]===k));}catch{}
 const tabSets=tabs=>{const B=window.BOOM_NAMES||{},l=(Array.isArray(tabs)?tabs:[]).map(k=>B[k]).filter(Boolean);return l.length?l:(B.fantasy?[B.fantasy]:[]);};
 const pick=a=>a[Math.floor(Math.random()*a.length)];
@@ -1082,7 +1082,7 @@ function renderLootTabs(){const w=$('#ltabs');if(!w)return;w.replaceChildren();
  LTABS.forEach(([k,n])=>{const b=document.createElement('button');b.type='button';b.textContent=n;const on=lootTabs.includes(k);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);
   b.onclick=()=>{lootTabs=on?lootTabs.filter(x=>x!==k):[...lootTabs,k];try{localStorage.setItem('boomloottabs',JSON.stringify(lootTabs))}catch{}renderLootTabs();};w.append(b);});
  const nm=lootTabs.map(k=>LTABS.find(t=>t[0]===k)[1].replace(/^\S+\s/,''));
- $('#ltabnote').textContent=!nm.length?'None on: names come from Core/Fantasy.':nm.length===1?'Names come from '+nm[0]+'.':'Each name mixes '+nm.slice(0,-1).join(', ')+' and '+nm[nm.length-1]+': the clever name and the base item each roll their own table.'+(lootTabs.includes('adult')?' After Dark is 21+.':'');}
+ $('#ltabnote').textContent=!nm.length?'None on: names come from Core/Fantasy.':nm.length===1?'Names come from '+nm[0]+'.':'Each name mixes '+nm.slice(0,-1).join(', ')+' and '+nm[nm.length-1]+': the clever name and the base item each roll their own table.'+(lootTabs.includes('adult')?' Grit 18+ is for adult tables.':'');}
 function makeLoot(L,l,t0,tabs){
  const cr=rollExpr([{sign:1,n:Math.max(2,L+l),s:6}]);
  let tier=t0,made=0,pending=1,up=0,booms=0;const seq=[],fin=[];
@@ -1470,14 +1470,14 @@ const SKINS=[
  {k:'core',n:'Core Light',sw:['#fbf7ef','#1f4e5f','#b83a12'],font:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',w:{}},
  {k:'coredark',n:'Core Dark',sw:['#17140f','#f97316','#f3ede3'],w:{}},
  {k:'fantasy',n:'Fantasy',sw:['#efe3c8','#8b1e1e','#b8862b'],font:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',w:{box:['chest','chests']}},
- {k:'space',n:'Space',sw:['#070b1a','#4fd8f7','#ff9a3c'],font:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',w:{coin:['credit','credits'],token:['data chip','data chips'],box:['crate','crates']}},
+ {k:'pirate',n:'Pirate',sw:['#0f2a2e','#e3a93b','#6b4423'],font:'Pirata+One&family=Alegreya:wght@400;600;700',w:{coin:['doubloon','doubloons'],token:['shanty','shanties'],box:['sea chest','sea chests']}},
+ {k:'steampunk',n:'Steampunk',sw:['#1a110b','#c9953b','#4fa38f'],font:'Abril+Fatface&family=Libre+Baskerville:wght@400;700',w:{}},
  {k:'horror',n:'Horror',sw:['#0d0a0a','#c62a32','#e6dccf'],font:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',w:{coin:['grave coin','grave coins'],token:['rite','rites'],box:['coffer','coffers']}},
  {k:'grit',n:'Street Grit',sw:['#d9d5cc','#f5c400','#121212'],font:'Anton&family=Barlow+Condensed:wght@500;600;700',w:{coin:['buck','bucks'],token:['favor','favors'],box:['duffel bag','duffel bags']}},
- {k:'steampunk',n:'Steampunk',sw:['#1a110b','#c9953b','#4fa38f'],font:'Abril+Fatface&family=Libre+Baskerville:wght@400;700',w:{}},
- {k:'pirate',n:'Pirate',sw:['#0f2a2e','#e3a93b','#6b4423'],font:'Pirata+One&family=Alegreya:wght@400;600;700',w:{coin:['doubloon','doubloons'],token:['shanty','shanties'],box:['sea chest','sea chests']}}];
+ {k:'space',n:'Space',sw:['#070b1a','#4fd8f7','#ff9a3c'],font:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',w:{coin:['credit','credits'],token:['data chip','data chips'],box:['crate','crates']}}];
 let skin='core',WORDS={},settingsCol=null,cur='',curC=['',''];
 // Currency: the CM's choice for the whole table. '' follows the table theme. Cores, tokens, and boxes never rename.
-const CURS=[['spirit','Spirit coins',['spirit coin','spirit coins']],['credits','Credits',['credit','credits']],['grave','Grave coins',['grave coin','grave coins']],['bucks','Bucks',['buck','bucks']],['doubloons','Doubloons',['doubloon','doubloons']],['cogs','Cogs',['cog','cogs']],['gold','Gold',['gold piece','gold pieces']]];
+const CURS=[['spirit','Spirit coins',['spirit coin','spirit coins']],['doubloons','Doubloons',['doubloon','doubloons']],['cogs','Cogs',['cog','cogs']],['grave','Grave coins',['grave coin','grave coins']],['bucks','Bucks',['buck','bucks']],['credits','Credits',['credit','credits']],['gold','Gold',['gold piece','gold pieces']]];
 const THEMECUR={core:'spirit',coredark:'spirit',fantasy:'spirit',space:'credits',horror:'grave',grit:'bucks',pirate:'doubloons',steampunk:'cogs'};
 function curWords(){if(cur==='custom'){const a=(curC[0]||'').trim(),b=(curC[1]||'').trim()||a;return a||b?[a||b,b]:CURS[0][2];}
  const k=cur&&cur!=='custom'?cur:(THEMECUR[skin]||'spirit');return(CURS.find(x=>x[0]===k)||CURS[0])[2];}

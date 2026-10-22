@@ -2,7 +2,7 @@
 
 Run from the repo root:  python3 tools/steampunk_names.py
 It checks every table has 100 unique rows, then writes the "steampunk" set into names.js
-and the Steampunk section into docs/loot-names.md (just before After Dark).
+and the Steampunk section into docs/loot-names.md (just after Fantasy, before Horror).
 """
 import json, re
 
@@ -106,7 +106,7 @@ def write_names_js(path="names.js"):
     obj = json.loads(data.rstrip().rstrip(";"))
     st = {"w": WEAPONS, "a": ARMOR, "j": JEWELRY, "g": GEMS, "n": CLEVER, "q": QUALITY}
     new = {}
-    for k, v in obj.items():          # keep steampunk just before After Dark
+    for k, v in obj.items():          # keep steampunk just before Grit 18+ (key adult)
         if k == "steampunk":
             continue
         if k == "adult":
@@ -134,8 +134,8 @@ def md_section():
 
 def write_md(path="docs/loot-names.md"):
     s = open(path).read()
-    s = re.sub(r"## Steampunk\n.*?(?=## After Dark)", "", s, flags=re.S)
-    i = s.index("## After Dark")
+    s = re.sub(r"## Steampunk\n.*?(?=## Horror)", "", s, flags=re.S)
+    i = s.index("## Horror")
     open(path, "w").write(s[:i] + md_section() + s[i:])
 
 if __name__ == "__main__":

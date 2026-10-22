@@ -2,7 +2,7 @@
 
 Run from the repo root:  python3 tools/pirate_names.py
 It checks every table has 100 unique rows, then writes the "pirate" set into names.js
-and the Pirate section into docs/loot-names.md (just before After Dark).
+and the Pirate section into docs/loot-names.md (just after Fantasy, before Steampunk).
 """
 import json, re
 
@@ -111,7 +111,7 @@ def write_names_js(path="names.js"):
     head, data = s.split("window.BOOM_NAMES=", 1)
     obj = json.loads(data.rstrip().rstrip(";"))
     new = {}
-    for k, v in obj.items():          # keep pirate just before After Dark
+    for k, v in obj.items():          # keep pirate just before Grit 18+ (key adult)
         if k == "pirate":
             continue
         if k == "adult":
@@ -140,8 +140,8 @@ def md_section():
 
 def write_md(path="docs/loot-names.md"):
     s = open(path).read()
-    s = re.sub(r"## Pirate\n.*?(?=## After Dark)", "", s, flags=re.S)
-    i = s.index("## After Dark")
+    s = re.sub(r"## Pirate\n.*?(?=## Steampunk)", "", s, flags=re.S)
+    i = s.index("## Steampunk")
     open(path, "w").write(s[:i] + md_section() + s[i:])
 
 if __name__ == "__main__":

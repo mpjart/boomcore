@@ -18,7 +18,7 @@
 - **Armor is anything worn,** from a full hazmat suit to a toe ring or knee pads.
 - **Gems** have no stat and no clever name; they only sell. Their quality word comes from the box tier.
 - **Name rolls never explode.** Names avoid the words coin, token, core, and box, because themes rename those words on screen.
-- **Mix any tables.** Each part of a name rolls its own table: pick a table for the clever name, then a table for the base item (or quality word and gem). In the app, the Core Master toggles which tables a loot box uses in Make a loot box; with none on, it uses Core/Fantasy. **After Dark (21+)** is a loot-only bonus set, made to pair with Street Grit, that mixes in the same way.
+- **Mix any tables.** Each part of a name rolls its own table: pick a table for the clever name, then a table for the base item (or quality word and gem). In the app, the Core Master toggles which tables a loot box uses in Make a loot box; with none on, it uses Core/Fantasy. **Grit 18+** (formerly After Dark) is a loot-only bonus set for adult tables, made to pair with Street Grit, that mixes in the same way.
 - The Core Master can always rename an item to fit the story.
 
 ## Fantasy (and Core)
@@ -350,996 +350,6 @@ Swords, spells, and old gold. Magical means spells.
 | T4 | Flawless |
 | T5 | Radiant |
 | T6 | Star |
-
-## Space
-
-Blasters, hardsuits, and salvage. Magical means energy weapons and psionics.
-
-### Weapons
-
-| d100 | Weapon | Hands | Reach | Damage |
-| --- | --- | --- | --- | --- |
-| 1 | Vibro-Knife | 1 | Touch | Physical |
-| 2 | Twin Vibro-Knives | 2 | Touch | Physical |
-| 3 | Combat Knife | 1 | Touch | Physical |
-| 4 | Mono-Whip | 1 | Touch | Physical |
-| 5 | Mono-Katana | 1 | Touch | Physical |
-| 6 | Chainsword | 2 | Touch | Physical |
-| 7 | Power Fist | 1 | Touch | Physical |
-| 8 | Twin Power Fists | 2 | Touch | Physical |
-| 9 | Gravity Hammer | 2 | Touch | Physical |
-| 10 | Hydraulic Ram | 2 | Touch | Physical |
-| 11 | Pipe Wrench | 1 | Touch | Physical |
-| 12 | Boarding Axe | 2 | Touch | Physical |
-| 13 | Vibro-Spear | 2 | Touch | Physical |
-| 14 | Mag-Boot Kick | 2 | Touch | Physical |
-| 15 | Riot Club | 1 | Touch | Physical |
-| 16 | Bone Saw | 1 | Touch | Physical |
-| 17 | Cargo Hook | 1 | Touch | Physical |
-| 18 | Asteroid Pick | 2 | Touch | Physical |
-| 19 | Servo Claw | 1 | Touch | Physical |
-| 20 | Titanium Bat | 2 | Touch | Physical |
-| 21 | Hull Plate Club | 2 | Touch | Physical |
-| 22 | Exo-Suit Punch | 2 | Touch | Physical |
-| 23 | Vibro-Axe | 1 | Touch | Physical |
-| 24 | Dueling Saber | 1 | Touch | Physical |
-| 25 | Bayonet Rifle | 2 | Touch | Physical |
-| 26 | Slug Pistol | 1 | Ranged | Physical |
-| 27 | Twin Slug Pistols | 2 | Ranged | Physical |
-| 28 | Rail Pistol | 1 | Ranged | Physical |
-| 29 | Railgun | 2 | Ranged | Physical |
-| 30 | Slug Rifle | 2 | Ranged | Physical |
-| 31 | Gauss Rifle | 2 | Ranged | Physical |
-| 32 | Flechette Pistol | 1 | Ranged | Physical |
-| 33 | Needle Gun | 1 | Ranged | Physical |
-| 34 | Scattergun | 2 | Ranged | Physical |
-| 35 | Auto-Rifle | 2 | Ranged | Physical |
-| 36 | Sniper Rifle | 2 | Ranged | Physical |
-| 37 | Mag Revolver | 1 | Ranged | Physical |
-| 38 | Holdout Pistol | 1 | Ranged | Physical |
-| 39 | Rivet Gun | 1 | Ranged | Physical |
-| 40 | Harpoon Launcher | 2 | Ranged | Physical |
-| 41 | Grenade Launcher | 2 | Ranged | Physical |
-| 42 | Micro-Missile Pod | 2 | Ranged | Physical |
-| 43 | Frag Grenades | 1 | Ranged | Physical |
-| 44 | Throwing Discs | 1 | Ranged | Physical |
-| 45 | Spike Launcher | 2 | Ranged | Physical |
-| 46 | Rotary Cannon | 2 | Ranged | Physical |
-| 47 | Bolt Carbine | 2 | Ranged | Physical |
-| 48 | Dart Pistol | 1 | Ranged | Physical |
-| 49 | Recoilless Cannon | 2 | Ranged | Physical |
-| 50 | Smart Pistol | 1 | Ranged | Physical |
-| 51 | Mining Charge | 1 | Ranged | Physical |
-| 52 | Breaching Charge | 1 | Ranged | Physical |
-| 53 | Shoulder Rockets | 2 | Ranged | Physical |
-| 54 | Grapple Gun | 1 | Ranged | Physical |
-| 55 | Shock Baton | 1 | Touch | Magical |
-| 56 | Stun Prod | 1 | Touch | Magical |
-| 57 | Plasma Torch | 1 | Touch | Magical |
-| 58 | Plasma Blade | 1 | Touch | Magical |
-| 59 | Twin Plasma Blades | 2 | Touch | Magical |
-| 60 | Plasma Glaive | 2 | Touch | Magical |
-| 61 | Ion Axe | 2 | Touch | Magical |
-| 62 | Arc Gauntlet | 1 | Touch | Magical |
-| 63 | Thermal Lance | 2 | Touch | Magical |
-| 64 | Laser Scalpel | 1 | Touch | Magical |
-| 65 | Hull Cutter | 2 | Touch | Magical |
-| 66 | Solar Lance | 2 | Touch | Magical |
-| 67 | Psi-Blade | 1 | Touch | Magical |
-| 68 | Void Touch Glove | 1 | Touch | Magical |
-| 69 | Laser Pistol | 1 | Ranged | Magical |
-| 70 | Twin Laser Pistols | 2 | Ranged | Magical |
-| 71 | Laser Rifle | 2 | Ranged | Magical |
-| 72 | Pulse Rifle | 2 | Ranged | Magical |
-| 73 | Plasma Pistol | 1 | Ranged | Magical |
-| 74 | Plasma Cannon | 2 | Ranged | Magical |
-| 75 | Ion Pistol | 1 | Ranged | Magical |
-| 76 | Ion Rifle | 2 | Ranged | Magical |
-| 77 | Arc Caster | 1 | Ranged | Magical |
-| 78 | Tesla Coil Gun | 2 | Ranged | Magical |
-| 79 | Disruptor | 1 | Ranged | Magical |
-| 80 | Photon Bow | 2 | Ranged | Magical |
-| 81 | Beam Rifle | 2 | Ranged | Magical |
-| 82 | Microwave Emitter | 1 | Ranged | Magical |
-| 83 | Sonic Blaster | 1 | Ranged | Magical |
-| 84 | Cryo Gun | 2 | Ranged | Magical |
-| 85 | Flamethrower | 2 | Ranged | Magical |
-| 86 | Gravity Gun | 2 | Ranged | Magical |
-| 87 | Psi-Amp | 1 | Ranged | Magical |
-| 88 | Mind Spike | 1 | Ranged | Magical |
-| 89 | Psi-Crystal | 1 | Ranged | Magical |
-| 90 | Drone Swarm | 1 | Ranged | Magical |
-| 91 | Combat Drone | 1 | Ranged | Magical |
-| 92 | Nanite Cloud | 1 | Ranged | Magical |
-| 93 | EMP Grenade | 1 | Ranged | Magical |
-| 94 | Plasma Grenade | 1 | Ranged | Magical |
-| 95 | Particle Beam | 2 | Ranged | Magical |
-| 96 | Antimatter Pistol | 1 | Ranged | Magical |
-| 97 | Dark Matter Rifle | 2 | Ranged | Magical |
-| 98 | Phase Pistol | 1 | Ranged | Magical |
-| 99 | Neutron Rifle | 2 | Ranged | Magical |
-| 100 | Void Wand | 1 | Ranged | Magical |
-
-### Armor
-
-| d100 | Armor | Type |
-| --- | --- | --- |
-| 1 | Flight Suit | Physical |
-| 2 | Ballistic Weave | Physical |
-| 3 | Combat Vest | Physical |
-| 4 | Hardsuit | Physical |
-| 5 | Exo-Frame | Physical |
-| 6 | Riot Shield | Physical |
-| 7 | Vac Suit | Physical |
-| 8 | EVA Suit | Physical |
-| 9 | Hazmat Suit | Physical |
-| 10 | Ceramic Plates | Physical |
-| 11 | Carbon Fiber Jacket | Physical |
-| 12 | Armored Jumpsuit | Physical |
-| 13 | Pilot's Helmet | Physical |
-| 14 | Bubble Helmet | Physical |
-| 15 | Gas Mask | Physical |
-| 16 | Mag-Boots | Physical |
-| 17 | Knee Pads | Physical |
-| 18 | Elbow Pads | Physical |
-| 19 | Tactical Gloves | Physical |
-| 20 | Armored Gauntlets | Physical |
-| 21 | Shin Guards | Physical |
-| 22 | Utility Harness | Physical |
-| 23 | Ablative Coat | Physical |
-| 24 | Mining Rig | Physical |
-| 25 | Power Armor | Physical |
-| 26 | Mech Suit | Physical |
-| 27 | Boarding Shield | Physical |
-| 28 | Ballistic Helmet | Physical |
-| 29 | Duster Coat | Physical |
-| 30 | Leather Space Jacket | Physical |
-| 31 | Cargo Vest | Physical |
-| 32 | Crash Webbing | Physical |
-| 33 | Trauma Plate | Physical |
-| 34 | Kinetic Mesh | Physical |
-| 35 | Hull-Plate Vest | Physical |
-| 36 | Insulated Parka | Physical |
-| 37 | Heavy Coveralls | Physical |
-| 38 | Shoulder Plating | Physical |
-| 39 | Bracer Plates | Physical |
-| 40 | Armored Codpiece | Physical |
-| 41 | Visor Helmet | Physical |
-| 42 | Thermal Suit | Physical |
-| 43 | Dive Suit | Physical |
-| 44 | Smart Fabric Tee | Physical |
-| 45 | Riot Gear | Physical |
-| 46 | Spiked Pauldron | Physical |
-| 47 | Juggernaut Plate | Physical |
-| 48 | Scrap Armor | Physical |
-| 49 | Salvaged Hull Plates | Physical |
-| 50 | Bomb Suit | Physical |
-| 51 | Deflector Belt | Magical |
-| 52 | Shield Projector | Magical |
-| 53 | Psi-Hood | Magical |
-| 54 | Phase Cloak | Magical |
-| 55 | Energy Barrier Bracer | Magical |
-| 56 | Hardlight Shield | Magical |
-| 57 | Refractor Mesh | Magical |
-| 58 | Ion Shell | Magical |
-| 59 | Force Field Harness | Magical |
-| 60 | Stealth Suit | Magical |
-| 61 | Holo-Cloak | Magical |
-| 62 | Gravity Belt | Magical |
-| 63 | Personal Bubble Shield | Magical |
-| 64 | Mind Shield Circlet | Magical |
-| 65 | Psionic Headband | Magical |
-| 66 | Nano-Skin | Magical |
-| 67 | Plasma-Ward Gloves | Magical |
-| 68 | Static Cape | Magical |
-| 69 | Photon Veil | Magical |
-| 70 | Quantum Vest | Magical |
-| 71 | Null Field Pack | Magical |
-| 72 | Warp Harness | Magical |
-| 73 | Chrono Bracer | Magical |
-| 74 | Shield Drone | Magical |
-| 75 | Emitter Pauldron | Magical |
-| 76 | Faraday Coat | Magical |
-| 77 | Solar Sail Cape | Magical |
-| 78 | Void Robe | Magical |
-| 79 | Crystal Lattice Armor | Magical |
-| 80 | Resonance Suit | Magical |
-| 81 | Neural Helmet | Magical |
-| 82 | Aura Projector | Magical |
-| 83 | Barrier Ring | Magical |
-| 84 | Reflective Chrome Suit | Magical |
-| 85 | Ghost Weave | Magical |
-| 86 | Field Gloves | Magical |
-| 87 | Toe Ring Emitter | Magical |
-| 88 | Antimatter Buckler | Magical |
-| 89 | Starlight Mantle | Magical |
-| 90 | Zero-Point Vest | Magical |
-| 91 | Pulse Dampener | Magical |
-| 92 | Energy Kilt | Magical |
-| 93 | Deflector Visor | Magical |
-| 94 | Prism Armor | Magical |
-| 95 | Cosmic Shroud | Magical |
-| 96 | Ward Beacon | Magical |
-| 97 | Ion Scarf | Magical |
-| 98 | Phase Boots | Magical |
-| 99 | Nebula Cloak | Magical |
-| 100 | Singularity Belt | Magical |
-
-### Clever Names, Gadget, and Crystals
-
-| d100 | Clever name | Gadget | Crystal |
-| --- | --- | --- | --- |
-| 1 | Nova's | Wrist Comm | Quartz Shard |
-| 2 | Black Hawk | Neural Chip | Iridium Nugget |
-| 3 | Goblin | Targeting Visor | Void Pearl |
-| 4 | Starborn | Data Band | Star Shard |
-| 5 | Void | Ear Implant | Plasma Crystal |
-| 6 | Nebula | Holo-Locket | Nebula Opal |
-| 7 | Quasar | Dog Tags | Helium Ice |
-| 8 | Pulsar | Cyber-Eye | Dark Matter Bead |
-| 9 | Comet | Signal Ring | Neutron Glass |
-| 10 | Meteor | Pilot's Medal | Singularity Gem |
-| 11 | Eclipse | Holo-Watch | Moon Diamond |
-| 12 | Solar | Smart Ring | Mars Ruby |
-| 13 | Lunar | Memory Crystal | Titan Sapphire |
-| 14 | Orbital | Nav Pendant | Europa Ice |
-| 15 | Zero-G | Translator Earpiece | Io Sulfur Crystal |
-| 16 | Hyperion | Biometric Bracelet | Comet Glass |
-| 17 | Titan | Augmented Lens | Meteor Iron |
-| 18 | Atlas | Star Map Locket | Asteroid Emerald |
-| 19 | Orion's | Rank Insignia | Stellar Amber |
-| 20 | Vega's | Captain's Pin | Solar Topaz |
-| 21 | Sirius | Fleet Badge | Lunar Pearl |
-| 22 | Andromeda | Med Monitor | Ion Crystal |
-| 23 | Cassiopeia | Pulse Bracelet | Fusion Glass |
-| 24 | Draco | Lucky Bolt | Quantum Quartz |
-| 25 | Phoenix | Charm Drone | Phase Gem |
-| 26 | Raptor | Tiny Robot Pet | Warp Crystal |
-| 27 | Viper | Hover Orb | Gravity Stone |
-| 28 | Cobra | Credit Chip | Antimatter Sphere |
-| 29 | Mantis | Keycard Lanyard | Photon Prism |
-| 30 | Hornet | Access Ring | Laser Ruby |
-| 31 | Wasp | Gene Locket | Maser Sapphire |
-| 32 | Scorpion | Mood Chip | Crystalline Ice |
-| 33 | Falcon | Tattoo Circuit | Silicate Bloom |
-| 34 | Kestrel | Glow Stud | Methane Pearl |
-| 35 | Osprey | LED Earrings | Ammonia Crystal |
-| 36 | Condor | Fiber-Optic Hair | Nitrogen Frost |
-| 37 | Ghost | Chrome Teeth | Xenon Glass |
-| 38 | Phantom | Finger Laser Pointer | Krypton Shard |
-| 39 | Specter | Holo-Tiara | Neon Opal |
-| 40 | Shadow | Starlight Choker | Argon Bead |
-| 41 | Rogue | Meteorite Ring | Cobalt Star |
-| 42 | Outlaw | Moon Rock Pendant | Platinum Nugget |
-| 43 | Smuggler's | Mars Dust Vial | Palladium Ore |
-| 44 | Bounty Hunter's | Comet Tail Charm | Rhodium Flake |
-| 45 | Pirate's | Alien Fang | Osmium Pellet |
-| 46 | Mercenary's | Space Whale Bone | Gallium Drop |
-| 47 | Marine's | Crystal Skull Charm | Titanium Crystal |
-| 48 | Pilot's | Anti-Grav Anklet | Tungsten Gem |
-| 49 | Captain's | Thruster Cufflinks | Carbon Diamond |
-| 50 | Admiral's | Magnetic Cuffs | Graphene Flake |
-| 51 | Commander's | Data Spike Necklace | Pulsar Stone |
-| 52 | Cadet's | Encryption Key | Quasar Gem |
-| 53 | Engineer's | Flight Log Pendant | Red Dwarf Garnet |
-| 54 | Mechanic's | Flight Recorder Charm | White Dwarf Diamond |
-| 55 | Medic's | Old Earth Dollar | Blue Giant Sapphire |
-| 56 | Scientist's | Ancient Smartphone | Black Hole Onyx |
-| 57 | Android's | Vintage Wristwatch | Supernova Opal |
-| 58 | Cyborg's | Grandpa's Wings | Aurora Glass |
-| 59 | Clone's | Cadet Ring | Cosmic Pearl |
-| 60 | Alien | Graduation Band | Starlight Beryl |
-| 61 | Martian | Wedding Implant | Nebula Jade |
-| 62 | Lunarian | Bonded Pair Rings | Galaxy Agate |
-| 63 | Belter's | Clan Sigil | Event Horizon Jet |
-| 64 | Colonist's | Corporate Pin | Plasma Opal |
-| 65 | Miner's | Rebel Patch | Ion Amethyst |
-| 66 | Trader's | Bounty Tag | Radiant Citrine |
-| 67 | Diplomat's | Medal of Valor | Glowstone |
-| 68 | Prototype | Purple Heart Chip | Darkstar Obsidian |
-| 69 | Experimental | Kill Stripe | Sunshard |
-| 70 | Military | Engineer's Wrench Pin | Moonshard |
-| 71 | Corporate | Lucky Fuse | Comet Tear |
-| 72 | Black Market | Spark Plug Charm | Alien Egg Stone |
-| 73 | Salvaged | Cyber Tail | Living Crystal |
-| 74 | Rebel | Optic Tiara | Singing Crystal |
-| 75 | Imperial | Halo Ring | Psi-Gem |
-| 76 | Federation | Shoulder Holo | Mind Pearl |
-| 77 | Frontier | Pocket AI | Dream Quartz |
-| 78 | Deep Space | Mini Hologram | Echo Stone |
-| 79 | Red Planet | Reactor Pendant | Time Crystal |
-| 80 | Blue Moon | Fusion Bead | Space Amber |
-| 81 | Dark Side | Plasma Bead Bracelet | Frozen Lightning |
-| 82 | Twin Suns | Quantum Dice Charm | Liquid Metal Drop |
-| 83 | Ringworld | Zero-G Pearl | Mercury Bead |
-| 84 | Stardust | Asteroid Shard Ring | Ferrofluid Pearl |
-| 85 | Cosmic | Supernova Locket | Magnetite Star |
-| 86 | Galactic | Wormhole Pendant | Hematite Moon |
-| 87 | Interstellar | Starfish Charm | Chrome Pearl |
-| 88 | Warp | Nebula Glass Earring | Nano Diamond |
-| 89 | Quantum | Stardust Vial | Synthetic Ruby |
-| 90 | Plasma | Captain's Ring | Lab Emerald |
-| 91 | Ion | Admiral's Chain | Holo-Gem |
-| 92 | Photon | Senator's Seal | Data Crystal |
-| 93 | Neutron | Diplomat's Pin | Memory Diamond |
-| 94 | Gravity | Trader's Ring | Power Prism |
-| 95 | Iron Moon | Smuggler's Charm | Reactor Glass |
-| 96 | Burnout | Mercenary Tags | Fuel Crystal |
-| 97 | Lucky Star | Priestess Circlet | Star Sapphire |
-| 98 | Last Light | Oracle Eye | Dyson Pearl |
-| 99 | Hyperdrive | Psi-Focus Stone | Cosmic Ray Crystal |
-| 100 | Moonshot | Glow Collar | Void Diamond |
-
-### Crystal Quality by Tier
-
-| Tier | Crystal quality |
-| --- | --- |
-| T1 | Cracked |
-| T2 | Raw |
-| T3 | Refined |
-| T4 | Pure |
-| T5 | Prismatic |
-| T6 | Stellar |
-
-## Horror
-
-Razors, relics, and things best left buried. Magical means the occult. Keepsakes fill the jewelry role, and stones fill the gem role.
-
-### Weapons
-
-| d100 | Weapon | Hands | Reach | Damage |
-| --- | --- | --- | --- | --- |
-| 1 | Straight Razor | 1 | Touch | Physical |
-| 2 | Butcher's Cleaver | 1 | Touch | Physical |
-| 3 | Silver Dagger | 1 | Touch | Physical |
-| 4 | Twin Silver Daggers | 2 | Touch | Physical |
-| 5 | Kitchen Knife | 1 | Touch | Physical |
-| 6 | Carving Knife | 1 | Touch | Physical |
-| 7 | Bone Saw | 1 | Touch | Physical |
-| 8 | Hacksaw | 1 | Touch | Physical |
-| 9 | Meat Hook | 1 | Touch | Physical |
-| 10 | Twin Meat Hooks | 2 | Touch | Physical |
-| 11 | Ice Pick | 1 | Touch | Physical |
-| 12 | Letter Opener | 1 | Touch | Physical |
-| 13 | Scalpel | 1 | Touch | Physical |
-| 14 | Fire Poker | 1 | Touch | Physical |
-| 15 | Claw Hammer | 1 | Touch | Physical |
-| 16 | Sledgehammer | 2 | Touch | Physical |
-| 17 | Wood Axe | 2 | Touch | Physical |
-| 18 | Hatchet | 1 | Touch | Physical |
-| 19 | Pickaxe | 2 | Touch | Physical |
-| 20 | Gravedigger's Shovel | 2 | Touch | Physical |
-| 21 | Pitchfork | 2 | Touch | Physical |
-| 22 | Scythe | 2 | Touch | Physical |
-| 23 | Sickle | 1 | Touch | Physical |
-| 24 | Machete | 1 | Touch | Physical |
-| 25 | Chainsaw | 2 | Touch | Physical |
-| 26 | Garden Shears | 2 | Touch | Physical |
-| 27 | Crowbar | 1 | Touch | Physical |
-| 28 | Lead Pipe | 1 | Touch | Physical |
-| 29 | Candlestick | 1 | Touch | Physical |
-| 30 | Walking Cane | 1 | Touch | Physical |
-| 31 | Sword Cane | 1 | Touch | Physical |
-| 32 | Wooden Stake | 1 | Touch | Physical |
-| 33 | Stake and Mallet | 2 | Touch | Physical |
-| 34 | Barbed Wire Bat | 2 | Touch | Physical |
-| 35 | Rusty Chain | 1 | Touch | Physical |
-| 36 | Baseball Bat | 2 | Touch | Physical |
-| 37 | Golf Club | 2 | Touch | Physical |
-| 38 | Umbrella | 1 | Touch | Physical |
-| 39 | Mirror Shard | 1 | Touch | Physical |
-| 40 | Broken Bottle | 1 | Touch | Physical |
-| 41 | Silver Sword | 1 | Touch | Physical |
-| 42 | Bayonet Rifle | 2 | Touch | Physical |
-| 43 | Bear Trap | 1 | Touch | Physical |
-| 44 | Rolling Pin | 1 | Touch | Physical |
-| 45 | Iron Skillet | 1 | Touch | Physical |
-| 46 | Railroad Spike | 1 | Touch | Physical |
-| 47 | Antler Club | 1 | Touch | Physical |
-| 48 | Coffin Nail Bat | 2 | Touch | Physical |
-| 49 | Revolver | 1 | Ranged | Physical |
-| 50 | Twin Revolvers | 2 | Ranged | Physical |
-| 51 | Double-Barrel Shotgun | 2 | Ranged | Physical |
-| 52 | Pump Shotgun | 2 | Ranged | Physical |
-| 53 | Hunting Rifle | 2 | Ranged | Physical |
-| 54 | Flintlock Pistol | 1 | Ranged | Physical |
-| 55 | Derringer | 1 | Ranged | Physical |
-| 56 | Crossbow | 2 | Ranged | Physical |
-| 57 | Silver-Bolt Crossbow | 2 | Ranged | Physical |
-| 58 | Nail Gun | 1 | Ranged | Physical |
-| 59 | Slingshot | 1 | Ranged | Physical |
-| 60 | Throwing Knives | 1 | Ranged | Physical |
-| 61 | Brick | 1 | Ranged | Physical |
-| 62 | Dynamite Stick | 1 | Ranged | Physical |
-| 63 | Speargun | 2 | Ranged | Physical |
-| 64 | Drum-Fed Tommy Gun | 2 | Ranged | Physical |
-| 65 | Harpoon Gun | 2 | Ranged | Physical |
-| 66 | Lever-Action Rifle | 2 | Ranged | Physical |
-| 67 | Musket | 2 | Ranged | Physical |
-| 68 | Silver Bullets Pistol | 1 | Ranged | Physical |
-| 69 | Flare Gun | 1 | Ranged | Magical |
-| 70 | Molotov | 1 | Ranged | Magical |
-| 71 | Holy Water Flask | 1 | Ranged | Magical |
-| 72 | Oil Lantern | 1 | Ranged | Magical |
-| 73 | Ritual Knife | 1 | Touch | Magical |
-| 74 | Sacrificial Sickle | 1 | Touch | Magical |
-| 75 | Vampire Fang Dagger | 1 | Touch | Magical |
-| 76 | Werewolf Claw | 1 | Touch | Magical |
-| 77 | Shadow Whip | 1 | Touch | Magical |
-| 78 | Cursed Blade | 1 | Touch | Magical |
-| 79 | Rosary Whip | 1 | Touch | Magical |
-| 80 | Exorcist's Cross | 1 | Touch | Magical |
-| 81 | Hand of Glory | 1 | Ranged | Magical |
-| 82 | Hex Doll | 1 | Ranged | Magical |
-| 83 | Grimoire | 1 | Ranged | Magical |
-| 84 | Bone Wand | 1 | Ranged | Magical |
-| 85 | Spirit Board Planchette | 1 | Ranged | Magical |
-| 86 | Tarot Deck | 1 | Ranged | Magical |
-| 87 | Cursed Mirror | 1 | Ranged | Magical |
-| 88 | Crystal Ball | 1 | Ranged | Magical |
-| 89 | Death Bell | 1 | Ranged | Magical |
-| 90 | Bone Flute | 2 | Ranged | Magical |
-| 91 | Puppet on Strings | 1 | Ranged | Magical |
-| 92 | Spirit Lantern | 1 | Ranged | Magical |
-| 93 | Salt Pouch | 1 | Ranged | Magical |
-| 94 | Blessed Candle | 1 | Ranged | Magical |
-| 95 | Black Book | 1 | Ranged | Magical |
-| 96 | Plague Censer | 1 | Ranged | Magical |
-| 97 | Raven Skull Staff | 2 | Ranged | Magical |
-| 98 | Grave Dirt Pouch | 1 | Ranged | Magical |
-| 99 | Leech Jar | 1 | Ranged | Magical |
-| 100 | Phylactery | 1 | Ranged | Magical |
-
-### Armor
-
-| d100 | Armor | Type |
-| --- | --- | --- |
-| 1 | Heavy Coat | Physical |
-| 2 | Leather Apron | Physical |
-| 3 | Hunter's Duster | Physical |
-| 4 | Chainmail Shirt | Physical |
-| 5 | Iron Corset | Physical |
-| 6 | Coffin-Lid Shield | Physical |
-| 7 | Trench Coat | Physical |
-| 8 | Peacoat | Physical |
-| 9 | Wool Overcoat | Physical |
-| 10 | Rubber Waders | Physical |
-| 11 | Butcher's Smock | Physical |
-| 12 | Welding Mask | Physical |
-| 13 | Hockey Mask | Physical |
-| 14 | Football Helmet | Physical |
-| 15 | Miner's Helmet | Physical |
-| 16 | Bowler Hat | Physical |
-| 17 | Top Hat | Physical |
-| 18 | Leather Gloves | Physical |
-| 19 | Work Gloves | Physical |
-| 20 | Steel-Toe Boots | Physical |
-| 21 | Riding Boots | Physical |
-| 22 | Knee Pads | Physical |
-| 23 | Elbow Pads | Physical |
-| 24 | Shin Guards | Physical |
-| 25 | Gardening Gloves | Physical |
-| 26 | Thick Scarf | Physical |
-| 27 | Turtleneck | Physical |
-| 28 | Hooded Sweatshirt | Physical |
-| 29 | Letterman Jacket | Physical |
-| 30 | Flannel Shirt | Physical |
-| 31 | Overalls | Physical |
-| 32 | Hunting Vest | Physical |
-| 33 | Fishing Vest | Physical |
-| 34 | Life Jacket | Physical |
-| 35 | Lab Coat | Physical |
-| 36 | Surgical Gown | Physical |
-| 37 | Straitjacket | Physical |
-| 38 | Padded Room Mattress | Physical |
-| 39 | Trash Can Lid | Physical |
-| 40 | Stop Sign Shield | Physical |
-| 41 | Car Door Shield | Physical |
-| 42 | Tin Bucket Helmet | Physical |
-| 43 | Pot Helmet | Physical |
-| 44 | Duct Tape Armor | Physical |
-| 45 | Phone Book Vest | Physical |
-| 46 | Antique Breastplate | Physical |
-| 47 | Suit of Armor | Physical |
-| 48 | Rusty Gauntlet | Physical |
-| 49 | Plague Doctor Coat | Physical |
-| 50 | Mourning Veil | Physical |
-| 51 | Church Vestments | Magical |
-| 52 | Plague Mask | Magical |
-| 53 | Salt-Lined Cloak | Magical |
-| 54 | Warding Shawl | Magical |
-| 55 | Holy Tabard | Magical |
-| 56 | Nun's Habit | Magical |
-| 57 | Priest's Collar | Magical |
-| 58 | Witch's Cloak | Magical |
-| 59 | Hag's Rags | Magical |
-| 60 | Shroud | Magical |
-| 61 | Burial Dress | Magical |
-| 62 | Funeral Suit | Magical |
-| 63 | Wedding Veil | Magical |
-| 64 | Sackcloth Hood | Magical |
-| 65 | Bone Mask | Magical |
-| 66 | Skull Crown | Magical |
-| 67 | Antler Headdress | Magical |
-| 68 | Feather Cloak | Magical |
-| 69 | Raven Cape | Magical |
-| 70 | Moth Wing Shawl | Magical |
-| 71 | Spider Silk Gloves | Magical |
-| 72 | Rune-Stitched Coat | Magical |
-| 73 | Sigil Tattoos | Magical |
-| 74 | Blood Paint | Magical |
-| 75 | Ash Markings | Magical |
-| 76 | Ghost Sheet | Magical |
-| 77 | Cobweb Veil | Magical |
-| 78 | Mirror Vest | Magical |
-| 79 | Iron Nail Belt | Magical |
-| 80 | Garlic Garland | Magical |
-| 81 | Wolfsbane Wreath | Magical |
-| 82 | Silver Chain Mail | Magical |
-| 83 | Blessed Rosary Belt | Magical |
-| 84 | Saint's Medallion Armor | Magical |
-| 85 | Exorcist's Stole | Magical |
-| 86 | Haunted Wedding Gown | Magical |
-| 87 | Seance Robes | Magical |
-| 88 | Medium's Turban | Magical |
-| 89 | Fortune Teller's Shawl | Magical |
-| 90 | Grave Moss Cloak | Magical |
-| 91 | Embalmer's Apron | Magical |
-| 92 | Toe Tag Anklet | Magical |
-| 93 | Lucky Toe Ring | Magical |
-| 94 | Dreamcatcher Harness | Magical |
-| 95 | Candle Wax Coat | Magical |
-| 96 | Chalk Circle Boots | Magical |
-| 97 | Possessed Doll Mask | Magical |
-| 98 | Mothman Goggles | Magical |
-| 99 | Cursed Locket Armor | Magical |
-| 100 | Shadow Cloak | Magical |
-
-### Clever Names, Keepsakes, and Stones
-
-| d100 | Clever name | Keepsake | Stone |
-| --- | --- | --- | --- |
-| 1 | Hollow | Rosary | Jet |
-| 2 | Grave | Mourning Locket | Onyx |
-| 3 | Crypt | Bone Charm | Bloodstone |
-| 4 | Widow's | Wedding Ring | Moonstone |
-| 5 | Hangman's | Pocket Watch | Black Pearl |
-| 6 | Gravedigger's | Silver Holy Symbol | Obsidian |
-| 7 | Undertaker's | Rabbit's Foot | Garnet |
-| 8 | Butcher's | Glass Eye | Amber |
-| 9 | Surgeon's | Cameo Brooch | Smoky Quartz |
-| 10 | Mortician's | Tooth Necklace | Witch's Eye |
-| 11 | Exorcist's | Hair Locket | Black Diamond |
-| 12 | Priest's | Skull Ring | Blood Ruby |
-| 13 | Nun's | Bat Wing Pendant | Grave Opal |
-| 14 | Witch's | Spider Brooch | Bone Ivory |
-| 15 | Hag's | Raven Skull Necklace | Coffin Agate |
-| 16 | Warlock's | Coffin Pendant | Raven Sapphire |
-| 17 | Necromancer's | Cross Earrings | Ghost Quartz |
-| 18 | Vampire's | Black Pearl Choker | Spirit Glass |
-| 19 | Werewolf's | Jet Brooch | Tear Pearl |
-| 20 | Banshee's | Onyx Ring | Widow's Tear |
-| 21 | Wraith's | Bloodstone Ring | Hangman's Stone |
-| 22 | Ghoul's | Moonstone Pendant | Gallows Garnet |
-| 23 | Zombie's | Silver Bullet Necklace | Crypt Emerald |
-| 24 | Mummy's | Wolf Tooth Charm | Tomb Topaz |
-| 25 | Lich's | Snake Ring | Mummy Amber |
-| 26 | Demon's | Scarab Brooch | Ash Diamond |
-| 27 | Devil's | Evil Eye Charm | Cinder Ruby |
-| 28 | Imp's | Witch's Ladder | Midnight Sapphire |
-| 29 | Goblin | Hag Stone | Moonlit Opal |
-| 30 | Black Hawk | Mandrake Root Charm | Wolf's Eye |
-| 31 | Nova's | Garlic Necklace | Cat's Eye |
-| 32 | Raven's | Iron Key | Serpent Eye |
-| 33 | Crow's | Skeleton Key | Dragon's Blood |
-| 34 | Bat's | Music Locket | Vampire Ruby |
-| 35 | Spider's | Dead Man's Watch | Werewolf Amber |
-| 36 | Moth's | Broken Compass | Banshee Pearl |
-| 37 | Wolf's | Toe Tag | Wraith Crystal |
-| 38 | Serpent's | Hospital Bracelet | Phantom Quartz |
-| 39 | Rat King's | Dog Tag | Shadow Jet |
-| 40 | Plague | Class Ring | Night Onyx |
-| 41 | Cursed | Grandma's Brooch | Dusk Amethyst |
-| 42 | Haunted | Doll's Eye Pendant | Blood Moon Garnet |
-| 43 | Possessed | Porcelain Hand Charm | Harvest Topaz |
-| 44 | Blessed | Baby Tooth Bracelet | Hallow Citrine |
-| 45 | Damned | Lock of Hair | Pumpkin Agate |
-| 46 | Forsaken | Thimble | Cobweb Quartz |
-| 47 | Forgotten | Sewing Needle Pin | Spider Opal |
-| 48 | Lost | Pin Cushion Charm | Beetle Shell |
-| 49 | Drowned | Mirror Compact | Moth Wing Glass |
-| 50 | Burned | Hand Mirror Pendant | Bat Pearl |
-| 51 | Buried | Candle Charm | Corpse Candle Glass |
-| 52 | Unburied | Bell Charm | Will-o'-Wisp Gem |
-| 53 | Restless | Sleigh Bell Anklet | Bog Amber |
-| 54 | Weeping | Wind Chime Earrings | Swamp Jade |
-| 55 | Screaming | Feather Earrings | Drowned Pearl |
-| 56 | Whispering | Crow Feather | Sea Witch Opal |
-| 57 | Silent | Owl Pendant | Kraken Ink Pearl |
-| 58 | Grinning | Moth Brooch | Deep One Pearl |
-| 59 | Hungry | Beetle Ring | Eldritch Quartz |
-| 60 | Bleeding | Bone Bangle | Void Obsidian |
-| 61 | Rotting | Finger Bone Ring | Madness Opal |
-| 62 | Withered | Knuckle Duster Ring | Dream Pearl |
-| 63 | Pale | Fang Earring | Nightmare Onyx |
-| 64 | Ashen | Claw Necklace | Hex Garnet |
-| 65 | Midnight | Vial Necklace | Curse Ruby |
-| 66 | Witching Hour | Holy Water Vial | Blessed Sapphire |
-| 67 | Blood Moon | Blood Vial Pendant | Holy Diamond |
-| 68 | Harvest Moon | Tear Bottle | Saint's Tear |
-| 69 | New Moon | Poison Ring | Angel's Pearl |
-| 70 | Black Mass | Cyanide Locket | Demon's Eye |
-| 71 | Last Rites | Mourning Band | Devil's Ruby |
-| 72 | Requiem | Widow's Ring | Hellfire Opal |
-| 73 | Lullaby | Engagement Ring | Brimstone |
-| 74 | Nursery Rhyme | Lovers' Locket | Sulfur Crystal |
-| 75 | Carnival | Friendship Bracelet | Graveyard Granite |
-| 76 | Circus | Charm Bracelet | Tombstone Marble |
-| 77 | Asylum | Saint Medal | Mausoleum Jade |
-| 78 | Manor | Crucifix | Catacomb Calcite |
-| 79 | Cellar | Rune Pendant | Skull Quartz |
-| 80 | Attic | Ouroboros Ring | Bone Opal |
-| 81 | Lighthouse | Pentacle Pendant | Marrow Pearl |
-| 82 | Cabin in the Woods | Hamsa Charm | Blood Coral |
-| 83 | Old Mill | Spirit Bell | Red Jasper |
-| 84 | Bog | Crystal Pendulum | Black Tourmaline |
-| 85 | Swamp | Tarot Card Pin | Hematite |
-| 86 | Fog | Ghost Photo Locket | Labradorite |
-| 87 | Mist | Film Reel Charm | Black Opal |
-| 88 | Thirteenth | Antique Cufflinks | Pale Opal |
-| 89 | Ninth | Tie Pin | Weeping Amethyst |
-| 90 | Mother's | Monocle | Lament Lapis |
-| 91 | Father's | Spectacles | Sorrow Sapphire |
-| 92 | Sister's | Hearing Trumpet | Grief Garnet |
-| 93 | Brother's | Ear Horn Pin | Dread Diamond |
-| 94 | Grandmother's | Ventriloquist Doll Pin | Fear Fluorite |
-| 95 | Orphan's | Clown Nose | Terror Topaz |
-| 96 | Stranger's | Jester Bell | Horror Hematite |
-| 97 | Nobody's | Carnival Ticket | Silent Spinel |
-| 98 | Lucky | Old Watch Chain | Cold Iron Nugget |
-| 99 | Moonless | Cemetery Key | Haunted Heirloom Gem |
-| 100 | Bonechill | Funeral Pin | Mourning Jet |
-
-### Stone Quality by Tier
-
-| Tier | Stone quality |
-| --- | --- |
-| T1 | Clouded |
-| T2 | Dull |
-| T3 | Polished |
-| T4 | Gleaming |
-| T5 | Whispering |
-| T6 | Eldritch |
-
-## Street Grit
-
-Whatever's in the trunk. Magical means shock, fire, or chemicals. Bling fills the jewelry role, and ice fills the gem role.
-
-### Weapons
-
-| d100 | Weapon | Hands | Reach | Damage |
-| --- | --- | --- | --- | --- |
-| 1 | Switchblade | 1 | Touch | Physical |
-| 2 | Twin Switchblades | 2 | Touch | Physical |
-| 3 | Butterfly Knife | 1 | Touch | Physical |
-| 4 | Utility Knife | 1 | Touch | Physical |
-| 5 | Brass Knuckles | 1 | Touch | Physical |
-| 6 | Twin Brass Knuckles | 2 | Touch | Physical |
-| 7 | Crowbar | 1 | Touch | Physical |
-| 8 | Tire Iron | 1 | Touch | Physical |
-| 9 | Lead Pipe | 1 | Touch | Physical |
-| 10 | Pipe Wrench | 1 | Touch | Physical |
-| 11 | Claw Hammer | 1 | Touch | Physical |
-| 12 | Sledgehammer | 2 | Touch | Physical |
-| 13 | Machete | 1 | Touch | Physical |
-| 14 | Baseball Bat | 2 | Touch | Physical |
-| 15 | Aluminum Bat | 2 | Touch | Physical |
-| 16 | Cricket Bat | 2 | Touch | Physical |
-| 17 | Hockey Stick | 2 | Touch | Physical |
-| 18 | Golf Club | 2 | Touch | Physical |
-| 19 | Pool Cue | 2 | Touch | Physical |
-| 20 | Nunchucks | 2 | Touch | Physical |
-| 21 | Bike Chain | 1 | Touch | Physical |
-| 22 | Padlock in a Sock | 1 | Touch | Physical |
-| 23 | Broken Bottle | 1 | Touch | Physical |
-| 24 | Shovel | 2 | Touch | Physical |
-| 25 | Fire Axe | 2 | Touch | Physical |
-| 26 | Chainsaw | 2 | Touch | Physical |
-| 27 | Samurai Sword | 2 | Touch | Physical |
-| 28 | Steel Pipe | 1 | Touch | Physical |
-| 29 | Rebar | 1 | Touch | Physical |
-| 30 | Skateboard | 2 | Touch | Physical |
-| 31 | Frying Pan | 1 | Touch | Physical |
-| 32 | Folding Chair | 2 | Touch | Physical |
-| 33 | Stop Sign | 2 | Touch | Physical |
-| 34 | Bowling Pin | 1 | Touch | Physical |
-| 35 | Screwdriver | 1 | Touch | Physical |
-| 36 | Ice Pick | 1 | Touch | Physical |
-| 37 | Meat Cleaver | 1 | Touch | Physical |
-| 38 | Shiv | 1 | Touch | Physical |
-| 39 | Hatchet | 1 | Touch | Physical |
-| 40 | Kitchen Knife | 1 | Touch | Physical |
-| 41 | Tactical Baton | 1 | Touch | Physical |
-| 42 | Riot Baton | 1 | Touch | Physical |
-| 43 | Tow Chain | 2 | Touch | Physical |
-| 44 | Bear Trap | 1 | Touch | Physical |
-| 45 | Rake | 2 | Touch | Physical |
-| 46 | Trash Can | 2 | Touch | Physical |
-| 47 | Car Antenna Whip | 1 | Touch | Physical |
-| 48 | Spiked Bat | 2 | Touch | Physical |
-| 49 | Stun Stick | 1 | Touch | Magical |
-| 50 | Stun Gun | 1 | Touch | Magical |
-| 51 | Cattle Prod | 1 | Touch | Magical |
-| 52 | Jumper Cables | 2 | Touch | Magical |
-| 53 | Live Wire | 1 | Touch | Magical |
-| 54 | Blowtorch | 1 | Touch | Magical |
-| 55 | Soldering Iron | 1 | Touch | Magical |
-| 56 | Curling Iron | 1 | Touch | Magical |
-| 57 | Acid Squirt Gun | 1 | Ranged | Magical |
-| 58 | Pepper Spray | 1 | Ranged | Magical |
-| 59 | Bear Spray | 1 | Ranged | Magical |
-| 60 | Fire Extinguisher | 2 | Ranged | Magical |
-| 61 | Road Flare | 1 | Ranged | Magical |
-| 62 | Molotov | 1 | Ranged | Magical |
-| 63 | Flashbang | 1 | Ranged | Magical |
-| 64 | Firework Launcher | 2 | Ranged | Magical |
-| 65 | Roman Candle | 1 | Ranged | Magical |
-| 66 | Flare Gun | 1 | Ranged | Magical |
-| 67 | Dart Stunner | 1 | Ranged | Magical |
-| 68 | Spray Can Torch | 2 | Ranged | Magical |
-| 69 | Bug Bomb | 1 | Ranged | Magical |
-| 70 | Bleach Balloon | 1 | Ranged | Magical |
-| 71 | Pipe Bomb | 1 | Ranged | Physical |
-| 72 | C4 | 1 | Ranged | Physical |
-| 73 | Dynamite | 1 | Ranged | Physical |
-| 74 | Grenade | 1 | Ranged | Physical |
-| 75 | Homemade Bomb | 1 | Ranged | Physical |
-| 76 | Nail Gun | 1 | Ranged | Physical |
-| 77 | Staple Gun | 1 | Ranged | Physical |
-| 78 | Paintball Gun | 2 | Ranged | Physical |
-| 79 | BB Gun | 2 | Ranged | Physical |
-| 80 | Slingshot | 1 | Ranged | Physical |
-| 81 | Compound Bow | 2 | Ranged | Physical |
-| 82 | Crossbow | 2 | Ranged | Physical |
-| 83 | Snub-Nose Revolver | 1 | Ranged | Physical |
-| 84 | Twin Pistols | 2 | Ranged | Physical |
-| 85 | 9mm Pistol | 1 | Ranged | Physical |
-| 86 | Hand Cannon | 1 | Ranged | Physical |
-| 87 | Sawed-Off Shotgun | 2 | Ranged | Physical |
-| 88 | Pump Shotgun | 2 | Ranged | Physical |
-| 89 | Hunting Rifle | 2 | Ranged | Physical |
-| 90 | Assault Rifle | 2 | Ranged | Physical |
-| 91 | Compact SMG | 1 | Ranged | Physical |
-| 92 | Sniper Rifle | 2 | Ranged | Physical |
-| 93 | Harpoon Gun | 2 | Ranged | Physical |
-| 94 | Throwing Knives | 1 | Ranged | Physical |
-| 95 | Throwing Stars | 1 | Ranged | Physical |
-| 96 | Darts | 1 | Ranged | Physical |
-| 97 | Bowling Ball | 1 | Ranged | Physical |
-| 98 | Beanbag Shotgun | 2 | Ranged | Physical |
-| 99 | Brick | 1 | Ranged | Physical |
-| 100 | Hubcap Frisbee | 1 | Ranged | Physical |
-
-### Armor
-
-| d100 | Armor | Type |
-| --- | --- | --- |
-| 1 | Leather Jacket | Physical |
-| 2 | Hockey Pads | Physical |
-| 3 | Ballistic Vest | Physical |
-| 4 | Motorcycle Helmet | Physical |
-| 5 | Steel-Toe Boots | Physical |
-| 6 | Riot Shield | Physical |
-| 7 | Knee Pads | Physical |
-| 8 | Elbow Pads | Physical |
-| 9 | Shin Guards | Physical |
-| 10 | Football Pads | Physical |
-| 11 | Catcher's Gear | Physical |
-| 12 | Batting Helmet | Physical |
-| 13 | Hard Hat | Physical |
-| 14 | Bike Helmet | Physical |
-| 15 | Skate Helmet | Physical |
-| 16 | Wrist Guards | Physical |
-| 17 | Work Gloves | Physical |
-| 18 | Fingerless Gloves | Physical |
-| 19 | Biker Gloves | Physical |
-| 20 | Denim Jacket | Physical |
-| 21 | Puffer Jacket | Physical |
-| 22 | Bomber Jacket | Physical |
-| 23 | Hoodie | Physical |
-| 24 | Trench Coat | Physical |
-| 25 | Canvas Work Coat | Physical |
-| 26 | Work Overalls | Physical |
-| 27 | Coveralls | Physical |
-| 28 | Mechanic's Jumpsuit | Physical |
-| 29 | Security Vest | Physical |
-| 30 | Tactical Vest | Physical |
-| 31 | Plate Carrier | Physical |
-| 32 | Bulletproof Briefcase | Physical |
-| 33 | Trash Can Lid Shield | Physical |
-| 34 | Car Door Shield | Physical |
-| 35 | Mattress Shield | Physical |
-| 36 | Duct Tape Armor | Physical |
-| 37 | Cardboard Armor | Physical |
-| 38 | Phone Book Vest | Physical |
-| 39 | Chain Shirt | Physical |
-| 40 | Bandana | Physical |
-| 41 | Ski Mask | Physical |
-| 42 | Hockey Mask | Physical |
-| 43 | Goggles | Physical |
-| 44 | Snapback Cap | Physical |
-| 45 | Beanie | Physical |
-| 46 | Cowboy Hat | Physical |
-| 47 | Combat Boots | Physical |
-| 48 | High-Tops | Physical |
-| 49 | Cowboy Boots | Physical |
-| 50 | Track Suit | Physical |
-| 51 | Hazmat Suit | Magical |
-| 52 | Welding Apron | Magical |
-| 53 | Lineman's Gloves | Magical |
-| 54 | Fire Suit | Magical |
-| 55 | Rubber Boots | Magical |
-| 56 | Rubber Gloves | Magical |
-| 57 | Gas Mask | Magical |
-| 58 | Respirator | Magical |
-| 59 | Welding Mask | Magical |
-| 60 | Lab Goggles | Magical |
-| 61 | Fireproof Blanket | Magical |
-| 62 | Insulated Coveralls | Magical |
-| 63 | Electrician's Belt | Magical |
-| 64 | Firefighter Turnout Coat | Magical |
-| 65 | Firefighter Helmet | Magical |
-| 66 | Bomb Suit | Magical |
-| 67 | Faraday Jacket | Magical |
-| 68 | Lead Apron | Magical |
-| 69 | Chemical Apron | Magical |
-| 70 | Tyvek Suit | Magical |
-| 71 | Asbestos Gloves | Magical |
-| 72 | Wetsuit | Magical |
-| 73 | Rain Poncho | Magical |
-| 74 | Tinfoil Hat | Magical |
-| 75 | Lucky Jersey | Magical |
-| 76 | Grandma's Sweater | Magical |
-| 77 | Church Suit | Magical |
-| 78 | Wedding Tux | Magical |
-| 79 | Silk Shirt | Magical |
-| 80 | Velvet Robe | Magical |
-| 81 | Fur Coat | Magical |
-| 82 | Designer Shades | Magical |
-| 83 | Gold Grill Guard | Magical |
-| 84 | Toe Ring | Magical |
-| 85 | Ankle Monitor | Magical |
-| 86 | Rosary Tattoo | Magical |
-| 87 | Prison Tattoos | Magical |
-| 88 | Face Paint | Magical |
-| 89 | Glow Stick Rave Gear | Magical |
-| 90 | Hi-Vis Jacket | Magical |
-| 91 | Reflective Vest | Magical |
-| 92 | Bubble Wrap Suit | Magical |
-| 93 | Foam Finger | Magical |
-| 94 | Mascot Costume | Magical |
-| 95 | Cape | Magical |
-| 96 | Luchador Mask | Magical |
-| 97 | Boxing Robe | Magical |
-| 98 | Armored Hoodie | Magical |
-| 99 | Neck Brace | Magical |
-| 100 | Back Brace | Magical |
-
-### Clever Names, Bling, and Ice
-
-| d100 | Clever name | Bling | Ice |
-| --- | --- | --- | --- |
-| 1 | Kingpin | Gold Chain | Ruby |
-| 2 | Black Hawk | Pinky Ring | Sapphire |
-| 3 | Goblin | Wristwatch | Emerald |
-| 4 | Nova's | Gold Grill | Diamond |
-| 5 | Big Mike's | Stud Earrings | Pearl |
-| 6 | Lil' Ray's | Class Ring | Opal |
-| 7 | Uncle Lou's | Rosary Beads | Topaz |
-| 8 | Mama's | Medallion | Tanzanite |
-| 9 | Pops's | Tennis Bracelet | Jade |
-| 10 | Cousin Sal's | Lucky Charm | Black Diamond |
-| 11 | Tony's | Dog Tags | Pink Diamond |
-| 12 | Benny's | Cuban Link | Yellow Diamond |
-| 13 | Lefty's | Rope Chain | Blue Diamond |
-| 14 | Slim's | Nameplate Necklace | Cubic Zirconia |
-| 15 | Shorty's | Nugget Ring | Moissanite |
-| 16 | Red's | Signet Ring | Rhinestone |
-| 17 | Boss | Championship Ring | Glass Diamond |
-| 18 | Hustler's | Title Game Ring | Crystal Bead |
-| 19 | Grinder's | Hoop Earrings | Rock Candy |
-| 20 | Runner's | Diamond Studs | Gold Nugget |
-| 21 | Lookout's | Nose Stud | Silver Nugget |
-| 22 | Bouncer's | Eyebrow Ring | Platinum Bar |
-| 23 | Bartender's | Lip Ring | Gold Bar |
-| 24 | Mechanic's | Belly Ring | Gold Tooth |
-| 25 | Trucker's | Ankle Bracelet | Diamond Tooth |
-| 26 | Cabbie's | Toe Ring | Garnet |
-| 27 | Mailman's | Thumb Ring | Amethyst |
-| 28 | Janitor's | Knuckle Ring | Citrine |
-| 29 | Cop's | Four-Finger Ring | Peridot |
-| 30 | Detective's | Dollar Sign Pendant | Aquamarine |
-| 31 | Snitch's | Crown Pendant | Turquoise |
-| 32 | Bookie's | Cross Pendant | Onyx |
-| 33 | Loan Shark's | Saint Medal | Jasper |
-| 34 | Pawnbroker's | Praying Hands Pendant | Agate |
-| 35 | Street Preacher's | Scales Pendant | Tiger's Eye |
-| 36 | Corner Store | Dice Pendant | Malachite |
-| 37 | Back Alley | Eight Ball Charm | Lapis |
-| 38 | Southside | Lucky Seven Ring | Coral |
-| 39 | Northside | Horseshoe Ring | Amber |
-| 40 | Eastside | Four-Leaf Clover | Obsidian |
-| 41 | Westside | Rabbit's Foot | Quartz |
-| 42 | Uptown | Fuzzy Dice | Rose Quartz |
-| 43 | Downtown | Car Keys | Smoky Quartz |
-| 44 | Crosstown | Keychain | Moonstone |
-| 45 | Midtown | Lanyard | Sunstone |
-| 46 | Dockside | Locket with Photo | Bloodstone |
-| 47 | Rail Yard | Baby Shoe Charm | Hematite |
-| 48 | Junkyard | Mom Tattoo Locket | Pyrite |
-| 49 | Chop Shop | Friendship Bracelet | Fool's Gold |
-| 50 | Body Shop | Paracord Bracelet | Sea Glass |
-| 51 | Pool Hall | Beaded Bracelet | Beach Pearl |
-| 52 | Barbershop | Rubber Wristband | Freshwater Pearl |
-| 53 | Laundromat | Hospital Band | Black Pearl |
-| 54 | Bodega | Jail ID Band | Baroque Pearl |
-| 55 | Diner | VIP Wristband | Mother of Pearl |
-| 56 | Dive Bar | Concert Wristband | Abalone |
-| 57 | Night Shift | Festival Pass | Spinel |
-| 58 | Graveyard Shift | Press Badge | Zircon |
-| 59 | Overtime | Police Badge | Tourmaline |
-| 60 | Payday | Security Badge | Alexandrite |
-| 61 | Rent Day | Employee ID | Morganite |
-| 62 | Last Call | Union Pin | Kunzite |
-| 63 | Happy Hour | Veteran Pin | Beryl |
-| 64 | Rush Hour | Purple Heart | Fire Opal |
-| 65 | Red Light | Medal of Honor | Star Sapphire |
-| 66 | Green Light | Bottle Cap Necklace | Star Ruby |
-| 67 | Yellow Tape | Bullet Casing Necklace | Cat's Eye |
-| 68 | Blue Line | Shell Casing Earring | Chocolate Diamond |
-| 69 | Red Line | Wrench Pendant | Champagne Diamond |
-| 70 | Hot | Spark Plug Ring | Canary Diamond |
-| 71 | Cold | Lug Nut Ring | Princess Cut |
-| 72 | Clean | Washer Bracelet | Emerald Cut |
-| 73 | Dirty | Chain Link Bracelet | Pear Cut |
-| 74 | Borrowed | Padlock Necklace | Marquise Cut |
-| 75 | Stolen | Skeleton Key | Heart Cut |
-| 76 | Lucky | Pager | Cushion Cut |
-| 77 | Busted | Flip Phone | Radiant Cut |
-| 78 | Rusty | Bluetooth Earpiece | Asscher Cut |
-| 79 | Shiny | Smart Watch | Oval Cut |
-| 80 | Fresh | Pocket Knife Charm | Round Brilliant |
-| 81 | Old School | Lighter | Rough Diamond |
-| 82 | New School | Flip-Top Lighter | Uncut Emerald |
-| 83 | Hard Knock | Cigar Cutter | Raw Ruby |
-| 84 | Big League | Money Clip | Loose Stone |
-| 85 | Small Time | Tie Clip | Pawned Ring Stone |
-| 86 | Bootleg | Cufflinks | Hot Rock |
-| 87 | Knock-Off | Gold Tooth | Heist Diamond |
-| 88 | Brand-Name | Sunglasses Chain | Museum Piece |
-| 89 | Hand-Me-Down | Hair Clip | Crown Jewel |
-| 90 | Secondhand | Scrunchie | Royal Sapphire |
-| 91 | Pawnshop | Bandana Ring | Mob Boss Ruby |
-| 92 | Thrift Store | Gold Bangle | Lottery Diamond |
-| 93 | Dollar Store | Silver Cuff | Church Ruby |
-| 94 | Gas Station | Ice Pendant | Bank Vault Emerald |
-| 95 | Parking Lot | Bling Belt Buckle | Insurance Fraud Pearl |
-| 96 | Rooftop | Grandpa's Watch | Cartel Jade |
-| 97 | Basement | Wedding Band | Smuggled Opal |
-| 98 | Street King's | Promise Ring | Pawn Counter Topaz |
-| 99 | Block Party | Mood Ring | Grandma's Brooch Stone |
-| 100 | Hometown | Hustler's Watch | Street Ice |
-
-### Ice Quality by Tier
-
-| Tier | Ice quality |
-| --- | --- |
-| T1 | Pawn-Shop |
-| T2 | Cloudy |
-| T3 | Cut |
-| T4 | Flawless |
-| T5 | Museum |
-| T6 | Crown-Jewel |
 
 ## Pirate
 
@@ -2001,9 +1011,669 @@ Brass, leather, and steam. Magical means aether, lightning, alchemy, and the occ
 | T5 | Royal Society |
 | T6 | Imperial |
 
-## After Dark (21+)
+## Horror
 
-Loot only, for adult tables: bad puns, crude jokes, and novelty gear. It has no app look of its own; it is bonus names for Street Grit and mixes with any tables you toggle on. Magical means vibration, heat, sauce, or sheer awkwardness. Twin weapons and prosthetics follow the same hands rule as everything else.
+Razors, relics, and things best left buried. Magical means the occult. Keepsakes fill the jewelry role, and stones fill the gem role.
+
+### Weapons
+
+| d100 | Weapon | Hands | Reach | Damage |
+| --- | --- | --- | --- | --- |
+| 1 | Straight Razor | 1 | Touch | Physical |
+| 2 | Butcher's Cleaver | 1 | Touch | Physical |
+| 3 | Silver Dagger | 1 | Touch | Physical |
+| 4 | Twin Silver Daggers | 2 | Touch | Physical |
+| 5 | Kitchen Knife | 1 | Touch | Physical |
+| 6 | Carving Knife | 1 | Touch | Physical |
+| 7 | Bone Saw | 1 | Touch | Physical |
+| 8 | Hacksaw | 1 | Touch | Physical |
+| 9 | Meat Hook | 1 | Touch | Physical |
+| 10 | Twin Meat Hooks | 2 | Touch | Physical |
+| 11 | Ice Pick | 1 | Touch | Physical |
+| 12 | Letter Opener | 1 | Touch | Physical |
+| 13 | Scalpel | 1 | Touch | Physical |
+| 14 | Fire Poker | 1 | Touch | Physical |
+| 15 | Claw Hammer | 1 | Touch | Physical |
+| 16 | Sledgehammer | 2 | Touch | Physical |
+| 17 | Wood Axe | 2 | Touch | Physical |
+| 18 | Hatchet | 1 | Touch | Physical |
+| 19 | Pickaxe | 2 | Touch | Physical |
+| 20 | Gravedigger's Shovel | 2 | Touch | Physical |
+| 21 | Pitchfork | 2 | Touch | Physical |
+| 22 | Scythe | 2 | Touch | Physical |
+| 23 | Sickle | 1 | Touch | Physical |
+| 24 | Machete | 1 | Touch | Physical |
+| 25 | Chainsaw | 2 | Touch | Physical |
+| 26 | Garden Shears | 2 | Touch | Physical |
+| 27 | Crowbar | 1 | Touch | Physical |
+| 28 | Lead Pipe | 1 | Touch | Physical |
+| 29 | Candlestick | 1 | Touch | Physical |
+| 30 | Walking Cane | 1 | Touch | Physical |
+| 31 | Sword Cane | 1 | Touch | Physical |
+| 32 | Wooden Stake | 1 | Touch | Physical |
+| 33 | Stake and Mallet | 2 | Touch | Physical |
+| 34 | Barbed Wire Bat | 2 | Touch | Physical |
+| 35 | Rusty Chain | 1 | Touch | Physical |
+| 36 | Baseball Bat | 2 | Touch | Physical |
+| 37 | Golf Club | 2 | Touch | Physical |
+| 38 | Umbrella | 1 | Touch | Physical |
+| 39 | Mirror Shard | 1 | Touch | Physical |
+| 40 | Broken Bottle | 1 | Touch | Physical |
+| 41 | Silver Sword | 1 | Touch | Physical |
+| 42 | Bayonet Rifle | 2 | Touch | Physical |
+| 43 | Bear Trap | 1 | Touch | Physical |
+| 44 | Rolling Pin | 1 | Touch | Physical |
+| 45 | Iron Skillet | 1 | Touch | Physical |
+| 46 | Railroad Spike | 1 | Touch | Physical |
+| 47 | Antler Club | 1 | Touch | Physical |
+| 48 | Coffin Nail Bat | 2 | Touch | Physical |
+| 49 | Revolver | 1 | Ranged | Physical |
+| 50 | Twin Revolvers | 2 | Ranged | Physical |
+| 51 | Double-Barrel Shotgun | 2 | Ranged | Physical |
+| 52 | Pump Shotgun | 2 | Ranged | Physical |
+| 53 | Hunting Rifle | 2 | Ranged | Physical |
+| 54 | Flintlock Pistol | 1 | Ranged | Physical |
+| 55 | Derringer | 1 | Ranged | Physical |
+| 56 | Crossbow | 2 | Ranged | Physical |
+| 57 | Silver-Bolt Crossbow | 2 | Ranged | Physical |
+| 58 | Nail Gun | 1 | Ranged | Physical |
+| 59 | Slingshot | 1 | Ranged | Physical |
+| 60 | Throwing Knives | 1 | Ranged | Physical |
+| 61 | Brick | 1 | Ranged | Physical |
+| 62 | Dynamite Stick | 1 | Ranged | Physical |
+| 63 | Speargun | 2 | Ranged | Physical |
+| 64 | Drum-Fed Tommy Gun | 2 | Ranged | Physical |
+| 65 | Harpoon Gun | 2 | Ranged | Physical |
+| 66 | Lever-Action Rifle | 2 | Ranged | Physical |
+| 67 | Musket | 2 | Ranged | Physical |
+| 68 | Silver Bullets Pistol | 1 | Ranged | Physical |
+| 69 | Flare Gun | 1 | Ranged | Magical |
+| 70 | Molotov | 1 | Ranged | Magical |
+| 71 | Holy Water Flask | 1 | Ranged | Magical |
+| 72 | Oil Lantern | 1 | Ranged | Magical |
+| 73 | Ritual Knife | 1 | Touch | Magical |
+| 74 | Sacrificial Sickle | 1 | Touch | Magical |
+| 75 | Vampire Fang Dagger | 1 | Touch | Magical |
+| 76 | Werewolf Claw | 1 | Touch | Magical |
+| 77 | Shadow Whip | 1 | Touch | Magical |
+| 78 | Cursed Blade | 1 | Touch | Magical |
+| 79 | Rosary Whip | 1 | Touch | Magical |
+| 80 | Exorcist's Cross | 1 | Touch | Magical |
+| 81 | Hand of Glory | 1 | Ranged | Magical |
+| 82 | Hex Doll | 1 | Ranged | Magical |
+| 83 | Grimoire | 1 | Ranged | Magical |
+| 84 | Bone Wand | 1 | Ranged | Magical |
+| 85 | Spirit Board Planchette | 1 | Ranged | Magical |
+| 86 | Tarot Deck | 1 | Ranged | Magical |
+| 87 | Cursed Mirror | 1 | Ranged | Magical |
+| 88 | Crystal Ball | 1 | Ranged | Magical |
+| 89 | Death Bell | 1 | Ranged | Magical |
+| 90 | Bone Flute | 2 | Ranged | Magical |
+| 91 | Puppet on Strings | 1 | Ranged | Magical |
+| 92 | Spirit Lantern | 1 | Ranged | Magical |
+| 93 | Salt Pouch | 1 | Ranged | Magical |
+| 94 | Blessed Candle | 1 | Ranged | Magical |
+| 95 | Black Book | 1 | Ranged | Magical |
+| 96 | Plague Censer | 1 | Ranged | Magical |
+| 97 | Raven Skull Staff | 2 | Ranged | Magical |
+| 98 | Grave Dirt Pouch | 1 | Ranged | Magical |
+| 99 | Leech Jar | 1 | Ranged | Magical |
+| 100 | Phylactery | 1 | Ranged | Magical |
+
+### Armor
+
+| d100 | Armor | Type |
+| --- | --- | --- |
+| 1 | Heavy Coat | Physical |
+| 2 | Leather Apron | Physical |
+| 3 | Hunter's Duster | Physical |
+| 4 | Chainmail Shirt | Physical |
+| 5 | Iron Corset | Physical |
+| 6 | Coffin-Lid Shield | Physical |
+| 7 | Trench Coat | Physical |
+| 8 | Peacoat | Physical |
+| 9 | Wool Overcoat | Physical |
+| 10 | Rubber Waders | Physical |
+| 11 | Butcher's Smock | Physical |
+| 12 | Welding Mask | Physical |
+| 13 | Hockey Mask | Physical |
+| 14 | Football Helmet | Physical |
+| 15 | Miner's Helmet | Physical |
+| 16 | Bowler Hat | Physical |
+| 17 | Top Hat | Physical |
+| 18 | Leather Gloves | Physical |
+| 19 | Work Gloves | Physical |
+| 20 | Steel-Toe Boots | Physical |
+| 21 | Riding Boots | Physical |
+| 22 | Knee Pads | Physical |
+| 23 | Elbow Pads | Physical |
+| 24 | Shin Guards | Physical |
+| 25 | Gardening Gloves | Physical |
+| 26 | Thick Scarf | Physical |
+| 27 | Turtleneck | Physical |
+| 28 | Hooded Sweatshirt | Physical |
+| 29 | Letterman Jacket | Physical |
+| 30 | Flannel Shirt | Physical |
+| 31 | Overalls | Physical |
+| 32 | Hunting Vest | Physical |
+| 33 | Fishing Vest | Physical |
+| 34 | Life Jacket | Physical |
+| 35 | Lab Coat | Physical |
+| 36 | Surgical Gown | Physical |
+| 37 | Straitjacket | Physical |
+| 38 | Padded Room Mattress | Physical |
+| 39 | Trash Can Lid | Physical |
+| 40 | Stop Sign Shield | Physical |
+| 41 | Car Door Shield | Physical |
+| 42 | Tin Bucket Helmet | Physical |
+| 43 | Pot Helmet | Physical |
+| 44 | Duct Tape Armor | Physical |
+| 45 | Phone Book Vest | Physical |
+| 46 | Antique Breastplate | Physical |
+| 47 | Suit of Armor | Physical |
+| 48 | Rusty Gauntlet | Physical |
+| 49 | Plague Doctor Coat | Physical |
+| 50 | Mourning Veil | Physical |
+| 51 | Church Vestments | Magical |
+| 52 | Plague Mask | Magical |
+| 53 | Salt-Lined Cloak | Magical |
+| 54 | Warding Shawl | Magical |
+| 55 | Holy Tabard | Magical |
+| 56 | Nun's Habit | Magical |
+| 57 | Priest's Collar | Magical |
+| 58 | Witch's Cloak | Magical |
+| 59 | Hag's Rags | Magical |
+| 60 | Shroud | Magical |
+| 61 | Burial Dress | Magical |
+| 62 | Funeral Suit | Magical |
+| 63 | Wedding Veil | Magical |
+| 64 | Sackcloth Hood | Magical |
+| 65 | Bone Mask | Magical |
+| 66 | Skull Crown | Magical |
+| 67 | Antler Headdress | Magical |
+| 68 | Feather Cloak | Magical |
+| 69 | Raven Cape | Magical |
+| 70 | Moth Wing Shawl | Magical |
+| 71 | Spider Silk Gloves | Magical |
+| 72 | Rune-Stitched Coat | Magical |
+| 73 | Sigil Tattoos | Magical |
+| 74 | Blood Paint | Magical |
+| 75 | Ash Markings | Magical |
+| 76 | Ghost Sheet | Magical |
+| 77 | Cobweb Veil | Magical |
+| 78 | Mirror Vest | Magical |
+| 79 | Iron Nail Belt | Magical |
+| 80 | Garlic Garland | Magical |
+| 81 | Wolfsbane Wreath | Magical |
+| 82 | Silver Chain Mail | Magical |
+| 83 | Blessed Rosary Belt | Magical |
+| 84 | Saint's Medallion Armor | Magical |
+| 85 | Exorcist's Stole | Magical |
+| 86 | Haunted Wedding Gown | Magical |
+| 87 | Seance Robes | Magical |
+| 88 | Medium's Turban | Magical |
+| 89 | Fortune Teller's Shawl | Magical |
+| 90 | Grave Moss Cloak | Magical |
+| 91 | Embalmer's Apron | Magical |
+| 92 | Toe Tag Anklet | Magical |
+| 93 | Lucky Toe Ring | Magical |
+| 94 | Dreamcatcher Harness | Magical |
+| 95 | Candle Wax Coat | Magical |
+| 96 | Chalk Circle Boots | Magical |
+| 97 | Possessed Doll Mask | Magical |
+| 98 | Mothman Goggles | Magical |
+| 99 | Cursed Locket Armor | Magical |
+| 100 | Shadow Cloak | Magical |
+
+### Clever Names, Keepsakes, and Stones
+
+| d100 | Clever name | Keepsake | Stone |
+| --- | --- | --- | --- |
+| 1 | Hollow | Rosary | Jet |
+| 2 | Grave | Mourning Locket | Onyx |
+| 3 | Crypt | Bone Charm | Bloodstone |
+| 4 | Widow's | Wedding Ring | Moonstone |
+| 5 | Hangman's | Pocket Watch | Black Pearl |
+| 6 | Gravedigger's | Silver Holy Symbol | Obsidian |
+| 7 | Undertaker's | Rabbit's Foot | Garnet |
+| 8 | Butcher's | Glass Eye | Amber |
+| 9 | Surgeon's | Cameo Brooch | Smoky Quartz |
+| 10 | Mortician's | Tooth Necklace | Witch's Eye |
+| 11 | Exorcist's | Hair Locket | Black Diamond |
+| 12 | Priest's | Skull Ring | Blood Ruby |
+| 13 | Nun's | Bat Wing Pendant | Grave Opal |
+| 14 | Witch's | Spider Brooch | Bone Ivory |
+| 15 | Hag's | Raven Skull Necklace | Coffin Agate |
+| 16 | Warlock's | Coffin Pendant | Raven Sapphire |
+| 17 | Necromancer's | Cross Earrings | Ghost Quartz |
+| 18 | Vampire's | Black Pearl Choker | Spirit Glass |
+| 19 | Werewolf's | Jet Brooch | Tear Pearl |
+| 20 | Banshee's | Onyx Ring | Widow's Tear |
+| 21 | Wraith's | Bloodstone Ring | Hangman's Stone |
+| 22 | Ghoul's | Moonstone Pendant | Gallows Garnet |
+| 23 | Zombie's | Silver Bullet Necklace | Crypt Emerald |
+| 24 | Mummy's | Wolf Tooth Charm | Tomb Topaz |
+| 25 | Lich's | Snake Ring | Mummy Amber |
+| 26 | Demon's | Scarab Brooch | Ash Diamond |
+| 27 | Devil's | Evil Eye Charm | Cinder Ruby |
+| 28 | Imp's | Witch's Ladder | Midnight Sapphire |
+| 29 | Goblin | Hag Stone | Moonlit Opal |
+| 30 | Black Hawk | Mandrake Root Charm | Wolf's Eye |
+| 31 | Nova's | Garlic Necklace | Cat's Eye |
+| 32 | Raven's | Iron Key | Serpent Eye |
+| 33 | Crow's | Skeleton Key | Dragon's Blood |
+| 34 | Bat's | Music Locket | Vampire Ruby |
+| 35 | Spider's | Dead Man's Watch | Werewolf Amber |
+| 36 | Moth's | Broken Compass | Banshee Pearl |
+| 37 | Wolf's | Toe Tag | Wraith Crystal |
+| 38 | Serpent's | Hospital Bracelet | Phantom Quartz |
+| 39 | Rat King's | Dog Tag | Shadow Jet |
+| 40 | Plague | Class Ring | Night Onyx |
+| 41 | Cursed | Grandma's Brooch | Dusk Amethyst |
+| 42 | Haunted | Doll's Eye Pendant | Blood Moon Garnet |
+| 43 | Possessed | Porcelain Hand Charm | Harvest Topaz |
+| 44 | Blessed | Baby Tooth Bracelet | Hallow Citrine |
+| 45 | Damned | Lock of Hair | Pumpkin Agate |
+| 46 | Forsaken | Thimble | Cobweb Quartz |
+| 47 | Forgotten | Sewing Needle Pin | Spider Opal |
+| 48 | Lost | Pin Cushion Charm | Beetle Shell |
+| 49 | Drowned | Mirror Compact | Moth Wing Glass |
+| 50 | Burned | Hand Mirror Pendant | Bat Pearl |
+| 51 | Buried | Candle Charm | Corpse Candle Glass |
+| 52 | Unburied | Bell Charm | Will-o'-Wisp Gem |
+| 53 | Restless | Sleigh Bell Anklet | Bog Amber |
+| 54 | Weeping | Wind Chime Earrings | Swamp Jade |
+| 55 | Screaming | Feather Earrings | Drowned Pearl |
+| 56 | Whispering | Crow Feather | Sea Witch Opal |
+| 57 | Silent | Owl Pendant | Kraken Ink Pearl |
+| 58 | Grinning | Moth Brooch | Deep One Pearl |
+| 59 | Hungry | Beetle Ring | Eldritch Quartz |
+| 60 | Bleeding | Bone Bangle | Void Obsidian |
+| 61 | Rotting | Finger Bone Ring | Madness Opal |
+| 62 | Withered | Knuckle Duster Ring | Dream Pearl |
+| 63 | Pale | Fang Earring | Nightmare Onyx |
+| 64 | Ashen | Claw Necklace | Hex Garnet |
+| 65 | Midnight | Vial Necklace | Curse Ruby |
+| 66 | Witching Hour | Holy Water Vial | Blessed Sapphire |
+| 67 | Blood Moon | Blood Vial Pendant | Holy Diamond |
+| 68 | Harvest Moon | Tear Bottle | Saint's Tear |
+| 69 | New Moon | Poison Ring | Angel's Pearl |
+| 70 | Black Mass | Cyanide Locket | Demon's Eye |
+| 71 | Last Rites | Mourning Band | Devil's Ruby |
+| 72 | Requiem | Widow's Ring | Hellfire Opal |
+| 73 | Lullaby | Engagement Ring | Brimstone |
+| 74 | Nursery Rhyme | Lovers' Locket | Sulfur Crystal |
+| 75 | Carnival | Friendship Bracelet | Graveyard Granite |
+| 76 | Circus | Charm Bracelet | Tombstone Marble |
+| 77 | Asylum | Saint Medal | Mausoleum Jade |
+| 78 | Manor | Crucifix | Catacomb Calcite |
+| 79 | Cellar | Rune Pendant | Skull Quartz |
+| 80 | Attic | Ouroboros Ring | Bone Opal |
+| 81 | Lighthouse | Pentacle Pendant | Marrow Pearl |
+| 82 | Cabin in the Woods | Hamsa Charm | Blood Coral |
+| 83 | Old Mill | Spirit Bell | Red Jasper |
+| 84 | Bog | Crystal Pendulum | Black Tourmaline |
+| 85 | Swamp | Tarot Card Pin | Hematite |
+| 86 | Fog | Ghost Photo Locket | Labradorite |
+| 87 | Mist | Film Reel Charm | Black Opal |
+| 88 | Thirteenth | Antique Cufflinks | Pale Opal |
+| 89 | Ninth | Tie Pin | Weeping Amethyst |
+| 90 | Mother's | Monocle | Lament Lapis |
+| 91 | Father's | Spectacles | Sorrow Sapphire |
+| 92 | Sister's | Hearing Trumpet | Grief Garnet |
+| 93 | Brother's | Ear Horn Pin | Dread Diamond |
+| 94 | Grandmother's | Ventriloquist Doll Pin | Fear Fluorite |
+| 95 | Orphan's | Clown Nose | Terror Topaz |
+| 96 | Stranger's | Jester Bell | Horror Hematite |
+| 97 | Nobody's | Carnival Ticket | Silent Spinel |
+| 98 | Lucky | Old Watch Chain | Cold Iron Nugget |
+| 99 | Moonless | Cemetery Key | Haunted Heirloom Gem |
+| 100 | Bonechill | Funeral Pin | Mourning Jet |
+
+### Stone Quality by Tier
+
+| Tier | Stone quality |
+| --- | --- |
+| T1 | Clouded |
+| T2 | Dull |
+| T3 | Polished |
+| T4 | Gleaming |
+| T5 | Whispering |
+| T6 | Eldritch |
+
+## Street Grit
+
+Whatever's in the trunk. Magical means shock, fire, or chemicals. Bling fills the jewelry role, and ice fills the gem role.
+
+### Weapons
+
+| d100 | Weapon | Hands | Reach | Damage |
+| --- | --- | --- | --- | --- |
+| 1 | Switchblade | 1 | Touch | Physical |
+| 2 | Twin Switchblades | 2 | Touch | Physical |
+| 3 | Butterfly Knife | 1 | Touch | Physical |
+| 4 | Utility Knife | 1 | Touch | Physical |
+| 5 | Brass Knuckles | 1 | Touch | Physical |
+| 6 | Twin Brass Knuckles | 2 | Touch | Physical |
+| 7 | Crowbar | 1 | Touch | Physical |
+| 8 | Tire Iron | 1 | Touch | Physical |
+| 9 | Lead Pipe | 1 | Touch | Physical |
+| 10 | Pipe Wrench | 1 | Touch | Physical |
+| 11 | Claw Hammer | 1 | Touch | Physical |
+| 12 | Sledgehammer | 2 | Touch | Physical |
+| 13 | Machete | 1 | Touch | Physical |
+| 14 | Baseball Bat | 2 | Touch | Physical |
+| 15 | Aluminum Bat | 2 | Touch | Physical |
+| 16 | Cricket Bat | 2 | Touch | Physical |
+| 17 | Hockey Stick | 2 | Touch | Physical |
+| 18 | Golf Club | 2 | Touch | Physical |
+| 19 | Pool Cue | 2 | Touch | Physical |
+| 20 | Nunchucks | 2 | Touch | Physical |
+| 21 | Bike Chain | 1 | Touch | Physical |
+| 22 | Padlock in a Sock | 1 | Touch | Physical |
+| 23 | Broken Bottle | 1 | Touch | Physical |
+| 24 | Shovel | 2 | Touch | Physical |
+| 25 | Fire Axe | 2 | Touch | Physical |
+| 26 | Chainsaw | 2 | Touch | Physical |
+| 27 | Samurai Sword | 2 | Touch | Physical |
+| 28 | Steel Pipe | 1 | Touch | Physical |
+| 29 | Rebar | 1 | Touch | Physical |
+| 30 | Skateboard | 2 | Touch | Physical |
+| 31 | Frying Pan | 1 | Touch | Physical |
+| 32 | Folding Chair | 2 | Touch | Physical |
+| 33 | Stop Sign | 2 | Touch | Physical |
+| 34 | Bowling Pin | 1 | Touch | Physical |
+| 35 | Screwdriver | 1 | Touch | Physical |
+| 36 | Ice Pick | 1 | Touch | Physical |
+| 37 | Meat Cleaver | 1 | Touch | Physical |
+| 38 | Shiv | 1 | Touch | Physical |
+| 39 | Hatchet | 1 | Touch | Physical |
+| 40 | Kitchen Knife | 1 | Touch | Physical |
+| 41 | Tactical Baton | 1 | Touch | Physical |
+| 42 | Riot Baton | 1 | Touch | Physical |
+| 43 | Tow Chain | 2 | Touch | Physical |
+| 44 | Bear Trap | 1 | Touch | Physical |
+| 45 | Rake | 2 | Touch | Physical |
+| 46 | Trash Can | 2 | Touch | Physical |
+| 47 | Car Antenna Whip | 1 | Touch | Physical |
+| 48 | Spiked Bat | 2 | Touch | Physical |
+| 49 | Stun Stick | 1 | Touch | Magical |
+| 50 | Stun Gun | 1 | Touch | Magical |
+| 51 | Cattle Prod | 1 | Touch | Magical |
+| 52 | Jumper Cables | 2 | Touch | Magical |
+| 53 | Live Wire | 1 | Touch | Magical |
+| 54 | Blowtorch | 1 | Touch | Magical |
+| 55 | Soldering Iron | 1 | Touch | Magical |
+| 56 | Curling Iron | 1 | Touch | Magical |
+| 57 | Acid Squirt Gun | 1 | Ranged | Magical |
+| 58 | Pepper Spray | 1 | Ranged | Magical |
+| 59 | Bear Spray | 1 | Ranged | Magical |
+| 60 | Fire Extinguisher | 2 | Ranged | Magical |
+| 61 | Road Flare | 1 | Ranged | Magical |
+| 62 | Molotov | 1 | Ranged | Magical |
+| 63 | Flashbang | 1 | Ranged | Magical |
+| 64 | Firework Launcher | 2 | Ranged | Magical |
+| 65 | Roman Candle | 1 | Ranged | Magical |
+| 66 | Flare Gun | 1 | Ranged | Magical |
+| 67 | Dart Stunner | 1 | Ranged | Magical |
+| 68 | Spray Can Torch | 2 | Ranged | Magical |
+| 69 | Bug Bomb | 1 | Ranged | Magical |
+| 70 | Bleach Balloon | 1 | Ranged | Magical |
+| 71 | Pipe Bomb | 1 | Ranged | Physical |
+| 72 | C4 | 1 | Ranged | Physical |
+| 73 | Dynamite | 1 | Ranged | Physical |
+| 74 | Grenade | 1 | Ranged | Physical |
+| 75 | Homemade Bomb | 1 | Ranged | Physical |
+| 76 | Nail Gun | 1 | Ranged | Physical |
+| 77 | Staple Gun | 1 | Ranged | Physical |
+| 78 | Paintball Gun | 2 | Ranged | Physical |
+| 79 | BB Gun | 2 | Ranged | Physical |
+| 80 | Slingshot | 1 | Ranged | Physical |
+| 81 | Compound Bow | 2 | Ranged | Physical |
+| 82 | Crossbow | 2 | Ranged | Physical |
+| 83 | Snub-Nose Revolver | 1 | Ranged | Physical |
+| 84 | Twin Pistols | 2 | Ranged | Physical |
+| 85 | 9mm Pistol | 1 | Ranged | Physical |
+| 86 | Hand Cannon | 1 | Ranged | Physical |
+| 87 | Sawed-Off Shotgun | 2 | Ranged | Physical |
+| 88 | Pump Shotgun | 2 | Ranged | Physical |
+| 89 | Hunting Rifle | 2 | Ranged | Physical |
+| 90 | Assault Rifle | 2 | Ranged | Physical |
+| 91 | Compact SMG | 1 | Ranged | Physical |
+| 92 | Sniper Rifle | 2 | Ranged | Physical |
+| 93 | Harpoon Gun | 2 | Ranged | Physical |
+| 94 | Throwing Knives | 1 | Ranged | Physical |
+| 95 | Throwing Stars | 1 | Ranged | Physical |
+| 96 | Darts | 1 | Ranged | Physical |
+| 97 | Bowling Ball | 1 | Ranged | Physical |
+| 98 | Beanbag Shotgun | 2 | Ranged | Physical |
+| 99 | Brick | 1 | Ranged | Physical |
+| 100 | Hubcap Frisbee | 1 | Ranged | Physical |
+
+### Armor
+
+| d100 | Armor | Type |
+| --- | --- | --- |
+| 1 | Leather Jacket | Physical |
+| 2 | Hockey Pads | Physical |
+| 3 | Ballistic Vest | Physical |
+| 4 | Motorcycle Helmet | Physical |
+| 5 | Steel-Toe Boots | Physical |
+| 6 | Riot Shield | Physical |
+| 7 | Knee Pads | Physical |
+| 8 | Elbow Pads | Physical |
+| 9 | Shin Guards | Physical |
+| 10 | Football Pads | Physical |
+| 11 | Catcher's Gear | Physical |
+| 12 | Batting Helmet | Physical |
+| 13 | Hard Hat | Physical |
+| 14 | Bike Helmet | Physical |
+| 15 | Skate Helmet | Physical |
+| 16 | Wrist Guards | Physical |
+| 17 | Work Gloves | Physical |
+| 18 | Fingerless Gloves | Physical |
+| 19 | Biker Gloves | Physical |
+| 20 | Denim Jacket | Physical |
+| 21 | Puffer Jacket | Physical |
+| 22 | Bomber Jacket | Physical |
+| 23 | Hoodie | Physical |
+| 24 | Trench Coat | Physical |
+| 25 | Canvas Work Coat | Physical |
+| 26 | Work Overalls | Physical |
+| 27 | Coveralls | Physical |
+| 28 | Mechanic's Jumpsuit | Physical |
+| 29 | Security Vest | Physical |
+| 30 | Tactical Vest | Physical |
+| 31 | Plate Carrier | Physical |
+| 32 | Bulletproof Briefcase | Physical |
+| 33 | Trash Can Lid Shield | Physical |
+| 34 | Car Door Shield | Physical |
+| 35 | Mattress Shield | Physical |
+| 36 | Duct Tape Armor | Physical |
+| 37 | Cardboard Armor | Physical |
+| 38 | Phone Book Vest | Physical |
+| 39 | Chain Shirt | Physical |
+| 40 | Bandana | Physical |
+| 41 | Ski Mask | Physical |
+| 42 | Hockey Mask | Physical |
+| 43 | Goggles | Physical |
+| 44 | Snapback Cap | Physical |
+| 45 | Beanie | Physical |
+| 46 | Cowboy Hat | Physical |
+| 47 | Combat Boots | Physical |
+| 48 | High-Tops | Physical |
+| 49 | Cowboy Boots | Physical |
+| 50 | Track Suit | Physical |
+| 51 | Hazmat Suit | Magical |
+| 52 | Welding Apron | Magical |
+| 53 | Lineman's Gloves | Magical |
+| 54 | Fire Suit | Magical |
+| 55 | Rubber Boots | Magical |
+| 56 | Rubber Gloves | Magical |
+| 57 | Gas Mask | Magical |
+| 58 | Respirator | Magical |
+| 59 | Welding Mask | Magical |
+| 60 | Lab Goggles | Magical |
+| 61 | Fireproof Blanket | Magical |
+| 62 | Insulated Coveralls | Magical |
+| 63 | Electrician's Belt | Magical |
+| 64 | Firefighter Turnout Coat | Magical |
+| 65 | Firefighter Helmet | Magical |
+| 66 | Bomb Suit | Magical |
+| 67 | Faraday Jacket | Magical |
+| 68 | Lead Apron | Magical |
+| 69 | Chemical Apron | Magical |
+| 70 | Tyvek Suit | Magical |
+| 71 | Asbestos Gloves | Magical |
+| 72 | Wetsuit | Magical |
+| 73 | Rain Poncho | Magical |
+| 74 | Tinfoil Hat | Magical |
+| 75 | Lucky Jersey | Magical |
+| 76 | Grandma's Sweater | Magical |
+| 77 | Church Suit | Magical |
+| 78 | Wedding Tux | Magical |
+| 79 | Silk Shirt | Magical |
+| 80 | Velvet Robe | Magical |
+| 81 | Fur Coat | Magical |
+| 82 | Designer Shades | Magical |
+| 83 | Gold Grill Guard | Magical |
+| 84 | Toe Ring | Magical |
+| 85 | Ankle Monitor | Magical |
+| 86 | Rosary Tattoo | Magical |
+| 87 | Prison Tattoos | Magical |
+| 88 | Face Paint | Magical |
+| 89 | Glow Stick Rave Gear | Magical |
+| 90 | Hi-Vis Jacket | Magical |
+| 91 | Reflective Vest | Magical |
+| 92 | Bubble Wrap Suit | Magical |
+| 93 | Foam Finger | Magical |
+| 94 | Mascot Costume | Magical |
+| 95 | Cape | Magical |
+| 96 | Luchador Mask | Magical |
+| 97 | Boxing Robe | Magical |
+| 98 | Armored Hoodie | Magical |
+| 99 | Neck Brace | Magical |
+| 100 | Back Brace | Magical |
+
+### Clever Names, Bling, and Ice
+
+| d100 | Clever name | Bling | Ice |
+| --- | --- | --- | --- |
+| 1 | Kingpin | Gold Chain | Ruby |
+| 2 | Black Hawk | Pinky Ring | Sapphire |
+| 3 | Goblin | Wristwatch | Emerald |
+| 4 | Nova's | Gold Grill | Diamond |
+| 5 | Big Mike's | Stud Earrings | Pearl |
+| 6 | Lil' Ray's | Class Ring | Opal |
+| 7 | Uncle Lou's | Rosary Beads | Topaz |
+| 8 | Mama's | Medallion | Tanzanite |
+| 9 | Pops's | Tennis Bracelet | Jade |
+| 10 | Cousin Sal's | Lucky Charm | Black Diamond |
+| 11 | Tony's | Dog Tags | Pink Diamond |
+| 12 | Benny's | Cuban Link | Yellow Diamond |
+| 13 | Lefty's | Rope Chain | Blue Diamond |
+| 14 | Slim's | Nameplate Necklace | Cubic Zirconia |
+| 15 | Shorty's | Nugget Ring | Moissanite |
+| 16 | Red's | Signet Ring | Rhinestone |
+| 17 | Boss | Championship Ring | Glass Diamond |
+| 18 | Hustler's | Title Game Ring | Crystal Bead |
+| 19 | Grinder's | Hoop Earrings | Rock Candy |
+| 20 | Runner's | Diamond Studs | Gold Nugget |
+| 21 | Lookout's | Nose Stud | Silver Nugget |
+| 22 | Bouncer's | Eyebrow Ring | Platinum Bar |
+| 23 | Bartender's | Lip Ring | Gold Bar |
+| 24 | Mechanic's | Belly Ring | Gold Tooth |
+| 25 | Trucker's | Ankle Bracelet | Diamond Tooth |
+| 26 | Cabbie's | Toe Ring | Garnet |
+| 27 | Mailman's | Thumb Ring | Amethyst |
+| 28 | Janitor's | Knuckle Ring | Citrine |
+| 29 | Cop's | Four-Finger Ring | Peridot |
+| 30 | Detective's | Dollar Sign Pendant | Aquamarine |
+| 31 | Snitch's | Crown Pendant | Turquoise |
+| 32 | Bookie's | Cross Pendant | Onyx |
+| 33 | Loan Shark's | Saint Medal | Jasper |
+| 34 | Pawnbroker's | Praying Hands Pendant | Agate |
+| 35 | Street Preacher's | Scales Pendant | Tiger's Eye |
+| 36 | Corner Store | Dice Pendant | Malachite |
+| 37 | Back Alley | Eight Ball Charm | Lapis |
+| 38 | Southside | Lucky Seven Ring | Coral |
+| 39 | Northside | Horseshoe Ring | Amber |
+| 40 | Eastside | Four-Leaf Clover | Obsidian |
+| 41 | Westside | Rabbit's Foot | Quartz |
+| 42 | Uptown | Fuzzy Dice | Rose Quartz |
+| 43 | Downtown | Car Keys | Smoky Quartz |
+| 44 | Crosstown | Keychain | Moonstone |
+| 45 | Midtown | Lanyard | Sunstone |
+| 46 | Dockside | Locket with Photo | Bloodstone |
+| 47 | Rail Yard | Baby Shoe Charm | Hematite |
+| 48 | Junkyard | Mom Tattoo Locket | Pyrite |
+| 49 | Chop Shop | Friendship Bracelet | Fool's Gold |
+| 50 | Body Shop | Paracord Bracelet | Sea Glass |
+| 51 | Pool Hall | Beaded Bracelet | Beach Pearl |
+| 52 | Barbershop | Rubber Wristband | Freshwater Pearl |
+| 53 | Laundromat | Hospital Band | Black Pearl |
+| 54 | Bodega | Jail ID Band | Baroque Pearl |
+| 55 | Diner | VIP Wristband | Mother of Pearl |
+| 56 | Dive Bar | Concert Wristband | Abalone |
+| 57 | Night Shift | Festival Pass | Spinel |
+| 58 | Graveyard Shift | Press Badge | Zircon |
+| 59 | Overtime | Police Badge | Tourmaline |
+| 60 | Payday | Security Badge | Alexandrite |
+| 61 | Rent Day | Employee ID | Morganite |
+| 62 | Last Call | Union Pin | Kunzite |
+| 63 | Happy Hour | Veteran Pin | Beryl |
+| 64 | Rush Hour | Purple Heart | Fire Opal |
+| 65 | Red Light | Medal of Honor | Star Sapphire |
+| 66 | Green Light | Bottle Cap Necklace | Star Ruby |
+| 67 | Yellow Tape | Bullet Casing Necklace | Cat's Eye |
+| 68 | Blue Line | Shell Casing Earring | Chocolate Diamond |
+| 69 | Red Line | Wrench Pendant | Champagne Diamond |
+| 70 | Hot | Spark Plug Ring | Canary Diamond |
+| 71 | Cold | Lug Nut Ring | Princess Cut |
+| 72 | Clean | Washer Bracelet | Emerald Cut |
+| 73 | Dirty | Chain Link Bracelet | Pear Cut |
+| 74 | Borrowed | Padlock Necklace | Marquise Cut |
+| 75 | Stolen | Skeleton Key | Heart Cut |
+| 76 | Lucky | Pager | Cushion Cut |
+| 77 | Busted | Flip Phone | Radiant Cut |
+| 78 | Rusty | Bluetooth Earpiece | Asscher Cut |
+| 79 | Shiny | Smart Watch | Oval Cut |
+| 80 | Fresh | Pocket Knife Charm | Round Brilliant |
+| 81 | Old School | Lighter | Rough Diamond |
+| 82 | New School | Flip-Top Lighter | Uncut Emerald |
+| 83 | Hard Knock | Cigar Cutter | Raw Ruby |
+| 84 | Big League | Money Clip | Loose Stone |
+| 85 | Small Time | Tie Clip | Pawned Ring Stone |
+| 86 | Bootleg | Cufflinks | Hot Rock |
+| 87 | Knock-Off | Gold Tooth | Heist Diamond |
+| 88 | Brand-Name | Sunglasses Chain | Museum Piece |
+| 89 | Hand-Me-Down | Hair Clip | Crown Jewel |
+| 90 | Secondhand | Scrunchie | Royal Sapphire |
+| 91 | Pawnshop | Bandana Ring | Mob Boss Ruby |
+| 92 | Thrift Store | Gold Bangle | Lottery Diamond |
+| 93 | Dollar Store | Silver Cuff | Church Ruby |
+| 94 | Gas Station | Ice Pendant | Bank Vault Emerald |
+| 95 | Parking Lot | Bling Belt Buckle | Insurance Fraud Pearl |
+| 96 | Rooftop | Grandpa's Watch | Cartel Jade |
+| 97 | Basement | Wedding Band | Smuggled Opal |
+| 98 | Street King's | Promise Ring | Pawn Counter Topaz |
+| 99 | Block Party | Mood Ring | Grandma's Brooch Stone |
+| 100 | Hometown | Hustler's Watch | Street Ice |
+
+### Ice Quality by Tier
+
+| Tier | Ice quality |
+| --- | --- |
+| T1 | Pawn-Shop |
+| T2 | Cloudy |
+| T3 | Cut |
+| T4 | Flawless |
+| T5 | Museum |
+| T6 | Crown-Jewel |
+
+## Grit 18+
+
+Loot only, for adult tables (18+): bad puns, crude jokes, and novelty gear. It has no app look of its own; it is bonus names for Street Grit and mixes with any tables you toggle on. Magical means vibration, heat, sauce, or sheer awkwardness. Twin weapons and prosthetics follow the same hands rule as everything else.
 
 ### Weapons
 
@@ -2331,3 +2001,332 @@ Loot only, for adult tables: bad puns, crude jokes, and novelty gear. It has no 
 | T5 | Bling-Bling |
 | T6 | Royal |
 
+## Space
+
+Blasters, hardsuits, and salvage. Magical means energy weapons and psionics.
+
+### Weapons
+
+| d100 | Weapon | Hands | Reach | Damage |
+| --- | --- | --- | --- | --- |
+| 1 | Vibro-Knife | 1 | Touch | Physical |
+| 2 | Twin Vibro-Knives | 2 | Touch | Physical |
+| 3 | Combat Knife | 1 | Touch | Physical |
+| 4 | Mono-Whip | 1 | Touch | Physical |
+| 5 | Mono-Katana | 1 | Touch | Physical |
+| 6 | Chainsword | 2 | Touch | Physical |
+| 7 | Power Fist | 1 | Touch | Physical |
+| 8 | Twin Power Fists | 2 | Touch | Physical |
+| 9 | Gravity Hammer | 2 | Touch | Physical |
+| 10 | Hydraulic Ram | 2 | Touch | Physical |
+| 11 | Pipe Wrench | 1 | Touch | Physical |
+| 12 | Boarding Axe | 2 | Touch | Physical |
+| 13 | Vibro-Spear | 2 | Touch | Physical |
+| 14 | Mag-Boot Kick | 2 | Touch | Physical |
+| 15 | Riot Club | 1 | Touch | Physical |
+| 16 | Bone Saw | 1 | Touch | Physical |
+| 17 | Cargo Hook | 1 | Touch | Physical |
+| 18 | Asteroid Pick | 2 | Touch | Physical |
+| 19 | Servo Claw | 1 | Touch | Physical |
+| 20 | Titanium Bat | 2 | Touch | Physical |
+| 21 | Hull Plate Club | 2 | Touch | Physical |
+| 22 | Exo-Suit Punch | 2 | Touch | Physical |
+| 23 | Vibro-Axe | 1 | Touch | Physical |
+| 24 | Dueling Saber | 1 | Touch | Physical |
+| 25 | Bayonet Rifle | 2 | Touch | Physical |
+| 26 | Slug Pistol | 1 | Ranged | Physical |
+| 27 | Twin Slug Pistols | 2 | Ranged | Physical |
+| 28 | Rail Pistol | 1 | Ranged | Physical |
+| 29 | Railgun | 2 | Ranged | Physical |
+| 30 | Slug Rifle | 2 | Ranged | Physical |
+| 31 | Gauss Rifle | 2 | Ranged | Physical |
+| 32 | Flechette Pistol | 1 | Ranged | Physical |
+| 33 | Needle Gun | 1 | Ranged | Physical |
+| 34 | Scattergun | 2 | Ranged | Physical |
+| 35 | Auto-Rifle | 2 | Ranged | Physical |
+| 36 | Sniper Rifle | 2 | Ranged | Physical |
+| 37 | Mag Revolver | 1 | Ranged | Physical |
+| 38 | Holdout Pistol | 1 | Ranged | Physical |
+| 39 | Rivet Gun | 1 | Ranged | Physical |
+| 40 | Harpoon Launcher | 2 | Ranged | Physical |
+| 41 | Grenade Launcher | 2 | Ranged | Physical |
+| 42 | Micro-Missile Pod | 2 | Ranged | Physical |
+| 43 | Frag Grenades | 1 | Ranged | Physical |
+| 44 | Throwing Discs | 1 | Ranged | Physical |
+| 45 | Spike Launcher | 2 | Ranged | Physical |
+| 46 | Rotary Cannon | 2 | Ranged | Physical |
+| 47 | Bolt Carbine | 2 | Ranged | Physical |
+| 48 | Dart Pistol | 1 | Ranged | Physical |
+| 49 | Recoilless Cannon | 2 | Ranged | Physical |
+| 50 | Smart Pistol | 1 | Ranged | Physical |
+| 51 | Mining Charge | 1 | Ranged | Physical |
+| 52 | Breaching Charge | 1 | Ranged | Physical |
+| 53 | Shoulder Rockets | 2 | Ranged | Physical |
+| 54 | Grapple Gun | 1 | Ranged | Physical |
+| 55 | Shock Baton | 1 | Touch | Magical |
+| 56 | Stun Prod | 1 | Touch | Magical |
+| 57 | Plasma Torch | 1 | Touch | Magical |
+| 58 | Plasma Blade | 1 | Touch | Magical |
+| 59 | Twin Plasma Blades | 2 | Touch | Magical |
+| 60 | Plasma Glaive | 2 | Touch | Magical |
+| 61 | Ion Axe | 2 | Touch | Magical |
+| 62 | Arc Gauntlet | 1 | Touch | Magical |
+| 63 | Thermal Lance | 2 | Touch | Magical |
+| 64 | Laser Scalpel | 1 | Touch | Magical |
+| 65 | Hull Cutter | 2 | Touch | Magical |
+| 66 | Solar Lance | 2 | Touch | Magical |
+| 67 | Psi-Blade | 1 | Touch | Magical |
+| 68 | Void Touch Glove | 1 | Touch | Magical |
+| 69 | Laser Pistol | 1 | Ranged | Magical |
+| 70 | Twin Laser Pistols | 2 | Ranged | Magical |
+| 71 | Laser Rifle | 2 | Ranged | Magical |
+| 72 | Pulse Rifle | 2 | Ranged | Magical |
+| 73 | Plasma Pistol | 1 | Ranged | Magical |
+| 74 | Plasma Cannon | 2 | Ranged | Magical |
+| 75 | Ion Pistol | 1 | Ranged | Magical |
+| 76 | Ion Rifle | 2 | Ranged | Magical |
+| 77 | Arc Caster | 1 | Ranged | Magical |
+| 78 | Tesla Coil Gun | 2 | Ranged | Magical |
+| 79 | Disruptor | 1 | Ranged | Magical |
+| 80 | Photon Bow | 2 | Ranged | Magical |
+| 81 | Beam Rifle | 2 | Ranged | Magical |
+| 82 | Microwave Emitter | 1 | Ranged | Magical |
+| 83 | Sonic Blaster | 1 | Ranged | Magical |
+| 84 | Cryo Gun | 2 | Ranged | Magical |
+| 85 | Flamethrower | 2 | Ranged | Magical |
+| 86 | Gravity Gun | 2 | Ranged | Magical |
+| 87 | Psi-Amp | 1 | Ranged | Magical |
+| 88 | Mind Spike | 1 | Ranged | Magical |
+| 89 | Psi-Crystal | 1 | Ranged | Magical |
+| 90 | Drone Swarm | 1 | Ranged | Magical |
+| 91 | Combat Drone | 1 | Ranged | Magical |
+| 92 | Nanite Cloud | 1 | Ranged | Magical |
+| 93 | EMP Grenade | 1 | Ranged | Magical |
+| 94 | Plasma Grenade | 1 | Ranged | Magical |
+| 95 | Particle Beam | 2 | Ranged | Magical |
+| 96 | Antimatter Pistol | 1 | Ranged | Magical |
+| 97 | Dark Matter Rifle | 2 | Ranged | Magical |
+| 98 | Phase Pistol | 1 | Ranged | Magical |
+| 99 | Neutron Rifle | 2 | Ranged | Magical |
+| 100 | Void Wand | 1 | Ranged | Magical |
+
+### Armor
+
+| d100 | Armor | Type |
+| --- | --- | --- |
+| 1 | Flight Suit | Physical |
+| 2 | Ballistic Weave | Physical |
+| 3 | Combat Vest | Physical |
+| 4 | Hardsuit | Physical |
+| 5 | Exo-Frame | Physical |
+| 6 | Riot Shield | Physical |
+| 7 | Vac Suit | Physical |
+| 8 | EVA Suit | Physical |
+| 9 | Hazmat Suit | Physical |
+| 10 | Ceramic Plates | Physical |
+| 11 | Carbon Fiber Jacket | Physical |
+| 12 | Armored Jumpsuit | Physical |
+| 13 | Pilot's Helmet | Physical |
+| 14 | Bubble Helmet | Physical |
+| 15 | Gas Mask | Physical |
+| 16 | Mag-Boots | Physical |
+| 17 | Knee Pads | Physical |
+| 18 | Elbow Pads | Physical |
+| 19 | Tactical Gloves | Physical |
+| 20 | Armored Gauntlets | Physical |
+| 21 | Shin Guards | Physical |
+| 22 | Utility Harness | Physical |
+| 23 | Ablative Coat | Physical |
+| 24 | Mining Rig | Physical |
+| 25 | Power Armor | Physical |
+| 26 | Mech Suit | Physical |
+| 27 | Boarding Shield | Physical |
+| 28 | Ballistic Helmet | Physical |
+| 29 | Duster Coat | Physical |
+| 30 | Leather Space Jacket | Physical |
+| 31 | Cargo Vest | Physical |
+| 32 | Crash Webbing | Physical |
+| 33 | Trauma Plate | Physical |
+| 34 | Kinetic Mesh | Physical |
+| 35 | Hull-Plate Vest | Physical |
+| 36 | Insulated Parka | Physical |
+| 37 | Heavy Coveralls | Physical |
+| 38 | Shoulder Plating | Physical |
+| 39 | Bracer Plates | Physical |
+| 40 | Armored Codpiece | Physical |
+| 41 | Visor Helmet | Physical |
+| 42 | Thermal Suit | Physical |
+| 43 | Dive Suit | Physical |
+| 44 | Smart Fabric Tee | Physical |
+| 45 | Riot Gear | Physical |
+| 46 | Spiked Pauldron | Physical |
+| 47 | Juggernaut Plate | Physical |
+| 48 | Scrap Armor | Physical |
+| 49 | Salvaged Hull Plates | Physical |
+| 50 | Bomb Suit | Physical |
+| 51 | Deflector Belt | Magical |
+| 52 | Shield Projector | Magical |
+| 53 | Psi-Hood | Magical |
+| 54 | Phase Cloak | Magical |
+| 55 | Energy Barrier Bracer | Magical |
+| 56 | Hardlight Shield | Magical |
+| 57 | Refractor Mesh | Magical |
+| 58 | Ion Shell | Magical |
+| 59 | Force Field Harness | Magical |
+| 60 | Stealth Suit | Magical |
+| 61 | Holo-Cloak | Magical |
+| 62 | Gravity Belt | Magical |
+| 63 | Personal Bubble Shield | Magical |
+| 64 | Mind Shield Circlet | Magical |
+| 65 | Psionic Headband | Magical |
+| 66 | Nano-Skin | Magical |
+| 67 | Plasma-Ward Gloves | Magical |
+| 68 | Static Cape | Magical |
+| 69 | Photon Veil | Magical |
+| 70 | Quantum Vest | Magical |
+| 71 | Null Field Pack | Magical |
+| 72 | Warp Harness | Magical |
+| 73 | Chrono Bracer | Magical |
+| 74 | Shield Drone | Magical |
+| 75 | Emitter Pauldron | Magical |
+| 76 | Faraday Coat | Magical |
+| 77 | Solar Sail Cape | Magical |
+| 78 | Void Robe | Magical |
+| 79 | Crystal Lattice Armor | Magical |
+| 80 | Resonance Suit | Magical |
+| 81 | Neural Helmet | Magical |
+| 82 | Aura Projector | Magical |
+| 83 | Barrier Ring | Magical |
+| 84 | Reflective Chrome Suit | Magical |
+| 85 | Ghost Weave | Magical |
+| 86 | Field Gloves | Magical |
+| 87 | Toe Ring Emitter | Magical |
+| 88 | Antimatter Buckler | Magical |
+| 89 | Starlight Mantle | Magical |
+| 90 | Zero-Point Vest | Magical |
+| 91 | Pulse Dampener | Magical |
+| 92 | Energy Kilt | Magical |
+| 93 | Deflector Visor | Magical |
+| 94 | Prism Armor | Magical |
+| 95 | Cosmic Shroud | Magical |
+| 96 | Ward Beacon | Magical |
+| 97 | Ion Scarf | Magical |
+| 98 | Phase Boots | Magical |
+| 99 | Nebula Cloak | Magical |
+| 100 | Singularity Belt | Magical |
+
+### Clever Names, Gadget, and Crystals
+
+| d100 | Clever name | Gadget | Crystal |
+| --- | --- | --- | --- |
+| 1 | Nova's | Wrist Comm | Quartz Shard |
+| 2 | Black Hawk | Neural Chip | Iridium Nugget |
+| 3 | Goblin | Targeting Visor | Void Pearl |
+| 4 | Starborn | Data Band | Star Shard |
+| 5 | Void | Ear Implant | Plasma Crystal |
+| 6 | Nebula | Holo-Locket | Nebula Opal |
+| 7 | Quasar | Dog Tags | Helium Ice |
+| 8 | Pulsar | Cyber-Eye | Dark Matter Bead |
+| 9 | Comet | Signal Ring | Neutron Glass |
+| 10 | Meteor | Pilot's Medal | Singularity Gem |
+| 11 | Eclipse | Holo-Watch | Moon Diamond |
+| 12 | Solar | Smart Ring | Mars Ruby |
+| 13 | Lunar | Memory Crystal | Titan Sapphire |
+| 14 | Orbital | Nav Pendant | Europa Ice |
+| 15 | Zero-G | Translator Earpiece | Io Sulfur Crystal |
+| 16 | Hyperion | Biometric Bracelet | Comet Glass |
+| 17 | Titan | Augmented Lens | Meteor Iron |
+| 18 | Atlas | Star Map Locket | Asteroid Emerald |
+| 19 | Orion's | Rank Insignia | Stellar Amber |
+| 20 | Vega's | Captain's Pin | Solar Topaz |
+| 21 | Sirius | Fleet Badge | Lunar Pearl |
+| 22 | Andromeda | Med Monitor | Ion Crystal |
+| 23 | Cassiopeia | Pulse Bracelet | Fusion Glass |
+| 24 | Draco | Lucky Bolt | Quantum Quartz |
+| 25 | Phoenix | Charm Drone | Phase Gem |
+| 26 | Raptor | Tiny Robot Pet | Warp Crystal |
+| 27 | Viper | Hover Orb | Gravity Stone |
+| 28 | Cobra | Credit Chip | Antimatter Sphere |
+| 29 | Mantis | Keycard Lanyard | Photon Prism |
+| 30 | Hornet | Access Ring | Laser Ruby |
+| 31 | Wasp | Gene Locket | Maser Sapphire |
+| 32 | Scorpion | Mood Chip | Crystalline Ice |
+| 33 | Falcon | Tattoo Circuit | Silicate Bloom |
+| 34 | Kestrel | Glow Stud | Methane Pearl |
+| 35 | Osprey | LED Earrings | Ammonia Crystal |
+| 36 | Condor | Fiber-Optic Hair | Nitrogen Frost |
+| 37 | Ghost | Chrome Teeth | Xenon Glass |
+| 38 | Phantom | Finger Laser Pointer | Krypton Shard |
+| 39 | Specter | Holo-Tiara | Neon Opal |
+| 40 | Shadow | Starlight Choker | Argon Bead |
+| 41 | Rogue | Meteorite Ring | Cobalt Star |
+| 42 | Outlaw | Moon Rock Pendant | Platinum Nugget |
+| 43 | Smuggler's | Mars Dust Vial | Palladium Ore |
+| 44 | Bounty Hunter's | Comet Tail Charm | Rhodium Flake |
+| 45 | Pirate's | Alien Fang | Osmium Pellet |
+| 46 | Mercenary's | Space Whale Bone | Gallium Drop |
+| 47 | Marine's | Crystal Skull Charm | Titanium Crystal |
+| 48 | Pilot's | Anti-Grav Anklet | Tungsten Gem |
+| 49 | Captain's | Thruster Cufflinks | Carbon Diamond |
+| 50 | Admiral's | Magnetic Cuffs | Graphene Flake |
+| 51 | Commander's | Data Spike Necklace | Pulsar Stone |
+| 52 | Cadet's | Encryption Key | Quasar Gem |
+| 53 | Engineer's | Flight Log Pendant | Red Dwarf Garnet |
+| 54 | Mechanic's | Flight Recorder Charm | White Dwarf Diamond |
+| 55 | Medic's | Old Earth Dollar | Blue Giant Sapphire |
+| 56 | Scientist's | Ancient Smartphone | Black Hole Onyx |
+| 57 | Android's | Vintage Wristwatch | Supernova Opal |
+| 58 | Cyborg's | Grandpa's Wings | Aurora Glass |
+| 59 | Clone's | Cadet Ring | Cosmic Pearl |
+| 60 | Alien | Graduation Band | Starlight Beryl |
+| 61 | Martian | Wedding Implant | Nebula Jade |
+| 62 | Lunarian | Bonded Pair Rings | Galaxy Agate |
+| 63 | Belter's | Clan Sigil | Event Horizon Jet |
+| 64 | Colonist's | Corporate Pin | Plasma Opal |
+| 65 | Miner's | Rebel Patch | Ion Amethyst |
+| 66 | Trader's | Bounty Tag | Radiant Citrine |
+| 67 | Diplomat's | Medal of Valor | Glowstone |
+| 68 | Prototype | Purple Heart Chip | Darkstar Obsidian |
+| 69 | Experimental | Kill Stripe | Sunshard |
+| 70 | Military | Engineer's Wrench Pin | Moonshard |
+| 71 | Corporate | Lucky Fuse | Comet Tear |
+| 72 | Black Market | Spark Plug Charm | Alien Egg Stone |
+| 73 | Salvaged | Cyber Tail | Living Crystal |
+| 74 | Rebel | Optic Tiara | Singing Crystal |
+| 75 | Imperial | Halo Ring | Psi-Gem |
+| 76 | Federation | Shoulder Holo | Mind Pearl |
+| 77 | Frontier | Pocket AI | Dream Quartz |
+| 78 | Deep Space | Mini Hologram | Echo Stone |
+| 79 | Red Planet | Reactor Pendant | Time Crystal |
+| 80 | Blue Moon | Fusion Bead | Space Amber |
+| 81 | Dark Side | Plasma Bead Bracelet | Frozen Lightning |
+| 82 | Twin Suns | Quantum Dice Charm | Liquid Metal Drop |
+| 83 | Ringworld | Zero-G Pearl | Mercury Bead |
+| 84 | Stardust | Asteroid Shard Ring | Ferrofluid Pearl |
+| 85 | Cosmic | Supernova Locket | Magnetite Star |
+| 86 | Galactic | Wormhole Pendant | Hematite Moon |
+| 87 | Interstellar | Starfish Charm | Chrome Pearl |
+| 88 | Warp | Nebula Glass Earring | Nano Diamond |
+| 89 | Quantum | Stardust Vial | Synthetic Ruby |
+| 90 | Plasma | Captain's Ring | Lab Emerald |
+| 91 | Ion | Admiral's Chain | Holo-Gem |
+| 92 | Photon | Senator's Seal | Data Crystal |
+| 93 | Neutron | Diplomat's Pin | Memory Diamond |
+| 94 | Gravity | Trader's Ring | Power Prism |
+| 95 | Iron Moon | Smuggler's Charm | Reactor Glass |
+| 96 | Burnout | Mercenary Tags | Fuel Crystal |
+| 97 | Lucky Star | Priestess Circlet | Star Sapphire |
+| 98 | Last Light | Oracle Eye | Dyson Pearl |
+| 99 | Hyperdrive | Psi-Focus Stone | Cosmic Ray Crystal |
+| 100 | Moonshot | Glow Collar | Void Diamond |
+
+### Crystal Quality by Tier
+
+| Tier | Crystal quality |
+| --- | --- |
+| T1 | Cracked |
+| T2 | Raw |
+| T3 | Refined |
+| T4 | Pure |
+| T5 | Prismatic |
+| T6 | Stellar |
