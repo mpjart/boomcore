@@ -69,7 +69,7 @@ Every item a loot box drops gets a name from the d100 tables in `names.js` (Fant
 
 ## To do next
 
-- **Holding a turn** in the initiative order.
+Nothing on the list right now. Holding a turn is handled at the table: the player says they're holding and acts later in the round, and the app's initiative order doesn't need to move.
 
 ## Rules and Core Master screen
 
