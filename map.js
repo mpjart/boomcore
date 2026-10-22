@@ -29,8 +29,9 @@ const CSS=`
 .mframe{padding:clamp(6px,1.2vw,12px);border-radius:8px;background:repeating-linear-gradient(92deg,#ffffff08 0 3px,transparent 3px 11px),linear-gradient(135deg,#8d5f37,#6b4527 45%,#3f2715);box-shadow:0 6px 18px #0007,inset 0 0 0 2px #0005}
 .mboard{position:relative;aspect-ratio:var(--ratio,1.6);width:100%;container-type:inline-size;border-radius:3px;overflow:hidden;box-shadow:inset 0 0 40px #0009;background:#2e4a3b;color:#f1efe6;cursor:default;margin:0 auto}
 .mframe.s-marker{background:linear-gradient(180deg,#e9edf0,#b9c0c6 40%,#d7dce0 60%,#9aa2a9);box-shadow:0 6px 18px #0005,inset 0 0 0 1px #fff8}
-.mframe.s-glow{background:linear-gradient(135deg,#2a2d33,#14161a 50%,#22252b);box-shadow:0 6px 18px #000a,inset 0 0 0 1px #ffffff1a}
-.s-marker .mboard{background:#f4f6f5;color:#1d1d1d;box-shadow:inset 0 0 30px #0002}.s-glow .mboard{background:#0d0f13;box-shadow:inset 0 0 40px #000c}
+.mframe.s-glow{background:linear-gradient(135deg,#1c2436,#0b1020 50%,#182035);box-shadow:0 6px 18px #000a,inset 0 0 0 1px #4fd8f733,0 0 22px #4fd8f71f}
+.s-marker .mboard{background:#f4f6f5;color:#1d1d1d;box-shadow:inset 0 0 30px #0002}.s-glow .mboard{background:#08142e;box-shadow:inset 0 0 40px #000c;border-radius:10px}
+.s-glow .mboard::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px),radial-gradient(ellipse at 50% 45%,rgba(79,216,247,.07),transparent 60%),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55));box-shadow:inset 0 0 0 1px #4fd8f726,inset 0 0 24px #4fd8f714}
 .s-marker .mtextin{background:#ffffffcc;border-color:#9aa2a9}
 .s-marker .mtextin,.s-glow .mtextin{font-family:'Permanent Marker','Cabin Sketch',cursive}
 .mboard.draw{touch-action:none;cursor:crosshair}.mboard.erase{cursor:cell}.mboard.text{cursor:text}
@@ -140,10 +141,13 @@ function drawBg(){
   bctx.fillStyle=`rgba(0,0,0,${(+B.dim?.value||bg.dim||0)/100})`;bctx.fillRect(0,0,W,H);return;}
  const R=rng(424242),sc0=scale();
  if(surf()!=='chalk'){const wb=surf()==='marker',g=bctx.createLinearGradient(0,0,W,H);
-  if(wb){g.addColorStop(0,'#fbfcfc');g.addColorStop(.55,'#eef1f1');g.addColorStop(1,'#e3e7e8');}else{g.addColorStop(0,'#15181e');g.addColorStop(1,'#090a0d');}
+  if(wb){g.addColorStop(0,'#fbfcfc');g.addColorStop(.55,'#eef1f1');g.addColorStop(1,'#e3e7e8');}
+  else{const rg=bctx.createRadialGradient(W*.5,H*.45,50,W*.5,H*.5,Math.max(W,H)*.7);rg.addColorStop(0,'#0c1a3a');rg.addColorStop(1,'#030610');bctx.fillStyle=rg;bctx.fillRect(0,0,W,H);
+   // a faint cyan monitor grid, like the Space handouts
+   bctx.strokeStyle='rgba(79,216,247,.07)';bctx.lineWidth=1.5*sc0;const gs=80*sc0;bctx.beginPath();for(let x=gs;x<W;x+=gs){bctx.moveTo(x,0);bctx.lineTo(x,H);}for(let y=gs;y<H;y+=gs){bctx.moveTo(0,y);bctx.lineTo(W,y);}bctx.stroke();return;}
   bctx.fillStyle=g;bctx.fillRect(0,0,W,H);bctx.lineCap='round';
   // ghosting from old marker, wiped off
-  for(let i=0;i<18;i++){bctx.strokeStyle=wb?`rgba(90,100,110,${.008+R()*.014})`:`rgba(120,160,255,${.012+R()*.02})`;bctx.lineWidth=(30+R()*70)*sc0;bctx.beginPath();const a=R()*6;bctx.arc(R()*W,R()*H,(60+R()*220)*sc0,a,a+.8+R()*2);bctx.stroke();}
+  for(let i=0;i<18;i++){bctx.strokeStyle=`rgba(90,100,110,${.008+R()*.014})`;bctx.lineWidth=(30+R()*70)*sc0;bctx.beginPath();const a=R()*6;bctx.arc(R()*W,R()*H,(60+R()*220)*sc0,a,a+.8+R()*2);bctx.stroke();}
   if(wb){const sh=bctx.createLinearGradient(0,0,W,H*.6);sh.addColorStop(0,'rgba(255,255,255,0)');sh.addColorStop(.5,'rgba(255,255,255,.55)');sh.addColorStop(.62,'rgba(255,255,255,0)');bctx.fillStyle=sh;bctx.fillRect(0,0,W,H);}
   return;}
  const g=bctx.createRadialGradient(W*.45,H*.4,100,W*.5,H*.5,Math.max(W,H)*.75);g.addColorStop(0,'#355643');g.addColorStop(1,'#223a2d');bctx.fillStyle=g;bctx.fillRect(0,0,W,H);
@@ -438,7 +442,7 @@ function build(){
  // chalk text needs the chalk font, so draw again once it has loaded
  if(document.fonts&&document.fonts.load)Promise.all([document.fonts.load('700 40px "Cabin Sketch"'),document.fonts.load('40px "Permanent Marker"')]).then(()=>redrawAll()).catch(()=>{});
 }
-function summary(){const s=document.getElementById('mapsum');if(!s)return;const n=Object.keys(tokens).length;s.textContent=(bg.img?'Map image':surf()==='glow'?'Glow board':surf()==='marker'?'Whiteboard':'Chalkboard')+(n?' · '+n+' token'+(n>1?'s':''):'');}
+function summary(){const s=document.getElementById('mapsum');if(!s)return;const n=Object.keys(tokens).length;s.textContent=(bg.img?'Map image':surf()==='glow'?'Glow screen':surf()==='marker'?'Whiteboard':'Chalkboard')+(n?' · '+n+' token'+(n>1?'s':''):'');}
 
 window.mapRefresh=function(){summary();if(!built)return;renderTools();renderTokens();renderTray();if(cardOpen)renderCard();};
 window.mapInit=function(){
