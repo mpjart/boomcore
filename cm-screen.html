@@ -376,8 +376,10 @@ b{color:var(--ink)}
 <script>
 // Theme: ?theme= wins (the app passes the table's theme), else the last one picked here.
 const FONTS={core:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',fantasy:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',space:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',horror:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',grit:'Anton&family=Barlow+Condensed:wght@500;600;700',pirate:'Pirata+One&family=Alegreya:wght@400;600;700'};
-// Same loot words the app uses for each theme.
-const WORDS={core:{},fantasy:{box:['chest','chests']},space:{coin:['credit','credits'],token:['data chip','data chips'],core:['power core','power cores'],box:['crate','crates']},horror:{coin:['grave coin','grave coins'],token:['rite','rites'],box:['coffer','coffers']},grit:{coin:['buck','bucks'],token:['favor','favors'],core:['rep','rep'],box:['duffel bag','duffel bags']},pirate:{coin:['doubloon','doubloons'],token:['shanty','shanties'],core:['pearl','pearls'],box:['sea chest','sea chests']}};
+// Only the coin name changes, like the app: the CM's table setting (?coin=&coins=) wins, else the theme's usual currency.
+// Soul cores, ability tokens, and loot boxes keep their Core names in every theme.
+const WORDS={core:{},fantasy:{},space:{coin:['credit','credits']},horror:{coin:['grave coin','grave coins']},grit:{coin:['buck','bucks']},pirate:{coin:['doubloon','doubloons']}};
+const QS=new URLSearchParams(location.search),COIN=QS.get('coins')?{coin:[QS.get('coin')||QS.get('coins'),QS.get('coins')]}:null;
 const WRE=/\b(spirit coins?|coins?|ability tokens?|tokens?|soul cores?|cores?(?! Master)|loot box(?:es)?|box(?:es)?)\b/gi;
 const orig=new WeakMap();
 function swap(W){const tw=document.createTreeWalker(document.getElementById('fit'),NodeFilter.SHOW_TEXT);let n;
@@ -386,7 +388,7 @@ function swap(W){const tw=document.createTreeWalker(document.getElementById('fit
    let o=(/s$/.test(l)&&!/^(loot )?box$/.test(l))?r[1]:r[0];if(m===m.toUpperCase()&&/[A-Z]/.test(m))return o.toUpperCase();if(/^[A-Z]/.test(m))o=o[0].toUpperCase()+o.slice(1);return o;});}}
 function setSkin(k){if(!FONTS[k])k='core';const d=document.documentElement;if(k==='core')d.removeAttribute('data-skin');else d.setAttribute('data-skin',k);
  if(!document.getElementById('f-'+k)){const l=document.createElement('link');l.id='f-'+k;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+FONTS[k]+'&display=swap';document.head.append(l);}
- document.getElementById('skin').value=k;swap(WORDS[k]);try{localStorage.setItem('boomcmskin',k)}catch{}}
+ document.getElementById('skin').value=k;swap(COIN||WORDS[k]);try{localStorage.setItem('boomcmskin',k)}catch{}}
 let k0=new URLSearchParams(location.search).get('theme');if(!k0){try{k0=localStorage.getItem('boomcmskin')}catch{}}
 setSkin(k0||'core');
 document.getElementById('skin').onchange=e=>{setSkin(e.target.value);const u=new URL(location);u.searchParams.set('theme',e.target.value);history.replaceState(null,'',u);};

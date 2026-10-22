@@ -61,7 +61,7 @@ The CM tab has a handout creator: type a note (title, text, and an optional sign
 
 **Colors:** each hero's color is a dropdown at the bottom of their open sheet (the hero's player and the Core Master can change it), and a player's free rolls use their hero's color. Next to it, a player's own hero has a **Theme** dropdown that changes only the colors and fonts on their device. It starts on the Core Master's pick. The Core Master's own roll color sits next to the theme dropdown in the CM tab.
 
-The Core Master picks the table's theme from a dropdown in the CM tab: Core Light, Core Dark, Fantasy, Space, Horror, Street Grit, or Pirate. Core Light uses the CM screen's look: slate blue and burnt orange on cream, with Alfa Slab One titles. Pirate is deep sea green with brass, Pirata One titles, and Alegreya text. The theme changes the look only (colors and fonts); the loot words always stay Core.
+The Core Master picks the table's theme from a dropdown in the CM tab: Core Light, Core Dark, Fantasy, Space, Horror, Street Grit, or Pirate. Core Light uses the CM screen's look: slate blue and burnt orange on cream, with Alfa Slab One titles. Pirate is deep sea green with brass, Pirata One titles, and Alegreya text. The theme changes the look only (colors and fonts). Under it, the Core Master sets the **Currency name** for the whole table: Match the theme (Spirit coins, Credits, Grave coins, Bucks, or Doubloons), Gold, or Custom (one and many, like clam / clams). Everyone sees that name whatever look they pick, and it goes to the CM screen link. Soul cores, ability tokens, and loot boxes keep their Core names in every theme.
 
 ## Loot names
 

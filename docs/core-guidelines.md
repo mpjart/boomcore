@@ -309,7 +309,7 @@ When two rollers tie, such as two heroes in initiative or a hero against a monst
 
 ## Chapter 6: Spirit Coins and Loot
 
-Money in the main setting is **spirit coins**. In another story it can be gold, bank notes, or credits; only the name changes.
+Money in the main setting is **spirit coins**. In another story it can be gold, bank notes, or credits; only the name changes. The Core Master picks the name for the table (in the app, the Currency name setting in the CM tab).
 
 ### Earning Coins
 
@@ -423,7 +423,7 @@ The Boom Dice app rolls and explodes the dice, does the math, and shows everyone
 - **Dice:** quick rolls, initiative, your color, the shared roll feed, and the Map (a chalkboard the Core Master controls). Tap the Boom logo to open these guidelines.
 - **Party:** every character sheet. Collapsed sheets show the six stats at a glance. The Core Master edits everything; a player can equip, sell, and train on their own hero.
 - **Loot:** loot boxes waiting to be opened, and the party stash. A hero's box is opened by its player; a group box has a timer and everyone grabs it.
-- **CM:** the table theme (the look only), the Core Master screen, the loot box maker (with toggles for which loot name tables to mix), and the monster generator.
+- **CM:** the table theme (the look) and the currency name, the Core Master screen, the loot box maker (with toggles for which loot name tables to mix), and the monster generator.
 
 **A round at the table:** the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.
 
@@ -502,13 +502,13 @@ Build a hazard like an ability: its tier sets its dice, targets, rounds, and eff
 
 ### Rename Anything
 
-In the app, the table theme changes the look only (colors and fonts); the loot words stay Core. Every row here is an optional name for the table to use out loud.
+In the app, the table theme changes the look only (colors and fonts). The **currency name is the Core Master's call**: they set it once for the table (each theme's usual currency, gold, or any custom name), and everyone sees it, whatever look each player picks. **Soul cores are soul cores in every theme.** The other rows are optional names for the table to use out loud.
 
 | Boom (Core) | Fantasy | Space | Horror | Street Grit | Pirate |
 | --- | --- | --- | --- | --- | --- |
 | Spirit coins | Spirit coins | Credits | Grave coins | Bucks | Doubloons |
 | Ability tokens | Ability tokens | Data chips | Rites | Favors | Shanties |
-| Soul cores | Soul cores | Power cores | Soul cores | Rep | Pearls |
+| Soul cores | Soul cores | Soul cores | Soul cores | Soul cores | Soul cores |
 | Loot box | Chest | Crate | Coffer | Duffel bag | Sea chest |
 | Constitution | Constitution | Resilience | Grit | Toughness | Sea legs |
 | Strength | Strength | Might | Strength | Strength | Brawn |

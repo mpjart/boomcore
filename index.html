@@ -123,7 +123,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 :root[data-skin="grit"] body{font-size:18px}
 :root[data-skin="fantasy"] body,:root[data-skin="horror"] body,:root[data-skin="pirate"] body{font-size:17px}
 .skinpick{border-left-width:1px!important}.cpair{display:flex;align-items:center;gap:8px;flex:1 1 200px;min-width:0}.cpair label{width:52px}
-.colsel,#skinsel{font:inherit;font-size:15px;padding:9px 10px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}.colsel{border-left-width:8px}.cmsel{margin-top:8px;flex-wrap:wrap}.cmsel+.note{margin-top:6px}.cmsel .col{min-width:150px}.cmsel select{width:100%}.colrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}.colrow label{margin:0;flex:none}.colrow select{flex:1;min-width:0}
+.colsel,#skinsel,#cursel{font:inherit;font-size:15px;padding:9px 10px;border-radius:var(--rb);border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}.colsel{border-left-width:8px}.cmsel{margin-top:8px;flex-wrap:wrap}.cmsel+.note{margin-top:6px}.cmsel .col{min-width:150px}.cmsel select{width:100%}.cmsel input{width:100%;box-sizing:border-box;min-width:0}.colrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}.colrow label{margin:0;flex:none}.colrow select{flex:1;min-width:0}
 .skins{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px;margin-top:8px}
 .skb{display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:8px;background:var(--chip);color:var(--ink);font-weight:600;border:2px solid transparent}
 .skb.on{border-color:var(--acc)}.skb span.sp{display:flex;height:22px;border-radius:4px;overflow:hidden}.skb span.sp i{flex:1}
@@ -241,7 +241,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div><div id="pgDM" hidden>
 <div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="save" type="button">💾 Save</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button></div>
 <div class="note" id="cmnone" hidden style="text-align:center;margin:4px 0 12px">All cards are hidden. Tap a button above to show its cards.</div>
-<div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look (colors and fonts) for the table. Players can pick their own look on their sheet. Loot names come from the tables you toggle in Make a loot box.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div></div>
+<div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look (colors and fonts) for the table. Players can pick their own look on their sheet. Loot names come from the tables you toggle in Make a loot box.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div><div class="row cmsel" data-noswap><div class="col"><label for="cursel">Currency name</label><select id="cursel"></select></div></div><div class="row cmsel" id="curcust" hidden data-noswap><div class="col"><label for="curs">One</label><input id="curs" maxlength="24" placeholder="gold piece"></div><div class="col"><label for="curp">Many</label><input id="curp" maxlength="24" placeholder="gold pieces"></div></div><div class="note" data-noswap>The whole table sees this name for coins, whatever look each player picks. Soul cores, ability tokens, and loot boxes keep their Core names in every theme.</div></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the table's current theme, and Give to party puts it in everyone's feed and Party tab.</div>
  <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
  <div class="seg" role="group" aria-label="Handout type"><button id="hmN" type="button" class="on">✍️ Note</button><button id="hmI" type="button">🖼️ Picture</button></div>
@@ -1437,11 +1437,16 @@ const SKINS=[
  {k:'core',n:'Core Light',sw:['#fbf7ef','#1f4e5f','#b83a12'],font:'Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;600;700',w:{}},
  {k:'coredark',n:'Core Dark',sw:['#17140f','#f97316','#f3ede3'],w:{}},
  {k:'fantasy',n:'Fantasy',sw:['#efe3c8','#8b1e1e','#b8862b'],font:'Cinzel:wght@600;800&family=EB+Garamond:wght@400;600;700',w:{box:['chest','chests']}},
- {k:'space',n:'Space',sw:['#070b1a','#4fd8f7','#ff9a3c'],font:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',w:{coin:['credit','credits'],token:['data chip','data chips'],core:['power core','power cores'],box:['crate','crates']}},
+ {k:'space',n:'Space',sw:['#070b1a','#4fd8f7','#ff9a3c'],font:'Orbitron:wght@600;800&family=Exo+2:wght@400;600;700',w:{coin:['credit','credits'],token:['data chip','data chips'],box:['crate','crates']}},
  {k:'horror',n:'Horror',sw:['#0d0a0a','#c62a32','#e6dccf'],font:'IM+Fell+English+SC&family=Crimson+Pro:wght@400;600;700',w:{coin:['grave coin','grave coins'],token:['rite','rites'],box:['coffer','coffers']}},
- {k:'grit',n:'Street Grit',sw:['#d9d5cc','#f5c400','#121212'],font:'Anton&family=Barlow+Condensed:wght@500;600;700',w:{coin:['buck','bucks'],token:['favor','favors'],core:['rep','rep'],box:['duffel bag','duffel bags']}},
- {k:'pirate',n:'Pirate',sw:['#0f2a2e','#e3a93b','#6b4423'],font:'Pirata+One&family=Alegreya:wght@400;600;700',w:{coin:['doubloon','doubloons'],token:['shanty','shanties'],core:['pearl','pearls'],box:['sea chest','sea chests']}}];
-let skin='core',WORDS={},settingsCol=null;
+ {k:'grit',n:'Street Grit',sw:['#d9d5cc','#f5c400','#121212'],font:'Anton&family=Barlow+Condensed:wght@500;600;700',w:{coin:['buck','bucks'],token:['favor','favors'],box:['duffel bag','duffel bags']}},
+ {k:'pirate',n:'Pirate',sw:['#0f2a2e','#e3a93b','#6b4423'],font:'Pirata+One&family=Alegreya:wght@400;600;700',w:{coin:['doubloon','doubloons'],token:['shanty','shanties'],box:['sea chest','sea chests']}}];
+let skin='core',WORDS={},settingsCol=null,cur='',curC=['',''];
+// Currency: the CM's choice for the whole table. '' follows the table theme. Cores, tokens, and boxes never rename.
+const CURS=[['spirit','Spirit coins',['spirit coin','spirit coins']],['credits','Credits',['credit','credits']],['grave','Grave coins',['grave coin','grave coins']],['bucks','Bucks',['buck','bucks']],['doubloons','Doubloons',['doubloon','doubloons']],['gold','Gold',['gold piece','gold pieces']]];
+const THEMECUR={core:'spirit',coredark:'spirit',fantasy:'spirit',space:'credits',horror:'grave',grit:'bucks',pirate:'doubloons'};
+function curWords(){if(cur==='custom'){const a=(curC[0]||'').trim(),b=(curC[1]||'').trim()||a;return a||b?[a||b,b]:CURS[0][2];}
+ const k=cur&&cur!=='custom'?cur:(THEMECUR[skin]||'spirit');return(CURS.find(x=>x[0]===k)||CURS[0])[2];}
 // one pass over each phrase; standalone "core" never touches "Core Master" or "Boom Core"
 const WRE=/\b(spirit coins?|coins?|ability tokens?|tokens?|soul cores?|cores?(?! Master)|loot box(?:es)?|box(?:es)?)\b/gi;
 function wordFor(m,_g,off,str){if(off>=5&&str.slice(off-5,off)==='Boom ')return m;const l=m.toLowerCase(),pl=/s$/.test(l)&&!/^(loot )?box$/.test(l);
@@ -1450,11 +1455,12 @@ function wordFor(m,_g,off,str){if(off>=5&&str.slice(off-5,off)==='Boom ')return 
  if(m===m.toUpperCase()&&/[A-Z]/.test(m))return out.toUpperCase();
  if(/^[A-Z]/.test(m))out=out[0].toUpperCase()+out.slice(1);return out;}
 const done=new WeakMap();
-function swapText(n){const p=n.parentNode;if(p&&(/^(SCRIPT|STYLE|TEXTAREA)$/.test(p.nodeName)||(p.closest&&p.closest('[data-noswap]'))))return;const t=n.nodeValue;if(done.get(n)===t)return;const o=Object.keys(WORDS).length?t.replace(WRE,wordFor):t;done.set(n,o);if(o!==t)n.nodeValue=o;}
-function swapAll(root){if(!Object.keys(WORDS).length)return;const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode()))swapText(n);}
-const wordObs=new MutationObserver(ms=>{if(!Object.keys(WORDS).length)return;for(const m of ms){if(m.type==='characterData')swapText(m.target);else m.addedNodes.forEach(x=>x.nodeType===3?swapText(x):x.nodeType===1&&swapAll(x));}});
+const orig=new WeakMap();
+function swapText(n){const p=n.parentNode;if(p&&(/^(SCRIPT|STYLE|TEXTAREA)$/.test(p.nodeName)||(p.closest&&p.closest('[data-noswap]'))))return;const t=n.nodeValue,src=done.get(n)===t&&orig.has(n)?orig.get(n):t;const o=Object.keys(WORDS).length?src.replace(WRE,wordFor):src;orig.set(n,src);done.set(n,o);if(o!==t)n.nodeValue=o;}
+function swapAll(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while((n=w.nextNode()))swapText(n);}
+const wordObs=new MutationObserver(ms=>{for(const m of ms){if(m.type==='characterData')swapText(m.target);else m.addedNodes.forEach(x=>x.nodeType===3?swapText(x):x.nodeType===1&&swapAll(x));}});
 wordObs.observe(document.body,{subtree:true,childList:true,characterData:true});
-// the look (colors and fonts) can be a player's own pick on this device; themes never change the loot words
+// the look (colors and fonts) can be a player's own pick on this device; the coin name is the CM's table setting
 let mySkin='';try{mySkin=localStorage.getItem('boommyskin')||''}catch{}
 function applyLook(k){
  const S=SKINS.find(x=>x.k===k)||SKINS[0],de=document.documentElement;
@@ -1464,15 +1470,24 @@ function setMySkin(k){mySkin=SKINS.some(x=>x.k===k)?k:'';try{localStorage.setIte
 function skinSel(id){const s=document.createElement('select');s.className='colsel skinpick';s.id=id;s.setAttribute('data-noswap','');
  s.add(new Option('Table ('+((SKINS.find(x=>x.k===skin)||SKINS[0]).n)+')',''));SKINS.forEach(S=>s.add(new Option(S.n,S.k)));s.value=mySkin;s.onchange=()=>setMySkin(s.value);return s;}
 function applySkin(k){
- const S=SKINS.find(x=>x.k===k)||SKINS[0];skin=S.k;WORDS={}; // the table theme is looks only; loot words stay Core
+ const S=SKINS.find(x=>x.k===k)||SKINS[0];skin=S.k;const cw=curWords();WORDS=cw[1].toLowerCase()==='spirit coins'?{}:{coin:cw}; // only the coin name changes, and it is the CM's pick
  applyLook(mySkin||S.k);
  try{localStorage.setItem('boomskin',S.k)}catch{}
- $('#cmscreen').href=LINKS.cmScreen+'?theme='+S.k;
+ $('#cmscreen').href=LINKS.cmScreen+'?theme='+S.k+(Object.keys(WORDS).length?'&coin='+encodeURIComponent(cw[0])+'&coins='+encodeURIComponent(cw[1]):'');renderCur();
  renderSkins();if(typeof hoPreview==='function'&&!$('#hprev').hidden)hoPreview();
  // redraw so every label picks up the new words
  render();renderParty();renderMon();renderQuick();swapAll(document.body);}
 function renderSkins(){const w=$('#skinsel');if(!w)return;if(!w.options.length){SKINS.forEach(S=>w.add(new Option(S.n,S.k)));w.onchange=()=>setSkin(w.value);}w.value=skin;}
-function setSkin(k){if(settingsCol)settingsCol.doc('theme').set({skin:k,ts:Date.now()}).catch(()=>toast('Could not change the theme'));else applySkin(k);}
+const themeDoc=o=>({skin,cur,curS:curC[0],curP:curC[1],...o,ts:Date.now()});
+function saveTheme(o){try{localStorage.setItem('boomcur',JSON.stringify({cur:o.cur,c:[o.curS,o.curP]}))}catch{}
+ if(settingsCol)settingsCol.doc('theme').set(o).catch(()=>toast('Could not change the table setting'));else applyTheme(o);}
+function setSkin(k){saveTheme(themeDoc({skin:k}));}
+function applyTheme(v){cur=typeof v.cur==='string'?v.cur:'';curC=[v.curS||'',v.curP||''];applySkin(v.skin||'core');}
+function renderCur(){const s=$('#cursel');if(!s)return;if(!s.options.length){s.add(new Option('Match the theme',''));CURS.forEach(c=>s.add(new Option(c[1],c[0])));s.add(new Option('Custom…','custom'));
+  s.onchange=()=>{const v=s.value;if(v==='custom'&&!curC[0]&&!curC[1]){cur='custom';renderCur();$('#curs').focus();return;}saveTheme(themeDoc({cur:v}));};
+  const sv=()=>{if($('#cursel').value==='custom')saveTheme(themeDoc({cur:'custom',curS:$('#curs').value.trim().slice(0,24),curP:$('#curp').value.trim().slice(0,24)}));};$('#curs').onchange=sv;$('#curp').onchange=sv;}
+ s.options[0].text='Match the theme ('+(CURS.find(x=>x[0]===(THEMECUR[skin]||'spirit'))||CURS[0])[1]+')';s.value=cur;$('#curcust').hidden=cur!=='custom';
+ if(document.activeElement!==$('#curs'))$('#curs').value=curC[0];if(document.activeElement!==$('#curp'))$('#curp').value=curC[1];}
 // Dawn: temp HP resets for the whole party.
 {const d=$('#dawn');let armed=0,tm=0;d.onclick=()=>{if(!armed){armed=1;d.classList.add('arm');d.textContent='🌅 Tap again';clearTimeout(tm);tm=setTimeout(()=>{armed=0;d.classList.remove('arm');d.textContent='🌅 Dawn';},3000);return;}
  armed=0;clearTimeout(tm);d.classList.remove('arm');d.textContent='🌅 Dawn';dawnRun();};}
@@ -1480,7 +1495,7 @@ const dawnRun=()=>{if(!partyCol)return toast('Add heroes in the Party tab first'
  hit.forEach(c=>put(c,{temp:0}));const m='🌅 Dawn breaks'+(hit.length?': temp HP cleared for '+hit.map(c=>c.name||'a hero').join(', '):'. No one had temp HP');toast(m);logEvent(m);};
 // ---------- startup (page works alone, lights up with db) ----------
 renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
-{let k0='core';try{k0=localStorage.getItem('boomskin')||'core'}catch{}applySkin(k0);}
+{let k0='core',c0={};try{k0=localStorage.getItem('boomskin')||'core';c0=JSON.parse(localStorage.getItem('boomcur')||'{}')||{}}catch{}applyTheme({skin:k0,cur:c0.cur||'',curS:(c0.c||[])[0],curP:(c0.c||[])[1]});}
 (async()=>{
  try{userNS=await claude.use('user');}catch{}
  try{db=await claude.use('db');}catch{}
@@ -1496,7 +1511,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  $('#tM').hidden=!isDM;if(isDM){monCol=db.collection('monsters');monCol.onSnapshot(s=>{monsters=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderMon();});}
  initCol=db.collection('init');
  initCol.onSnapshot(s=>{inits=s.docs.filter(d=>d.id!=='_turn').map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.v-a.v||a.ts-b.ts);const t=s.docs.find(d=>d.id==='_turn');turn=t?t.data().id:null;round=t?(t.data().round||1):1;renderInit();});
- settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applySkin(v.skin||'core');});
+ settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applyTheme(v);});
  boxCol=db.collection('boxes');boxCol.onSnapshot(s=>{boxes=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderBoxes();checkBoxes();});fillHeroes();
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');
