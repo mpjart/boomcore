@@ -35,8 +35,8 @@ label{font-size:12px;color:var(--mute);display:block;margin:2px 0 6px;font-weigh
 .d.x{background:transparent;border:1px dashed var(--boom);color:var(--boom);text-decoration:line-through}
 .d.x:after{content:"💥";text-decoration:none;display:inline-block;margin-left:2px;font-size:11px}
 .note{font-size:12px;color:var(--mute)}.err{color:#dc2626;font-size:13px;min-height:18px;margin-top:6px}
-#toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 10px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:99px;font-weight:700;z-index:20;opacity:0;transition:opacity .2s;pointer-events:none;max-width:92%;text-align:center}
-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:10}
+#toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 10px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:99px;font-weight:700;z-index:45;opacity:0;transition:opacity .2s;pointer-events:none;max-width:92%;text-align:center}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:42}
 [hidden]{display:none!important}
 .tabs{display:flex;gap:6px;margin-bottom:10px}.tabs button{flex:1;background:var(--chip);color:var(--ink)}.tabs button.on{background:var(--acc);color:var(--accfg)}
 button.sm{padding:6px 11px;font-size:14px}
@@ -188,6 +188,14 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 :root[data-skin="steampunk"]{--lg-f1:#e0b25a;--lg-f2:#c08a34;--lg-fr:#a87526;--lg-f3:#8a5e1c;--lg-f4:#5e3f12;--lg-o:#1a0f06;--lg-l:#3a2410;--lg-n:#2a1a10;--lg-cap:#6b4a2a;--lg-fuse:#b49c7c;--lg-s1:#ffd36b;--lg-s2:#e0662a;--lg-gl:rgba(255,245,215,.45);--lg-w:#c9953b;--lg-ws:#5e3f12;--lg-t:#b49c7c}
 .bm-f1{fill:var(--lg-f1)}.bm-f2{fill:var(--lg-f2)}.bm-f3{fill:var(--lg-f3)}.bm-f4{fill:var(--lg-f4)}.bm-front{fill:var(--lg-fr)}.bm-lines{stroke:var(--lg-l)}.bm-out{stroke:var(--lg-o)}.bm-n{fill:var(--lg-n)}.bm-cap{fill:var(--lg-cap);stroke:var(--lg-o)}.bm-fuse{stroke:var(--lg-fuse)}.bm-s1{fill:var(--lg-s1)}.bm-s2{fill:var(--lg-s2)}.bm-glint{fill:var(--lg-gl)}.bm-w{fill:var(--lg-w)}.bm-ws{fill:var(--lg-ws);stroke:var(--lg-ws)}path.bm-ws{stroke:none}.bm-t{fill:var(--lg-t)}
 .brand{margin:6px 0 6px;line-height:0}.brand .bw{height:62px;width:auto;display:block}@media(max-width:420px){.brand .bw{height:54px}}:root[data-skin="space"] .brand .bw{filter:drop-shadow(0 0 3px rgba(79,216,247,.5))}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.swarm{border:2px dashed var(--acc)}.swarm .note{margin:4px 0 6px}
+.mkt{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.mkt button{flex:none}
+/* dice reveal: one die at a time, booms flare, then the total lands */
+@keyframes dIn{from{opacity:0;transform:translateY(-6px) scale(.6)}to{opacity:1;transform:none}}
+@keyframes dBoom{0%{opacity:0;transform:scale(.4)}45%{opacity:1;transform:scale(1.5) rotate(-8deg);background:var(--boom);color:#fff;box-shadow:0 0 14px var(--boom)}100%{transform:none}}
+@keyframes tIn{0%{opacity:0;transform:scale(.7)}70%{opacity:1;transform:scale(1.12)}100%{transform:none}}
+.d.an{animation:dIn .22s ease-out both}.d.x.an{animation:dBoom .45s ease-out both}.total.an{animation:tIn .35s ease-out both;transform-origin:left center}
+@media(prefers-reduced-motion:reduce){.d.an,.d.x.an,.total.an{animation:none}}
 </style></head><body>
 <canvas id="fx"></canvas><div id="hview" hidden role="dialog" aria-label="Handout"><div class="hvbar"><b id="hvt"></b><button id="hvdl" class="ghost sm">⬇ Download</button><button id="hvx" class="sm">Close</button></div><img id="hvimg" alt="Handout"></div><div id="toast"></div>
 <main>
@@ -252,9 +260,14 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 </div>
 <div class="card" id="stashbox"></div>
 </div><div id="pgDM" hidden>
-<div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="save" type="button">💾 Save</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button><button class="cmact" id="market" type="button" aria-pressed="false" title="Open or close the market. Players can only sell loot while it is open.">🏪 Market closed</button></div>
+<div class="cmnav" role="group" aria-label="Show or hide Core Master cards"><button data-s="table" type="button">🎨 Theme</button><button data-s="loot" type="button">🎁 Loot</button><button data-s="kit" type="button">📖 One-shots</button><button data-s="hand" type="button">📜 Handouts</button><button data-s="mon" type="button">👹 Monsters</button><button data-s="save" type="button">💾 Save</button><a class="cmact" id="cmscreen" href="#" target="_blank" rel="noopener">📋 CM screen</a><button class="cmact" id="dawn" type="button" title="A new day: clears every hero's temp HP">🌅 Dawn</button><button class="cmact" id="market" type="button" aria-pressed="false" title="Open or close the market. Players can only sell loot while it is open.">🏪 Market closed</button></div>
 <div class="note" id="cmnone" hidden style="text-align:center;margin:4px 0 12px">All cards are hidden. Tap a button above to show its cards.</div>
 <div class="card" id="skinbox" data-g="table"><b class="pn">Table theme</b><div class="note">Changes the look (colors and fonts) for the table. Players can pick their own look on their sheet. Loot names come from the tables you toggle in Make a loot box.</div><div class="row cmsel" data-noswap><div class="col"><label for="skinsel">Theme</label><select id="skinsel"></select></div><div class="col"><label for="cmcolsel">Your color</label><select id="cmcolsel"></select></div></div><div class="note">Your color is for rolls you make that aren't from a sheet.</div><div class="row cmsel" data-noswap><div class="col"><label for="cursel">Currency name</label><select id="cursel"></select></div></div><div class="row cmsel" id="curcust" hidden data-noswap><div class="col"><label for="curs">One</label><input id="curs" maxlength="24" placeholder="gold piece"></div><div class="col"><label for="curp">Many</label><input id="curp" maxlength="24" placeholder="gold pieces"></div></div><div class="note" data-noswap>The whole table sees this name for coins, whatever look each player picks. Soul cores, ability tokens, and loot boxes keep their Core names in every theme.</div></div>
+<div class="card" id="rulesbox" data-g="table"><b class="pn">Table rules</b><div class="note">One setting for the whole table. Only you can change these.</div>
+ <label for="rlvl" style="margin-top:10px">Leveling</label><div class="row"><select id="rlvl" class="colsel" style="flex:1"><option value="milestone">Milestones (recommended)</option><option value="xp">XP bar (cores fill it)</option></select><button id="rmile" type="button" class="sm rb">⬆ Level up party</button></div><div class="note" id="rlvln"></div>
+ <label for="rdial" style="margin-top:10px">Market price dial</label><div class="row" style="align-items:center"><button id="rdm" type="button" class="ghost sm" aria-label="Lower the dial 5%">−5%</button><input id="rdial" type="number" step="5" min="-90" max="500" inputmode="numeric" style="max-width:90px;text-align:center" aria-label="Price dial percent"><button id="rdp" type="button" class="ghost sm" aria-label="Raise the dial 5%">+5%</button><button id="rd0" type="button" class="ghost sm">Reset</button></div><div class="note" id="rdialn"></div>
+ <label class="chk" style="margin-top:10px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink);display:flex;gap:8px;align-items:center"><input type="checkbox" id="rcores" style="flex:none;width:18px;height:18px"> Cores can be sold at the market</label><div class="note">We recommend keeping cores rare, so nobody buys a stack of levels.</div></div>
+<div class="card" id="kitbox" data-g="kit"></div>
 <div class="card" id="hobox" data-g="hand"><b class="pn">Handout creator</b><div class="note">Write a note or add a picture. It's drawn in the look you pick here (the table theme unless you change it), and Give to party puts it in everyone's feed and Party tab.</div>
  <label for="hskin" style="margin-top:10px">Handout look</label><select id="hskin" class="colsel" data-noswap aria-label="Handout look"></select>
  <label style="margin-top:10px">For</label><select id="hto" aria-label="Who the handout is for"></select>
@@ -321,6 +334,15 @@ function el(tag,cls,txt){const x=document.createElement(tag);if(cls)x.className=
 function timeAgo(ts){const s=Math.max(0,(Date.now()-ts)/1000|0);return s<60?'just now':s<3600?(s/60|0)+'m ago':s<86400?(s/3600|0)+'h ago':new Date(ts).toLocaleDateString();}
 function logEvent(text){const r={uid:me||'local',who:'',expr:'',total:0,booms:0,note:text,ts:Date.now(),detail:'{"parts":[],"mod":0}'};
  if(db&&me)db.collection('rolls').doc(r.ts+'-'+Math.random().toString(36).slice(2,7)).set(r).catch(()=>{});else{rolls.unshift(r);render();}}
+// ---------- dice reveal ----------
+// A fresh roll shows its dice one at a time in the order they were rolled, so a boom chain plays out die by die.
+// The start time is remembered per roll, so the feed can re-render mid-reveal without restarting it.
+const animT=new Map(),RM=matchMedia('(prefers-reduced-motion: reduce)');
+function rollDice(r){try{return JSON.parse(r.detail).parts.reduce((a,p)=>a+p.dice.length,0)}catch{return 0}}
+const animStep=n=>Math.max(45,Math.min(260,2600/Math.max(1,n)));
+function animDur(r){const n=rollDice(r);return RM.matches||n<2?0:n*animStep(n)+120;}
+function rollKey(r){return r.ts+'|'+r.uid+'|'+r.expr+'|'+r.total;}
+function animAt(r){const k=rollKey(r);if(!animT.has(k)){animT.set(k,Date.now()-r.ts<6000?Math.min(Date.now(),r.ts):0);if(animT.size>400)animT.delete(animT.keys().next().value);}return animT.get(k);}
 function card(r){
  if(r.handout){const c=el('div','card roll evt'),t=el('div','top'),h=handouts.find(x=>x.id===r.handout),ok=h&&hoSee(h);t.append(el('span',null,'📜 Handout'),el('span',null,timeAgo(r.ts)));c.append(t,el('div','evt-t',ok?h.title+(hoTo(h)==='stash'?' (in the stash)':hoTo(h)!=='party'?' (only '+hoWho(hoTo(h))+')':''):(r.note||'').replace(/^📜 /,'')));
   if(ok){const im=el('img','hofeed');im.src=h.img;im.alt=h.title||'Handout';im.onclick=()=>hoView(h);c.append(im);}else if(handoutCol&&!h)c.append(el('div','note','This handout was removed.'));return c;}
@@ -329,12 +351,13 @@ function card(r){
  const c=el('div','card roll'+(r.booms>0?' boom':'')),rc=cvar(r.col);if(rc){c.classList.add('colored');c.style.setProperty('--cc',rc);}
  const top=el('div','top');
  top.append(el('span',null,(r.who||(r.uid===me?'You':(names[r.uid]||'Someone')))+' · '+r.expr),el('span',null,timeAgo(r.ts)));
- const tot=el('div','total',String(r.total));if(r.loot){let ct=0;try{ct=JSON.parse(r.loot).ct||0}catch{}tot.append(el('span','note',' '+LT[ct]+' spirit coins'));}
+ const nD=rollDice(r),st=animStep(nD),t0=r.note||r.loot?0:animAt(r),el0=Date.now()-t0,an=!!t0&&!RM.matches&&nD>1&&el0<nD*st+400;let di=0;
+ const tot=el('div','total',String(r.total));if(an){tot.classList.add('an');tot.style.animationDelay=(nD*st-el0)+'ms';}if(r.loot){let ct=0;try{ct=JSON.parse(r.loot).ct||0}catch{}tot.append(el('span','note',' '+LT[ct]+' spirit coins'));}
  if(r.booms>0)tot.append(el('span','badge','💥 ×'+r.booms));
  c.append(top,tot);
  for(const p of det.parts){
   const d=el('div','dice');d.append(el('span','grp',(p.sign<0?'−':'')+p.n+'d'+p.s));
-  for(const [v,x] of p.dice)d.append(el('span','d'+(x?' x':''),String(v)));
+  for(const [v,x] of p.dice){const sp=el('span','d'+(x?' x':''),String(v));if(an){sp.classList.add('an');sp.style.animationDelay=(di*st-el0)+'ms';}di++;d.append(sp);}
   c.append(d);
  }
  if(det.mod)c.append(el('div','note','Modifier '+(det.mod>0?'+':'')+det.mod));
@@ -376,7 +399,7 @@ function doRoll(expr,who,pre,min0,col){
  $('#err').textContent='';
  const res=rollExpr(terms);
  const r={uid:me||'local',who:who||'',expr:expr.replace(/\s+/g,''),total:min0?Math.max(0,res.total):res.total,booms:res.booms,col:col||myColor()||'',ts:Date.now(),detail:JSON.stringify({parts:res.parts,mod:res.mod})};
- celebrate(r,who||null);noteBest(r);
+ setTimeout(()=>celebrate(r,who||null),animDur(r));noteBest(r);
  if(db&&me){
   db.collection('rolls').doc(r.ts+'-'+Math.random().toString(36).slice(2,7)).set(r).catch(()=>{rolls.unshift(r);render();});
  }else{rolls.unshift(r);render();}
@@ -532,13 +555,13 @@ function charCard(c){
  box.append(h);
  if(!open){box.append(hpBox(c,k,true),statChips(c),condBox(c,true));EDIT=false;return box;}
  if(ED){const er=el('div','edrow');
-  if(isDM){const lr=el('div','row');lr.append(el('small',null,'Level'),btn('Level up',()=>put(c,{level:c.level+1}),'sm rb'));
+  if(isDM){const lr=el('div','row');lr.append(el('small',null,'Level'),btn('Level up',()=>put(c,{level:c.level+1,xp:'0'}),'sm rb'));
    if(c.level>1&&k.free>0)lr.append(btn('− Level',()=>{const f=fitAtks(c,c.level-1);put(c,{level:c.level-1,atk:f.atk});if(f.gone.length){toast('Lost ability: '+f.gone.join(', '));logEvent(c.name+' lost ability: '+f.gone.join(', '));}}));
    let armed=0;const d=btn('Remove player',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove player';},3000);}else partyCol.doc(c.id).delete();},'sm dmg');lr.append(d);er.append(lr);}
   box.append(er);}
  const dv=el('div','der');
  [['Max HP',k.hp],['Armor',k.ar],['Move',k.mv],['Abilities/turn',k.na],['Phys dmg',(k.pd>0?'+':'')+k.pd],['Magic dmg',(k.md>0?'+':'')+k.md]].forEach(([a,b])=>{const s=el('div','dv');s.append(el('b',null,String(b)),el('small',null,a));dv.append(s);});
- box.append(dv);box.append(hpBox(c,k));box.append(xpBox(c));box.append(condBox(c));
+ box.append(dv);box.append(hpBox(c,k));{const x=xpBox(c);if(x)box.append(x);}box.append(condBox(c));
  if(k.free>0)box.append(el('div','pts',k.free+' unspent stat point'+(k.free>1?'s':'')+(isDM&&!ED?' · tap Edit to spend':'')));
  const sg=el('div','sg');
  for(const[key,lab]of STATS){const s=el('div','st'),bn=bonus(c,key),bv=el('b',null,String(c[key]));if(bn>0)bv.append(el('span','bn',' +'+bn));s.append(el('small',null,lab),bv,btn('🎲 Roll',()=>statRoll(c,key,lab),'sm rb'));
@@ -574,7 +597,7 @@ function charCard(c){
  {const pr=el('div','prow');pr.append(btn('🖨 Print sheet',()=>window.printSheet&&printSheet(c),'ghost sm'));box.append(pr);}
  EDIT=false;
  return box;}
-function renderParty(){renderMyColor();if(window.mapRefresh)mapRefresh();renderInit();fillHeroes();if(typeof hoFillTo==='function'){hoFillTo();renderHandouts();}renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
+function renderParty(){renderMyColor();if(window.shopRefresh)shopRefresh();if(window.mapRefresh)mapRefresh();renderInit();fillHeroes();if(typeof hoFillTo==='function'){hoFillTo();renderHandouts();}renderBoxes();renderStash();const b=$('#plist');b.replaceChildren();$('#addrow').hidden=!isDM||!partyCol;
  if(!partyCol)return b.append(el('div','note','Join a table to see the party.'));
  if(!chars.length)return b.append(el('div','note',isDM?'No players yet. Add one above.':'The Core Master has not added players yet.'));
  chars.forEach(c=>b.append(charCard(c)));}
@@ -591,28 +614,21 @@ function condBox(c,compact){
  l.forEach(x=>{const ch=el('span','chip',x);if(isDM&&!compact){ch.append(' ✕');ch.onclick=()=>put(c,{conds:JSON.stringify(l.filter(y=>y!==x))});}w.append(ch);});
  if(isDM&&!compact){const i=document.createElement('input');i.setAttribute('list','condl');i.placeholder='+ Condition';i.onchange=()=>{const v=i.value.trim().slice(0,24);if(v&&!l.includes(v))put(c,{conds:JSON.stringify([...l,v])});i.value='';};w.append(i);}
  return w;}
-const costOf=n=>BigInt(n*1000)*1000n**BigInt(band(n)),coreVal=(L,t)=>BigInt(L*100)*1000n**BigInt(t);
-function xpOf(c){try{return BigInt(c.xp||'0')}catch{return 0n}}
-function addXp(c,L,t){let lv=c.level,cost=costOf(lv),v=coreVal(L,t),g=0;if(v>cost)v=cost;let xp=xpOf(c)+v;if(xp>=cost){xp-=cost;lv++;g=1;}return{level:lv,xp:xp.toString(),gained:g};}
+// ---------- leveling: the CM picks Milestones or the XP bar for the table ----------
+// The XP bar takes cores only: a core of your level fills 1/10; a higher-level core fills the rest (exactly one level);
+// a lower-level core can't move it. Coins never buy levels. A level loss empties the bar.
+// c.xp is the number of tenths filled (0-9). Older sheets stored a coin value; xpOf converts it once.
+const oldCost=n=>BigInt(n*1000)*1000n**BigInt(band(n));
+function xpOf(c){const v=String(c.xp||'0');let n=0;try{n=Number(v.length>3||+v>9?BigInt(v)*10n/oldCost(c.level||1):BigInt(v));}catch{n=0;}return Math.max(0,Math.min(9,n|0));}
+// what one core of level L does for a hero at level lv: 'pip', 'level', or null (too small)
+const coreStep=(lv,L)=>lv>=100?null:L===lv?'pip':L>lv?'level':null;
+function needCores(c,L){const lv=c.level;return coreStep(lv,L)==='pip'?10-xpOf(c):coreStep(lv,L)==='level'?1:0;}
 function xpBox(c){
- const cost=costOf(c.level),w=el('div','xp'),pips=Number(xpOf(c)*1000n/cost)/100;
- w.append(el('small',null,'Level meter '+pips.toFixed(1)+' / 10'));
- const bar=el('div','bar'),f=el('div','fill xpf');f.style.width=Math.min(100,pips*10)+'%';bar.append(f);w.append(bar);
- if(isDM&&!c.dead&&c.level<100){const b=band(c.level),need=cost-xpOf(c),nd=(need+CP(b)-1n)/CP(b);
-  const r=el('div','row hpc'),n=document.createElement('input'),t=document.createElement('select');
-  n.type='number';n.min=1;n.inputMode='numeric';n.value=String(nd);n.title='Coins to pour into the level meter';
-  LT.forEach((x,i)=>t.add(new Option(x,i)));t.value=String(b);
-  r.append(n,t,btn('⚡ Empower',()=>empower(c,+t.value,n.value),'sm rb'));w.append(r);
-  w.append(el('div','note',fmtN(Number(nd))+' '+LT[b]+' coins reach level '+(c.level+1)+'.'));}
+ if(rules.lvl!=='xp')return null;
+ const xp=xpOf(c),w=el('div','xp');
+ w.append(el('small',null,'XP bar '+xp+' / 10'+(c.level<100?' · '+(10-xp)+' level '+c.level+' core'+(10-xp===1?'':'s')+' or 1 higher-level core to level '+(c.level+1):'')));
+ const bar=el('div','bar'),f=el('div','fill xpf');f.style.width=(xp*10)+'%';bar.append(f);w.append(bar);
  return w;}
-function empower(c,t,amt){
- const a=Math.max(0,Math.floor(+amt)||0);if(!a)return toast('Enter an amount');
- const arr=coinSub(coinsOf(c),t,a);if(!arr)return toast('Not enough coins');
- let lv=c.level,xp=xpOf(c)+BigInt(a)*CP(t),g=0;
- while(lv<100&&xp>=costOf(lv)){xp-=costOf(lv);lv++;g++;}
- if(lv>=100)xp=0n;
- const ex={coins:arr,gold:arr[0],xp:xp.toString()};if(g>0)ex.level=lv;put(c,ex);
- const m=c.name+' empowers their core with '+fmtN(a)+' '+LT[t]+' coins'+(g>0?' and reaches level '+lv+'!':'');toast(m);if(g>0)logEvent(m);}
 // ---------- ability tokens and training ----------
 // Tokens have no tier and stack into one count. Learning a new T1 ability costs 1 token + a T1 core or better.
 // Training an ability to Tn costs 1 token + a Tn core or better. A core's training tier (r) is the tier of the box it came from.
@@ -685,19 +701,19 @@ function lootList(c){
 }
 const potName=t=>'T'+(t+1)+' healing potion';
 const potionOf=(t,q,id)=>({id:id||Math.random().toString(36).slice(2,8),k:'potion',n:potName(t),t,q});
-function lootVal(it){return it.k==='potion'?'heals '+(it.t+1)+'d6 (the dice can boom) · sells for 1d100 '+LT[it.t]+' coins':it.k==='token'?'learn or train abilities':it.k==='item'?'sells for 1d100 '+LT[it.t||0]+' coins':'worth '+fmtN(it.v)+' '+LT[it.t]+' coins';}
+function lootVal(it){return it.k==='potion'?'heals '+(it.t+1)+'d6 (the dice can boom) · sells for 1d100 '+LT[it.t]+' coins':it.k==='token'?'learn or train abilities':it.k==='item'?(it.shop?(itemType(it)==='gear'?'gear from the market · no stats':'from the market · plain, no plus'):'sells for 1d100 '+LT[it.t||0]+' coins'):'worth '+fmtN(it.v)+' '+LT[it.t]+' coins';}
 function setLoot(c,l,extra){put(c,{loot:JSON.stringify(l),...(extra||{})});}
 function sellLoot(c,id){if(!canSell())return;
  const l=lootList(c),it=l.find(x=>x.id===id);if(!it)return;
- const r=doRoll('1d100',c.name+' · Sell '+it.n,null,false,colorMap[c.id]),v=r?r.total:0;
+ const r=doRoll('1d100',c.name+' · Sell '+it.n,null,false,colorMap[c.id]),v=dialed(r?r.total:0);
  const arr=coinAdd(coinsOf(c),it.t||0,v);
  setLoot(c,l.filter(x=>x.id!==id),{coins:arr,gold:arr[0]});
- toast('Sold '+it.n+' for '+fmtN(v)+' '+LT[it.t||0]+' coins');}
+ toast('Sold '+it.n+' for '+fmtN(v)+' '+LT[it.t||0]+' coins'+dialNote());}
 function sellReagents(c){if(!canSell())return;
  const l=lootList(c),r=l.find(x=>x.k==='reagent');if(!r)return;
- let arr=coinsOf(c);r.tot.forEach((x,i)=>{arr=coinAdd(arr,i,x);});
+ let arr=coinsOf(c);const tot=r.tot.map(x=>dialed(x));tot.forEach((x,i)=>{arr=coinAdd(arr,i,x);});
  setLoot(c,l.filter(x=>x.k!=='reagent'),{coins:arr,gold:arr[0]});
- toast('Sold the reagents for '+r.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' + ')+' coins');}
+ toast('Sold the reagents for '+tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' + ')+' coins'+dialNote());}
 // Drink: (tier)d6 healing, the dice explode as normal. Healing needs a missing HP; extra over max becomes temp HP.
 function usePotion(c,t){
  const cur0=chars.find(x=>x.id===c.id)||c,l=lootList(cur0),p=l.find(x=>x.k==='potion'&&x.t===t);if(!p||p.q<1)return;
@@ -709,37 +725,38 @@ function usePotion(c,t){
  const m=cur0.name+' drinks a '+potName(t)+' and heals '+r.total+(extra>0?' ('+extra+' becomes temp HP)':'');toast(m);}
 function sellPotion(c,t){if(!canSell())return;
  const l=lootList(c),p=l.find(x=>x.k==='potion'&&x.t===t);if(!p)return;
- const r=doRoll('1d100',c.name+' · Sell '+potName(t),null,false,colorMap[c.id]),v=r?r.total:0,arr=coinAdd(coinsOf(c),t,v);p.q-=1;
- setLoot(c,l.filter(x=>!(x.k==='potion'&&x.q<=0)),{coins:arr,gold:arr[0]});toast('Sold a '+potName(t)+' for '+fmtN(v)+' '+LT[t]+' coins');}
+ const r=doRoll('1d100',c.name+' · Sell '+potName(t),null,false,colorMap[c.id]),v=dialed(r?r.total:0),arr=coinAdd(coinsOf(c),t,v);p.q-=1;
+ setLoot(c,l.filter(x=>!(x.k==='potion'&&x.q<=0)),{coins:arr,gold:arr[0]});toast('Sold a '+potName(t)+' for '+fmtN(v)+' '+LT[t]+' coins'+dialNote());}
 function consumeLoot(c){
  const l=lootList(c),t=l.find(x=>x.k==='token');if(!t)return;
  t.q-=1;tokOpen=null;const m=c.name+' consumed an ability token to mimic an ability once';toast(m);logEvent(m);setLoot(c,l.filter(x=>!(x.k==='token'&&x.q<=0)));}
 let coreOpen=null;
-function needCores(c,L,t){
- const cost=costOf(c.level),xp=xpOf(c);let v=coreVal(L,t);if(v>cost)v=cost;
- return Number((cost-xp+v-1n)/v);}
 function useCores(c,L,r,n){
+ if(rules.lvl!=='xp')return toast('This table levels by milestones. Use cores for training, or sell them if the Core Master allows.');
+ const cur0=chars.find(x=>x.id===c.id)||c,l=lootList(cur0),s=findCore(l,L,r);if(!s)return;
+ n=Math.min(n,s.q);let lv=cur0.level,xp=xpOf(cur0),g=0,used=0;
+ for(let i=0;i<n;i++){const st=coreStep(lv,L);if(!st)break;used++;if(st==='level'||xp+1>=10){lv++;g++;xp=0;}else xp++;}
+ if(!used)return toast('A level '+L+' core is too small for a level '+lv+' hero. Spend it on training instead.');
+ s.q-=used;coreOpen=null;
+ const ex={xp:String(xp)};if(g>0)ex.level=lv;
+ setLoot(cur0,l.filter(x=>!(x.k==='core'&&x.q<=0)),ex);
+ const m=cur0.name+' uses '+used+' level '+L+' core'+(used>1?'s':'')+(g>0?' and reaches level '+lv+'!':'')+(used<n?' (the rest are too small now)':'');toast(m);if(g>0)logEvent('⬆ '+m);}
+// cores sell like other loot: a d100 each (it can boom), in coins of the box tier they dropped at, and only if the CM allows
+function sellCores(c,L,r,n){if(!canSell())return;if(!isDM&&!rules.cores)return toast('The Core Master is not buying cores right now');
  const l=lootList(c),s=findCore(l,L,r);if(!s)return;
- n=Math.min(n,s.q);let lv=c.level,xp=xpOf(c),g=0;
- for(let i=0;i<n;i++){const cost=costOf(lv);let v=coreVal(L,s.t);if(v>cost)v=cost;xp+=v;if(xp>=cost){xp-=cost;lv++;g++;}}
- s.q-=n;coreOpen=null;
- const ex={xp:xp.toString()};if(g>0)ex.level=lv;
- setLoot(c,l.filter(x=>!(x.k==='core'&&x.q<=0)),ex);
- const m=c.name+' uses '+n+' level '+L+' core'+(n>1?'s':'')+(g>0?' and reaches level '+lv+'!':'');toast(m);if(g>0)logEvent(m);}
-function sellCores(c,L,r,n){if(!canSell())return;
- const l=lootList(c),s=findCore(l,L,r);if(!s)return;
- n=Math.min(n,s.q);const arr=coinAdd(coinsOf(c),s.t,n*s.v);s.q-=n;coreOpen=null;
+ n=Math.min(n,s.q);const t=crT(s),rr=doRoll(n+'d100',c.name+' · Sell '+n+' core'+(n>1?'s':''),[{sign:1,n,s:100}],false,colorMap[c.id]),v=dialed(rr?rr.total:0);
+ const arr=coinAdd(coinsOf(c),t,v);s.q-=n;coreOpen=null;
  setLoot(c,l.filter(x=>!(x.k==='core'&&x.q<=0)),{coins:arr,gold:arr[0]});
- toast('Sold '+n+' level '+L+' core'+(n>1?'s':'')+' for '+fmtN(n*s.v)+' '+LT[s.t]+' coins');}
+ toast('Sold '+n+' level '+L+' core'+(n>1?'s':'')+' for '+fmtN(v)+' '+LT[t]+' coins'+dialNote());}
 function corePanel(c,it,mode){
- const w=el('div','tp'),need=needCores(c,it.L,it.t),use=mode==='use';
+ const w=el('div','tp'),need=needCores(c,it.L),use=mode==='use';
  w.append(el('b',null,(use?'Use':'Sell')+' '+it.n.replace('soul core','soul cores')));
  const r=el('div','row'),q=document.createElement('input');
  q.type='number';q.min=1;q.max=it.q;q.inputMode='numeric';q.value=String(use?Math.min(it.q,Math.max(1,need)):it.q);
  r.append(el('small',null,'Quantity (you have '+it.q+')'),q);w.append(r);
- w.append(el('div','note','You could use '+need+(need===1?' core':' cores')+' to reach the next level'+(need>it.q?', but this stack only has '+it.q:'')+'.'));
+ if(use)w.append(el('div','note',need?(it.L>c.level?'One higher-level core fills the rest of the bar: exactly one level.':'You need '+need+' more to reach level '+(c.level+1)+(need>it.q?', but this stack only has '+it.q:'')+'.'):'Too small to move the XP bar. Cores below your level train abilities, or sell if the Core Master allows.'));
  if(crT(it)>0)w.append(el('div','note','T'+(crT(it)+1)+' cores can also pay for training an ability up to T'+(crT(it)+1)+'.'));
- if(!use)w.append(el('div','note','Each is worth '+fmtN(it.v)+' '+LT[it.t]+' coins.'));
+ if(!use)w.append(el('div','note','Each sells for 1d100 '+LT[crT(it)]+' coins (it can boom)'+dialNote()+'.'));
  const f=el('div','row');
  f.append(btn(use?'Use':'Sell',()=>{const n=Math.max(0,Math.min(it.q,Math.floor(+q.value)||0));if(!n)return toast('Pick a quantity');if(use)useCores(c,it.L,crT(it),n);else sellCores(c,it.L,crT(it),n);},use?'sm rb':'sm heal'),btn('Close',()=>{coreOpen=null;renderParty();}));
  w.append(f);return w;}
@@ -750,18 +767,18 @@ function lootBox(c){
  l.forEach(it=>{
   const r=el('div','lrow'),t=el('div','lt');
   if(it.k==='reagent')t.append(el('b',null,it.n),el('small',null,it.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' · ')));
-  else if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'worth '+fmtN(it.v)+' '+LT[it.t]+' coins each'));
+  else if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'sells for 1d100 '+LT[crT(it)]+' coins each'));
   else if(it.k==='token')t.append(el('b',null,'✨ Ability tokens × '+it.q),el('small',null,'1 token + a core learns or trains an ability'));
   else if(it.k==='potion')t.append(el('b',null,'❤️ '+it.n+(it.q>1?' × '+it.q:'')),el('small',null,lootVal(it)));
   else t.append(el('b',null,it.n),el('small',null,lootVal(it)));
   r.append(t);
   if(act){const b=el('div','lbtn'),key=c.id+':'+it.id;
    if(it.k==='reagent')b.append(btn('Sell',()=>sellReagents(c),'sm heal'));
-   else if(it.k==='core')b.append(btn('Use',()=>{coreOpen={key,mode:'use'};renderParty();},'sm rb'),btn('Sell',()=>{if(!canSell())return;coreOpen={key,mode:'sell'};renderParty();},'sm heal'));
+   else if(it.k==='core'){if(rules.lvl==='xp')b.append(btn('Use',()=>{coreOpen={key,mode:'use'};renderParty();},'sm rb'));if(isDM||rules.cores)b.append(btn('Sell',()=>{if(!canSell())return;coreOpen={key,mode:'sell'};renderParty();},'sm heal'));}
    else if(it.k==='potion')b.append(btn('Drink',()=>usePotion(c,it.t),'sm heal'),btn('Sell 1',()=>sellPotion(c,it.t),'sm'));
    else if(it.k==='token')b.append(btn(isDM?'Use':'Train',()=>{tokOpen=tokOpen===key?null:key;renderParty();},'sm rb'));
-   else{if(itemType(it)!=='gem')b.append(btn('Equip',()=>equipItem(c,it.id),'sm rb'));b.append(btn('Sell',()=>sellLoot(c,it.id),'sm heal'));}
-   if(isDM)b.append(btn('✕',()=>setLoot(c,l.filter(x=>x.id!==it.id))));r.append(b);}
+   else{const ty=itemType(it);if(ty!=='gem'&&ty!=='gear')b.append(btn('Equip',()=>equipItem(c,it.id),'sm rb'));if(!it.shop)b.append(btn('Sell',()=>sellLoot(c,it.id),'sm heal'));}
+   if(isDM||(it.k==='item'&&it.shop))b.append(btn('✕',()=>setLoot(c,l.filter(x=>x.id!==it.id))));r.append(b);}
   w.append(r);
   if(act&&it.k==='token'&&tokOpen===c.id+':'+it.id)w.append(tokPanel(c));
   if(act&&it.k==='core'&&coreOpen&&coreOpen.key===c.id+':'+it.id)w.append(corePanel(c,it,coreOpen.mode));
@@ -771,9 +788,10 @@ function mineBox(c){
  if(isDM||!partyCol||c.dead||c.id===myHero)return null;
  const w=el('div','mine');w.append('Is this your hero? ',btn('🙋 This is me',()=>{myHero=c.id;try{localStorage.setItem('boomhero',myHero)}catch{}renderParty();toast('You can now equip, sell, and use loot for '+(c.name||'this hero'));},'sm'));
  return w;}
-const CP=i=>1000n**BigInt(i);
+// coin tiers: 100 of a tier make 1 of the next
+const CP=i=>100n**BigInt(i);
 const coinTotal=a=>a.reduce((t,x,i)=>t+BigInt(Math.max(0,Math.floor(+x)||0))*CP(i),0n);
-function coinSplit(t){const a=[];let r=t;for(let i=0;i<5;i++){a.push(Number(r%1000n));r/=1000n;}a.push(Number(r));return a;}
+function coinSplit(t){const a=[];let r=t;for(let i=0;i<5;i++){a.push(Number(r%100n));r/=100n;}a.push(Number(r));return a;}
 const coinNorm=a=>coinSplit(coinTotal(a));
 const coinAdd=(a,t,n)=>coinSplit(coinTotal(a)+BigInt(Math.max(0,Math.floor(+n)||0))*CP(t));
 function coinSub(a,t,n){const need=BigInt(Math.max(0,Math.floor(+n)||0))*CP(t),have=coinTotal(a);return have<need?null:coinSplit(have-need);}
@@ -828,7 +846,7 @@ $('#layM').onclick=()=>setLayout('mobile');$('#layF').onclick=()=>setLayout('ful
 wideMQ.addEventListener('change',()=>renderInit());
 setLayout(layout);
 // CM tab: each group button toggles its cards on or off (any mix, all, or none); each device remembers the set
-const CMG=['table','loot','hand','mon','save'];
+const CMG=['table','loot','kit','hand','mon','save'];
 let cmOn=['loot'];try{const v=JSON.parse(localStorage.getItem('boomcmon')||'null');if(Array.isArray(v))cmOn=v.filter(x=>CMG.includes(x));else{const o=localStorage.getItem('boomcmsec');if(o)cmOn=o==='all'?CMG.slice():CMG.includes(o)?[o]:['loot'];}}catch{}
 function setCmOn(list){cmOn=CMG.filter(g=>list.includes(g));const pg=$('#pgDM');
  pg.dataset.on=cmOn.join(' ');
@@ -1134,9 +1152,10 @@ function renderLootTabs(){const w=$('#ltabs');if(!w)return;w.replaceChildren();
  LTABS.forEach(([k,n])=>{const b=document.createElement('button');b.type='button';b.textContent=n;const on=lootTabs.includes(k);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);
   b.onclick=()=>{lootTabs=on?lootTabs.filter(x=>x!==k):[...lootTabs,k];try{localStorage.setItem('boomloottabs',JSON.stringify(lootTabs))}catch{}renderLootTabs();};w.append(b);});
  const nm=lootTabs.map(k=>LTABS.find(t=>t[0]===k)[1].replace(/^\S+\s/,''));
- $('#ltabnote').textContent=!nm.length?'None on: names come from Core/Fantasy.':nm.length===1?'Names come from '+nm[0]+'.':'Each name mixes '+nm.slice(0,-1).join(', ')+' and '+nm[nm.length-1]+': the clever name and the base item each roll their own table.'+(lootTabs.includes('adult')?' Grit 18+ is for adult tables.':'');}
+ $('#ltabnote').textContent=!nm.length?'None on: names come from Core/Fantasy.':nm.length===1?'Names come from '+nm[0]+'.':'Each name mixes '+nm.slice(0,-1).join(', ')+' and '+nm[nm.length-1]+': the clever name and the base item each roll their own table.'+(lootTabs.includes('adult')?' Grit 18+ is for adult tables where everyone has said yes. Talk first, and keep an X-card on the table (Safety Tools, Chapter 8).':'');
+ if(nm.length===1&&lootTabs.includes('adult'))$('#ltabnote').textContent+=' It\'s for adult tables where everyone has said yes. Talk first, and keep an X-card on the table (Safety Tools, Chapter 8).';}
 function makeLoot(L,l,t0,tabs){
- const cr=rollExpr([{sign:1,n:Math.max(2,L+l),s:6}]);
+ const cr=rollExpr([{sign:1,n:Math.min(20,Math.max(2,L+l)),s:6}]);
  let tier=t0,made=0,pending=1,up=0,booms=0;const seq=[],fin=[];
  while(pending>0){
   pending--;const v=1+Math.floor(Math.random()*100);made++;
@@ -1174,7 +1193,7 @@ function lootBody(r){
   else t=(e.type==='Gem'?'💠 ':'🎒 ')+(e.nm?e.nm.n:LT[o.tier]+' '+e.type.toLowerCase())+(e.plus>0&&e.type!=='Gem'?' (+'+e.plus+' '+e.stat+')':'')+' · '+LT[o.tier]+' '+e.type.toLowerCase()+', sells for 1d100 '+LT[o.tier]+' coins';
   row(t+(e.core?'  💎':''),String(e.v));
  }
- if(o.cores>0)w.append(el('div','evt-t','💎 '+o.cores+' T'+(o.tier+1)+' soul core'+(o.cores>1?'s':'')+' · level '+o.L+' · worth '+fmtN(o.core)+' '+LT[o.ct==null?0:o.ct]+' coins each'));
+ if(o.cores>0)w.append(el('div','evt-t','💎 '+o.cores+' T'+(o.tier+1)+' soul core'+(o.cores>1?'s':'')+' · level '+o.L));
  return w;
 }
 function addLoot(l,arr,res){
@@ -1362,8 +1381,9 @@ function monCard(m){
  for(const[key,lb]of STATS){const s=el('div','st');s.append(el('small',null,lb),el('b',null,String(m[key])),btn('🎲 Roll',()=>statRoll(m,key,lb),'sm rb'));
   const bb=el('div','sb');bb.append(btn('−',()=>{if(m[key]>0)putM(m,{[key]:m[key]-1});}),btn('+',()=>putM(m,{[key]:m[key]+1})));s.append(bb);sg.append(s);}
  box.append(sg);
- const mel='2d6'+(m.str>0?'+'+m.str:''),rng='2d4'+(m.int>0?'+'+m.int:'');
- [['⚔ Melee',mel],['🏹 Ranged',rng]].forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,()=>doRoll(ex,m.name+' · '+t.slice(2)),'atkb rb');g.append(el('small',null,ex));a.append(g);box.append(a);});
+ const mel=(m.mel||'2d6')+(m.str>0?'+'+m.str:''),rng=(m.rng||'2d4')+(m.int>0?'+'+m.int:'');
+ [['⚔ Melee',mel],['🏹 Ranged',rng]].filter(x=>!(x[0]==='🏹 Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,()=>doRoll(ex,m.name+' · '+t.slice(2)),'atkb rb');g.append(el('small',null,ex));a.append(g);box.append(a);});
+ if(m.note)box.append(el('div','note',m.note));
  const ab=mAbs(m);box.append(el('div','sec','Abilities '+ab.length+'/3'));
  ab.forEach((a,i)=>{const bonus=m[BT[a.t]||'str'],ex=a.e+(bonus>0?'+'+bonus:''),w=el('div','at'),g=btn('⚔ '+a.n,()=>doRoll(ex,m.name+' · '+a.n),'atkb rb');g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')));w.append(g,btn('✕',()=>putM(m,{abil:JSON.stringify(ab.filter((_,j)=>j!==i))})));box.append(w);});
  if(ab.length<3){const w=el('div','row add'),nn=document.createElement('input'),ee=document.createElement('input'),tt=document.createElement('select');
@@ -1374,10 +1394,30 @@ function monCard(m){
   btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();cmShow('loot');$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
  let armed=0;const d=btn('Remove',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove';},3000);}else{if(initCol)initCol.doc('m'+m.id).delete().catch(()=>{});monCol.doc(m.id).delete();}});ft.append(d);box.append(ft);
  return box;}
-function renderMon(){if(window.mapRefresh)mapRefresh();
+// Swarms: minions of the same kind act as one. One initiative, one turn, and one attack roll:
+// every living minion's attack dice pooled, the bonus added once. Same kind = same name, ignoring a trailing number.
+const swarmKey=m=>String(m.name||'Monster').replace(/\s*#?\d+$/,'').trim().toLowerCase()+'|'+m.level;
+function swarms(){const g={};for(const m of monsters){if(m.kind!=='minion'||m.solo||monHp(m)<=0)continue;const cur=m.hpCur==null?monHp(m):m.hpCur;if(cur<=0)continue;(g[swarmKey(m)]=g[swarmKey(m)]||[]).push(m);}
+ return Object.values(g).filter(a=>a.length>1);}
+function swarmRoll(list,ranged){const n=list.length,die=ranged?4:6,dice=ranged?(list[0].rng||'2d4'):(list[0].mel||'2d6'),mm=/^(\d+)d(\d+)/.exec(dice)||[0,2,die],per=+mm[1],sz=+mm[2];
+ const bn=Math.max(...list.map(m=>ranged?(m.int||0):(m.str||0))),total=Math.min(100,per*n),ex=total+'d'+sz+(bn>0?'+'+bn:''),nm=String(list[0].name).replace(/\s*#?\d+$/,'').trim();
+ const terms=[{sign:1,n:total,s:sz}];if(bn>0)terms.push({sign:1,mod:bn});
+ doRoll(ex,nm+' swarm ×'+n+' · '+(ranged?'Ranged':'Melee'),terms,true);}
+function swarmInit(list){const m=list[0],nm=String(m.name).replace(/\s*#?\d+$/,'').trim(),sp=Math.max(...list.map(x=>x.spd||0));
+ const r=doRoll('1d20'+(sp>0?'+'+sp:''),nm+' swarm · Initiative');if(r&&initCol){list.forEach(x=>initCol.doc('m'+x.id).delete().catch(()=>{}));initCol.doc('s'+m.id).set({name:nm+' swarm ×'+list.length,v:r.total,ts:Date.now()}).catch(()=>{});}}
+function swarmCard(list){const nm=String(list[0].name).replace(/\s*#?\d+$/,'').trim(),w=el('div','card pc swarm');
+ const h=el('div','pch');h.append(el('b','pn','🐝 '+nm+' swarm'),el('span','lv','×'+list.length+' · Lv '+list[0].level));w.append(h);
+ w.append(el('div','note','Same-kind minions act as one: one initiative, one turn, one pooled attack roll with the bonus added once. Each keeps its own HP, so the dice shrink as they drop. To hit more than one hero, split the dice before rolling.'));
+ const n=list.length,mel=list[0].mel||'2d6',rng=list[0].rng||'2d4',per=d=>+(/^(\d+)/.exec(d)||[0,2])[1],sz=d=>(/d(\d+)/.exec(d)||[0,6])[1];
+ const bm=Math.max(...list.map(m=>m.str||0)),br=Math.max(...list.map(m=>m.int||0));
+ [['⚔ Swarm melee',per(mel)*n+'d'+sz(mel)+(bm>0?'+'+bm:''),false],['🏹 Swarm ranged',per(rng)*n+'d'+sz(rng)+(br>0?'+'+br:''),true]].forEach(([t,ex,rg])=>{const a=el('div','at'),g=btn(t,()=>swarmRoll(list,rg),'atkb rb');g.append(el('small',null,ex));a.append(g);w.append(a);});
+ const r=el('div','row');r.append(btn('🎲 Swarm initiative',()=>swarmInit(list),'sm rb'));w.append(r);
+ return w;}
+function renderMon(){if(window.mapRefresh)mapRefresh();if(window.kitRefresh&&!!monCol!==window.kitHadCol){window.kitHadCol=!!monCol;kitRefresh();}
  const b=$('#mlist');if(!b)return;b.replaceChildren();{const x=$('#mclr');if(x){x.hidden=!monCol||!monsters.length;x.textContent='Remove all monsters ('+monsters.length+')';}}
  if(!monCol)return b.append(el('div','note','Start a table as the Core Master to use monsters.'));
  if(!monsters.length)return b.append(el('div','note','No monsters yet. Generate one above.'));
+ swarms().forEach(l=>b.append(swarmCard(l)));
  monsters.forEach(m=>b.append(monCard(m)));}
 KINDS.forEach(([k,n])=>$('#mkind').add(new Option(n,k)));
 LT.forEach((n,i)=>$('#mrar').add(new Option(n,i)));
@@ -1458,7 +1498,7 @@ function renderStash(){
  hs.onchange=()=>{myHero=hs.value;try{localStorage.setItem('boomhero',myHero)}catch{}renderStash();renderParty();};
  const lbl=el('small',null,isDM?'Act as':'Who are you');b.append(lbl,hs);
  const sl=stashList(),rowOf=(it,btns)=>{const r=el('div','lrow'),t=el('div','lt');
-  if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'worth '+fmtN(it.v)+' '+LT[it.t]+' coins each'));
+  if(it.k==='core')t.append(el('b',null,it.n+(it.q>1?' × '+it.q:'')),el('small',null,'sells for 1d100 '+LT[crT(it)]+' coins each'));
   else if(it.k==='reagent')t.append(el('b',null,it.n),el('small',null,it.tot.map((x,i)=>x?fmtN(x)+' '+LT[i]:'').filter(Boolean).join(' · ')));
   else if(it.k==='token')t.append(el('b',null,'✨ Ability tokens × '+it.q),el('small',null,lootVal(it)));
   else if(it.k==='potion')t.append(el('b',null,'❤️ '+it.n+(it.q>1?' × '+it.q:'')),el('small',null,lootVal(it)));
@@ -1581,17 +1621,45 @@ function renderCur(){const s=$('#cursel');if(!s)return;if(!s.options.length){s.a
  armed=0;clearTimeout(tm);d.classList.remove('arm');d.textContent='🌅 Dawn';dawnRun();};}
 const dawnRun=()=>{if(!partyCol)return toast('Add heroes in the Party tab first');const hit=chars.filter(c=>(c.temp||0)>0);
  hit.forEach(c=>put(c,{temp:0}));const m='🌅 Dawn breaks'+(hit.length?': temp HP cleared for '+hit.map(c=>c.name||'a hero').join(', '):'. No one had temp HP');toast(m);logEvent(m);};
-// Market: the CM opens and closes it for the whole table. Players can only sell while it is open; the CM can always sell.
+// Market: the CM opens and closes it for the whole table. Players can only buy or sell while it is open; the CM can always sell.
 let marketOpen=false;
+// Table rules (CM only, one setting for the whole table): leveling by milestones or the XP bar, the market price dial, and whether cores sell.
+let rules={lvl:'milestone',dial:0,cores:false};try{const v=JSON.parse(localStorage.getItem('boomrules')||'null');if(v)rules={...rules,...v};}catch{}
+const dialPct=()=>Math.max(-90,Math.min(500,Math.round(+rules.dial||0)));
+// the dial: + makes everything cost more and sell for more, - the reverse; applied after any roll, rounded down
+const dialed=v=>Math.max(0,Math.floor(v*(100+dialPct())/100));
+const dialNote=()=>dialPct()?' (price dial '+(dialPct()>0?'+':'')+dialPct()+'%)':'';
+function setRules(p){const prev=rules;rules={...rules,...p};try{localStorage.setItem('boomrules',JSON.stringify(rules))}catch{}
+ if(settingsCol)settingsCol.doc('rules').set({...rules,ts:Date.now()}).catch(()=>toast('Could not save the table rules'));
+ renderRules();renderMarket();renderParty();
+ if(p.lvl&&p.lvl!==prev.lvl)logEvent(p.lvl==='xp'?'⬆ Leveling: the XP bar (cores fill it)':'⬆ Leveling: milestones (the Core Master levels the party)');
+ if(p.dial!=null&&dialPct()!==Math.round(+prev.dial||0))logEvent('🏪 Price dial set to '+(dialPct()>0?'+':'')+dialPct()+'%');
+ if(p.cores!=null&&!!p.cores!==!!prev.cores)logEvent(p.cores?'💎 Cores can be sold at the market':'💎 Cores are no longer for sale');}
+function renderRules(){const b=$('#rulesbox');if(!b)return;
+ const lv=$('#rlvl');if(lv&&document.activeElement!==lv)lv.value=rules.lvl==='xp'?'xp':'milestone';
+ const d=$('#rdial');if(d&&document.activeElement!==d)d.value=String(dialPct());
+ const dn=$('#rdialn');if(dn)dn.textContent=dialPct()===0?'0%: normal prices.':dialPct()>0?'+'+dialPct()+'%: everything costs more and sells for more. A d100 sale of 60 pays '+dialed(60)+'.':dialPct()+'%: everything costs less and sells for less. A d100 sale of 60 pays '+dialed(60)+'.';
+ const c=$('#rcores');if(c)c.checked=!!rules.cores;
+ const m=$('#rmile');if(m)m.hidden=rules.lvl==='xp';
+ const lvn=$('#rlvln');if(lvn)lvn.textContent=rules.lvl==='xp'?'Heroes use soul cores to fill their XP bar: 10 cores of their level, or 1 higher-level core, for one level. Coins never buy levels.':'You level the whole party at story moments. Cores still train abilities, and sell only if you allow it.';}
+function milestone(){const a=living();if(!a.length)return toast('Add heroes in the Party tab first');
+ a.forEach(c=>{if(c.level<100)put(c,{level:c.level+1,xp:'0'});});const m='⬆ Milestone! The party levels up';toast(m);logEvent(m);}
 function renderMarket(){const b=$('#market');if(b){b.textContent=marketOpen?'🏪 Market open':'🏪 Market closed';b.classList.toggle('arm',marketOpen);b.setAttribute('aria-pressed',marketOpen);}
- const n=$('#mktnote');if(n){n.textContent=marketOpen?'🏪 The market is open: you can sell loot.':'🏪 The market is closed: no selling until the Core Master opens it.';n.classList.toggle('open',marketOpen);}}
+ const n=$('#mktnote');if(n){n.replaceChildren(el('span',null,marketOpen?'🏪 The market is open: you can buy and sell'+dialNote()+'.':'🏪 The market is closed: no buying or selling until the Core Master opens it.'));
+  if((marketOpen||isDM)&&window.openShop)n.append(btn('🛒 Shop',()=>openShop(),'sm rb'));n.classList.toggle('open',marketOpen);}
+ if(window.shopRefresh)shopRefresh();}
 function setMarket(v){v=!!v;if(v===marketOpen)return;
  if(settingsCol)settingsCol.doc('market').set({open:v,ts:Date.now()}).catch(()=>toast('Could not change the market'));else marketOpen=v,renderMarket();
  const m=v?'🏪 The market is open':'🏪 The market is closed';toast(m);logEvent(m);}
 $('#market').onclick=()=>setMarket(!marketOpen);
-// every sell checks this first
+$('#rlvl').onchange=e=>setRules({lvl:e.target.value});
+$('#rdial').onchange=e=>setRules({dial:Math.round(+e.target.value||0)});
+$('#rdm').onclick=()=>setRules({dial:dialPct()-5});$('#rdp').onclick=()=>setRules({dial:dialPct()+5});$('#rd0').onclick=()=>setRules({dial:0});
+$('#rcores').onchange=e=>setRules({cores:e.target.checked});
+$('#rmile').onclick=milestone;
+// every sell (and buy) checks this first
 function canSell(){if(marketOpen||isDM)return true;toast('🏪 The market is closed');return false;}
-renderMarket();
+renderMarket();renderRules();
 // ---------- startup (page works alone, lights up with db) ----------
 renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();renderBoxes();
 {let k0='core',c0={};try{k0=localStorage.getItem('boomskin')||'core';c0=JSON.parse(localStorage.getItem('boomcur')||'{}')||{}}catch{}applyTheme({skin:k0,cur:c0.cur||'',curS:(c0.c||[])[0],curP:(c0.c||[])[1]});}
@@ -1610,7 +1678,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  $('#tM').hidden=!isDM;if(isDM){monCol=db.collection('monsters');monCol.onSnapshot(s=>{monsters=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderMon();});}
  initCol=db.collection('init');
  initCol.onSnapshot(s=>{inits=s.docs.filter(d=>d.id!=='_turn').map(d=>({id:d.id,...d.data()})).sort((a,b)=>b.v-a.v||a.ts-b.ts);const t=s.docs.find(d=>d.id==='_turn');turn=t?t.data().id:null;round=t?(t.data().round||1):1;renderInit();});
- settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applyTheme(v);const mk=s.docs.find(x=>x.id==='market');marketOpen=!!(mk&&mk.data().open);renderMarket();});
+ settingsCol=db.collection('settings');settingsCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='theme');const v=d?d.data():{};applyTheme(v);const mk=s.docs.find(x=>x.id==='market');marketOpen=!!(mk&&mk.data().open);const ru=s.docs.find(x=>x.id==='rules');if(ru){const v=ru.data();rules={lvl:v.lvl==='xp'?'xp':'milestone',dial:+v.dial||0,cores:!!v.cores};}renderMarket();renderRules();renderParty();});
  boxCol=db.collection('boxes');boxCol.onSnapshot(s=>{boxes=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(a.ts||0)-(b.ts||0));renderBoxes();checkBoxes();});fillHeroes();
  stashCol=db.collection('stash');stashCol.onSnapshot(s=>{const d=s.docs.find(x=>x.id==='main'),v=d?d.data():{};stash={loot:v.loot||'[]',coins:Array.isArray(v.coins)&&v.coins.length===6?coinNorm(v.coins):[0,0,0,0,0,0],open:v.open!==false};renderStash();});
  colorsCol=db.collection('colors');
@@ -1624,13 +1692,17 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
  db.collection('rolls').orderBy('ts','desc').limit(50).onSnapshot(snap=>{
   if(!first){for(const c of snap.docChanges()){
    if(c.type!=='added')continue;const r=c.doc.data();
-   if(r.uid!==me&&Date.now()-r.ts<15000){if(r.loot){toast((r.who||names[r.uid]||'Someone')+' opened a loot box'+(r.booms?'  💥×'+r.booms:''));if(r.booms>0)burst(Math.min(260,40+r.booms*30));}else if(r.note)toast(r.note);else celebrate(r,r.who||names[r.uid]||'Someone');}}}
+   if(r.uid!==me&&Date.now()-r.ts<15000){if(r.loot){toast((r.who||names[r.uid]||'Someone')+' opened a loot box'+(r.booms?'  💥×'+r.booms:''));if(r.booms>0)burst(Math.min(260,40+r.booms*30));}else if(r.note)toast(r.note);else setTimeout(()=>celebrate(r,r.who||names[r.uid]||'Someone'),animDur(r));}}}
   first=false;
   rolls=snap.docs.map(d=>({id:d.id,...d.data()}));render();ensureNames();
   if(clearing){if(rolls.length)rolls.forEach(r=>db.collection('rolls').doc(r.id).delete().catch(()=>{}));else clearing=false;}
  },()=>{$('#banner').textContent='Could not load shared rolls.';});
 })();
 </script>
-<script src="map.js?v=2"></script>
+<script src="map.js?v=3"></script>
 <script src="session.js?v=1"></script>
+<script src="shops.js?v=1"></script>
+<script src="shop.js?v=1"></script>
+<script src="oneshots.js?v=1"></script>
+<script src="oneshot.js?v=1"></script>
 </body></html>

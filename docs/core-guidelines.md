@@ -1,6 +1,6 @@
 # Boom Core Guidelines
 
-*Updated October 21, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, and roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html).*
+*Updated October 27, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html), go shopping with the [shop tables](https://mpjart.github.io/boomcore/shop-tables.html), and start with the one-shot [The Hollow Crown](https://mpjart.github.io/boomcore/the-hollow-crown.pdf). These guidelines are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see License at the end).*
 
 ## Chapter 1: What Is Boom?
 
@@ -23,11 +23,11 @@ These guidelines are an open framework for building the characters and stories y
 - These guidelines
 - A Core Master (CM) and one or more players
 - The Boom Dice app
-- Imagination
+- Imagination (snacks are optional, but strongly recommended)
 
 ### Theater of the Mind
 
-Boom is built for theater of the mind: the Core Master describes the scene and everyone pictures it. There are no squares or hexes. If your table wants a map, keep movement loose and sketch it like a chalkboard. The Boom Dice app has one: the Map in the Dice tab.
+Boom is built for theater of the mind: the Core Master describes the scene and everyone pictures it. There are no squares or hexes. If your table wants a map, keep movement loose and sketch it like a chalkboard. The Boom Dice app has one: the Map in the Dice tab, with a full-screen mode for a tablet or TV in the middle of the table.
 
 ### The Boom Rule
 
@@ -43,7 +43,7 @@ When a die explodes, throw out its result and roll **two dice of the same size**
 
 **Boom cap:** one roll never uses more than 100 dice. At 100 dice, nothing else explodes and any remaining 1s or maximums count as rolled.
 
-The app shows every roll to the whole party, so when someone's dice go wild, cheer for them.
+The app shows every roll to the whole party, one die at a time, so when someone's dice go wild, cheer for them. Yes, even if it's the Core Master. Especially if it's the Core Master; they need the encouragement.
 
 ## Chapter 2: Your Character
 
@@ -70,41 +70,39 @@ Every hero starts at **level 1** as a commoner, with no stat points and no abili
 
 Each level after the first gives you **one stat point** to spend on any stat.
 
-**Milestone leveling is the preferred way to level up.** The Core Master levels the party at story milestones, like finishing a quest, beating a boss, or reaching a turning point in the story. It keeps the party at the same level and keeps the story moving, with nothing to track.
+The Core Master picks one way to level for the whole table, before play starts (in the app, Leveling in the CM tab's Table rules card):
 
-**The level meter (XP).** If your table wants to earn levels instead, every hero has a level meter. It is Boom's version of experience points: fill it and you gain a level. There are two ways to fill it:
+**Milestones (recommended).** The Core Master levels the whole party at story moments, like finishing a quest, beating a boss, or a big twist. Nothing to track, and everyone stays the same level. In the app, one tap levels the whole party.
 
-**Consume soul cores**, which monsters and dungeons drop at the monster's level. **Ten cores of your own level** fill the meter. One core never fills more than one full level, so a high-level core can't skip you past a level.
+**The XP bar.** Every hero has an XP bar, and **only soul cores fill it**. Coins never buy levels, no matter how many you have stuffed in your boots.
 
-**Empower your core with coins.** Spend spirit coins to fill the meter. Coins can buy as many levels as you can afford, which makes them the quickest way to win back levels lost in a hard fight. Cores you don't need can be sold for coins while the market is open, and spent the same way.
+- **A core of your level** fills 1/10 of the bar. Ten of them make a level.
+- **A core above your level** fills the rest of the bar, so you gain exactly one level. Any extra power fizzles; you can't skip levels.
+- **A core below your level** is too small to move the bar. Spend it on training (Chapter 4), or sell it if the Core Master allows.
+- **Quest rewards:** cores don't only come from monsters. The Core Master can hand them out for finishing a quest, too.
 
-**Selling cores:** cores can only be sold while the market is open (see The Market in Chapter 6). Turning a pile of high-level cores into coins would power-level a hero, and that is not how the level meter is built to work, so the Core Master decides when selling happens.
+**Example:** Mira is level 4 with her bar at 6/10. She eats a level 4 core and goes to 7/10. Then she eats the level 9 boss's core: the bar fills, she reaches level 5, and her new bar starts empty.
 
-Cores and levels have a coin value, in coins of your level's tier (see Coin Tiers in Chapter 6):
+| Reaching level | Cores needed | Ability slots |
+| --- | --- | --- |
+| 2 | 10 level-1 | 3 |
+| 3 | 10 level-2 | 3 |
+| 4 | 10 level-3 | 3 |
+| 5 | 10 level-4 | 4 |
+| 6 | 10 level-5 | 4 |
+| 7 | 10 level-6 | 4 |
+| 8 | 10 level-7 | 4 |
+| 9 | 10 level-8 | 4 |
+| 10 | 10 level-9 | 5 |
+| 11 | 10 level-10 | 5 |
 
-- A level-L core is worth **L × 100** coins.
-- Leaving level L costs **L × 1,000** coins.
-
-| Reaching level | Cost | Cores needed | Ability slots |
-| --- | --- | --- | --- |
-| 2 | 1,000 Common | 10 level-1 cores | 3 |
-| 3 | 2,000 Common | 10 level-2 cores | 3 |
-| 4 | 3,000 Common | 10 level-3 cores | 3 |
-| 5 | 4,000 Common | 10 level-4 cores | 4 |
-| 6 | 5,000 Common | 10 level-5 cores | 4 |
-| 7 | 6,000 Common | 10 level-6 cores | 4 |
-| 8 | 7,000 Common | 10 level-7 cores | 4 |
-| 9 | 8,000 Common | 10 level-8 cores | 4 |
-| 10 | 9,000 Common | 10 level-9 cores | 5 |
-| 11 | 10,000 Common | 10 level-10 cores | 5 |
-
-The full chart to level 100, and how to build it in Excel, is in the Index.
+Or one core of any higher level. Ability slots for every level up to 100 are in the Index.
 
 **Ability slots:** 3, plus 1 every 5 levels up to level 20, then plus 1 every 10 levels. Leveling never grants abilities; see Chapter 4.
 
 ### Falling in Battle
 
-**Level 2 and up:** if you drop below 1 HP, you **go down a level** and come back at full HP for that level. Extra damage does not carry over. The coins spent on that level are gone, and you rebuild it from the bottom. You also lose a stat point (an unspent one first, otherwise a random stat). If you now have more abilities than slots, you lose one at random. Each fall costs another level, all the way down to level 1. Being knocked out, or any other effect, is a condition the Core Master applies.
+**Level 2 and up:** if you drop below 1 HP, you **go down a level** and come back at full HP for that level. Extra damage does not carry over. Your XP bar empties, so you start the lower level from the bottom. You also lose a stat point (an unspent one first, otherwise a random stat). If you now have more abilities than slots, you lose one at random. Each fall costs another level, all the way down to level 1. Being knocked out, or any other effect, is a condition the Core Master applies.
 
 **Level 1:** a level 1 character, whether they started there or fell there, **dies** on dropping below 1 HP. We recommend the party gets **24 hours** to resurrect them, or the player makes a new level 1 character. The Core Master can use any window they like. Resurrection can be an ability (like Return Spark in Chapter 4), a trainer's service, a quest, or an item like a resurrection scroll.
 
@@ -132,7 +130,7 @@ Combat runs in rounds. Everyone takes a turn in initiative order, and when the l
 
 ### Initiative
 
-When combat starts, everyone rolls **d20 + Speed**. Turns go from highest to lowest.
+When combat starts, everyone rolls **d20 + Speed**. Turns go from highest to lowest. Ties are settled by conceding (see Ties in Chapter 5).
 
 **Holding your turn:** you can wait and act later in the round, even last, but you must act that round. Next round you return to your original spot.
 
@@ -176,8 +174,16 @@ The dice depend only on how many hands (or limbs) you use and whether the attack
 - **Sword and shield:** the sword rolls 1d6 and the shield takes an armor slot.
 - **Unarmed:** a kick or headbutt is flavor and counts as one hand.
 - **Range:** no range penalty. The Core Master sets the maximum distance. Smaller dice explode more, so ranged attacks boom more often.
+- **Ammo:** keep a stack of more than one of any ammo (arrows, bullets, sling stones, power cells) in your dimensional storage, and it never runs out: take one out, and the stack refills. Bows, guns, and every other ranged weapon load themselves straight from your storage. Don't ask us to explain it; it's magic. It keeps combat fast, and that's the whole point. The refills are yours alone: hand one to a friend, drop it, or try anything but firing it from your own weapon, and it vanishes.
 - **Magic** needs a free hand and a spoken word, unless the ability says otherwise. A one-handed spell needs one free hand and a two-handed spell needs both, so with a sword and shield you can't cast. This applies to spell abilities too. A spell that does anything beyond damage is an ability (Chapter 4).
 - **Plus weapons:** a +N weapon rolls N extra copies of its dice (see Chapter 7).
+
+### One Roll, Many Targets
+
+Boom rolls as few times as it can.
+
+- **Multi-target abilities roll once.** A Fireball that hits three targets rolls 3d6 one time, and every target takes that total, minus its own armor.
+- **Minions swarm.** Minions of the same kind act together as one **swarm**: one initiative, one turn, and one attack roll. Pool every living minion's attack dice and add the bonus once. Four goblin minions with 2d6 + 1 melee roll **8d6 + 1** at one hero, and that hero's armor comes off once. To hit more than one hero, the Core Master splits the dice before rolling. Each minion keeps its own HP, so the swarm's dice shrink as minions drop. Five goblins, one roll, zero patience. (The app builds the swarm for you: same-kind minions get one Swarm card with pooled rolls.)
 
 ### Bonus Damage and Armor
 
@@ -242,7 +248,7 @@ Outside combat, the Core Master sets how long an ability lasts.
    - **Condition:** applies a condition for the duration (Chapter 3).
    - **Move:** pushes, pulls, lifts, or teleports a target.
    - **Boost or drain:** raises or lowers a stat for the duration.
-   - **Utility:** something the Core Master allows, like unlocking a door or talking to animals.
+   - **Utility:** something the Core Master allows, like unlocking a door or talking to animals (fair warning: most animals only want to talk about snacks).
 
 ### Sample Abilities
 
@@ -263,9 +269,9 @@ Each sample is shown at full power for its tier.
 
 Leveling never grants abilities. They come only from **ability tokens** and **trainers**, so the Core Master controls how they enter the game.
 
-- **Slots:** you can know as many abilities as you have ability slots (Chapter 2). The limit keeps combat fast. To make room, unlearn an ability; it is gone for good.
+- **Slots:** you can know as many abilities as you have ability slots (Chapter 2). The limit keeps combat fast; nobody wants to wait while you flip through a 30-page spellbook. To make room, unlearn an ability; it is gone for good.
 - **Start at T1:** every ability is learned at T1 and trained up one tier at a time.
-- **Tokens and cores:** ability tokens have no tier and stack. A token does one of three things: learns a **new ability at T1** (with a T1 soul core or better), trains an ability **up one tier** (with a soul core of the new tier or better: T2 needs a T2 core, T6 a T6 core), or **mimics** a monster's signature ability once (below). A core's tier is the tier of the loot box it came from, so a level 5 hero only reaches strong abilities by beating rare monsters or getting lucky upgrades. A core spent on training does not fill the level meter, so every core is a choice between leveling and training.
+- **Tokens and cores:** ability tokens have no tier and stack. A token does one of three things: learns a **new ability at T1** (with a T1 soul core or better), trains an ability **up one tier** (with a soul core of the new tier or better: T2 needs a T2 core, T6 a T6 core), or **mimics** a monster's signature ability once (below). A core's tier is the tier of the loot box it came from, so a level 5 hero only reaches strong abilities by beating rare monsters or getting lucky upgrades. A core spent on training does not fill the XP bar, so every core is a choice between leveling and training.
 - **Trainers** do the learning and training. A coin tip or good roleplay can raise your standing and unlock better abilities. The Core Master can place a trainer anywhere or build a quest to find one.
 - **Mimic:** spend a token to use the signature ability of the monster it came from, once. The Core Master rolls it, and the token is gone.
 
@@ -306,14 +312,19 @@ The Index has the full chart with minimum, most likely, and maximum rolls. You c
 ### Keeping Checks Fast
 
 - **Set the number before the roll.**
-- **Roll only when failure is interesting.** If nothing is at stake, say yes.
+- **Roll only when failure is interesting.** If nothing is at stake, say yes. Nobody needs a Strength check to open an unlocked door.
 - **Failure changes the story,** like costing time or raising an alarm. It never stops the game.
 - **Group rolls:** when the party tries something together, one roll decides it. The group or the Core Master picks who rolls, or the Core Master simply decides the group passes or fails.
-- **No rerolls (except ties), no passive checks,** and **no helping** unless the Core Master gives someone an ability that helps.
+- **No rerolls, ever, no passive checks,** and **no helping** unless the Core Master gives someone an ability that helps.
 
 ### Ties
 
-When two rollers tie, such as two heroes in initiative or a hero against a monster, either side can **concede** and take the loss. Otherwise, both **reroll** and use the new roll. Keep rerolling until the tie breaks or someone concedes. This is the only time Boom allows a reroll.
+Boom never rerolls, not even for a tie. When two rolls tie, someone **concedes**.
+
+- **Core Master vs. player:** the Core Master concedes and the **player wins**. That covers anything the Core Master rolls for, like a monster, an NPC, or a trap.
+- **Player vs. player:** the first player to concede is **the bigger person**, and the other player wins the tie. The bigger person **doubles the total of their next roll** (not the roll that tied). Someone has to be the bigger person.
+
+**Example:** Ana and Bo tie at 14 on initiative. Bo concedes, so Ana goes first. On Bo's turn his 2d6 attack lands a 7, and being the bigger person makes it 14.
 
 ## Chapter 6: Spirit Coins and Loot
 
@@ -329,24 +340,24 @@ Money in the main setting is **spirit coins**. In another story it can be gold, 
 
 ### Coin Tiers
 
-To keep numbers under 1 million, coins come in six tiers named like loot. Each tier covers a band of levels, and **one coin is worth 1,000 of the tier below**. Wages and food are always Common coins.
+To keep numbers small, coins come in six tiers named like loot. Each tier covers a band of levels, and **one coin is worth 100 of the tier below**. Wages and food are always Common coins.
 
 | Tier | Levels | One coin is worth |
 | --- | --- | --- |
 | Common | 1-10 | 1 spirit coin |
-| Uncommon | 11-20 | 1,000 spirit coins |
-| Rare | 21-40 | 1 million spirit coins |
-| Epic | 41-60 | 1 billion spirit coins |
-| Legendary | 61-80 | 1 trillion spirit coins |
-| Divine | 81-100 | 1 quadrillion spirit coins |
+| Uncommon | 11-20 | 100 spirit coins |
+| Rare | 21-40 | 10,000 spirit coins |
+| Epic | 41-60 | 1 million spirit coins |
+| Legendary | 61-80 | 100 million spirit coins |
+| Divine | 81-100 | 10 billion spirit coins |
 
-Trade up every 1,000 coins of a tier for 1 coin of the next. To pay with smaller coins, break a bigger one and keep the change. The app does both for you.
+Trade up every 100 coins of a tier for 1 coin of the next. To pay with smaller coins, break a bigger one and keep the change. The app does both for you. If you ever have to say "a hundred million" out loud, you're doing it wrong: trade up.
 
 ### The Loot Box
 
 After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Core Master makes the box (in the app, from the CM tab), and the player opens it; the app does the rolling.
 
-**Coins:** roll **(monster level + your level)d6**, at least 2d6, in coins of the monster's tier.
+**Coins:** roll **(monster level + your level)d6**, at least 2d6 and at most **20d6**, in coins of the monster's tier.
 
 **Box tier:** the monster's rarity sets the box, from Common (T1) to Divine (T6). The Core Master can upgrade any box. The box tier sets item quality (Chapter 7), the tier of any soul cores, and the coins reagents are worth. A lucky box is lucky. The coin roll always uses the monster's coin tier.
 
@@ -361,28 +372,32 @@ After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Co
 | 71-99 | An **item:** d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat |
 | 100 | **Upgrade:** no loot; the box goes up one tier (max T6) and the die becomes 2d100 |
 
-**Naming loot:** roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as Space, Street Grit, and Grit 18+, or Horror and Fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. Grit 18+ is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Pirate, Steampunk, Horror, Street Grit, Grit 18+, and Space are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
+**Naming loot:** roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as Space, Street Grit, and Grit 18+, or Horror and Fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. Grit 18+ is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. Use it only when everyone at the table is in (see Safety Tools in Chapter 8). In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Pirate, Steampunk, Horror, Street Grit, Grit 18+, and Space are on the [Loot Name Tables](https://mpjart.github.io/boomcore/loot-names.html) page, and the app rolls them for you.
 
-**Any even roll from 2 to 98** also drops a **soul core** of the monster's level, at the box's final tier. The core's level sets its coin value; its tier sets which abilities it can train. The pool stops growing at 100 dice.
+**Any even roll from 2 to 98** also drops a **soul core** of the monster's level, at the box's final tier. The core's level sets how much of your XP bar it fills; its tier sets which abilities it can train and what it sells for. The pool stops growing at 100 dice.
 
 **Example:** Bob opens a T1 box from a level 3 monster and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 38 and 79. At T2, the 64 is a token plus a T2 core, the 38 is a reagent worth 38 Uncommon coins (the box's tier) plus a T2 core, and the 79 is an item with +1 to a random stat.
 
 ### Using Loot
 
-- **Sell** (only while the market is open, below): reagents for their number, cores for L × 100 coins of their level's tier, and items, gems, and unused potions for a d100 roll (which can boom) of coins of the box tier they dropped at. A lucky box pays off.
+- **Sell** (only while the market is open, below): reagents for their number. Everything else (items, gems, potions, and cores, if the Core Master allows selling them) sells for a d100 roll, which can boom, in coins of the box tier it dropped at. A lucky box pays off.
 - **Healing potions:** drinking one is an action and heals **one d6 per tier** (a T3 potion heals 3d6), and the dice explode on a 1 as normal. The normal healing rules apply: you must be missing HP, and anything over your max becomes temp HP. Potions stack by tier.
-- **Consume:** cores fill your level meter (Chapter 2). A token plus a core of the right tier learns or trains an ability (Chapter 4).
+- **Consume:** cores fill your XP bar (Chapter 2). A token plus a core of the right tier learns or trains an ability (Chapter 4).
 - **Bosses, quests, and dungeons:** see Party Loot in Chapter 8.
 
 ### The Market
 
-Heroes can only sell loot **while the market is open**. The Core Master opens and closes it whenever the story allows, like a trip to town between adventures. In the app, the **Market** button in the CM tab opens and closes it, and the roll feed notes each time. If a player tries to sell while it's closed, the app tells them the market is closed. The Core Master can always sell for anyone. This keeps heroes from cashing in a pile of loot mid-dungeon and power-leveling in the open.
+The market is where heroes turn loot into coins and coins into rope. The Core Master opens and closes it whenever the story allows, like a trip to town between adventures. In the app, the **Market** button in the CM tab opens and closes it, and the roll feed notes each time. While it's closed, nobody buys or sells, and a player who tries is told the market is closed. The Core Master can always sell for anyone. This keeps heroes from cashing in a pile of loot in the middle of a dungeon.
 
-- **Magic items:** we suggest the market never sells them. Heroes hunt for them or earn them as quest rewards.
+- **What coins buy:** food, healing potions, adventuring gear (rope, lanterns, winter clothes, airship fuel), plain weapons and armor, and anything else the Core Master allows. Shops sell at fixed prices in coins of each item's tier and never buy their own stock back. The full lists, shop by shop, are on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, and the app's **🛒 Shop** button sells from them while the market is open.
+- **Shop weapons and armor are plain.** A shop weapon has no plus and rolls the usual dice for its hands and reach (Chapter 3), so a sword and a lead pipe hit the same; the look is flavor. Shop armor is always worth 1, physical or magical. Anything stronger comes from loot.
+- **Cores:** for sale only if the Core Master allows. We recommend keeping them rare: one or two on a dusty shelf, or sold at auction to the highest bidder, so nobody buys a stack of levels.
+- **Magic items are never for sale.** Heroes hunt for them or earn them as quest rewards.
+- **The price dial:** the Core Master sets one percent for the whole table, starting at 0%. **Plus** means everything costs more and sells for more (a boomtown, a war, a dragon sleeping on the trade road). **Minus** means everything costs less and sells for less (a glut, a festival, a merchant who owes the party a favor). Apply it after any sale roll and round down: a d100 sale of 60 at +20% pays 72.
 - **Keep shopping short.** A trip to market shouldn't eat a 4-hour session, unless the players and the Core Master really want it to.
-- **Carrying your stuff:** each player keeps notes of their own items. Whether a bag of holding, a pocket dimension, a cargo drone, or anything else gives unlimited storage is the Core Master's call. Either way, tracking is the player's job.
+- **Carrying your stuff:** every hero has **dimensional storage**, like a bag of holding, a pocket dimension, or a cargo drone, whatever fits the story, with room for everything they own. The Core Master can limit it however they like, such as only what you could carry, or no live animals. Putting one dimensional storage inside another, or inside a hole in space, does absolutely nothing. No explosion, no rift, no apocalypse. We know. Very boring for a game called Boom. Tracking your items is still the player's job. Your storage also keeps your ranged weapons loaded (see Ammo in Chapter 3).
 - **No crafting or businesses.** Boom isn't built for crafting, running a shop, or anything like it. Other systems out there will happily let you play World of Business-craft. We highly suggest leaving crafting and business to the NPCs, while the players go out and be heroes, villains, or something in between. Just not NPCs.
-- **No haggling rules.** The app sells automatically, for speed. If your table really wants to play Used Car Salesman Simulator, we won't stop you: agree on a price, delete the item, and punch in the coins yourself.
+- **No haggling rules.** The dial is the haggling. If the party sweet-talks the merchant, the Core Master nudges the dial. If your table really wants to play Used Car Salesman Simulator, we won't stop you: agree on a price, delete the item, and punch in the coins yourself.
 
 ## Chapter 7: Gear
 
@@ -398,7 +413,7 @@ You have **2 weapon slots, 2 armor slots, and 2 magic item slots**. What an item
 
 **Damage** means an attack: the swing or shot of a weapon, or the use of an ability. A bonus number added to that roll, like +2 from Strength, is not damage.
 
-While equipped, an item's +N adds to the stat it names. Unequip it and the bonus goes with it. If the right slots are full, unequip something first.
+While equipped, an item's +N adds to the stat it names. Unequip it and the bonus goes with it. If the right slots are full, unequip something first. No, you can't wear a third ring on your toe. (Well, you can, but it won't do anything.)
 
 ### Gear by Tier
 
@@ -433,17 +448,31 @@ A gem is treasure to sell (see Using Loot in Chapter 6), with no stat bonus at a
 
 Boom is a framework, not a rulebook. **Speed and fun are the goal of this system.** If a rule slows your table or doesn't fit your story, change it, drop it, or write your own.
 
+### Safety Tools
+
+Boom is about explosive fun, and it's only fun if everyone at the table is having it. Use these at every table, and always with Horror or Grit 18+.
+
+- **Talk first.** Before the first game, agree on the tone (silly, gritty, or scary) and what the table is up for.
+- **Lines and veils.** A **line** never shows up in the game. A **veil** can happen, but off screen: the scene fades out and the story moves on. Anyone can add either at any time, with no reason needed. Keep the list where the Core Master can see it.
+- **The X-card.** Put a card with an X on it in the middle of the table (online, type X in chat). Anyone can tap it to skip or change what's happening, with no explanation and no questions. The Core Master edits the scene and play keeps going. It isn't a debate; it's a fast-forward button.
+- **Check in.** After a heavy scene, a quick "everyone good?" goes a long way.
+- **Grit 18+** is for adult tables where everyone has said yes. It's meant to be crude and punny, never cruel.
+
 ### Running the Game with the App
 
 The Boom Dice app rolls and explodes the dice, does the math, and shows everyone's rolls. Only the Core Master sees the CM tab and the editing controls.
 
-- **Table:** the Core Master starts a table and shares its 6-letter code; players join with the code. Everyone sees every roll live.
-- **Dice:** quick rolls, initiative, your color, the shared roll feed, and the Map (a chalkboard the Core Master controls). Tap the Boom logo to open these guidelines.
+- **Table:** the Core Master starts a table and shares its 6-letter code; players join with the code. Everyone sees every roll live, revealed one die at a time so a boom chain plays out. **Play solo** runs a private table on one device.
+- **Dice:** quick rolls, initiative, your color, the shared roll feed, and the Map (a chalkboard the Core Master controls, with a **Full screen** button and big text for a tablet or TV on the table). Tap the Boom logo to open these guidelines.
 - **Party:** every character sheet. Collapsed sheets show the six stats at a glance. The Core Master edits everything; a player can equip, sell, and train on their own hero.
-- **Loot:** loot boxes waiting to be opened, and the party stash. A hero's box is opened by its player; a group box has a timer and everyone grabs it.
-- **CM:** the table theme (the look) and the currency name, the Core Master screen, the Dawn and Market buttons, the loot box maker (with toggles for which loot name tables to mix), and the monster generator.
+- **Loot:** loot boxes waiting to be opened, the party stash, and the **🛒 Shop** while the market is open. A hero's box is opened by its player; a group box has a timer and everyone grabs it.
+- **CM:** the table theme (the look), the currency name, the **Table rules** (Milestones or the XP bar, the price dial, and whether cores sell), the Core Master screen, the Dawn and Market buttons, the loot box maker (with toggles for which loot name tables to mix), **One-shots**, handouts, save and load, and the monster generator, with swarm cards for minions.
 
 **A round at the table:** the Core Master rolls initiative for everyone and the app sorts the order. On their turn, a player taps an attack or ability on their sheet. The Core Master applies the damage and taps Next.
+
+### One-Shots
+
+A one-shot kit is a ready-to-run adventure. Pick it under **One-shots** in the CM tab, choose 3 or 4 heroes, and every fight and loot box in it is one tap away: **Add fight** drops its monsters into the Monsters list with the adventure's stats, and **Make box** sends its loot boxes to the Loot tab. The first kit is **The Hollow Crown**, a three-session starter for levels 1 to 3 that teaches the whole game ([read it here](https://mpjart.github.io/boomcore/the-hollow-crown.pdf)). More are on the way.
 
 ### Party Loot
 
@@ -455,9 +484,9 @@ The stash is shared treasure. The Core Master can add any gear, tokens, cores, o
 
 ### Rewards and Pacing
 
-About half of all boxes hold a core, so a level takes roughly **20 boxes**. At four boxes a session, that's about five sessions per level.
+With the XP bar, about half of all boxes hold a core, so a level takes roughly **20 boxes**. At four boxes a session, that's about five sessions per level.
 
-- **Faster:** give a box per dungeon room or objective, use tougher monsters (a higher-level core fills more of the meter, up to one level), use party loot, or level at milestones.
+- **Faster:** give a box per dungeon room or objective, use tougher monsters (one core above a hero's level is a full level), hand out cores as quest rewards, use party loot, or switch to milestones.
 - **Slower:** give fewer boxes and let milestones carry the story.
 
 **Lucky heroes:** a lucky box is meant to be lucky. If a hero gets too strong for the story, let a villain knock them down a few levels.
@@ -481,9 +510,9 @@ Round everything down, except a minion's HP, which rounds up.
 - **Stats:** deal points one at a time with a d6: 1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck.
 - **Attacks:** melee 2d6 + Strength and ranged 2d4 + Intellect. This is by design, to keep monsters quick to build. Flavor them to fit: a wolf bites with its melee attack and howls with its ranged one. Armor is one total, with no physical or magical split. The Core Master can always build outside this template.
 - **Abilities:** built as in Chapter 4. The first is its **signature ability**, which a token from it can mimic once.
-- **Initiative and actions:** the same as a hero.
+- **Initiative and actions:** the same as a hero. Minions of the same kind swarm: one initiative and one pooled attack roll (Chapter 3).
 - **Rarity** (Common to Divine) is a loose guide to toughness and sets its loot box tier. A boss is usually Epic.
-- **Tier** is its coin tier, set by its level (Chapter 6). It sets the coins it drops and what its cores are worth. Its rarity, not its coin tier, sets the tier of its cores. Monsters carry no coins of their own.
+- **Tier** is its coin tier, set by its level (Chapter 6). It sets the coins it drops. Its rarity, not its coin tier, sets the tier of its cores. Monsters carry no coins of their own; nobody wants to know where they'd keep them.
 
 **Example, level 5 standard:** 4 points (1 Con, 2 Str, 1 Spd). HP 30, armor 1, melee 2d6 + 2, ranged 2d4, one ability.
 
@@ -504,7 +533,7 @@ Add up the monsters' threat points and compare with the party size.
 - **Levels 1 and 2:** heroes have very little HP. Halve the threat points.
 - **Armor:** it subtracts from every hit, so keep it at the levels above or fights drag.
 - **Mid-fight:** if it goes badly, add reinforcements or lower a boss's HP. The app rolls the dice, so never fudge a roll.
-- **Bosses** feel best with a couple of minions and a hazard in the room.
+- **Bosses** feel best with a couple of minions and a hazard in the room. A boss alone is just a very tall target.
 
 ### Traps and Hazards
 
@@ -512,7 +541,7 @@ Build a hazard like an ability: its tier sets its dice, targets, rounds, and eff
 
 1. **Give a clue first.** Let the heroes notice something before it fires.
 2. **Call for a check** to avoid it: Speed to dodge, Strength to push through, or Constitution to resist. Set the target with the table in Chapter 5.
-3. **On a failure,** roll its dice against each target (armor applies) and add its effects. On a success, nothing happens.
+3. **On a failure,** roll its dice once; every hero who failed takes that total, minus their own armor, and its effects. On a success, nothing happens.
 
 ## Chapter 10: Adapting Boom to Any Story
 
@@ -539,6 +568,8 @@ The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look i
 
 The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leather and brass look, handouts typed onto leather in a riveted brass frame with gears, and its own loot name tables. Conditions might be Scalded, Overwound, or Short-Circuited.
 
+Every theme has its own six shops on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, from a bodega that somehow sells rope to a hangar that sells space stations (some assembly required).
+
 ### What Changes Easily
 
 - **Abilities** can be spells, gadgets, implants, martial arts, or curses.
@@ -550,7 +581,7 @@ The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leathe
 
 ### Tips
 
-- Rename a few things first, not everything at once.
+- Rename a few things first, not everything at once. By week two, nobody remembers that Constitution is now called Gumption.
 - Keep the Core Master screen at the table as your cheat sheet.
 - When the rules are silent, the Core Master decides and the story keeps moving.
 
@@ -558,126 +589,31 @@ The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leathe
 
 Reference tables too long for the chapters.
 
-### Full Level Chart
+### Ability Slots by Level
 
-Cost and core value are counted in coins of the tier shown. You always need 10 cores of the level you are leaving. Core value is what a core sells for while the market is open.
+Every level needs 10 cores of the level you are leaving, or one core of any higher level (Chapter 2). Ability slots grow like this:
 
-| Reaching level | Cost | Cores needed | Core value | Ability slots |
-| --- | --- | --- | --- | --- |
-| 2 | 1,000 Common | 10 level-1 | 100 Common | 3 |
-| 3 | 2,000 Common | 10 level-2 | 200 Common | 3 |
-| 4 | 3,000 Common | 10 level-3 | 300 Common | 3 |
-| 5 | 4,000 Common | 10 level-4 | 400 Common | 4 |
-| 6 | 5,000 Common | 10 level-5 | 500 Common | 4 |
-| 7 | 6,000 Common | 10 level-6 | 600 Common | 4 |
-| 8 | 7,000 Common | 10 level-7 | 700 Common | 4 |
-| 9 | 8,000 Common | 10 level-8 | 800 Common | 4 |
-| 10 | 9,000 Common | 10 level-9 | 900 Common | 5 |
-| 11 | 10,000 Common | 10 level-10 | 1,000 Common | 5 |
-| 12 | 11,000 Uncommon | 10 level-11 | 1,100 Uncommon | 5 |
-| 13 | 12,000 Uncommon | 10 level-12 | 1,200 Uncommon | 5 |
-| 14 | 13,000 Uncommon | 10 level-13 | 1,300 Uncommon | 5 |
-| 15 | 14,000 Uncommon | 10 level-14 | 1,400 Uncommon | 6 |
-| 16 | 15,000 Uncommon | 10 level-15 | 1,500 Uncommon | 6 |
-| 17 | 16,000 Uncommon | 10 level-16 | 1,600 Uncommon | 6 |
-| 18 | 17,000 Uncommon | 10 level-17 | 1,700 Uncommon | 6 |
-| 19 | 18,000 Uncommon | 10 level-18 | 1,800 Uncommon | 6 |
-| 20 | 19,000 Uncommon | 10 level-19 | 1,900 Uncommon | 7 |
-| 21 | 20,000 Uncommon | 10 level-20 | 2,000 Uncommon | 7 |
-| 22 | 21,000 Rare | 10 level-21 | 2,100 Rare | 7 |
-| 23 | 22,000 Rare | 10 level-22 | 2,200 Rare | 7 |
-| 24 | 23,000 Rare | 10 level-23 | 2,300 Rare | 7 |
-| 25 | 24,000 Rare | 10 level-24 | 2,400 Rare | 7 |
-| 26 | 25,000 Rare | 10 level-25 | 2,500 Rare | 7 |
-| 27 | 26,000 Rare | 10 level-26 | 2,600 Rare | 7 |
-| 28 | 27,000 Rare | 10 level-27 | 2,700 Rare | 7 |
-| 29 | 28,000 Rare | 10 level-28 | 2,800 Rare | 7 |
-| 30 | 29,000 Rare | 10 level-29 | 2,900 Rare | 8 |
-| 31 | 30,000 Rare | 10 level-30 | 3,000 Rare | 8 |
-| 32 | 31,000 Rare | 10 level-31 | 3,100 Rare | 8 |
-| 33 | 32,000 Rare | 10 level-32 | 3,200 Rare | 8 |
-| 34 | 33,000 Rare | 10 level-33 | 3,300 Rare | 8 |
-| 35 | 34,000 Rare | 10 level-34 | 3,400 Rare | 8 |
-| 36 | 35,000 Rare | 10 level-35 | 3,500 Rare | 8 |
-| 37 | 36,000 Rare | 10 level-36 | 3,600 Rare | 8 |
-| 38 | 37,000 Rare | 10 level-37 | 3,700 Rare | 8 |
-| 39 | 38,000 Rare | 10 level-38 | 3,800 Rare | 8 |
-| 40 | 39,000 Rare | 10 level-39 | 3,900 Rare | 9 |
-| 41 | 40,000 Rare | 10 level-40 | 4,000 Rare | 9 |
-| 42 | 41,000 Epic | 10 level-41 | 4,100 Epic | 9 |
-| 43 | 42,000 Epic | 10 level-42 | 4,200 Epic | 9 |
-| 44 | 43,000 Epic | 10 level-43 | 4,300 Epic | 9 |
-| 45 | 44,000 Epic | 10 level-44 | 4,400 Epic | 9 |
-| 46 | 45,000 Epic | 10 level-45 | 4,500 Epic | 9 |
-| 47 | 46,000 Epic | 10 level-46 | 4,600 Epic | 9 |
-| 48 | 47,000 Epic | 10 level-47 | 4,700 Epic | 9 |
-| 49 | 48,000 Epic | 10 level-48 | 4,800 Epic | 9 |
-| 50 | 49,000 Epic | 10 level-49 | 4,900 Epic | 10 |
-| 51 | 50,000 Epic | 10 level-50 | 5,000 Epic | 10 |
-| 52 | 51,000 Epic | 10 level-51 | 5,100 Epic | 10 |
-| 53 | 52,000 Epic | 10 level-52 | 5,200 Epic | 10 |
-| 54 | 53,000 Epic | 10 level-53 | 5,300 Epic | 10 |
-| 55 | 54,000 Epic | 10 level-54 | 5,400 Epic | 10 |
-| 56 | 55,000 Epic | 10 level-55 | 5,500 Epic | 10 |
-| 57 | 56,000 Epic | 10 level-56 | 5,600 Epic | 10 |
-| 58 | 57,000 Epic | 10 level-57 | 5,700 Epic | 10 |
-| 59 | 58,000 Epic | 10 level-58 | 5,800 Epic | 10 |
-| 60 | 59,000 Epic | 10 level-59 | 5,900 Epic | 11 |
-| 61 | 60,000 Epic | 10 level-60 | 6,000 Epic | 11 |
-| 62 | 61,000 Legendary | 10 level-61 | 6,100 Legendary | 11 |
-| 63 | 62,000 Legendary | 10 level-62 | 6,200 Legendary | 11 |
-| 64 | 63,000 Legendary | 10 level-63 | 6,300 Legendary | 11 |
-| 65 | 64,000 Legendary | 10 level-64 | 6,400 Legendary | 11 |
-| 66 | 65,000 Legendary | 10 level-65 | 6,500 Legendary | 11 |
-| 67 | 66,000 Legendary | 10 level-66 | 6,600 Legendary | 11 |
-| 68 | 67,000 Legendary | 10 level-67 | 6,700 Legendary | 11 |
-| 69 | 68,000 Legendary | 10 level-68 | 6,800 Legendary | 11 |
-| 70 | 69,000 Legendary | 10 level-69 | 6,900 Legendary | 12 |
-| 71 | 70,000 Legendary | 10 level-70 | 7,000 Legendary | 12 |
-| 72 | 71,000 Legendary | 10 level-71 | 7,100 Legendary | 12 |
-| 73 | 72,000 Legendary | 10 level-72 | 7,200 Legendary | 12 |
-| 74 | 73,000 Legendary | 10 level-73 | 7,300 Legendary | 12 |
-| 75 | 74,000 Legendary | 10 level-74 | 7,400 Legendary | 12 |
-| 76 | 75,000 Legendary | 10 level-75 | 7,500 Legendary | 12 |
-| 77 | 76,000 Legendary | 10 level-76 | 7,600 Legendary | 12 |
-| 78 | 77,000 Legendary | 10 level-77 | 7,700 Legendary | 12 |
-| 79 | 78,000 Legendary | 10 level-78 | 7,800 Legendary | 12 |
-| 80 | 79,000 Legendary | 10 level-79 | 7,900 Legendary | 13 |
-| 81 | 80,000 Legendary | 10 level-80 | 8,000 Legendary | 13 |
-| 82 | 81,000 Divine | 10 level-81 | 8,100 Divine | 13 |
-| 83 | 82,000 Divine | 10 level-82 | 8,200 Divine | 13 |
-| 84 | 83,000 Divine | 10 level-83 | 8,300 Divine | 13 |
-| 85 | 84,000 Divine | 10 level-84 | 8,400 Divine | 13 |
-| 86 | 85,000 Divine | 10 level-85 | 8,500 Divine | 13 |
-| 87 | 86,000 Divine | 10 level-86 | 8,600 Divine | 13 |
-| 88 | 87,000 Divine | 10 level-87 | 8,700 Divine | 13 |
-| 89 | 88,000 Divine | 10 level-88 | 8,800 Divine | 13 |
-| 90 | 89,000 Divine | 10 level-89 | 8,900 Divine | 14 |
-| 91 | 90,000 Divine | 10 level-90 | 9,000 Divine | 14 |
-| 92 | 91,000 Divine | 10 level-91 | 9,100 Divine | 14 |
-| 93 | 92,000 Divine | 10 level-92 | 9,200 Divine | 14 |
-| 94 | 93,000 Divine | 10 level-93 | 9,300 Divine | 14 |
-| 95 | 94,000 Divine | 10 level-94 | 9,400 Divine | 14 |
-| 96 | 95,000 Divine | 10 level-95 | 9,500 Divine | 14 |
-| 97 | 96,000 Divine | 10 level-96 | 9,600 Divine | 14 |
-| 98 | 97,000 Divine | 10 level-97 | 9,700 Divine | 14 |
-| 99 | 98,000 Divine | 10 level-98 | 9,800 Divine | 14 |
-| 100 | 99,000 Divine | 10 level-99 | 9,900 Divine | 15 |
+| Level | Ability slots |
+| --- | --- |
+| 1-4 | 3 |
+| 5-9 | 4 |
+| 10-14 | 5 |
+| 15-19 | 6 |
+| 20-29 | 7 |
+| 30-39 | 8 |
+| 40-49 | 9 |
+| 50-59 | 10 |
+| 60-69 | 11 |
+| 70-79 | 12 |
+| 80-89 | 13 |
+| 90-99 | 14 |
+| 100 | 15 |
 
-### Build the Level Chart in Excel
-
-1. In row 1, type the headings: Reaching level, Tier, Cost in coins, Value of each core, Ability slots.
-2. In A2 type 2, in A3 type 3, and fill down to the level you want.
-3. Enter these in row 2 and fill them down:
-   - B2: =IF(A2-1<=10,"Common",IF(A2-1<=20,"Uncommon",IF(A2-1<=40,"Rare",IF(A2-1<=60,"Epic",IF(A2-1<=80,"Legendary","Divine")))))
-   - C2: =(A2-1)\*1000
-   - D2: =(A2-1)\*100
-   - E2: =3+INT(MIN(A2,20)/5)+INT(MAX(0,A2-20)/10)
-4. Format columns C and D as numbers with commas.
+**In Excel:** put the level in A2 and use =3+INT(MIN(A2,20)/5)+INT(MAX(0,A2-20)/10) for its slots.
 
 ### Full Dice Chart
 
-The **mode** is the single most likely total; it sits below the average because explosions now and then launch a roll far higher. The max assumes the 100-dice cap and an incredibly lucky chain, so it almost never happens.
+The **mode** is the single most likely total; it sits below the average because explosions now and then launch a roll far higher. The max assumes the 100-dice cap and an incredibly lucky chain, so it almost never happens. If it does happen at your table, take a picture.
 
 | Stat points | Dice | Min | Average | Mode | Max | Easy | Medium | Hard |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -692,3 +628,11 @@ The **mode** is the single most likely total; it sits below the average because 
 | 8 | 8d6 | 16 | 40 | 36 | 324 | 33 | 39 | 46 |
 | 9 | 9d6 | 18 | 45 | 41 | 324 | 37 | 44 | 52 |
 | 10 | 10d6 | 20 | 50 | 46 | 330 | 42 | 49 | 57 |
+
+## License
+
+**Boom Core Guidelines** © 2026 mpjart and the Boom Core contributors, licensed under the **Creative Commons Attribution 4.0 International License** ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+
+You're free to share, copy, adapt, remix, and even sell what you make with these rules, as long as you give credit. A line like this does it: *"Uses the Boom Core Guidelines by mpjart, licensed CC BY 4.0, mpjart.github.io/boomcore."* Say if you changed anything, and don't suggest we endorse your version (unless we do, in which case, boom).
+
+The same license covers the Shop Tables, the Loot Name Tables, the Core Master screen, and The Hollow Crown. The Boom Dice app's code is open source under the MIT License (see LICENSE in the repo).

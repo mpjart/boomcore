@@ -37,6 +37,12 @@ The Dice tab opens with a **🗺️ Map** section, folded shut until you tap it;
 - **Roll card:** the d20 bomb in the board's corner opens a card in the table's theme with HP, the six stats and armor as tap-to-roll chips, Init, attacks, abilities, and a box for any roll like 2d6+3. Rolls go to the shared feed. Players get their own hero's card; the CM can pick any hero or monster, or tap a token to switch to it. HP buttons stay CM-only, as on the Party tab.
 - Chalk lines, tokens, and the map image are shared with the whole table (`map`, `mapstrokes`, and `maptokens` under the table).
 
+- **⛶ Full screen:** for a tablet or TV in the middle of the table. The board fills the screen and keeps it awake; **🔠 Big text** (on by default) enlarges token names, discs, and HP bars, **✏️ Tools** shows the drawing tools for whoever can draw, and **✕ Exit** (or Esc) leaves.
+
+## Dice reveal
+
+Fresh rolls in the feed reveal their dice one at a time, in the order they were rolled, so a boom chain plays out die by die: exploding dice flare and pop, and the total lands last (a roll never takes more than about 2.6 seconds). It's skipped for one-die rolls and on devices set to reduce motion.
+
 ## Character sheets
 
 Every open sheet has a **🖨 Print sheet** button that prints a clean, ink-friendly one-page sheet: HP, armor, move, actions, initiative, damage bonuses, the six stats, attacks and abilities with their dice, gear, coins, loot, conditions, and notes.
@@ -51,7 +57,19 @@ The CM tab's **💾 Save** card exports the table to a `.json` file and imports 
 
 ## Core Master tab
 
-A button bar at the top of the CM tab toggles each group of cards on or off: **🎨 Theme**, **🎁 Loot** (loot box maker), **📜 Handouts**, and **👹 Monsters**, and **💾 Save**. Turn on any mix, all of them, or none. Two action buttons sit on the same bar: **📋 CM screen** opens the screen in a new tab, **🌅 Dawn** starts a new day (tap twice), and **🏪 Market** opens or closes the market for the whole table. Players can only sell loot while the market is open (the CM can always sell); a player who tries while it's closed gets a "The market is closed" message, and the roll feed notes each time it opens or closes. A new table starts with the market closed. Each device remembers which card groups are on. Initiative always sits with the roll feed, not in the CM tab.
+A button bar at the top of the CM tab toggles each group of cards on or off: **🎨 Theme** (with Table rules), **🎁 Loot** (loot box maker), **📖 One-shots**, **📜 Handouts**, **👹 Monsters**, and **💾 Save**. Turn on any mix, all of them, or none. Two action buttons sit on the same bar: **📋 CM screen** opens the screen in a new tab, **🌅 Dawn** starts a new day (tap twice), and **🏪 Market** opens or closes the market for the whole table. Players can only buy and sell while the market is open (the CM can always sell); a player who tries while it's closed gets a "The market is closed" message, and the roll feed notes each time it opens or closes. A new table starts with the market closed. Each device remembers which card groups are on. Initiative always sits with the roll feed, not in the CM tab.
+
+**Table rules** (under the theme card): **Leveling** is Milestones (with a ⬆ Level up party button) or the **XP bar**, which only cores fill (10 of a hero's level, or 1 higher-level core, for one level; coins never buy levels). The **price dial** sets one ± percent for every sale and purchase at the table, rounded down. **Cores can be sold** is off by default.
+
+**Swarms:** two or more living minions with the same name (ignoring a number at the end) and level get a 🐝 swarm card at the top of the Monsters list: one initiative and one pooled melee or ranged roll with the bonus added once.
+
+## Shop
+
+The **🛒 Shop** button in the Loot tab (while the market is open, and always for the CM) opens the shops from the Boom Shop Tables: six shops for each of Core and Fantasy, Pirate, Steampunk, Horror, Street Grit, and Space, starting on the table theme's set. Prices are fixed in coins of each item's tier, with the price dial applied. Potions stack by tier, weapons arrive plain (no plus) and ready to equip, armor is worth 1, and everything else is gear with no stats. Shop goods can't be sold back. The stock is `shops.js`, built from `docs/shop-tables.md` by `tools/build_docs.py`.
+
+## One-shots
+
+The CM tab's **📖 One-shots** card lists ready-to-run adventures. Pick one and a party size (3 or 4 heroes), and each scene shows its fights (**Add fight** puts the monsters in the Monsters list with the adventure's exact stats) and its loot boxes (**Make box** sends them to the Loot tab). Each one-shot is a Markdown file in `docs/oneshots/` with a few special blocks (monster stat blocks, fights, loot boxes, handouts); `python3 tools/build_oneshots.py` (needs `pip install reportlab`) turns every file into its PDF and into `oneshots.js` for the app. To add a one-shot, add a file and run the build. The block format is documented at the top of the script.
 
 ## Handouts
 
@@ -69,11 +87,8 @@ Every item a loot box drops gets a name from the d100 tables in `names.js` (Fant
 
 ## To do next
 
-1. **Explosion animation:** show each boom one die at a time, so the table can cheer the chain (the most-requested part of the experience).
-2. **In-person map, full screen:** a full-screen map view for a tablet or TV in the middle of the table.
-3. **One-shot kits:** a quickstart, premade heroes, and a short adventure for one-session games.
-4. **Table uploader:** let the Core Master upload their own loot name tables and monster lists.
-5. **More humor in the rules:** add jokes and fun examples to the Core Guidelines.
+1. **Table uploader:** let the Core Master upload their own loot name tables and monster lists.
+2. **More one-shot kits:** a one-page quickstart, 4 premade heroes, and a 2-hour adventure, plus prep tables and a starter bestiary per theme.
 
 Holding a turn is handled at the table: the player says they're holding and acts later in the round, and the app's initiative order doesn't need to move.
 
@@ -82,10 +97,12 @@ Holding a turn is handled at the table: the player says they're holding and acts
 - **Rules:** https://mpjart.github.io/boomcore/rules.html (source: `docs/core-guidelines.md`). Tap the Boom logo at the top of the app to open them.
 - **Core Master screen:** https://mpjart.github.io/boomcore/cm-screen.html — three panels that print on letter paper, landscape. Add `?theme=space` (or fantasy, fantasydark, pirate, steampunk, horror, grit, gritdark) to match a theme; the app's CM tab opens it in the table's theme.
 - **Loot name tables:** https://mpjart.github.io/boomcore/loot-names.html (source: `docs/loot-names.md`)
-- **Sample adventure:** https://mpjart.github.io/boomcore/the-hollow-crown.pdf — The Hollow Crown, a three-session starter adventure for levels 1 to 3.
+- **Shop tables:** https://mpjart.github.io/boomcore/shop-tables.html (source: `docs/shop-tables.md`)
+- **Sample adventure:** https://mpjart.github.io/boomcore/the-hollow-crown.pdf — The Hollow Crown, a three-session starter adventure for levels 1 to 3 (source: `docs/oneshots/the-hollow-crown.md`).
 
-The rules and loot pages are built from the Markdown in `docs/`. After editing it, run `python3 tools/build_docs.py` (needs `pip install markdown`) and commit the updated HTML.
+The rules, loot, and shop pages are built from the Markdown in `docs/`. After editing it, run `python3 tools/build_docs.py` (needs `pip install markdown`) and commit the updated HTML and `shops.js`. After editing a one-shot, run `python3 tools/build_oneshots.py` and commit the PDF and `oneshots.js`.
 
 ## License
 
-Code is released under the MIT License. See `LICENSE`.
+- **Code** (the app and the build tools) is released under the MIT License. See `LICENSE`.
+- **Rules and game content** (the Core Guidelines, Shop Tables, Loot Name Tables, Core Master screen, and one-shots) are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See `LICENSE-RULES.md`. Use them, remix them, sell what you make; just give credit.

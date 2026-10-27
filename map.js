@@ -59,11 +59,27 @@ const CSS=`
 .mchips{display:flex;flex-wrap:wrap;gap:5px}
 .mchips button{background:var(--chip);color:var(--ink);font-weight:600;font-size:14px;padding:4px 10px 4px 4px;border-radius:99px;display:inline-flex;align-items:center;gap:6px}
 .mchips i{width:22px;height:22px;border-radius:50%;background:var(--tc);display:grid;place-items:center;font-style:normal;color:#1f1a14;font-size:12px;font-weight:800}
-.mrc{position:fixed;z-index:25;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(360px,calc(100vw - 32px));max-height:min(78vh,720px);overflow:auto;overscroll-behavior:contain;margin:0;box-shadow:0 14px 40px #0008;display:flex;flex-direction:column;gap:8px}
+.mrc{position:fixed;z-index:35;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(360px,calc(100vw - 32px));max-height:min(78vh,720px);overflow:auto;overscroll-behavior:contain;margin:0;box-shadow:0 14px 40px #0008;display:flex;flex-direction:column;gap:8px}
 .mrc .pch{margin:0}.mrc .pch select{flex:1;min-width:0;font-weight:700;font-size:16px;padding:6px 8px}
 .mrc .at{margin:0}.mrc .stc{margin:0}.mrc .hpb{margin:0}
 .mrc .mlast{font-size:13px;color:var(--mute)}.mrc .mlast b{color:var(--cc,var(--ink))}
 @media(max-width:520px){.mrc{left:calc(8px + env(safe-area-inset-left,0px));right:calc(8px + env(safe-area-inset-right,0px));width:auto;bottom:calc(8px + env(safe-area-inset-bottom,0px))}}
+
+/* full screen: the board fills a tablet or TV for in-person play */
+.mview{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.mview .sp{flex:1}
+.mview button.on{background:var(--acc);color:var(--accfg)}
+.mfull{position:fixed;inset:0;z-index:30;background:#0d0d0d;display:flex;flex-direction:column;gap:8px;padding:calc(8px + env(safe-area-inset-top,0px)) calc(8px + env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) calc(8px + env(safe-area-inset-left,0px))}
+.mfull .mview{color:#eee}.mfull .mview .ttl{font-family:'Cabin Sketch',cursive;font-size:20px;color:#f1efe6}
+.mfull:not(.tools) .mtools{display:none}.mfull .mtools{background:var(--card);border-radius:var(--rb);padding:6px 8px;max-height:40vh;overflow:auto}
+.mfull .mframe{flex:1;min-height:0;container-type:size;display:flex;align-items:center;justify-content:center;padding:0;background:none;box-shadow:none}
+.mfull .mboard{width:min(100cqw,calc(100cqh * var(--ratio,1.6)));flex:none}
+.mfull.big .mtok .tag{font-size:clamp(16px,2.4cqw,40px);padding:0 .4em}
+.mfull.big .mtok .disc{width:clamp(42px,6.2cqw,96px);font-size:clamp(17px,2.7cqw,38px);border-width:3px}
+.mfull.big .mtok.boss .disc{width:clamp(56px,8.6cqw,128px);font-size:clamp(20px,3.4cqw,46px)}
+.mfull.big .mtok .mhp{width:clamp(40px,6.4cqw,100px);height:9px}
+.mfull.big .mlock{font-size:clamp(16px,2.2cqw,28px)}
+.mfull.big .mrcbtn{width:clamp(54px,8cqw,84px);height:clamp(54px,8cqw,84px)}
+body.mapfull{overflow:hidden}
 `;
 const st=document.createElement('style');st.textContent=CSS;document.head.append(st);
 {const l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Permanent+Marker&display=swap';document.head.append(l);}
@@ -366,6 +382,26 @@ function renderTools(){
   T.append(el('div','minfo',bg.img?'Map '+bg.w+' × '+bg.h+' px · the board takes the picture\'s shape':'No image · any picture size works, the board reshapes to match it'));
  }else T.append(g('',btn('Undo my last line',undo)));}
 
+/* ---------- full screen (in-person play on a tablet or TV) ---------- */
+let full=false,big=true,showTools=false,wake=null;
+function renderView(){if(!B.view)return;const V=B.view;V.replaceChildren();
+ if(!full){V.append(btn('⛶ Full screen',()=>setFull(true),'ghost sm'));V.append(el('small','minfo','For a tablet or TV on the table: big tokens and text, nothing else on screen.'));return;}
+ V.append(el('span','ttl','🗺️ Map'),el('span','sp'));
+ const bb=btn('🔠 Big text',()=>{big=!big;try{localStorage.setItem('boommapbig',big?'1':'0')}catch{}B.wrap.classList.toggle('big',big);renderView();},'ghost sm'+(big?' on':''));bb.setAttribute('aria-pressed',big);V.append(bb);
+ if(canDraw()){const tb=btn('✏️ Tools',()=>{showTools=!showTools;B.wrap.classList.toggle('tools',showTools);renderView();},'ghost sm'+(showTools?' on':''));tb.setAttribute('aria-pressed',showTools);V.append(tb);}
+ V.append(btn('✕ Exit',()=>setFull(false),'sm rb'));}
+async function setFull(v,fromBrowser){if(v===full)return;full=v;
+ try{big=localStorage.getItem('boommapbig')!=='0'}catch{}
+ B.wrap.classList.toggle('mfull',v);B.wrap.classList.toggle('big',v&&big);B.wrap.classList.toggle('tools',v&&showTools);document.body.classList.toggle('mapfull',v);
+ renderView();
+ const fe=document.fullscreenElement||document.webkitFullscreenElement;
+ if(v){const rq=B.wrap.requestFullscreen||B.wrap.webkitRequestFullscreen;if(rq&&!fe){try{await rq.call(B.wrap);}catch{}}
+  try{if(navigator.wakeLock)wake=await navigator.wakeLock.request('screen');}catch{}}
+ else{if(!fromBrowser&&fe){const ex=document.exitFullscreen||document.webkitExitFullscreen;try{await ex.call(document);}catch{}}
+  try{if(wake)await wake.release();}catch{}wake=null;}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&full&&!cardOpen&&!(document.fullscreenElement||document.webkitFullscreenElement))setFull(false);});
+document.addEventListener('visibilitychange',async()=>{if(full&&document.visibilityState==='visible'&&navigator.wakeLock){try{wake=await navigator.wakeLock.request('screen');}catch{}}});
+
 /* ---------- roll card (uses the table theme) ---------- */
 function cardTargets(){
  const heroes=chars.filter(c=>isDM||c.id===myHero).map(c=>({kind:'hero',ref:c.id,name:c.name||'Unnamed'}));
@@ -411,7 +447,7 @@ function renderCard(){
   C.append(chipRow(STATS.map(([key,lab])=>[key,lab,+m[key]||0]),m.armor||0,m.name,'',cur<=0));
   C.append(el('div','note','Move '+(5+m.level+m.spd)+' · '+(1+Math.floor(m.spd/4))+' action'+(m.spd>=4?'s':'')+' per turn'));
   C.append(el('div','sec','Attacks · Abilities'));
-  [['⚔ Melee','2d6'+(m.str>0?'+'+m.str:'')],['🏹 Ranged','2d4'+(m.int>0?'+'+m.int:'')]].forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t.slice(2))),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
+  [['⚔ Melee',(m.mel||'2d6')+(m.str>0?'+'+m.str:'')],['🏹 Ranged',(m.rng||'2d4')+(m.int>0?'+'+m.int:'')]].filter(x=>!(x[0]==='🏹 Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t.slice(2))),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
   mAbs(m).forEach(a=>{const bo=m[BT[a.t]||'str'],ex=a.e+(bo>0?'+'+bo:''),w=el('div','at'),g=btn('⚔ '+a.n,wrap(()=>doRoll(ex,m.name+' · '+a.n)),'atkb rb');g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')));w.append(g);C.append(w);});
   C.append(any(m.name,''));
  }
@@ -434,7 +470,9 @@ function build(){
  B.board.append(B.bg,B.ink,B.toks,B.rcb);fr.append(B.board);
  B.tray=el('div','mtray');
  B.card=el('section','card pc mrc');B.card.id='mrcard';B.card.hidden=true;B.card.setAttribute('aria-label','Roll card');document.body.append(B.card);
- body.append(B.tools,fr,B.tray);
+ B.view=el('div','mview');B.wrap=el('div','mwrap');B.wrap.append(B.view,B.tools,fr);
+ body.append(B.wrap,B.tray);renderView();
+ document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&full)setFull(false,true);});document.addEventListener('webkitfullscreenchange',()=>{if(!document.webkitFullscreenElement&&full)setFull(false,true);});
  ctx=B.ink.getContext('2d');bctx=B.bg.getContext('2d',{willReadFrequently:true});
  B.board.addEventListener('pointerdown',down);B.board.addEventListener('pointermove',move);B.board.addEventListener('pointerup',up);B.board.addEventListener('pointercancel',up);
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cardOpen)openCard(false);});
@@ -444,7 +482,7 @@ function build(){
 }
 function summary(){const s=document.getElementById('mapsum');if(!s)return;const n=Object.keys(tokens).length;s.textContent=(bg.img?'Map image':surf()==='glow'?'Glow screen':surf()==='marker'?'Whiteboard':'Chalkboard')+(n?' · '+n+' token'+(n>1?'s':''):'');}
 
-window.mapRefresh=function(){summary();if(!built)return;renderTools();renderTokens();renderTray();if(cardOpen)renderCard();};
+window.mapRefresh=function(){summary();if(!built)return;renderTools();renderView();renderTokens();renderTray();if(cardOpen)renderCard();};
 window.mapInit=function(){
  if(mapCol)return;
  if(!db)return;

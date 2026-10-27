@@ -1,13 +1,15 @@
-"""Build the rules and loot-name web pages from the Markdown in docs/.
+"""Build the rules, loot-name, and shop web pages from the Markdown in docs/.
 
 Run from the repo root:  python3 tools/build_docs.py   (needs: pip install markdown)
 docs/core-guidelines.md -> rules.html
 docs/loot-names.md      -> loot-names.html
+docs/shop-tables.md     -> shop-tables.html, and shops.js (the app's buying pop-up reads it)
 """
-import html, re, markdown
+import html, json, re, markdown
 
 PAGES = [("docs/core-guidelines.md", "rules.html", "Boom Core Guidelines"),
-         ("docs/loot-names.md", "loot-names.html", "Boom Loot Name Tables")]
+         ("docs/loot-names.md", "loot-names.html", "Boom Loot Name Tables"),
+         ("docs/shop-tables.md", "shop-tables.html", "Boom Shop Tables")]
 
 TEMPLATE = """<!doctype html>
 <html lang="en">
@@ -45,7 +47,7 @@ code{{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}}
 </style>
 </head>
 <body>
-<nav class="bar" aria-label="Boom pages"><span class="logo" style="color:#fff;display:inline-flex;align-items:center;gap:6px"><img src="logo-mark.svg" alt="" width="26" height="26" style="display:block">BOOM</span><a href="./">Boom Dice app</a><a href="rules.html"{cur_rules}>Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html"{cur_loot}>Loot Names</a><a href="the-hollow-crown.pdf" target="_blank" rel="noopener">Sample Adventure</a></nav>
+<nav class="bar" aria-label="Boom pages"><span class="logo" style="color:#fff;display:inline-flex;align-items:center;gap:6px"><img src="logo-mark.svg" alt="" width="26" height="26" style="display:block">BOOM</span><a href="./">Boom Dice app</a><a href="rules.html"{cur_rules}>Rules</a><a href="cm-screen.html">CM Screen</a><a href="loot-names.html"{cur_loot}>Loot Names</a><a href="shop-tables.html"{cur_shop}>Shops</a><a href="the-hollow-crown.pdf" target="_blank" rel="noopener">Sample Adventure</a></nav>
 <main class="page" id="top">
 <svg class="doclogo" xmlns="http://www.w3.org/2000/svg" viewBox="-20 -1264.3 3368.6 1579.7" role="img" aria-label="Boom: Beyond Our Own Maximum"><path class="bm-ws" d="M722 -519Q722 -392 607 -359V-355Q738 -325 738 -183Q738 -129 711.5 -87.5Q685 -46 639.0 -23.0Q593 0 538 0H74V-688H532Q584 -688 627.5 -666.5Q671 -645 696.5 -606.0Q722 -567 722 -519ZM295 -420H447Q469 -420 483.5 -435.5Q498 -451 498 -474V-484Q498 -506 483.0 -521.5Q468 -537 447 -537H295ZM295 -160H463Q485 -160 499.5 -175.5Q514 -191 514 -214V-224Q514 -247 499.5 -262.5Q485 -278 463 -278H295Z M3021.761070280274 0V-248Q3021.761070280274 -294 3025.261070280274 -342.5Q3028.761070280274 -391 3032.761070280274 -424.0Q3036.761070280274 -457 3037.761070280274 -466H3033.761070280274L2906.761070280274 0H2733.761070280274L2605.761070280274 -465H2601.761070280274Q2602.761070280274 -456 2607.261070280274 -423.5Q2611.761070280274 -391 2615.761070280274 -342.5Q2619.761070280274 -294 2619.761070280274 -248V0H2416.761070280274V-688H2728.761070280274L2832.761070280274 -291H2836.761070280274L2939.761070280274 -688H3240.761070280274V0Z" transform="translate(37.8 37.8)"/>
 <path class="bm-w" d="M722 -519Q722 -392 607 -359V-355Q738 -325 738 -183Q738 -129 711.5 -87.5Q685 -46 639.0 -23.0Q593 0 538 0H74V-688H532Q584 -688 627.5 -666.5Q671 -645 696.5 -606.0Q722 -567 722 -519ZM295 -420H447Q469 -420 483.5 -435.5Q498 -451 498 -474V-484Q498 -506 483.0 -521.5Q468 -537 447 -537H295ZM295 -160H463Q485 -160 499.5 -175.5Q514 -191 514 -214V-224Q514 -247 499.5 -262.5Q485 -278 463 -278H295Z M3021.761070280274 0V-248Q3021.761070280274 -294 3025.261070280274 -342.5Q3028.761070280274 -391 3032.761070280274 -424.0Q3036.761070280274 -457 3037.761070280274 -466H3033.761070280274L2906.761070280274 0H2733.761070280274L2605.761070280274 -465H2601.761070280274Q2602.761070280274 -456 2607.261070280274 -423.5Q2611.761070280274 -391 2615.761070280274 -342.5Q2619.761070280274 -294 2619.761070280274 -248V0H2416.761070280274V-688H2728.761070280274L2832.761070280274 -291H2836.761070280274L2939.761070280274 -688H3240.761070280274V0Z"/>
@@ -98,6 +100,9 @@ def build(src, out, title):
     body = body.replace("<table>", '<div class="tw"><table>').replace("</table>", "</table></div>")
     # table of contents from the level-2 headings
     items = re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', body)
+    h1s = re.findall(r'<h1 id="([^"]+)">(.*?)</h1>', body)
+    if len(h1s) > 2:  # pages split into parts (like the shop themes) list the parts instead
+        items = h1s[1:]
     toc = ""
     if items:
         lis = "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in items)
@@ -106,9 +111,35 @@ def build(src, out, title):
         body = body[:first] + toc + body[first:]
     page = TEMPLATE.format(title=html.escape(title), toc="", body=body,
                            cur_rules=' aria-current="page"' if out == "rules.html" else "",
-                           cur_loot=' aria-current="page"' if out == "loot-names.html" else "")
+                           cur_loot=' aria-current="page"' if out == "loot-names.html" else "",
+                           cur_shop=' aria-current="page"' if out == "shop-tables.html" else "")
     open(out, "w", encoding="utf-8").write(page)
     print(out, len(page))
 
+THEME_KEYS = {"Core and Fantasy": "core", "Pirate": "pirate", "Steampunk": "steampunk", "Horror": "horror",
+              "Street Grit": "grit", "Space": "space"}
+
+def build_shops(src="docs/shop-tables.md", out="shops.js"):
+    """Turn the shop tables into data for the app: {theme: [{s: shop, i: [[name, tier, price, use], ...]}]}.
+    tier is 0-5, or -1 for "T1 to T6" (a healing potion of any tier, priced "10 of its tier")."""
+    data, theme, shop = {}, None, None
+    for line in open(src, encoding="utf-8"):
+        line = line.rstrip("\n")
+        if line.startswith("# ") and line[2:] in THEME_KEYS:
+            theme = THEME_KEYS[line[2:]]; data[theme] = []; shop = None
+        elif line.startswith("## ") and theme:
+            shop = {"s": line[3:].strip(), "i": []}; data[theme].append(shop)
+        elif shop and line.startswith("| ") and not line.startswith("| Item") and not line.startswith("| ---"):
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            name, use = cells[0], (cells[1] if len(cells) == 4 else "")
+            tier, price = cells[-2], cells[-1]
+            t = -1 if "to" in tier else int(tier[1:]) - 1
+            p = int(re.match(r"\d+", price).group())
+            shop["i"].append([name, t, p, use])
+    js = "// Built by tools/build_docs.py from docs/shop-tables.md. Do not edit by hand.\nwindow.BOOM_SHOPS=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
+    open(out, "w", encoding="utf-8").write(js)
+    print(out, len(js), {k: sum(len(x["i"]) for x in v) for k, v in data.items()})
+
 for p in PAGES:
     build(*p)
+build_shops()
