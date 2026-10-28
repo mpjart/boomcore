@@ -1208,7 +1208,7 @@ function nameItem(type,tier,tabs,v){const L=tabSets(tabs===undefined?lootTabs:ta
  return{n:c+' '+pick(pick(L).j)};}
 function renderLootTabs(){const w=$('#ltabs');if(!w)return;w.replaceChildren();
  LTABS.forEach(([k,n])=>{const b=document.createElement('button');b.type='button';b.textContent=n;const on=lootTabs.includes(k);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);
-  b.onclick=()=>{lootTabs=on?lootTabs.filter(x=>x!==k):[...lootTabs,k];try{localStorage.setItem('boomloottabs',JSON.stringify(lootTabs))}catch{}renderLootTabs();};w.append(b);});
+  b.onclick=()=>{lootTabs=on?lootTabs.filter(x=>x!==k):[...lootTabs,k];try{localStorage.setItem('boomloottabs',JSON.stringify(lootTabs))}catch{}renderLootTabs();if(typeof beastList==='function')beastList();};w.append(b);});
  const nm=lootTabs.map(k=>LTABS.find(t=>t[0]===k)[1].replace(/^\S+\s/,''));
  $('#ltabnote').textContent=!nm.length?'None on: names come from Core/Fantasy.':nm.length===1?'Names come from '+nm[0]+'.':'Each name mixes '+nm.slice(0,-1).join(', ')+' and '+nm[nm.length-1]+': the clever name and the base item each roll their own table.'+(lootTabs.includes('adult')?' Grit 18+ is for adult tables where everyone has said yes. Talk first, and keep an X-card on the table (Safety Tools, Chapter 8).':'');
  if(nm.length===1&&lootTabs.includes('adult'))$('#ltabnote').textContent+=' It\'s for adult tables where everyone has said yes. Talk first, and keep an X-card on the table (Safety Tools, Chapter 8).';}
@@ -1423,7 +1423,9 @@ const beastTheme=()=>BEAST_T[typeof skin==='string'?skin:'core']||'fantasy';
 const beastKey=n=>String(n||'').replace(/\s*#?\d+$/,'').trim().toLowerCase();
 function findBeast(name){const k=beastKey(name);if(!k)return null;const all=window.BOOM_BEASTS||[];
  return all.find(b=>b.n.toLowerCase()===k)||all.find(b=>b.c&&Object.values(b.c).some(v=>v.split(',').some(x=>x.trim().toLowerCase()===k)))||null;}
-function beastNames(){const th=beastTheme(),out=[];for(const b of window.BOOM_BEASTS||[]){if(b.th===th)out.push(b.n);else if(b.c&&b.c[th])b.c[th].split(',').forEach(x=>out.push(x.trim()));}return out.sort();}
+// Grit 18+ monsters join the suggestions only while the CM's Grit 18+ loot toggle is on
+const adultOn=()=>typeof lootTabs!=='undefined'&&lootTabs.includes('adult');
+function beastNames(){const th=beastTheme(),out=[];for(const b of window.BOOM_BEASTS||[]){if(b.th===th||(b.th==='adult'&&adultOn()))out.push(b.n);else if(b.c&&b.c[th])b.c[th].split(',').forEach(x=>out.push(x.trim()));}return out.sort();}
 const AB_T={str:'p',int:'m',con:'c',spd:'s',cha:'h',lck:'l'};
 function beastAbils(b,level,rarity){const T=Math.max(1,Math.min((rarity|0)+1,Math.ceil(level/3))),pl=(w,p)=>T+' '+(T===1?w:p);
  return(b.ab||[]).map(([n,stat,job,eff,note])=>{const nt=String(note||'').replace(/\bT\b/g,String(T));

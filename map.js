@@ -325,7 +325,9 @@ async function genEncounter(diff,b){
  const kinds=[];
  if(diff==='hard'&&budget>=4){kinds.push('boss');budget-=4;}else if(diff==='fair'&&budget>=5&&Math.random()<.5){kinds.push('boss');budget-=4;}
  while(budget>0&&kinds.length<8){if(budget>=2&&Math.random()<(diff==='easy'?.35:.65)){kinds.push('standard');budget-=2;}else{kinds.push('minion');budget-=1;}}
- const F=FOES[skin==='core'||skin==='coredark'||skin==='fantasydark'?'fantasy':skin==='gritdark'?'grit':skin]||FOES.fantasy,mName=pick(F.m),sNames=F.s.slice().sort(()=>Math.random()-.5);
+ const F0=FOES[skin==='core'||skin==='coredark'||skin==='fantasydark'?'fantasy':skin==='gritdark'?'grit':skin]||FOES.fantasy,
+  AD=(typeof adultOn==='function'&&adultOn())?(window.BOOM_BEASTS||[]).filter(b=>b.th==='adult'):[],adk=k=>AD.filter(b=>b.k===k).map(b=>b.n),
+  F=AD.length?{m:F0.m.concat(adk('minion')),s:F0.s.concat(adk('standard')),b:F0.b.concat(adk('boss'))}:F0,mName=pick(F.m),sNames=F.s.slice().sort(()=>Math.random()-.5);
  let mi=0,si=0;const made=[];
  // clear the last generated encounter: its monsters, the chalk, and monster tokens
  (monsters||[]).filter(m=>m.gen).forEach(m=>{monCol.doc(m.id).delete().catch(()=>{});initCol&&initCol.doc('m'+m.id).delete().catch(()=>{});});

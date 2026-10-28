@@ -1,9 +1,9 @@
 """Build docs/bestiary.md from the theme data files in this folder.
-Run from the repo root:  python3 tools/bestiary/build.py core pirate steampunk horror grit space
+Run from the repo root:  python3 tools/bestiary/build.py   (adult.py is the Grit 18+ set, last)
 """
 import importlib.util, math, sys, os
 HERE = os.path.dirname(os.path.abspath(__file__))
-THEMES = sys.argv[1:] or ["everywhere", "core", "pirate", "steampunk", "horror", "grit", "space"]
+THEMES = sys.argv[1:] or ["everywhere", "core", "pirate", "steampunk", "horror", "grit", "space", "adult"]
 TNAME = {"core":"Core and Fantasy","pirate":"Pirate","steampunk":"Steampunk","horror":"Horror","grit":"Street Grit","space":"Space"}
 SN = {"con":"Con","str":"Str","int":"Int","spd":"Spd","cha":"Charm","lck":"Spirit/Luck"}
 SLONG = {"con":"Constitution","str":"Strength","int":"Intellect","spd":"Speed","cha":"Charm","lck":"Spirit/Luck"}
@@ -77,7 +77,7 @@ def load(t):
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod); return mod
 
 out = ["# Boom Bestiary", "",
-"*Updated October 28, 2026. A starter bestiary for every theme: every monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). It starts with **Everywhere**, the crossover monsters that turn up in every theme under a local name (a bilge rat and a vent rat are the same rat), then each theme's own monsters. Rename anything; the math stays the same.*", "",
+"*Updated October 28, 2026. A starter bestiary for every theme: every monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). It starts with **Everywhere**, the crossover monsters that turn up in every theme under a local name (a bilge rat and a vent rat are the same rat), then each theme's own monsters, and last a bonus **Grit 18+** set for adult tables. Rename anything; the math stays the same.*", "",
 "## How to Use the Bestiary", "",
 "- **Every monster works at any level.** Build it with the template in Chapter 9: its type sets its stat points, HP, armor, and threat. Its level is up to you, usually within a couple of levels of the party.",
 "- **Points go** in the order listed, then repeat. A standard monster with *points go Str, Con* at level 4 gets 3 points: Str, Con, Str. (The app's monster maker deals them with a d6 instead. Either way works.)",
@@ -92,7 +92,7 @@ EV = load("everywhere")
 for t in THEMES:
     mod = load(t)
     out += [f"# {mod.THEME}", "", mod.INTRO, ""]
-    if t != "everywhere":
+    if t not in ("everywhere", "adult"):
         here = [f"{m['called'][t]} ({m['n']})" if m['called'][t] != m['n'] else m['n'] for m in EV.M]
         out += ["**Also in this theme,** from Everywhere: " + ", ".join(here) + ".", ""]
     for k, h in [("minion","Minions"),("standard","Standard Monsters"),("boss","Bosses")]:
@@ -103,7 +103,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 open(os.environ.get("OUT", os.path.join(ROOT, "docs/bestiary.md")), "w").write("\n".join(out))
 # bestiary.js: the same monsters as data for the app (Monster generator and New encounter)
 import json
-RK = {"everywhere":"all","core":"fantasy","pirate":"pirate","steampunk":"steampunk","horror":"horror","grit":"grit","space":"space"}
+RK = {"everywhere":"all","core":"fantasy","pirate":"pirate","steampunk":"steampunk","horror":"horror","grit":"grit","space":"space","adult":"adult"}
 data = []
 for t in THEMES:
     for m in load(t).M:

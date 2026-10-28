@@ -1,6 +1,6 @@
 # Boom Bestiary
 
-*Updated October 28, 2026. A starter bestiary for every theme: every monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). It starts with **Everywhere**, the crossover monsters that turn up in every theme under a local name (a bilge rat and a vent rat are the same rat), then each theme's own monsters. Rename anything; the math stays the same.*
+*Updated October 28, 2026. A starter bestiary for every theme: every monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). It starts with **Everywhere**, the crossover monsters that turn up in every theme under a local name (a bilge rat and a vent rat are the same rat), then each theme's own monsters, and last a bonus **Grit 18+** set for adult tables. Rename anything; the math stays the same.*
 
 ## How to Use the Bestiary
 
@@ -1779,3 +1779,148 @@ Wraps freighters in the dark and squeezes. Its ink blacks out sensors for light-
 - **Tactics:** Grabs the ship first and the crew second. Hates bright engine flares.
 
 > **Ready to run at level 10:** HP 225 · Armor 3 · Con 5, Str 11, Int 5 · Init d20 · Move 15 steps · 1 action · Tentacle 2d6 + 11 · Ink of the void 2d4 + 5 · Crushing Grip 4d6 + 11, four targets, Stunned and Prone for 4 rounds · Void Ink 4d6 + 5, four targets, Slowed and Frightened for 4 rounds · Regrow Tentacle 4d6 + 5, healing for itself · Loot box T4 · Threat 4
+
+# Grit 18+
+
+Bonus monsters for **adult tables only**: crude, punny, and extra silly. Use them only when everyone at the table has said yes, and keep the X-card handy (Safety Tools, Chapter 8). They pair with Street Grit, but they'll crash any theme that lets them in. Crude and punny, never cruel. In the app they show up only while the Core Master's Grit 18+ loot toggle is on.
+
+## Grit 18+: Minions
+
+### Wiener Dogs
+
+*Minion · Common · points go Spd, Str*
+
+A pack of dachshunds in one trench coat. Nobody wants to be surrounded by wieners, and yet here you are.
+
+- **Attacks:** Ankle bite (melee 2d6 + Str) and yap (ranged 2d4 + Int).
+- **Tactics:** Swarm the shortest hero first. A tossed sausage scatters the whole pack for a round.
+
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Ankle bite 1d6 · Yap 1d4 · Loot box T1 · Threat 1
+
+### Cock Roaches
+
+*Minion · Common · points go Con, Spd*
+
+Half rooster, half roach. They'll survive the apocalypse, and they'll crow about it at 3 a.m.
+
+- **Attacks:** Peck (melee 2d6 + Str) and crow at 3 a.m. (ranged 2d4 + Int).
+- **Tactics:** When the last one drops, one more crawls out of the drain. There is always one more.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Peck 2d6 · Crow at 3 a.m. 2d4 · Loot box T1 · Threat 1
+
+### Nut Crackers
+
+*Minion · Common · points go Str, Con*
+
+Wooden soldiers with big square jaws and one job. They aim low. They always aim low.
+
+- **Attacks:** Low blow (melee 2d6 + Str) and walnut sling (ranged 2d4 + Int).
+- **Tactics:** Go for whoever has the least armor below the belt. Any armor at all makes them visibly sad.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Low blow 2d6 · Walnut sling 2d4 · Loot box T1 · Threat 1
+
+## Grit 18+: Standard Monsters
+
+### Becky the Throat Goat
+
+*Standard · Common · points go Con, Str, Spirit/Luck*
+
+A goat with no gag reflex and no shame. She eats tin cans, swords, wedding rings, and your dignity, in that order.
+
+- **Attacks:** Headbutt (melee 2d6 + Str) and spat-out can (ranged 2d4 + Int).
+- **Deep Swallow** (signature): T d6 + Constitution, damage to up to T targets. Effect: Stunned. She swallows the target's weapon, too. It comes back when Becky drops, slightly damp.
+- **Tactics:** Goes straight for whoever holds the shiniest weapon. Feed her something better and she's anyone's goat.
+
+> **Ready to run at level 3:** HP 20 · Armor 0 · Con 1, Str 1 · Init d20 · Move 8 steps · 1 action · Headbutt 2d6 + 1 · Spat-out can 2d4 · Deep Swallow 1d6 + 1, one target, Stunned for 1 round · Loot box T1 · Threat 2
+
+### Dick-clops
+
+*Standard · Uncommon · points go Str, Con, Charm*
+
+One giant eye, in entirely the wrong place. He's also cockeyed: he never hits who he's looking at, and nobody can look him in the eye.
+
+- **Attacks:** Club (yes, that one) (melee 2d6 + Str) and thrown boulder (ranged 2d4 + Int).
+- **Cockeyed Swing** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Frightened. Hits the hero next to the one he's aiming at. The Core Master announces the aim first, for maximum confusion.
+- **Tactics:** Swings at whoever he thinks is staring, and always hits the hero beside them. Pants make him furious; none of them fit.
+
+> **Ready to run at level 5:** HP 30 · Armor 1 · Con 1, Str 2, Charm 1 · Init d20 · Move 10 steps · 1 action · Club (yes, that one) 2d6 + 2 · Thrown boulder 2d4 · Cockeyed Swing 2d6 + 2, two targets, Prone and Frightened for 2 rounds · Loot box T2 · Threat 2
+
+### Trojan Horse (Ribbed)
+
+*Standard · Uncommon · points go Con, Str, Spd*
+
+A big wooden horse, ribbed, full of tiny soldiers. Protection not guaranteed.
+
+- **Attacks:** Hoof (melee 2d6 + Str) and spring-loaded soldier (ranged 2d4 + Int).
+- **Surprise Inside** (signature): Pops out T Bandits (tiny soldiers) right next to it.
+- **Tactics:** Rolls up looking like a gift. Anyone who checks inside first gets the jump on the soldiers. Burns like, well, a wooden horse.
+
+> **Ready to run at level 5:** HP 35 · Armor 1 · Con 2, Str 1, Spd 1 · Init d20 + 1 · Move 11 steps · 1 action · Hoof 2d6 + 1 · Spring-loaded soldier 2d4 · Surprise Inside (T2) · Loot box T2 · Threat 2
+
+### Master Baiter
+
+*Standard · Common · points go Int, Spd, Charm*
+
+A fisherman with a tackle box of suspicious lures and a hat full of hooks. Spends way too much time alone with his rod.
+
+- **Attacks:** Gaff hook (melee 2d6 + Str) and lure cast (ranged 2d4 + Int).
+- **Reel 'Em In** (signature): T d6 + Intellect, damage to up to T targets. Effect: Prone. Drags the target T steps toward him.
+- **Tactics:** Hangs back and reels heroes in one at a time. Cut the line (one action) and he sulks for a round.
+
+> **Ready to run at level 4:** HP 20 · Armor 0 · Int 1, Spd 1, Charm 1 · Init d20 + 1 · Move 10 steps · 1 action · Gaff hook 2d6 · Lure cast 2d4 + 1 · Reel 'Em In 1d6 + 1, one target, Prone for 1 round · Loot box T1 · Threat 2
+
+### MILF (Monster I'd Like to Fight)
+
+*Standard · Uncommon · points go Charm, Con, Str*
+
+A suburban mom with a minivan, a yoga-pants budget, and a direct line to your manager.
+
+- **Attacks:** Purse swing (melee 2d6 + Str) and juice-box grenade (ranged 2d4 + Int).
+- **Speak to Your Manager** (signature): T d6 + Charm, damage to up to T targets. Effects, in order: Frightened, Stunned.
+- **Tactics:** Fights from behind the minivan and threatens to call everyone's mother. Hand her a coupon and she leaves a one-star review instead of fighting.
+
+> **Ready to run at level 6:** HP 40 · Armor 1 · Con 2, Str 1, Charm 2 · Init d20 · Move 11 steps · 1 action · Purse swing 2d6 + 1 · Juice-box grenade 2d4 · Speak to Your Manager 2d6 + 2, two targets, Frightened and Stunned for 2 rounds · Loot box T2 · Threat 2
+
+## Grit 18+: Bosses
+
+### The Gimp King
+
+*Boss · Rare · points go Con, Str, Charm, Spirit/Luck*
+
+Rules a basement kingdom in head-to-toe latex and squeaks when he walks. His safe word is "Boom," and nobody has ever gotten him to say it.
+
+- **Attacks:** Riding crop (melee 2d6 + Str) and thrown ball gag (ranged 2d4 + Int).
+- **Tie Them Up** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Stunned, Slowed, Prone. Leather, chains, and a surprising amount of knot work.
+- **Call the Gimps:** Calls T Bandits (Gimps) out of the closets.
+- **Latex Hide:** T d6 + Constitution, temp HP for itself. Effect: Blessed.
+- **Tactics:** Fights in the basement among some very specific furniture. Get him to say his safe word and the fight ends on the spot; he thanks everyone for a lovely evening.
+
+> **Ready to run at level 6:** HP 150 · Armor 2 · Con 4, Str 3, Charm 3, Spirit/Luck 3 · Init d20 · Move 11 steps · 1 action · Riding crop 2d6 + 3 · Thrown ball gag 2d4 · Tie Them Up 2d6 + 3, two targets, Stunned and Slowed for 2 rounds · Call the Gimps (T2) · Latex Hide 2d6 + 4, temp HP for itself, Blessed for 2 rounds · Loot box T3 · Threat 4
+
+### The Mother Trucker
+
+*Boss · Rare · points go Str, Con, Spd, Charm*
+
+An 18-wheeler with a CB radio and the filthiest mouth on the interstate. Nobody is sure there's a driver.
+
+- **Attacks:** Tire iron (melee 2d6 + Str) and air horn (ranged 2d4 + Int).
+- **Jackknife** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Stunned, Bleeding. Runs down everyone in a line.
+- **Breaker Breaker:** Calls T Bandits (Truckers) over the CB.
+- **Truck Stop:** T d6 + Constitution, healing for itself. Refuels on diesel and gas station hot dogs.
+- **Tactics:** Fights on the open road and circles back for another pass. Take out the tires and she's just a very loud, very angry building.
+
+> **Ready to run at level 7:** HP 165 · Armor 2 · Con 4, Str 4, Spd 4, Charm 3 · Init d20 + 4 · Move 16 steps · 2 actions · Tire iron 2d6 + 4 · Air horn 2d4 · Jackknife 3d6 + 4, three targets, Prone and Stunned and Bleeding for 3 rounds · Breaker Breaker (T3) · Truck Stop 3d6 + 4, healing for itself · Loot box T3 · Threat 4
+
+### Moby's Dick
+
+*Boss · Epic · points go Con, Str, Spirit/Luck, Spd*
+
+A white whale with a grudge, a reputation, and a captain who won't stop talking about it. The legends were not exaggerating.
+
+- **Attacks:** Tail slap (melee 2d6 + Str) and blowhole spray (ranged 2d4 + Int).
+- **Breach** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Stunned, Slowed. Leaps out of the water and lands on everyone.
+- **Blowhole:** T d6 + Constitution, damage to up to T targets. Effects, in order: Prone, Slowed. Hoses down the deck.
+- **Thick Blubber:** T d6 + Constitution, temp HP for itself.
+- **Tactics:** Fights at sea and rams the ship first. A one-legged captain will help the heroes, right up until he wants the kill. Great at Pirate tables, too.
+
+> **Ready to run at level 9:** HP 210 · Armor 3 · Con 5, Str 5, Spd 4, Spirit/Luck 5 · Init d20 + 4 · Move 18 steps · 2 actions · Tail slap 2d6 + 5 · Blowhole spray 2d4 · Breach 3d6 + 5, three targets, Prone and Stunned and Slowed for 3 rounds · Blowhole 3d6 + 5, three targets, Prone and Slowed for 3 rounds · Thick Blubber 3d6 + 5, temp HP for itself · Loot box T4 · Threat 4
