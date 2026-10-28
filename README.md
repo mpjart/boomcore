@@ -61,6 +61,8 @@ A button bar at the top of the CM tab toggles each group of cards on or off: **T
 
 **Table rules** (under the theme card): **Leveling** is Milestones (with a Level up party button) or the **XP bar**, which only cores fill (10 of a hero's level, or 1 higher-level core, for one level; coins never buy levels). The **price dial** sets one ± percent for every sale and purchase at the table, rounded down. **Cores can be sold** is off by default.
 
+**Bestiary monsters:** the Monster generator's name box suggests every bestiary monster for the table's theme (its own monsters plus the crossover ones under their local names). Type or pick one and the type and rarity fill in; Generate deals its stats in the bestiary's point order, adds its abilities at the right tier with a short description of what each does, labels its attacks (Melee · Claws), and puts its tactics in the card's note. The New encounter button does the same for every monster it makes. Abilities with no roll (calling allies, say) post to the feed when used. Reroll stats deals random points instead. The data is `bestiary.js`, built by `tools/bestiary/build.py`.
+
 **Monster attacks and abilities:** every monster has a 2d6 melee and 2d4 ranged attack, or 1d6 and 1d4 at level 1. Each card shows its ability cap: its rarity tier, but no higher than its level ÷ 3, rounded up (T1 at levels 1 to 3, T2 at 4 to 6, and so on). Monsters use each ability once per fight: a used ability is marked, tapping it again asks first, and **Ready abilities** resets them for the next fight.
 
 **Swarms:** two or more living minions with the same name (ignoring a number at the end) and level get a swarm card at the top of the Monsters list: one initiative and one pooled melee or ranged roll with the bonus added once.

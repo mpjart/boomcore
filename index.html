@@ -47,7 +47,7 @@ button.sm{padding:6px 11px;font-size:14px}
 .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}.st{border:1px solid var(--line);border-radius:var(--rb);padding:6px;text-align:center}.st small{display:block}.st b{font-size:20px}.sb{display:flex;gap:4px;justify-content:center;margin-top:4px}
 .eq{display:grid;grid-template-columns:88px 1fr;gap:6px;align-items:center;margin-bottom:6px}.fv{font-size:14px}
 .sec{font-size:12px;color:var(--mute);font-weight:700;text-transform:uppercase;margin:10px 0 6px}
-.at{display:flex;gap:6px;margin-bottom:6px}.atkb.used{opacity:.55}.atkb{flex:1;text-align:left}.atkb small{margin-left:8px;opacity:.85;font-weight:400}
+.at{display:flex;gap:6px;margin-bottom:6px}.atkb.used{opacity:.55}.abd{font-size:12.5px;color:var(--mute);margin:-2px 0 8px 4px;line-height:1.35}.atkb{flex:1;text-align:left}.atkb small{margin-left:8px;opacity:.85;font-weight:400}
 .add{margin:6px 0 10px;flex-wrap:wrap}.add input{min-width:80px}
 .hpb{margin-bottom:8px}.bar{height:10px;background:var(--chip);border-radius:99px;overflow:hidden;margin:4px 0 8px}.fill{height:100%;background:var(--hp)}.fill.low{background:#dc2626}.hpc input{flex:0 0 84px;min-width:84px;max-width:110px;padding:6px 8px;font-size:16px}.hpc{flex-wrap:wrap}.tmp{color:var(--acc);font-weight:700;margin-left:10px}.st>button{margin-top:4px;width:100%}
 .conds{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.conds:empty{display:none}.chip{background:var(--boom);color:#fff;border-radius:99px;padding:3px 10px;font-size:13px;font-weight:700}.conds input{max-width:140px}
@@ -284,10 +284,10 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
 <div class="card" id="initbox"></div>
 <div class="card" id="mgen" data-g="mon">
  <b class="pn">Monster generator</b>
- <div class="row" style="margin-top:8px"><input id="mname" placeholder="Monster name"><input id="mlvl" type="number" min="1" max="99" value="1" inputmode="numeric" style="max-width:90px" aria-label="Level"></div>
+ <div class="row" style="margin-top:8px"><input id="mname" placeholder="Monster name, or pick from the bestiary" list="mbeasts" autocomplete="off"><datalist id="mbeasts"></datalist><input id="mlvl" type="number" min="1" max="99" value="1" inputmode="numeric" style="max-width:90px" aria-label="Level"></div>
  <div class="row" style="margin-top:8px"><select id="mkind" aria-label="Type"></select><select id="mrar" aria-label="Rarity"></select></div>
  <div class="row" style="margin-top:10px"><button id="mgo" style="flex:1">Generate monster</button></div>
- <div class="err" id="merr"></div>
+ <div class="err" id="merr"></div><div class="note" id="mhint" hidden></div>
  <div class="note">The app deals out random stat points (fewer for minions, more for bosses), sets armor, and gives a 2d6 melee and a 2d4 ranged attack (1d6 and 1d4 at level 1). Add up to 3 abilities on each card: each is up to its rarity tier but no higher than its level ÷ 3 (rounded up), and is used once per fight. <b>Ready abilities</b> resets them for the next fight.</div> <div class="row" style="margin-top:10px"><button id="mclr" class="sm dmg" style="flex:1" hidden>Remove all monsters</button></div>
 </div>
 <div id="mlist" data-g="mon"></div>
@@ -1351,7 +1351,30 @@ function renderMyColor(){document.documentElement.style.setProperty('--ub',cvar(
 const KINDS=[['minion','Minion'],['standard','Standard'],['boss','Boss']];
 let monsters=[],monCol=null;
 const monHp=m=>Math.max(1,Math.ceil(5*(m.level+m.con)*(m.kind==='minion'?0.5:m.kind==='boss'?3:1)));
-function genMon(name,level,kind,rarity){
+// ---------- bestiary (bestiary.js, built by tools/bestiary/build.py) ----------
+// A bestiary name (or a theme's local name for a crossover monster) builds the monster from its entry:
+// stats dealt in its point order, its abilities at tier min(rarity, level / 3 rounded up), and its tactics as the note.
+const BEAST_T={fantasy:'fantasy',core:'fantasy',coredark:'fantasy',fantasydark:'fantasy',pirate:'pirate',steampunk:'steampunk',horror:'horror',grit:'grit',gritdark:'grit',space:'space'};
+const beastTheme=()=>BEAST_T[typeof skin==='string'?skin:'core']||'fantasy';
+const beastKey=n=>String(n||'').replace(/\s*#?\d+$/,'').trim().toLowerCase();
+function findBeast(name){const k=beastKey(name);if(!k)return null;const all=window.BOOM_BEASTS||[];
+ return all.find(b=>b.n.toLowerCase()===k)||all.find(b=>b.c&&Object.values(b.c).some(v=>v.split(',').some(x=>x.trim().toLowerCase()===k)))||null;}
+function beastNames(){const th=beastTheme(),out=[];for(const b of window.BOOM_BEASTS||[]){if(b.th===th)out.push(b.n);else if(b.c&&b.c[th])b.c[th].split(',').forEach(x=>out.push(x.trim()));}return out.sort();}
+const AB_T={str:'p',int:'m',con:'c',spd:'s',cha:'h',lck:'l'};
+function beastAbils(b,level,rarity){const T=Math.max(1,Math.min((rarity|0)+1,Math.ceil(level/3))),pl=(w,p)=>T+' '+(T===1?w:p);
+ return(b.ab||[]).map(([n,stat,job,eff,note])=>{const nt=String(note||'').replace(/\bT\b/g,String(T));
+  if(job==='util')return{n,t:AB_T[stat]||'p',d:nt};
+  const who={dmg:pl('target','targets'),heal:'heals '+pl('ally','allies'),temp:'temp HP for '+pl('ally','allies'),selfheal:'heals itself',selftemp:'temp HP for itself'}[job]||'';
+  const ef=(eff||[]).slice(0,T),d=who+(ef.length?', '+ef.join(' and ')+' for '+pl('round','rounds'):'')+(nt?'. '+nt:'');
+  return{n,e:T+'d6',t:AB_T[stat]||'p',d};});}
+function genMon(name,level,kind,rarity,random){
+ const b=random?null:findBeast(name);
+ if(b){const pts=kind==='minion'?Math.floor((level-1)/2):kind==='boss'?2*(level-1)+3:level-1,st={con:0,str:0,int:0,spd:0,cha:0,lck:0};
+  for(let i=0;i<pts;i++)st[b.o[i%b.o.length]]++;
+  const ab=kind==='minion'?[]:beastAbils(b,level,rarity).slice(0,kind==='boss'?3:1);
+  return{name:name||b.n,level,kind,rarity,...st,armor:kind==='minion'?0:kind==='boss'?Math.floor(level/3):Math.floor(level/5),hpCur:null,abil:JSON.stringify(ab),ml:b.a[0],rl:b.a[1],note:'Tactics: '+b.x,beast:b.n,ts:Date.now()};}
+ return genMonRandom(name,level,kind,rarity);}
+function genMonRandom(name,level,kind,rarity){
  const pts=kind==='minion'?Math.floor((level-1)/2):kind==='boss'?2*(level-1)+3:level-1,st={con:0,str:0,int:0,spd:0,cha:0,lck:0};
  for(let i=0;i<pts;i++)st[STATS[Math.floor(Math.random()*6)][0]]++;
  return{name:name||'Monster',level,kind,rarity,...st,armor:kind==='minion'?0:kind==='boss'?Math.floor(level/3):Math.floor(level/5),hpCur:null,abil:'[]',ts:Date.now()};
@@ -1364,9 +1387,9 @@ const monMel=m=>m.mel||(m.level<=1?'1d6':'2d6'),monRng=m=>m.rng||(m.level<=1?'1d
 const abCap=m=>Math.max(1,Math.min((m.rarity|0)+1,Math.ceil(m.level/3)));
 // Monsters use each ability once per fight. A used ability is marked; tapping it again asks first.
 let abArm='';
-function useMonAb(m,i){const ab=mAbs(m),a=ab[i];if(!a)return;const bonus=m[BT[a.t]||'str'],ex=a.e+(bonus>0?'+'+bonus:''),k=m.id+'|'+i;
+function useMonAb(m,i){const ab=mAbs(m),a=ab[i];if(!a)return;const bonus=m[BT[a.t]||'str'],ex=(a.e||'')+(bonus>0?'+'+bonus:''),k=m.id+'|'+i;
  if(a.u&&abArm!==k){abArm=k;setTimeout(()=>{if(abArm===k)abArm='';},3000);return toast(a.n+' was already used this fight. Tap again to use it anyway.');}
- abArm='';doRoll(ex,m.name+' · '+a.n);ab[i]={...a,u:1};putM(m,{abil:JSON.stringify(ab)});}
+ abArm='';if(a.e)doRoll(ex,m.name+' · '+a.n);else logEvent(m.name+' uses '+a.n+(a.d?': '+a.d:''));ab[i]={...a,u:1};putM(m,{abil:JSON.stringify(ab)});}
 function readyMonAbs(m){putM(m,{abil:JSON.stringify(mAbs(m).map(({u,...a})=>a))});}
 function rollMonInit(m){const r=doRoll('1d20'+(m.spd>0?'+'+m.spd:''),m.name+' · Initiative');if(r&&initCol)initCol.doc('m'+m.id).set({name:m.name,v:r.total,ts:Date.now()}).catch(()=>{});}
 function monCard(m){
@@ -1393,16 +1416,16 @@ function monCard(m){
   const bb=el('div','sb');bb.append(btn('−',()=>{if(m[key]>0)putM(m,{[key]:m[key]-1});}),btn('+',()=>putM(m,{[key]:m[key]+1})));s.append(bb);sg.append(s);}
  box.append(sg);
  const mel=monMel(m)+(m.str>0?'+'+m.str:''),rng=monRng(m)+(m.int>0?'+'+m.int:'');
- [['Melee',mel],['Ranged',rng]].filter(x=>!(x[0]==='Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,()=>doRoll(ex,m.name+' · '+t),'atkb rb');g.append(el('small',null,ex));a.append(g);box.append(a);});
+ [['Melee'+(m.ml?' · '+m.ml:''),mel],['Ranged'+(m.rl?' · '+m.rl:''),rng]].filter(x=>!(x[0].startsWith('Ranged')&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,()=>doRoll(ex,m.name+' · '+t),'atkb rb');g.append(el('small',null,ex));a.append(g);box.append(a);});
  if(m.note)box.append(el('div','note',m.note));
  const ab=mAbs(m),cap=abCap(m);box.append(el('div','sec','Abilities '+ab.length+'/3 · up to T'+cap+' ('+cap+'d6) · once each per fight'));
- ab.forEach((a,i)=>{const bonus=m[BT[a.t]||'str'],ex=a.e+(bonus>0?'+'+bonus:''),w=el('div','at'),g=btn(''+a.n,()=>useMonAb(m,i),'atkb rb'+(a.u?' used':''));g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')+(a.u?' · used':'')));const x=btn('×',()=>putM(m,{abil:JSON.stringify(ab.filter((_,j)=>j!==i))}));x.setAttribute('aria-label','Remove');w.append(g,x);box.append(w);});
+ ab.forEach((a,i)=>{const bonus=m[BT[a.t]||'str'],ex=a.e?a.e+(bonus>0?'+'+bonus:''):'no roll',w=el('div','at'),g=btn(''+a.n,()=>useMonAb(m,i),'atkb rb'+(a.u?' used':''));g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')+(a.u?' · used':'')));const x=btn('×',()=>putM(m,{abil:JSON.stringify(ab.filter((_,j)=>j!==i))}));x.setAttribute('aria-label','Remove');w.append(g,x);box.append(w);if(a.d)box.append(el('div','abd',a.d));});
  if(ab.length<3){const w=el('div','row add'),nn=document.createElement('input'),ee=document.createElement('input'),tt=document.createElement('select');
   nn.placeholder='Name';ee.placeholder=cap+'d6';[['p','Physical (Str)'],['m','Magic (Int)'],['c','Lifeforce (Con)'],['s','Speed'],['h','Charm'],['l','Spirit/Luck']].forEach(([v,t])=>tt.add(new Option(t,v)));
   w.append(nn,ee,tt,btn('Add',()=>{const x=ee.value.replace(/\s+/g,'');if(!nn.value.trim()||!parse(x))return toast('Need a name and a valid roll');putM(m,{abil:JSON.stringify([...ab,{n:nn.value.trim().slice(0,30),e:x,t:tt.value}])});},'sm'));box.append(w);}
  const ft=el('div','row');
  if(ab.some(a=>a.u))ft.append(btn('Ready abilities',()=>readyMonAbs(m),'sm'));
- ft.append(btn('Reroll stats',()=>{const g=genMon(m.name,m.level,m.kind,m.rarity);putM(m,{con:g.con,str:g.str,int:g.int,spd:g.spd,cha:g.cha,lck:g.lck,hpCur:null});}),
+ ft.append(btn('Reroll stats',()=>{const g=genMon(m.name,m.level,m.kind,m.rarity,true);putM(m,{con:g.con,str:g.str,int:g.int,spd:g.spd,cha:g.cha,lck:g.lck,hpCur:null});}),
   btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();cmShow('loot');$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
  let armed=0;const d=btn('Remove',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove';},3000);}else{if(initCol)initCol.doc('m'+m.id).delete().catch(()=>{});monCol.doc(m.id).delete();}});ft.append(d);box.append(ft);
  return box;}
@@ -1441,6 +1464,11 @@ $('#mclr').onclick=()=>{const b=$('#mclr');if(!monCol||!monsters.length)return;
  armedM=0;const n=monsters.length;
  monsters.forEach(m=>{if(initCol)initCol.doc('m'+m.id).delete().catch(()=>{});monCol.doc(m.id).delete().catch(()=>{});});
  toast('Removed '+n+' monster'+(n>1?'s':'')+'. Ready for the next encounter');};
+function beastList(){const d=$('#mbeasts');if(!d)return;const names=beastNames();if(d.dataset.k===beastTheme()+names.length)return;d.dataset.k=beastTheme()+names.length;d.replaceChildren(...names.map(n=>{const o=document.createElement('option');o.value=n;return o;}));}
+$('#mname').onfocus=beastList;
+$('#mname').oninput=()=>{const b=findBeast($('#mname').value),h=$('#mhint');if(!b){h.hidden=true;return;}
+ $('#mkind').value=b.k;$('#mrar').value=String(b.r);h.hidden=false;
+ h.textContent='From the bestiary: '+b.n+', '+KINDS.find(x=>x[0]===b.k)[1]+', '+LT[b.r]+'. Stats, attacks, abilities, and tactics fill in when you generate it.';};
 $('#mgo').onclick=()=>{
  const lv=Math.floor(+$('#mlvl').value)||0;
  if(!monCol){$('#merr').textContent='Start a table as the Core Master to add monsters.';return;}
@@ -1448,7 +1476,7 @@ $('#mgo').onclick=()=>{
  $('#merr').textContent='';
  const m=genMon($('#mname').value.trim().slice(0,40),lv,$('#mkind').value,+$('#mrar').value||0),id='m'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
  monCol.doc(id).set(m).catch(()=>{$('#merr').textContent='Could not save the monster.';});
- $('#mname').value='';
+ $('#mname').value='';$('#mhint').hidden=true;
 };
 // ---------- party stash ----------
 let stash={loot:'[]',coins:[0,0,0,0,0,0],open:true},stashCol=null,myHero='';
@@ -1715,6 +1743,7 @@ renderQuick();render();renderParty();renderMyColor();renderMon();renderStash();r
 <script src="session.js?v=1"></script>
 <script src="shops.js?v=1"></script>
 <script src="shop.js?v=1"></script>
+<script src="bestiary.js?v=1"></script>
 <script src="oneshots.js?v=1"></script>
 <script src="oneshot.js?v=1"></script>
 </body></html>

@@ -338,7 +338,7 @@ async function genEncounter(diff,b){
  kinds.forEach((k,i)=>{
   const name=k==='boss'?pick(F.b):k==='standard'?sNames[si++%sNames.length]:mName+' '+(++mi);
   const lvl=Math.max(1,Math.min(99,avg+(k==='minion'?-1:0)+(diff==='hard'&&k!=='minion'?1:0)));
-  const m={...genMon(name,lvl,k,k==='boss'?3:0),gen:true,ts:Date.now()+i},id='m'+Date.now().toString(36)+i+Math.random().toString(36).slice(2,5);
+  const bb=window.findBeast?findBeast(name):null,m={...genMon(name,lvl,k,bb?bb.r:(k==='boss'?3:0)),gen:true,ts:Date.now()+i},id='m'+Date.now().toString(36)+i+Math.random().toString(36).slice(2,5);
   monCol.doc(id).set(m).catch(()=>{});made.push({...m,id});
   const[x,y]=spot(62,93,12,88),t={ref:id,kind:'mon',name,boss:k==='boss',x:+x.toFixed(2),y:+y.toFixed(2),ts:Date.now()};
   tokens[id]={id,...t};tokCol.doc(id).set(t).catch(()=>{});});
@@ -448,8 +448,8 @@ function renderCard(){
   C.append(chipRow(STATS.map(([key,lab])=>[key,lab,+m[key]||0]),m.armor||0,m.name,'',cur<=0));
   C.append(el('div','note','Move '+(5+m.level+m.spd)+' · '+(1+Math.floor(m.spd/4))+' action'+(m.spd>=4?'s':'')+' per turn'));
   C.append(el('div','sec','Attacks · Abilities'));
-  [['Melee',monMel(m)+(m.str>0?'+'+m.str:'')],['Ranged',monRng(m)+(m.int>0?'+'+m.int:'')]].filter(x=>!(x[0]==='Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t)),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
-  mAbs(m).forEach((a,i)=>{const bo=m[BT[a.t]||'str'],ex=a.e+(bo>0?'+'+bo:''),w=el('div','at'),g=btn(''+a.n,wrap(()=>useMonAb(m,i)),'atkb rb'+(a.u?' used':''));g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')+(a.u?' · used':'')));w.append(g);C.append(w);});
+  [['Melee'+(m.ml?' · '+m.ml:''),monMel(m)+(m.str>0?'+'+m.str:'')],['Ranged'+(m.rl?' · '+m.rl:''),monRng(m)+(m.int>0?'+'+m.int:'')]].filter(x=>!(x[0].startsWith('Ranged')&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t)),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
+  mAbs(m).forEach((a,i)=>{const bo=m[BT[a.t]||'str'],ex=a.e?a.e+(bo>0?'+'+bo:''):'no roll',w=el('div','at'),g=btn(''+a.n,wrap(()=>useMonAb(m,i)),'atkb rb'+(a.u?' used':''));g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')+(a.u?' · used':'')));w.append(g);C.append(w);});
   C.append(any(m.name,''));
  }
  C.append(lastEl());}

@@ -99,5 +99,19 @@ for t in THEMES:
         out += [f"## {mod.THEME}: {h}" if len(THEMES) > 1 else f"## {h}", ""]
         for m in mod.M:
             if m["kind"] == k: out += entry(m)
-open(os.environ.get("OUT", "/home/claude/boomcore/docs/bestiary.md"), "w").write("\n".join(out))
+ROOT = os.path.dirname(os.path.dirname(HERE))
+open(os.environ.get("OUT", os.path.join(ROOT, "docs/bestiary.md")), "w").write("\n".join(out))
+# bestiary.js: the same monsters as data for the app (Monster generator and New encounter)
+import json
+RK = {"everywhere":"all","core":"fantasy","pirate":"pirate","steampunk":"steampunk","horror":"horror","grit":"grit","space":"space"}
+data = []
+for t in THEMES:
+    for m in load(t).M:
+        d = {"n": m["n"], "k": m["kind"], "r": m["rar"] - 1, "o": m["order"], "a": list(m["atk"]), "th": RK[t],
+             "ab": [list(a) for a in m.get("ab", [])], "x": m["t"]}
+        if m.get("called"): d["c"] = {RK[k]: v for k, v in m["called"].items()}
+        data.append(d)
+js = ("// Built by tools/bestiary/build.py from tools/bestiary/*.py. Do not edit by hand.\n"
+      "window.BOOM_BEASTS=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n")
+open(os.path.join(ROOT, "bestiary.js"), "w").write(js)
 print("monsters:", {t: len(load(t).M) for t in THEMES}, "total", sum(len(load(t).M) for t in THEMES))
