@@ -637,4 +637,4 @@ The **mode** is the single most likely total; it sits below the average because 
 
 You're free to share, copy, adapt, remix, and even sell what you make with these rules, as long as you give credit. A line like this does it: *"Uses the Boom Core Guidelines by mpjart, licensed CC BY 4.0, mpjart.github.io/boomcore."* Say if you changed anything, and don't suggest we endorse your version (unless we do, in which case, boom).
 
-The same license covers the Shop Tables, the Loot Name Tables, the Core Master screen, and The Hollow Crown. The Boom Dice app's code is open source under the MIT License (see LICENSE in the repo).
+The same license covers the Shop Tables, the Prep Tables, the Loot Name Tables, the Core Master screen, and The Hollow Crown. The Boom Dice app's code is open source under the MIT License (see LICENSE in the repo).
