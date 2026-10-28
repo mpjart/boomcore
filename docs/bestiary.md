@@ -1,6 +1,6 @@
 # Boom Bestiary
 
-*Updated October 28, 2026. A starter bestiary for every theme: every monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). It starts with **Everywhere**, the crossover monsters that turn up in every theme under a local name (a bilge rat and a vent rat are the same rat), then each theme's own monsters, and last a bonus **Grit 18+** set for adult tables. Rename anything; the math stays the same.*
+*Updated October 28, 2026. A starter bestiary for every theme: every monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). It starts with **Everywhere**, the crossover monsters that turn up in every theme under a local name (a bilge rat and a vent rat are the same rat), then the **Combo Critters** (two animals, one bad idea, also in every theme), then each theme's own monsters, and last a bonus **Grit 18+** set for adult tables. Rename anything; the math stays the same.*
 
 ## How to Use the Bestiary
 
@@ -544,6 +544,303 @@ A cluster of floating eyes that argue about everything, especially who gets to z
 - **Tactics:** Never agrees on a target; the CM picks which eye is in charge each round. Blind one eye and the rest call a recess.
 
 > **Ready to run at level 7:** HP 165 · Armor 2 · Con 4, Int 4, Charm 3, Spirit/Luck 4 · Init d20 · Move 12 steps · 1 action · Bite 2d6 · Eye beam 2d4 + 4 · Motion to Zap 3d6 + 4, three targets, Burning and Stunned and Slowed for 3 rounds · Point of Order 3d6 + 3, three targets, Stunned for 3 rounds · Filibuster 3d6 + 4, temp HP for itself, Blessed for 3 rounds · Loot box T3 · Threat 4
+
+# Combo Critters
+
+Two animals, one bad idea. These are the Bear-goose's cousins, and like the Everywhere monsters they turn up in every theme under a local name (they aren't repeated in each theme's *Also in this theme* list). Want your own? Pick two animals, say the name out loud, and give it the signature ability the name promises.
+
+## Combo Critters: Minions
+
+### Dragonflies
+
+*Minion · Common · points go Spd, Int*
+
+Take the word literally: dragons the size of a fly. They hoard crumbs, breathe matchstick flames, and take themselves very seriously.
+
+- **Called:** *Core and Fantasy:* Dragonflies · *Pirate:* Reef Dragonflies · *Steampunk:* Spark Dragonflies · *Horror:* Ash Dragonflies · *Street Grit:* Hallucination Dragonflies · *Space:* Plasma Dragonflies
+- **Attacks:** Tiny bite (melee 2d6 + Str) and matchstick flame (ranged 2d4 + Int).
+- **Tactics:** Swarm whoever carries the most snacks and go for the eyebrows. Leave a shiny button on the floor and the swarm guards it instead.
+
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Tiny bite 1d6 · Matchstick flame 1d4 · Loot box T1 · Threat 1
+
+### Hamsterantulas
+
+*Minion · Common · points go Spd, Con*
+
+Fluffy, eight-legged, and cheeks stuffed with whatever they stole from you last time.
+
+- **Called:** *Core and Fantasy:* Hamsterantulas · *Pirate:* Bilge Hamsterantulas · *Steampunk:* Wheel-runner Hamsterantulas · *Horror:* Crypt Hamsterantulas · *Street Grit:* Pet Store Hamsterantulas · *Space:* Vent Hamsterantulas
+- **Attacks:** Nibble (melee 2d6 + Str) and spat sunflower seed (ranged 2d4 + Int).
+- **Tactics:** Stuff their cheeks with the party's small stuff and run. Put a running wheel in the room and every one of them climbs on.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Nibble 2d6 · Spat sunflower seed 2d4 · Loot box T1 · Threat 1
+
+### Crabbits
+
+*Minion · Common · points go Spd, Str*
+
+Rabbit ears, crab claws, and they hop sideways. There are always more of them than there were a minute ago.
+
+- **Called:** *Core and Fantasy:* Crabbits · *Pirate:* Beach Crabbits · *Steampunk:* Clockwork Crabbits · *Horror:* Grave Crabbits · *Street Grit:* Fish Market Crabbits · *Space:* Moon Crabbits
+- **Attacks:** Pinch (melee 2d6 + Str) and thrown carrot (ranged 2d4 + Int).
+- **Tactics:** Hop in sideways circles around the party and pinch ankles. Heroes standing back to back confuse them completely.
+
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Pinch 1d6 · Thrown carrot 1d4 · Loot box T1 · Threat 1
+
+### Pugcupines
+
+*Minion · Common · points go Con, Str*
+
+Squished face, curly tail, coat of quills. They snort, they snore, and they want a hug. Don't hug them.
+
+- **Called:** *Core and Fantasy:* Pugcupines · *Pirate:* Ship's Pugcupines · *Steampunk:* Lapdog Pugcupines · *Horror:* Hell-Pugcupines · *Street Grit:* Penthouse Pugcupines · *Space:* Space Pugcupines
+- **Attacks:** Quill hug (melee 2d6 + Str) and quill sneeze (ranged 2d4 + Int).
+- **Tactics:** Waddle up begging for pets and stab whoever gives them. A belly rub with a gauntlet on puts them to sleep.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Quill hug 2d6 · Quill sneeze 2d4 · Loot box T1 · Threat 1
+
+### Possumpires
+
+*Minion · Common · points go Con, Spirit/Luck*
+
+Possums with fangs and tiny capes. They play dead constantly, which is confusing, since they're already undead.
+
+- **Called:** *Core and Fantasy:* Possumpires · *Pirate:* Dockside Possumpires · *Steampunk:* Gaslight Possumpires · *Horror:* Possumpires · *Street Grit:* Dumpster Possumpires · *Space:* Cargo Possumpires
+- **Attacks:** Fang nibble (melee 2d6 + Str) and garbage toss (ranged 2d4 + Int).
+- **Tactics:** Play dead whenever a hero looks at them and bite whoever looks away. Garlic and trash can lids work equally well.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Fang nibble 2d6 · Garbage toss 2d4 · Loot box T1 · Threat 1
+
+## Combo Critters: Standard Monsters
+
+### Shrimpanzee
+
+*Standard · Common · points go Str, Spd*
+
+Shrimp on the bottom, chimp on top. Punches so fast the water boils. Nobody has ever beaten one at arm wrestling.
+
+- **Called:** *Core and Fantasy:* Shrimpanzee · *Pirate:* Reef Shrimpanzee · *Steampunk:* Clockwork Shrimpanzee · *Horror:* Drowned Shrimpanzee · *Street Grit:* Hallucination Shrimpanzee · *Space:* Space Shrimpanzee
+- **Attacks:** Knuckle punch (melee 2d6 + Str) and thrown banana peel (ranged 2d4 + Int).
+- **Snap Punch** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Stunned, Prone. The punch is so fast it makes a bang.
+- **Tactics:** Picks a fight with the biggest hero to show off. Mention cocktail sauce and it flees in a panic.
+
+> **Ready to run at level 3:** HP 15 · Armor 0 · Str 1, Spd 1 · Init d20 + 1 · Move 9 steps · 1 action · Knuckle punch 2d6 + 1 · Thrown banana peel 2d4 · Snap Punch 1d6 + 1, one target, Stunned for 1 round · Loot box T1 · Threat 2
+
+### Rhinocerooster
+
+*Standard · Common · points go Str, Con, Charm*
+
+A rhino with a red comb and a rooster's sense of timing. It charges at dawn, every dawn, at whoever is still asleep.
+
+- **Called:** *Core and Fantasy:* Rhinocerooster · *Pirate:* Island Rhinocerooster · *Steampunk:* Steam-horn Rooster · *Horror:* Ghost Rhinocerooster · *Street Grit:* Rooftop Rhinocerooster · *Space:* Space Rhinocerooster
+- **Attacks:** Horn (melee 2d6 + Str) and ear-splitting crow (ranged 2d4 + Int).
+- **Dawn Charge** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Frightened.
+- **Tactics:** Crows before it charges, so everyone gets exactly one warning. Throw a cloth over its head and it thinks it's night and goes to sleep.
+
+> **Ready to run at level 4:** HP 25 · Armor 0 · Con 1, Str 1, Charm 1 · Init d20 · Move 9 steps · 1 action · Horn 2d6 + 1 · Ear-splitting crow 2d4 · Dawn Charge 1d6 + 1, one target, Prone for 1 round · Loot box T1 · Threat 2
+
+### Gorilla-dillo
+
+*Standard · Common · points go Con, Str*
+
+A gorilla in armor plates that rolls into a ball when it's angry. It's angry a lot.
+
+- **Called:** *Core and Fantasy:* Gorilla-dillo · *Pirate:* Cannonball Gorilla-dillo · *Steampunk:* Iron-plated Gorilla-dillo · *Horror:* Bone Gorilla-dillo · *Street Grit:* Bowling Alley Gorilla-dillo · *Space:* Asteroid Gorilla-dillo
+- **Attacks:** Knuckle slam (melee 2d6 + Str) and thrown boulder (ranged 2d4 + Int).
+- **Bowling Ball** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Slowed. Rolls through everyone in a line.
+- **Tactics:** Lines the heroes up and bowls. It's terrible at turning, so heroes who stand side by side watch it roll right past.
+
+> **Ready to run at level 4:** HP 30 · Armor 0 · Con 2, Str 1 · Init d20 · Move 9 steps · 1 action · Knuckle slam 2d6 + 1 · Thrown boulder 2d4 · Bowling Ball 1d6 + 1, one target, Prone for 1 round · Loot box T1 · Threat 2
+
+### Skunkatoo
+
+*Standard · Common · points go Con, Charm*
+
+A cockatoo with a skunk's tail and a skunk's attitude. It repeats the last rude thing anyone said, loudly, then sprays them.
+
+- **Called:** *Core and Fantasy:* Skunkatoo · *Pirate:* Captain's Skunkatoo · *Steampunk:* Clockwork Skunkatoo · *Horror:* Graveyard Skunkatoo · *Street Grit:* Corner Store Skunkatoo · *Space:* Station Skunkatoo
+- **Attacks:** Beak (melee 2d6 + Str) and stink spritz (ranged 2d4 + Int).
+- **Stink Squawk** (signature): T d6 + Constitution, damage to up to T targets. Effects, in order: Poisoned, Frightened.
+- **Tactics:** Repeats insults until a hero gets mad, then sprays the mad one. A cracker buys one round of silence.
+
+> **Ready to run at level 3:** HP 20 · Armor 0 · Con 1, Charm 1 · Init d20 · Move 8 steps · 1 action · Beak 2d6 · Stink spritz 2d4 · Stink Squawk 1d6 + 1, one target, Poisoned for 1 round · Loot box T1 · Threat 2
+
+### Snailephant
+
+*Standard · Common · points go Con, Str*
+
+An elephant in a snail shell. It never hurries and it never forgets, which is a bad combination if you owe it peanuts.
+
+- **Called:** *Core and Fantasy:* Snailephant · *Pirate:* Tidepool Snailephant · *Steampunk:* Brass-shelled Snailephant · *Horror:* Graveyard Snailephant · *Street Grit:* Sewer Snailephant · *Space:* Moon Snailephant
+- **Attacks:** Trunk slap (melee 2d6 + Str) and slime spit (ranged 2d4 + Int).
+- **Slime Trail** (signature): T d6 + Constitution, damage to up to T targets. Effects, in order: Slowed, Prone.
+- **Tactics:** Slimes the floor and lets the heroes slide into reach. Salt sends it into its shell for a round. Peanuts make it a friend for life.
+
+> **Ready to run at level 4:** HP 30 · Armor 0 · Con 2, Str 1 · Init d20 · Move 9 steps · 1 action · Trunk slap 2d6 + 1 · Slime spit 2d4 · Slime Trail 1d6 + 2, one target, Slowed for 1 round · Loot box T1 · Threat 2
+
+### Penguintaur
+
+*Standard · Common · points go Spd, Charm*
+
+Penguin from the waist up, horse from the waist down, tuxedo the whole way. It works as a waiter and fights like one.
+
+- **Called:** *Core and Fantasy:* Penguintaur · *Pirate:* Ice Floe Penguintaur · *Steampunk:* Butler Penguintaur · *Horror:* Funeral Penguintaur · *Street Grit:* Valet Penguintaur · *Space:* Ice Moon Penguintaur
+- **Attacks:** Flipper slap (melee 2d6 + Str) and thrown fish (ranged 2d4 + Int).
+- **Belly Slide** (signature): T d6 + Speed, damage to up to T targets. Effects, in order: Prone, Slowed.
+- **Tactics:** Slides in, serves a fish to the face, slides out. Tip it a few coins and it brings the heroes the bill instead of a fight.
+
+> **Ready to run at level 3:** HP 15 · Armor 0 · Spd 1, Charm 1 · Init d20 + 1 · Move 9 steps · 1 action · Flipper slap 2d6 · Thrown fish 2d4 · Belly Slide 1d6 + 1, one target, Prone for 1 round · Loot box T1 · Threat 2
+
+### Literal Catfish
+
+*Standard · Common · points go Spd, Int*
+
+A cat with fins and whiskers twice as long as yours. Lives in the water. Hates the water. Will tell you about it.
+
+- **Called:** *Core and Fantasy:* Literal Catfish · *Pirate:* Bilge Catfish · *Steampunk:* Canal Catfish · *Horror:* Black Lake Catfish · *Street Grit:* Harbor Catfish · *Space:* Coolant Tank Catfish
+- **Attacks:** Claws (melee 2d6 + Str) and hissing water spit (ranged 2d4 + Int).
+- **Knock It Overboard** (signature): T d6 + Speed, damage to up to T targets. Effect: Prone. Knocks the target's held item to the floor, or into the water if there's any nearby, while making eye contact.
+- **Tactics:** Knocks everything off the boat, one thing at a time. A ball of string keeps it busy for a round.
+
+> **Ready to run at level 3:** HP 15 · Armor 0 · Int 1, Spd 1 · Init d20 + 1 · Move 9 steps · 1 action · Claws 2d6 · Hissing water spit 2d4 + 1 · Knock It Overboard 1d6 + 1, one target, Prone for 1 round · Loot box T1 · Threat 2
+
+### Bee-ver
+
+*Standard · Common · points go Con, Str, Int*
+
+A beaver with stripes, wings, and a stinger. It builds dams out of honeycomb and takes leaks very personally.
+
+- **Called:** *Core and Fantasy:* Bee-ver · *Pirate:* River Bee-ver · *Steampunk:* Brass Bee-ver · *Horror:* Bog Bee-ver · *Street Grit:* Storm Drain Bee-ver · *Space:* Hydro Bay Bee-ver
+- **Attacks:** Big teeth (melee 2d6 + Str) and honey glob (ranged 2d4 + Int).
+- **Honey Dam** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Slowed, Stunned. Targets are stuck in honey.
+- **Tactics:** Floods the area with honey and stings whoever gets stuck. Help patch its dam and it pays in honey.
+
+> **Ready to run at level 4:** HP 25 · Armor 0 · Con 1, Str 1, Int 1 · Init d20 · Move 9 steps · 1 action · Big teeth 2d6 + 1 · Honey glob 2d4 + 1 · Honey Dam 1d6 + 1, one target, Slowed for 1 round · Loot box T1 · Threat 2
+
+### Llamantis
+
+*Standard · Uncommon · points go Spd, Int, Spirit/Luck*
+
+A llama with praying mantis arms. It bows its head before every fight. Nobody knows what it prays for, and nobody wants to find out.
+
+- **Called:** *Core and Fantasy:* Llamantis · *Pirate:* Deck Llamantis · *Steampunk:* Brass Llamantis · *Horror:* Chapel Llamantis · *Street Grit:* Hallucination Llamantis · *Space:* Moon Llamantis
+- **Attacks:** Scythe arms (melee 2d6 + Str) and spit (ranged 2d4 + Int).
+- **Spit and Pray** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Poisoned, Stunned.
+- **Tactics:** Spits from range, then strikes whoever wipes their face. Interrupt its prayer and it spends its next action sulking.
+
+> **Ready to run at level 4:** HP 20 · Armor 0 · Int 1, Spd 1, Spirit/Luck 1 · Init d20 + 1 · Move 10 steps · 1 action · Scythe arms 2d6 · Spit 2d4 + 1 · Spit and Pray 2d6 + 1, two targets, Poisoned and Stunned for 2 rounds · Loot box T2 · Threat 2
+
+### Actual Spider Monkey
+
+*Standard · Uncommon · points go Spd, Str, Int*
+
+Somebody heard "spider monkey" and took it literally. Eight legs, a monkey face, and a web that smells like bananas.
+
+- **Called:** *Core and Fantasy:* Actual Spider Monkey · *Pirate:* Jungle Spider Monkey · *Steampunk:* Clockwork Spider Monkey · *Horror:* Crypt Spider Monkey · *Street Grit:* Zoo Escapee Spider Monkey · *Space:* Hydroponics Spider Monkey
+- **Attacks:** Eight-handed grab (melee 2d6 + Str) and thrown banana (ranged 2d4 + Int).
+- **Banana Web** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Slowed, Prone.
+- **Tactics:** Webs the party from the treetops, then steals hats. A banana buys a round; a whole bunch buys a pet.
+
+> **Ready to run at level 4:** HP 20 · Armor 0 · Str 1, Int 1, Spd 1 · Init d20 + 1 · Move 10 steps · 1 action · Eight-handed grab 2d6 + 1 · Thrown banana 2d4 + 1 · Banana Web 2d6 + 1, two targets, Slowed and Prone for 2 rounds · Loot box T2 · Threat 2
+
+### Moosquito
+
+*Standard · Uncommon · points go Str, Con, Spd*
+
+A moose-sized mosquito, or a mosquito-shaped moose. Either way it wants a pint, and it isn't asking.
+
+- **Called:** *Core and Fantasy:* Moosquito · *Pirate:* Swamp Moosquito · *Steampunk:* Brass Moosquito · *Horror:* Vampire Moosquito · *Street Grit:* Hallucination Moosquito · *Space:* Void Moosquito
+- **Attacks:** Antlers (melee 2d6 + Str) and buzzing dive (ranged 2d4 + Int).
+- **Antler Drain** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Bleeding, Slowed. Heals itself for the damage dealt.
+- **Tactics:** Lands on whoever smells sweetest. Smoke sends it home, and a big enough net ends the fight.
+
+> **Ready to run at level 5:** HP 30 · Armor 1 · Con 1, Str 2, Spd 1 · Init d20 + 1 · Move 11 steps · 1 action · Antlers 2d6 + 2 · Buzzing dive 2d4 · Antler Drain 2d6 + 2, two targets, Bleeding and Slowed for 2 rounds · Loot box T2 · Threat 2
+
+### Hippopotamouse
+
+*Standard · Uncommon · points go Con, Str*
+
+A mouse the size of a hippo. It's scared of everything, which is exactly what makes it dangerous.
+
+- **Called:** *Core and Fantasy:* Hippopotamouse · *Pirate:* Ship's Hippopotamouse · *Steampunk:* Clockwork Hippopotamouse · *Horror:* Plague Hippopotamouse · *Street Grit:* Subway Hippopotamouse · *Space:* Cargo Bay Hippopotamouse
+- **Attacks:** Chomp (melee 2d6 + Str) and deafening squeak (ranged 2d4 + Int).
+- **Panic Stampede** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Stunned. Flattens whoever is in the way.
+- **Tactics:** Stampedes whenever anything startles it. A cat, or a hero who meows convincingly (a Charm check), sends it squeaking away. Cheese buys peace.
+
+> **Ready to run at level 5:** HP 35 · Armor 1 · Con 2, Str 2 · Init d20 · Move 10 steps · 1 action · Chomp 2d6 + 2 · Deafening squeak 2d4 · Panic Stampede 2d6 + 2, two targets, Prone and Stunned for 2 rounds · Loot box T2 · Threat 2
+
+### Kangaroctopus
+
+*Standard · Uncommon · points go Str, Spd, Int*
+
+A kangaroo with eight arms, every one of them in a boxing glove. Its pouch is full of ink, and possibly a baby.
+
+- **Called:** *Core and Fantasy:* Kangaroctopus · *Pirate:* Reef Kangaroctopus · *Steampunk:* Prizefighter Kangaroctopus · *Horror:* Drowned Kangaroctopus · *Street Grit:* Back-Alley Kangaroctopus · *Space:* Zero-G Kangaroctopus
+- **Attacks:** Eight-glove jab (melee 2d6 + Str) and pouch ink (ranged 2d4 + Int).
+- **Eight-Glove Flurry** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Stunned, Prone.
+- **Tactics:** Hops into the middle of the party and boxes everyone in reach. Ring any bell and it goes back to its corner for a round.
+
+> **Ready to run at level 5:** HP 25 · Armor 1 · Str 2, Int 1, Spd 1 · Init d20 + 1 · Move 11 steps · 1 action · Eight-glove jab 2d6 + 2 · Pouch ink 2d4 + 1 · Eight-Glove Flurry 2d6 + 2, two targets, Stunned and Prone for 2 rounds · Loot box T2 · Threat 2
+
+### Literal Horsefly
+
+*Standard · Uncommon · points go Spd, Str*
+
+A full-size horse with fly wings and fly eyes. It sees you from every angle and always lands on your lunch.
+
+- **Called:** *Core and Fantasy:* Literal Horsefly · *Pirate:* Swamp Horsefly · *Steampunk:* Brass Horsefly · *Horror:* Nightmare Horsefly · *Street Grit:* Hallucination Horsefly · *Space:* Void Horsefly
+- **Attacks:** Hooves (melee 2d6 + Str) and buzzing kick-up (ranged 2d4 + Int).
+- **Buzzing Gallop** (signature): T d6 + Speed, damage to up to T targets. Effects, in order: Prone, Bleeding. Gallops through the air over the party.
+- **Tactics:** Goes for food first and heroes second. Sugar cubes turn it into a fast, slightly gross mount.
+
+> **Ready to run at level 5:** HP 25 · Armor 1 · Str 2, Spd 2 · Init d20 + 2 · Move 12 steps · 1 action · Hooves 2d6 + 2 · Buzzing kick-up 2d4 · Buzzing Gallop 2d6 + 2, two targets, Prone and Bleeding for 2 rounds · Loot box T2 · Threat 2
+
+## Combo Critters: Bosses
+
+### Elephantom
+
+*Boss · Rare · points go Spirit/Luck, Con, Str, Charm*
+
+The ghost of an elephant: still huge, still grey, now see-through. It never forgets, even after death. Especially after death.
+
+- **Called:** *Core and Fantasy:* Elephantom · *Pirate:* Elephantom of the Hold · *Steampunk:* Circus Elephantom · *Horror:* Elephantom · *Street Grit:* Abandoned Zoo Elephantom · *Space:* Derelict Elephantom
+- **Attacks:** Ghostly trunk (melee 2d6 + Str) and spectral trumpet (ranged 2d4 + Int).
+- **Never Forgets** (signature): T d6 + Spirit/Luck, damage to up to T targets. Effects, in order: Frightened, Stunned. It always targets whoever has ever wronged it first. It remembers.
+- **Phantom Stampede:** T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Slowed.
+- **Fade Through the Wall:** T d6 + Spirit/Luck, temp HP for itself. Effect: Invisible.
+- **Tactics:** Haunts the place it was wronged. Return what was taken from it (a tusk, a circus ticket, a very old peanut debt) and it trumpets once and fades away for good.
+
+> **Ready to run at level 6:** HP 135 · Armor 2 · Con 3, Str 3, Charm 3, Spirit/Luck 4 · Init d20 · Move 11 steps · 1 action · Ghostly trunk 2d6 + 3 · Spectral trumpet 2d4 · Never Forgets 2d6 + 4, two targets, Frightened and Stunned for 2 rounds · Phantom Stampede 2d6 + 3, two targets, Prone and Slowed for 2 rounds · Fade Through the Wall 2d6 + 4, temp HP for itself, Invisible for 2 rounds · Loot box T3 · Threat 4
+
+### Hydrangea
+
+*Boss · Epic · points go Con, Spirit/Luck, Str, Int*
+
+A hydra made of flower heads. Lovely to look at, terrible to weed. Cut off one bloom and two more open.
+
+- **Called:** *Core and Fantasy:* Hydrangea · *Pirate:* Jungle Hydrangea · *Steampunk:* Greenhouse Hydrangea · *Horror:* Black Hydrangea · *Street Grit:* Vacant Lot Hydrangea · *Space:* Hydroponic Hydrangea
+- **Attacks:** Vine whip (melee 2d6 + Str) and thorn volley (ranged 2d4 + Int).
+- **Pollen Burst** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Poisoned, Slowed, Stunned. Everyone sneezes.
+- **Two Bloom Back:** T d6 + Constitution, healing for itself.
+- **Thorn Lash:** T d6 + Strength, damage to up to T targets. Effect: Bleeding.
+- **Tactics:** Roots in a garden and never moves. Fire, weed killer, or a very hungry goat ends it for good.
+
+> **Ready to run at level 7:** HP 165 · Armor 2 · Con 4, Str 4, Int 3, Spirit/Luck 4 · Init d20 · Move 12 steps · 1 action · Vine whip 2d6 + 4 · Thorn volley 2d4 + 3 · Pollen Burst 3d6 + 3, three targets, Poisoned and Slowed and Stunned for 3 rounds · Two Bloom Back 3d6 + 4, healing for itself · Thorn Lash 3d6 + 4, three targets, Bleeding for 3 rounds · Loot box T4 · Threat 4
+
+### Tyrannobunny
+
+*Boss · Epic · points go Str, Spd, Con, Charm*
+
+A rabbit as big as a barn with the tiny arms of a terrible lizard. It can see the carrot. It cannot reach the carrot. Everyone will pay.
+
+- **Called:** *Core and Fantasy:* Tyrannobunny · *Pirate:* Island Tyrannobunny · *Steampunk:* Clockwork Tyrannobunny · *Horror:* Harvest Moon Tyrannobunny · *Street Grit:* Hallucination Tyrannobunny · *Space:* Moon Tyrannobunny
+- **Attacks:** Big buck teeth (melee 2d6 + Str) and kicked-up carrot (ranged 2d4 + Int).
+- **Thump** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Stunned, Frightened. Stomps one giant foot and the ground jumps.
+- **Hop Scotch:** T d6 + Speed, damage to up to T targets. Effect: Prone. Leaps across the fight and lands on somebody.
+- **Too Cute to Hit:** T d6 + Charm, damage to up to T targets. Effect: Stunned. Wiggles its nose, and heroes who fail just say "aww."
+- **Tactics:** Rampages through the farmland looking for anything it can hold. Hand it a carrot (somebody has to get close) and it stops to eat for a round per carrot.
+
+> **Ready to run at level 8:** HP 180 · Armor 2 · Con 4, Str 5, Spd 4, Charm 4 · Init d20 + 4 · Move 17 steps · 2 actions · Big buck teeth 2d6 + 5 · Kicked-up carrot 2d4 · Thump 3d6 + 5, three targets, Prone and Stunned and Frightened for 3 rounds · Hop Scotch 3d6 + 4, three targets, Prone for 3 rounds · Too Cute to Hit 3d6 + 4, three targets, Stunned for 3 rounds · Loot box T4 · Threat 4
 
 # Core and Fantasy
 
