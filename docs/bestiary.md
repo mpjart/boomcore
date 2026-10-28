@@ -1819,6 +1819,61 @@ Wooden soldiers with big square jaws and one job. They aim low. They always aim 
 
 > **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Low blow 2d6 · Walnut sling 2d4 · Loot box T1 · Threat 1
 
+### Mind Goblins
+
+*Minion · Common · points go Int, Charm*
+
+Little green psychics who ask if you've heard of them. You say "Who?" They say "Deez nuts." Every time.
+
+- **Attacks:** Noggin knock (melee 2d6 + Str) and thrown nuts (ranged 2d4 + Int).
+- **Tactics:** Swarm whoever falls for the setup. A hero who says "deez nuts" first leaves the whole swarm Frightened for a round, out of professional respect.
+
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Noggin knock 1d6 · Thrown nuts 1d4 · Loot box T1 · Threat 1
+
+### Reanimated Socks
+
+*Minion · Common · points go Con, Str*
+
+Found under a bachelor's bed and raised by dark magic. Stiff, crusty, and nobody wants to touch them.
+
+- **Attacks:** Crusty slap (melee 2d6 + Str) and stiff throw (ranged 2d4 + Int).
+- **Tactics:** No hero will grab, carry, or pocket one, no matter what. A washing machine, a campfire, or a bucket of water ends one instantly.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Crusty slap 2d6 · Stiff throw 2d4 · Loot box T1 · Threat 1
+
+### Butt Pirates
+
+*Minion · Common · points go Spd, Str*
+
+Pirates who only want one thing: your booty. They mean the loot. Mostly.
+
+- **Attacks:** Cutlass (melee 2d6 + Str) and thrown peg leg (ranged 2d4 + Int).
+- **Tactics:** Go after whoever carries the most loot. Hand one a sellable reagent and it sails off happy.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Cutlass 2d6 · Thrown peg leg 2d4 · Loot box T1 · Threat 1
+
+### Midget Wrestlers
+
+*Minion · Common · points go Str, Spd*
+
+A tag team in sequins and masks, here for the title belt and the roar of the crowd.
+
+- **Attacks:** Body slam (melee 2d6 + Str) and top-rope dive (ranged 2d4 + Int).
+- **Tactics:** Fight as a tag team. Each one that drops gives a dramatic tag-out speech. Cheer for them and the swarm bows instead of attacking for a round.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Body slam 2d6 · Top-rope dive 2d4 · Loot box T1 · Threat 1
+
+### Glory Hole Gophers
+
+*Minion · Common · points go Spd, Con*
+
+They pop out of holes in the wall. Nobody knows what they want, and nobody is asking.
+
+- **Attacks:** Surprise nibble (melee 2d6 + Str) and flung dirt (ranged 2d4 + Int).
+- **Tactics:** Pop up, nibble, vanish. Plug the holes and they're done.
+
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Surprise nibble 1d6 · Flung dirt 1d4 · Loot box T1 · Threat 1
+
 ## Grit 18+: Standard Monsters
 
 ### Becky the Throat Goat
@@ -1881,6 +1936,78 @@ A suburban mom with a minivan, a yoga-pants budget, and a direct line to your ma
 
 > **Ready to run at level 6:** HP 40 · Armor 1 · Con 2, Str 1, Charm 2 · Init d20 · Move 11 steps · 1 action · Purse swing 2d6 + 1 · Juice-box grenade 2d4 · Speak to Your Manager 2d6 + 2, two targets, Frightened and Stunned for 2 rounds · Loot box T2 · Threat 2
 
+### Mike Lit
+
+*Standard · Uncommon · points go Spd, Int, Spirit/Luck*
+
+A rogue nobody can find, even with a map, a guide, and detailed instructions. Most heroes give up and pretend they found him.
+
+- **Attacks:** Twin daggers (melee 2d6 + Str) and thrown dart (ranged 2d4 + Int).
+- **Hard to Find** (signature): T d6 + Speed, damage to up to T targets. Effects, in order: Bleeding, Slowed. Then he's Invisible for T rounds, or until he attacks again.
+- **Tactics:** Always somewhere the heroes aren't looking. Ask him for directions and he gets cocky enough to show himself.
+
+> **Ready to run at level 5:** HP 25 · Armor 1 · Int 1, Spd 2, Spirit/Luck 1 · Init d20 + 2 · Move 12 steps · 1 action · Twin daggers 2d6 · Thrown dart 2d4 + 1 · Hard to Find 2d6 + 2, two targets, Bleeding and Slowed for 2 rounds · Loot box T2 · Threat 2
+
+### Cockgobbler
+
+*Standard · Common · points go Str, Con, Charm*
+
+Half rooster, half turkey, all appetite. Struts like he owns the farm and gobbles anything in reach.
+
+- **Attacks:** Beak (melee 2d6 + Str) and gobble (ranged 2d4 + Int).
+- **Thanksgiving Rage** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Frightened, Prone. Charges whoever is holding a fork.
+- **Tactics:** Struts first and fights second. Mention Thanksgiving and he fights to the death.
+
+> **Ready to run at level 4:** HP 25 · Armor 0 · Con 1, Str 1, Charm 1 · Init d20 · Move 9 steps · 1 action · Beak 2d6 + 1 · Gobble 2d4 · Thanksgiving Rage 1d6 + 1, one target, Frightened for 1 round · Loot box T1 · Threat 2
+
+### K-Why Jelly
+
+*Standard · Common · points go Con, Spd*
+
+A slippery slime monster that gets into everything. Nobody knows why. Hence the name.
+
+- **Attacks:** Slippery slap (melee 2d6 + Str) and slime squirt (ranged 2d4 + Int).
+- **Slick Floor** (signature): T d6 + Constitution, damage to up to T targets. Effects, in order: Prone, Slowed. Coats the floor; anyone knocked Prone slides T steps.
+- **Tactics:** Covers the room and lets the heroes fall over. Fire dries it out, and a bag of sand ruins its whole day.
+
+> **Ready to run at level 4:** HP 30 · Armor 0 · Con 2, Spd 1 · Init d20 + 1 · Move 10 steps · 1 action · Slippery slap 2d6 · Slime squirt 2d4 · Slick Floor 1d6 + 2, one target, Prone for 1 round · Loot box T1 · Threat 2
+
+### Purple-Headed Yogurt Slinger
+
+*Standard · Uncommon · points go Int, Con, Spd*
+
+Tall, bald, and purple at the top. It slings warm yogurt from a distance. Everybody ducks. Nobody asks.
+
+- **Attacks:** Headbutt (melee 2d6 + Str) and yogurt sling (ranged 2d4 + Int).
+- **Money Shot** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Stunned, Slowed. Blinding, sticky, and deeply embarrassing.
+- **Tactics:** Hangs back and slings. Once it's spent its shot, it needs a nap: it skips its next turn.
+
+> **Ready to run at level 6:** HP 40 · Armor 1 · Con 2, Int 2, Spd 1 · Init d20 + 1 · Move 12 steps · 1 action · Headbutt 2d6 · Yogurt sling 2d4 + 2 · Money Shot 2d6 + 2, two targets, Stunned and Slowed for 2 rounds · Loot box T2 · Threat 2
+
+### Taint Wraith
+
+*Standard · Common · points go Spirit/Luck, Int*
+
+Not quite the front, not quite the back. "T'ain't this, and t'ain't that," it moans, haunting the space in between.
+
+- **Attacks:** Chill touch (melee 2d6 + Str) and wail (ranged 2d4 + Int).
+- **Neither Here Nor There** (signature): T d6 + Spirit/Luck, damage to up to T targets. Effects, in order: Frightened, Slowed.
+- **Tactics:** Floats between heroes and never picks a side. Make it choose (a Charm check) and it fades away, embarrassed.
+
+> **Ready to run at level 4:** HP 20 · Armor 0 · Int 1, Spirit/Luck 2 · Init d20 · Move 9 steps · 1 action · Chill touch 2d6 · Wail 2d4 + 1 · Neither Here Nor There 1d6 + 2, one target, Frightened for 1 round · Loot box T1 · Threat 2
+
+### Boner Golem
+
+*Standard · Uncommon · points go Con, Str*
+
+A golem of bones that rises at the worst possible moment: weddings, funerals, and job interviews.
+
+- **Attacks:** Stiff arm (melee 2d6 + Str) and thrown femur (ranged 2d4 + Int).
+- **Rise Unexpectedly** (signature): T d6 + Constitution, temp HP for itself. Effect: Blessed. Pops back up at the most awkward time.
+- **Tactics:** Collapses when nobody's looking and rises when everyone is. A bucket of cold water makes it go down for a round.
+
+> **Ready to run at level 6:** HP 45 · Armor 1 · Con 3, Str 2 · Init d20 · Move 11 steps · 1 action · Stiff arm 2d6 + 2 · Thrown femur 2d4 · Rise Unexpectedly 2d6 + 3, temp HP for itself, Blessed for 2 rounds · Loot box T2 · Threat 2
+
 ## Grit 18+: Bosses
 
 ### The Gimp King
@@ -1924,3 +2051,31 @@ A white whale with a grudge, a reputation, and a captain who won't stop talking 
 - **Tactics:** Fights at sea and rams the ship first. A one-legged captain will help the heroes, right up until he wants the kill. Great at Pirate tables, too.
 
 > **Ready to run at level 9:** HP 210 · Armor 3 · Con 5, Str 5, Spd 4, Spirit/Luck 5 · Init d20 + 4 · Move 18 steps · 2 actions · Tail slap 2d6 + 5 · Blowhole spray 2d4 · Breach 3d6 + 5, three targets, Prone and Stunned and Slowed for 3 rounds · Blowhole 3d6 + 5, three targets, Prone and Slowed for 3 rounds · Thick Blubber 3d6 + 5, temp HP for itself · Loot box T4 · Threat 4
+
+### Octopussy
+
+*Boss · Epic · points go Spd, Spirit/Luck, Str, Charm*
+
+A hydra with eight cat heads. Cut one off and two grow back, each one angrier and fluffier.
+
+- **Attacks:** Eight sets of claws (melee 2d6 + Str) and hairball barrage (ranged 2d4 + Int).
+- **Eightfold Pounce** (signature): T d6 + Speed, damage to up to T targets. Effects, in order: Bleeding, Prone, Frightened. All eight heads at once.
+- **Grow Back:** T d6 + Constitution, healing for itself. Two heads grow where one was cut.
+- **Knock It Off the Shelf:** Knocks something off a shelf and stares. T heroes lose their next action watching it fall.
+- **Tactics:** Toys with the heroes like mice. A laser pointer distracts every head for a round, and catnip makes it everybody's friend.
+
+> **Ready to run at level 8:** HP 120 · Armor 2 · Str 4, Spd 5, Charm 4, Spirit/Luck 4 · Init d20 + 5 · Move 18 steps · 2 actions · Eight sets of claws 2d6 + 4 · Hairball barrage 2d4 · Eightfold Pounce 3d6 + 5, three targets, Bleeding and Prone and Frightened for 3 rounds · Grow Back 3d6, healing for itself · Knock It Off the Shelf (T3) · Loot box T4 · Threat 4
+
+### Suckerbus
+
+*Boss · Rare · points go Charm, Con, Spirit/Luck, Spd*
+
+A succubus who drives a neon party bus with an open bar, a disco ball, and a sign that says FREE SHOTS. Climb aboard and you won't remember getting off.
+
+- **Attacks:** Bumper (melee 2d6 + Str) and champagne cork (ranged 2d4 + Int).
+- **Last Call** (signature): T d6 + Charm, damage to up to T targets. Effects, in order: Stunned, Slowed, Poisoned. Free drinks for everyone. They regret it in the morning.
+- **Hop On:** Pulls T heroes aboard; they skip their next turn dancing.
+- **Neon Glow:** T d6 + Spirit/Luck, temp HP for itself. Effect: Blessed.
+- **Tactics:** Charms first and fights second. Any healing sobers a hero up and gets them off the bus.
+
+> **Ready to run at level 7:** HP 165 · Armor 2 · Con 4, Spd 3, Charm 4, Spirit/Luck 4 · Init d20 + 3 · Move 15 steps · 1 action · Bumper 2d6 · Champagne cork 2d4 · Last Call 3d6 + 4, three targets, Stunned and Slowed and Poisoned for 3 rounds · Hop On (T3) · Neon Glow 3d6 + 4, temp HP for itself, Blessed for 3 rounds · Loot box T3 · Threat 4

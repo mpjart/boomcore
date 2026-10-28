@@ -542,7 +542,7 @@ Round everything down, except a minion's HP, which rounds up.
 
 **Example, level 5 boss:** 11 points (2 Con, 3 Str, 2 Int, 2 Spd, 1 Charm, 1 Spirit/Luck). HP 105, armor 1, melee 2d6 + 3, ranged 2d4 + 2, three abilities.
 
-**Ready-made monsters:** the [Bestiary](https://mpjart.github.io/boomcore/bestiary.html) has over 140, built on this template and good at any level: crossover monsters that turn up in every theme (rats, angry bees, bandits, ghosts) and each theme's own, including every monster the app's New encounter button can make. It ends with a bonus **Grit 18+** set of crude pun monsters for adult tables, like Becky the Throat Goat and the three-eyed Dyke-clops; use them only when everyone at the table is in (Safety Tools, Chapter 8).
+**Ready-made monsters:** the [Bestiary](https://mpjart.github.io/boomcore/bestiary.html) has over 150, built on this template and good at any level: crossover monsters that turn up in every theme (rats, angry bees, bandits, ghosts) and each theme's own, including every monster the app's New encounter button can make. It ends with a bonus **Grit 18+** set of crude pun monsters for adult tables, like Becky the Throat Goat and the three-eyed Dyke-clops; use them only when everyone at the table is in (Safety Tools, Chapter 8).
 
 ### Fair Encounters
 
