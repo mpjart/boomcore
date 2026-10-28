@@ -569,7 +569,7 @@ In the app, the table theme changes the look only (colors and fonts). The **curr
 | Charm | Charm | Parley | Etiquette | Charisma | Swagger | Presence |
 | Spirit/Luck | Spirit/Luck | Luck o' the sea | Aether | Fate | Luck | Fortune |
 
-The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look in the app, handouts painted on a ship's planks, and its own [loot name tables](https://mpjart.github.io/boomcore/loot-names.html). Conditions might be Seasick, Overboard, or Keelhauled.
+The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look in the app, handouts drawn as grimy treasure maps (or pictures nailed to a black flag under a skull and crossbones), and its own [loot name tables](https://mpjart.github.io/boomcore/loot-names.html). Conditions might be Seasick, Overboard, or Keelhauled.
 
 The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leather and brass look, handouts typed onto leather in a riveted brass frame with gears, and its own loot name tables. Conditions might be Scalded, Overwound, or Short-Circuited.
 
