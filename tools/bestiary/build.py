@@ -3,7 +3,8 @@ Run from the repo root:  python3 tools/bestiary/build.py core pirate steampunk h
 """
 import importlib.util, math, sys, os
 HERE = os.path.dirname(os.path.abspath(__file__))
-THEMES = sys.argv[1:] or ["core"]
+THEMES = sys.argv[1:] or ["everywhere", "core", "pirate", "steampunk", "horror", "grit", "space"]
+TNAME = {"core":"Core and Fantasy","pirate":"Pirate","steampunk":"Steampunk","horror":"Horror","grit":"Street Grit","space":"Space"}
 SN = {"con":"Con","str":"Str","int":"Int","spd":"Spd","cha":"Charm","lck":"Spirit/Luck"}
 SLONG = {"con":"Constitution","str":"Strength","int":"Intellect","spd":"Speed","cha":"Charm","lck":"Spirit/Luck"}
 TIER = ["Common","Uncommon","Rare","Epic","Legendary","Divine"]
@@ -48,9 +49,11 @@ def entry(m):
     st, hp, armor = sample(m)
     k, lv, tier = m["kind"], m["lv"], min(m["rar"], max(1, math.ceil(m["lv"] / 3)))
     out = [f"### {m['n']}", "",
-           f"*{KIND[k]} · {TIER[tier-1]} · points go {', '.join(SN[s] for s in m['order'])}*", "",
+           f"*{KIND[k]} · {TIER[m['rar']-1]} · points go {', '.join(SN[s] for s in m['order'])}*", "",
            m["d"], ""]
     mel, rng = m["atk"]
+    if m.get("called"):
+        out.append("- **Called:** " + " · ".join(f"*{TNAME[k]}:* {v}" for k, v in m["called"].items()))
     out.append(f"- **Attacks:** {mel} (melee 2d6 + Str) and {rng.lower()} (ranged 2d4 + Int).")
     for i, a in enumerate(m.get("ab", [])):
         line = ab_line(a)
@@ -74,7 +77,7 @@ def load(t):
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod); return mod
 
 out = ["# Boom Bestiary", "",
-"*Updated October 28, 2026. A starter bestiary for every theme: each monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). Rename anything; the math stays the same.*", "",
+"*Updated October 28, 2026. A starter bestiary for every theme: every monster the app's encounter button can make, plus Boom originals from the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html). It starts with **Everywhere**, the crossover monsters that turn up in every theme under a local name (a bilge rat and a vent rat are the same rat), then each theme's own monsters. Rename anything; the math stays the same.*", "",
 "## How to Use the Bestiary", "",
 "- **Every monster works at any level.** Build it with the template in Chapter 9: its type sets its stat points, HP, armor, and threat. Its level is up to you, usually within a couple of levels of the party.",
 "- **Points go** in the order listed, then repeat. A standard monster with *points go Str, Con* at level 4 gets 3 points: Str, Con, Str. (The app's monster maker deals them with a d6 instead. Either way works.)",
@@ -85,12 +88,16 @@ out = ["# Boom Bestiary", "",
 "- **Rarity** is the usual one. It sets the loot box tier, and the CM can raise or lower it for a tougher or easier version.",
 "- **Ready to run** gives every number for one sample level and rarity, so you can use it straight from the page.",
 "- **In the app:** in the CM tab's Monsters card, enter the name, level, type, and rarity, set the stats to match (or keep the rolled ones), and add its abilities. The card shows the tier cap and marks each ability once it's used.", ""]
+EV = load("everywhere")
 for t in THEMES:
     mod = load(t)
     out += [f"# {mod.THEME}", "", mod.INTRO, ""]
+    if t != "everywhere":
+        here = [f"{m['called'][t]} ({m['n']})" if m['called'][t] != m['n'] else m['n'] for m in EV.M]
+        out += ["**Also in this theme,** from Everywhere: " + ", ".join(here) + ".", ""]
     for k, h in [("minion","Minions"),("standard","Standard Monsters"),("boss","Bosses")]:
         out += [f"## {mod.THEME}: {h}" if len(THEMES) > 1 else f"## {h}", ""]
         for m in mod.M:
             if m["kind"] == k: out += entry(m)
 open(os.environ.get("OUT", "/home/claude/boomcore/docs/bestiary.md"), "w").write("\n".join(out))
-print("monsters:", sum(len(load(t).M) for t in THEMES))
+print("monsters:", {t: len(load(t).M) for t in THEMES}, "total", sum(len(load(t).M) for t in THEMES))

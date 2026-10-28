@@ -1,6 +1,6 @@
 # Boom Core Guidelines
 
-*Updated October 28, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html), go shopping with the [shop tables](https://mpjart.github.io/boomcore/shop-tables.html), prep a session with the [prep tables](https://mpjart.github.io/boomcore/prep-tables.html), and start with the one-shot [The Hollow Crown](https://mpjart.github.io/boomcore/the-hollow-crown.pdf). These guidelines are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see License at the end).*
+*Updated October 28, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html), go shopping with the [shop tables](https://mpjart.github.io/boomcore/shop-tables.html), prep a session with the [prep tables](https://mpjart.github.io/boomcore/prep-tables.html), find a foe in the [bestiary](https://mpjart.github.io/boomcore/bestiary.html), and start with the one-shot [The Hollow Crown](https://mpjart.github.io/boomcore/the-hollow-crown.pdf). These guidelines are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see License at the end).*
 
 ## Chapter 1: What Is Boom?
 
@@ -518,6 +518,8 @@ Round everything down, except a minion's HP, which rounds up.
 
 **Example, level 5 boss:** 11 points (2 Con, 3 Str, 2 Int, 2 Spd, 1 Charm, 1 Spirit/Luck). HP 105, armor 1, melee 2d6 + 3, ranged 2d4 + 2, three abilities.
 
+**Ready-made monsters:** the [Bestiary](https://mpjart.github.io/boomcore/bestiary.html) has over 130, built on this template and good at any level: crossover monsters that turn up in every theme (rats, angry bees, bandits, ghosts) and each theme's own, including every monster the app's New encounter button can make.
+
 ### Fair Encounters
 
 Add up the monsters' threat points and compare with the party size.
@@ -571,7 +573,7 @@ The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look i
 
 The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leather and brass look, handouts typed onto leather in a riveted brass frame with gears, and its own loot name tables. Conditions might be Scalded, Overwound, or Short-Circuited.
 
-Every theme has its own six shops on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, from a bodega that somehow sells rope to a hangar that sells space stations (some assembly required). Every theme also has its own d100 rumors, encounters, and plot hooks on the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html) page, from a sharksquid in the mill pond to a bodega cat that runs the neighborhood.
+Every theme has its own six shops on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, from a bodega that somehow sells rope to a hangar that sells space stations (some assembly required). Every theme also has its own d100 rumors, encounters, and plot hooks on the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html) page, from a sharksquid in the mill pond to a bodega cat that runs the neighborhood. The [Bestiary](https://mpjart.github.io/boomcore/bestiary.html) gives every theme its own monsters, plus crossover ones under local names: a bilge rat, a clockwork rat, and a vent rat are the same rat in a different hat.
 
 ### What Changes Easily
 
@@ -638,4 +640,4 @@ The **mode** is the single most likely total; it sits below the average because 
 
 You're free to share, copy, adapt, remix, and even sell what you make with these rules, as long as you give credit. A line like this does it: *"Uses the Boom Core Guidelines by mpjart, licensed CC BY 4.0, mpjart.github.io/boomcore."* Say if you changed anything, and don't suggest we endorse your version (unless we do, in which case, boom).
 
-The same license covers the Shop Tables, the Prep Tables, the Loot Name Tables, the Core Master screen, and The Hollow Crown. The Boom Dice app's code is open source under the MIT License (see LICENSE in the repo).
+The same license covers the Shop Tables, the Prep Tables, the Bestiary, the Loot Name Tables, the Core Master screen, and The Hollow Crown. The Boom Dice app's code is open source under the MIT License (see LICENSE in the repo).
