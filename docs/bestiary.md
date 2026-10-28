@@ -6,12 +6,13 @@
 
 - **Every monster works at any level.** Build it with the template in Chapter 9: its type sets its stat points, HP, armor, and threat. Its level is up to you, usually within a couple of levels of the party.
 - **Points go** in the order listed, then repeat. A standard monster with *points go Str, Con* at level 4 gets 3 points: Str, Con, Str. (The app's monster maker deals them with a d6 instead. Either way works.)
-- **Attacks** are always melee 2d6 + Strength and ranged 2d4 + Intellect. The names are flavor.
-- **Abilities use T, the monster's rarity tier** (Common is T1, up to Divine at T6), just like Chapter 4: T d6 plus the stat, up to T targets, effects lasting T rounds. Effects are listed in order: take as many as the tier allows. A T2 Wing Buffet knocks targets Prone and Slows them.
+- **Attacks** are always melee 2d6 + Strength and ranged 2d4 + Intellect (1d6 and 1d4 at level 1). The names are flavor.
+- **Abilities use T, the monster's rarity tier** (Common is T1, up to Divine at T6), but **never above its level ÷ 3, rounded up** (Chapter 9): T d6 plus the stat, up to T targets, effects lasting T rounds. Effects are listed in order: take as many as the tier allows. A T2 Wing Buffet knocks targets Prone and Slows them.
+- **Each ability is used once per fight.** After that, the monster attacks.
 - **Minions** have no abilities and swarm (Chapter 3). **Standard** monsters have a signature ability. **Bosses** have three, and the first is the signature, the one an ability token can mimic.
 - **Rarity** is the usual one. It sets the loot box tier, and the CM can raise or lower it for a tougher or easier version.
 - **Ready to run** gives every number for one sample level and rarity, so you can use it straight from the page.
-- **In the app:** in the CM tab's Monsters card, enter the name, level, type, and rarity, set the stats to match (or keep the rolled ones), and add its abilities.
+- **In the app:** in the CM tab's Monsters card, enter the name, level, type, and rarity, set the stats to match (or keep the rolled ones), and add its abilities. The card shows the tier cap and marks each ability once it's used.
 
 # Core and Fantasy
 
@@ -39,7 +40,7 @@ Scaly little trap-builders who argue about every trap they build.
 - **Attacks:** Spear jab (melee 2d6 + Str) and sling (ranged 2d4 + Int).
 - **Tactics:** Fight next to their own traps. A hero who chases a kobold usually finds the pit first.
 
-> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Spear jab 2d6 · Sling 2d4 · Loot box T1 · Threat 1
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Spear jab 1d6 · Sling 1d4 · Loot box T1 · Threat 1
 
 ### Skeleton
 
@@ -61,7 +62,7 @@ The size of a dog, the manners of a rat.
 - **Attacks:** Bite (melee 2d6 + Str) and spit (ranged 2d4 + Int).
 - **Tactics:** Comes in swarms from walls and drains. Goes after anyone who's bleeding.
 
-> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Bite 2d6 · Spit 2d4 · Loot box T1 · Threat 1
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Bite 1d6 · Spit 1d4 · Loot box T1 · Threat 1
 
 ### Cultist
 
@@ -223,7 +224,7 @@ A lizard as long as a wagon whose stare turns flesh grey and stiff.
 
 ### Goblin Chief
 
-*Boss · Rare · points go Str, Charm, Spd, Con*
+*Boss · Uncommon · points go Str, Charm, Spd, Con*
 
 The goblin who shouts the loudest and owns the shiniest hat.
 
@@ -233,11 +234,11 @@ The goblin who shouts the loudest and owns the shiniest hat.
 - **Scram:** T d6 + Speed, temp HP for itself. Effect: Invisible. Ducks out of sight to fight another day.
 - **Tactics:** Hides behind goblins and shouts orders. Bargains the moment it is losing.
 
-> **Ready to run at level 4:** HP 90 · Armor 1 · Con 2, Str 3, Spd 2, Charm 2 · Init d20 + 2 · Move 11 steps · 1 action · Big stolen sword 2d6 + 3 · Throwing pot 2d4 · Rally the Mob 3d6 + 2, temp HP for three allies, Blessed for 3 rounds · Cheap Shot 3d6 + 3, three targets, Prone for 3 rounds · Scram 3d6 + 2, temp HP for itself, Invisible for 3 rounds · Loot box T3 · Threat 4
+> **Ready to run at level 4:** HP 90 · Armor 1 · Con 2, Str 3, Spd 2, Charm 2 · Init d20 + 2 · Move 11 steps · 1 action · Big stolen sword 2d6 + 3 · Throwing pot 2d4 · Rally the Mob 2d6 + 2, temp HP for two allies, Blessed for 2 rounds · Cheap Shot 2d6 + 3, two targets, Prone for 2 rounds · Scram 2d6 + 2, temp HP for itself, Invisible for 2 rounds · Loot box T3 · Threat 4
 
 ### Ogre
 
-*Boss · Epic · points go Str, Con, Str, Spd*
+*Boss · Uncommon · points go Str, Con, Str, Spd*
 
 Huge, hungry, and surprisingly good at tea (see the rumor tables).
 
@@ -247,11 +248,11 @@ Huge, hungry, and surprisingly good at tea (see the rumor tables).
 - **Thick Skull:** T d6 + Constitution, temp HP for itself.
 - **Tactics:** Smashes whatever is closest. Can be talked down with enough food.
 
-> **Ready to run at level 6:** HP 135 · Armor 2 · Con 3, Str 7, Spd 3 · Init d20 + 3 · Move 14 steps · 1 action · Tree-trunk club 2d6 + 7 · Thrown boulder 2d4 · Ground Pound 4d6 + 7, four targets, Prone and Slowed and Stunned for 4 rounds · Grab and Toss 4d6 + 7, four targets, Prone for 4 rounds · Thick Skull 4d6 + 3, temp HP for itself · Loot box T4 · Threat 4
+> **Ready to run at level 6:** HP 135 · Armor 2 · Con 3, Str 7, Spd 3 · Init d20 + 3 · Move 14 steps · 1 action · Tree-trunk club 2d6 + 7 · Thrown boulder 2d4 · Ground Pound 2d6 + 7, two targets, Prone and Slowed for 2 rounds · Grab and Toss 2d6 + 7, two targets, Prone for 2 rounds · Thick Skull 2d6 + 3, temp HP for itself · Loot box T4 · Threat 4
 
 ### Bandit Captain
 
-*Boss · Epic · points go Spd, Str, Charm, Con*
+*Boss · Uncommon · points go Spd, Str, Charm, Con*
 
 Charming, well-dressed, and wanted in three kingdoms.
 
@@ -261,11 +262,11 @@ Charming, well-dressed, and wanted in three kingdoms.
 - **Smoke Bomb:** T d6 + Intellect, damage to up to T targets. Effects, in order: Slowed, Frightened. The captain turns Invisible for T rounds, too.
 - **Tactics:** Duels the best fighter and toys with the rest. Always has an escape route.
 
-> **Ready to run at level 5:** HP 105 · Armor 1 · Con 2, Str 3, Spd 3, Charm 3 · Init d20 + 3 · Move 13 steps · 1 action · Rapier 2d6 + 3 · Pistol 2d4 · Dirty Trick 4d6 + 3, four targets, Stunned and Poisoned for 4 rounds · Lead From the Front 4d6 + 3, temp HP for four allies, Blessed for 4 rounds · Smoke Bomb 4d6, four targets, Slowed and Frightened for 4 rounds · Loot box T4 · Threat 4
+> **Ready to run at level 5:** HP 105 · Armor 1 · Con 2, Str 3, Spd 3, Charm 3 · Init d20 + 3 · Move 13 steps · 1 action · Rapier 2d6 + 3 · Pistol 2d4 · Dirty Trick 2d6 + 3, two targets, Stunned and Poisoned for 2 rounds · Lead From the Front 2d6 + 3, temp HP for two allies, Blessed for 2 rounds · Smoke Bomb 2d6, two targets, Slowed and Frightened for 2 rounds · Loot box T4 · Threat 4
 
 ### Necromancer
 
-*Boss · Epic · points go Int, Spirit/Luck, Con, Spd*
+*Boss · Uncommon · points go Int, Spirit/Luck, Con, Spd*
 
 A wizard who decided the dead make better friends than the living.
 
@@ -275,11 +276,11 @@ A wizard who decided the dead make better friends than the living.
 - **Bone Shield:** T d6 + Constitution, temp HP for itself.
 - **Tactics:** Stays behind its skeletons. Raises more each round. Knock it down and the skeletons fall too.
 
-> **Ready to run at level 6:** HP 135 · Armor 2 · Con 3, Int 4, Spd 3, Spirit/Luck 3 · Init d20 + 3 · Move 14 steps · 1 action · Bone staff 2d6 · Grave bolt 2d4 + 4 · Raise the Dead (T4) · Life Drain 4d6 + 4, four targets, Bleeding and Slowed for 4 rounds · Bone Shield 4d6 + 3, temp HP for itself · Loot box T4 · Threat 4
+> **Ready to run at level 6:** HP 135 · Armor 2 · Con 3, Int 4, Spd 3, Spirit/Luck 3 · Init d20 + 3 · Move 14 steps · 1 action · Bone staff 2d6 · Grave bolt 2d4 + 4 · Raise the Dead (T2) · Life Drain 2d6 + 4, two targets, Bleeding and Slowed for 2 rounds · Bone Shield 2d6 + 3, temp HP for itself · Loot box T4 · Threat 4
 
 ### Troll
 
-*Boss · Epic · points go Con, Str, Con, Spd*
+*Boss · Rare · points go Con, Str, Con, Spd*
 
 Tall, rubbery, and it grows back. Fire and acid make it stop.
 
@@ -289,11 +290,11 @@ Tall, rubbery, and it grows back. Fire and acid make it stop.
 - **Bridge Toll:** T d6 + Charm, damage to up to T targets. Effect: Frightened. Demands payment. Union rates apply.
 - **Tactics:** Fights until it's below a quarter of its HP, then bargains.
 
-> **Ready to run at level 7:** HP 225 · Armor 2 · Con 8, Str 4, Spd 3 · Init d20 + 3 · Move 15 steps · 1 action · Claws 2d6 + 4 · Thrown rock 2d4 · Rend 4d6 + 4, four targets, Bleeding and Prone for 4 rounds · Regrow 4d6 + 8, healing for itself · Bridge Toll 4d6, four targets, Frightened for 4 rounds · Loot box T4 · Threat 4
+> **Ready to run at level 7:** HP 225 · Armor 2 · Con 8, Str 4, Spd 3 · Init d20 + 3 · Move 15 steps · 1 action · Claws 2d6 + 4 · Thrown rock 2d4 · Rend 3d6 + 4, three targets, Bleeding and Prone for 3 rounds · Regrow 3d6 + 8, healing for itself · Bridge Toll 3d6, three targets, Frightened for 3 rounds · Loot box T4 · Threat 4
 
 ### Wyvern
 
-*Boss · Epic · points go Spd, Str, Con, Con*
+*Boss · Rare · points go Spd, Str, Con, Con*
 
 A dragon's angry cousin with a poison tail and no interest in talking.
 
@@ -303,7 +304,7 @@ A dragon's angry cousin with a poison tail and no interest in talking.
 - **Roar:** T d6 + Charm, damage to up to T targets. Effect: Frightened.
 - **Tactics:** Fights from the air. Lands only to finish someone off.
 
-> **Ready to run at level 7:** HP 210 · Armor 2 · Con 7, Str 4, Spd 4 · Init d20 + 4 · Move 16 steps · 2 actions · Bite 2d6 + 4 · Tail stinger 2d4 · Poison Sting 4d6 + 4, four targets, Poisoned and Slowed for 4 rounds · Swoop 4d6 + 4, four targets, Prone for 4 rounds · Roar 4d6, four targets, Frightened for 4 rounds · Loot box T4 · Threat 4
+> **Ready to run at level 7:** HP 210 · Armor 2 · Con 7, Str 4, Spd 4 · Init d20 + 4 · Move 16 steps · 2 actions · Bite 2d6 + 4 · Tail stinger 2d4 · Poison Sting 3d6 + 4, three targets, Poisoned and Slowed for 3 rounds · Swoop 3d6 + 4, three targets, Prone for 3 rounds · Roar 3d6, three targets, Frightened for 3 rounds · Loot box T4 · Threat 4
 
 ### Young Dragon
 

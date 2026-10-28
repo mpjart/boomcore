@@ -46,7 +46,7 @@ def ab_line(a, tier=None, st=None):
 
 def entry(m):
     st, hp, armor = sample(m)
-    k, lv, tier = m["kind"], m["lv"], m["rar"]
+    k, lv, tier = m["kind"], m["lv"], min(m["rar"], max(1, math.ceil(m["lv"] / 3)))
     out = [f"### {m['n']}", "",
            f"*{KIND[k]} · {TIER[tier-1]} · points go {', '.join(SN[s] for s in m['order'])}*", "",
            m["d"], ""]
@@ -62,9 +62,9 @@ def entry(m):
     spd = st["spd"]
     bits = [f"HP {hp}", f"Armor {armor}", stats, f"Init d20{plus(spd)}", f"Move {5+lv+spd} steps",
             f"{1+spd//4} action{'s' if 1+spd//4>1 else ''}",
-            f"{mel} 2d6{plus(st['str'])}", f"{rng} 2d4{plus(st['int'])}"]
+            f"{mel} {'1d6' if lv <= 1 else '2d6'}{plus(st['str'])}", f"{rng} {'1d4' if lv <= 1 else '2d4'}{plus(st['int'])}"]
     bits += [ab_line(a, tier, st) for a in m.get("ab", [])]
-    bits += [f"Loot box T{tier}", f"Threat {THREAT[k]}"]
+    bits += [f"Loot box T{m['rar']}", f"Threat {THREAT[k]}"]
     out.append(f"> **Ready to run at level {lv}:** " + " · ".join(bits))
     out.append("")
     return out
@@ -78,12 +78,13 @@ out = ["# Boom Bestiary", "",
 "## How to Use the Bestiary", "",
 "- **Every monster works at any level.** Build it with the template in Chapter 9: its type sets its stat points, HP, armor, and threat. Its level is up to you, usually within a couple of levels of the party.",
 "- **Points go** in the order listed, then repeat. A standard monster with *points go Str, Con* at level 4 gets 3 points: Str, Con, Str. (The app's monster maker deals them with a d6 instead. Either way works.)",
-"- **Attacks** are always melee 2d6 + Strength and ranged 2d4 + Intellect. The names are flavor.",
-"- **Abilities use T, the monster's rarity tier** (Common is T1, up to Divine at T6), just like Chapter 4: T d6 plus the stat, up to T targets, effects lasting T rounds. Effects are listed in order: take as many as the tier allows. A T2 Wing Buffet knocks targets Prone and Slows them.",
+"- **Attacks** are always melee 2d6 + Strength and ranged 2d4 + Intellect (1d6 and 1d4 at level 1). The names are flavor.",
+"- **Abilities use T, the monster's rarity tier** (Common is T1, up to Divine at T6), but **never above its level ÷ 3, rounded up** (Chapter 9): T d6 plus the stat, up to T targets, effects lasting T rounds. Effects are listed in order: take as many as the tier allows. A T2 Wing Buffet knocks targets Prone and Slows them.",
+"- **Each ability is used once per fight.** After that, the monster attacks.",
 "- **Minions** have no abilities and swarm (Chapter 3). **Standard** monsters have a signature ability. **Bosses** have three, and the first is the signature, the one an ability token can mimic.",
 "- **Rarity** is the usual one. It sets the loot box tier, and the CM can raise or lower it for a tougher or easier version.",
 "- **Ready to run** gives every number for one sample level and rarity, so you can use it straight from the page.",
-"- **In the app:** in the CM tab's Monsters card, enter the name, level, type, and rarity, set the stats to match (or keep the rolled ones), and add its abilities.", ""]
+"- **In the app:** in the CM tab's Monsters card, enter the name, level, type, and rarity, set the stats to match (or keep the rolled ones), and add its abilities. The card shows the tier cap and marks each ability once it's used.", ""]
 for t in THEMES:
     mod = load(t)
     out += [f"# {mod.THEME}", "", mod.INTRO, ""]
