@@ -36,7 +36,7 @@ window.printSheet=function(c){
  ul{margin:0;padding-left:18px}.notes{white-space:pre-wrap;border:1px solid #ccc;border-radius:6px;padding:8px;min-height:60px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
  .foot{margin-top:14px;font:9pt system-ui,sans-serif;color:#555}
  </style></head><body>
- <div class="top"><div><div class="brand">Boom · Beyond Our Own Maximum</div><h1>${esc(c.name||'Unnamed')}</h1></div><div style="text-align:right"><b style="font-size:18pt">Level ${c.level}</b>${c.dead?'<div>☠ Dead</div>':''}</div></div>
+ <div class="top"><div><div class="brand">Boom · Beyond Our Own Maximum</div><h1>${esc(c.name||'Unnamed')}</h1></div><div style="text-align:right"><b style="font-size:18pt">Level ${c.level}</b>${c.dead?'<div>Dead</div>':''}</div></div>
  <div class="boxes">
   <div class="box"><small>HP</small><b>${cur} / ${k.hp}</b>${c.temp?`<div>+${c.temp} temp</div>`:''}</div>
   <div class="box"><small>Armor</small><b>${A.p+A.m}</b><div>${A.p} phys · ${A.m} mag</div></div>
@@ -114,9 +114,9 @@ function renderSave(busy){
  const box=$('#savebox');if(!box)return;const acts=$('#saveacts');acts.replaceChildren();
  if(!pending)return;
  const hasParty=Object.keys(pending.data.party||{}).length>0,isEnc=pending.kind==='encounter'||!hasParty;
- const enc=btn(armed==='encounter'?'Tap again to add it':'⚔ Add encounter only',()=>doImport('encounter'),armed==='encounter'?'dmg':'rb');
+ const enc=btn(armed==='encounter'?'Tap again to add it':'Add encounter only',()=>doImport('encounter'),armed==='encounter'?'dmg':'rb');
  enc.title='Adds its monsters and map. Keeps your party, loot, and everything else.';enc.disabled=!!busy;acts.append(enc);
- if(!isEnc){const s=btn(armed==='session'?'Tap again: this replaces the whole table':'⬆ Replace the whole table',()=>doImport('session'),armed==='session'?'dmg':'ghost');s.disabled=!!busy;acts.append(s);}
+ if(!isEnc){const s=btn(armed==='session'?'Tap again: this replaces the whole table':'Replace the whole table',()=>doImport('session'),armed==='session'?'dmg':'ghost');s.disabled=!!busy;acts.append(s);}
  acts.append(btn('Cancel',()=>{pending=null;armed='';$('#savestat').textContent='';renderSave();},'ghost'));}
 window.saveInit=function(){
  const box=$('#savebox');if(!box)return;

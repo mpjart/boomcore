@@ -33,7 +33,7 @@ async function addMon(k,name,n,quiet){
  if(!quiet)toast('Added '+(n>1?n+' × ':'')+name);return n;}
 async function addFight(k,f){const n=pickSize(f),list=f.by[n]||[];let tot=0;
  for(const[nm,c]of list)tot+=await addMon(k,nm,c,true);
- if(tot){const m='👹 '+f.t+': '+list.map(([nm,c])=>c>1?c+' '+nm+'s':nm).join(', ')+' (for '+n+' heroes)';toast(m);logEvent(m);cmShow('mon');}}
+ if(tot){const m=''+f.t+': '+list.map(([nm,c])=>c>1?c+' '+nm+'s':nm).join(', ')+' (for '+n+' heroes)';toast(m);logEvent(m);cmShow('mon');}}
 async function makeBox(k,b){
  const to=b.for==='party'?'party':b.for==='stash'?'stash':'hero',heroes=living();
  if(to==='hero'&&!heroes.length)return toast('Add heroes in the Party tab first');
@@ -47,7 +47,7 @@ async function makeBox(k,b){
  if(to==='hero'){for(const h of heroes)await mk({...base,to,hero:h.id,heroName:h.name||''});}
  else await mk({...base,to,hero:'',heroName:'',secs:30,until:Date.now()+30000});
  const who=to==='party'?'the whole party':to==='stash'?'the party stash':'each hero';
- logEvent('🎁 '+(to==='hero'?heroes.length+' ':'A ')+'T'+(b.t0+1)+' '+LT[b.t0]+' loot box'+(to==='hero'&&heroes.length>1?'es are':' is')+' waiting for '+who+(b.note?' ('+b.note+')':'')+(to==='hero'?'. Open them in the Loot tab.':'. Grab it in the Loot tab within 30 sec!'));
+ logEvent(''+(to==='hero'?heroes.length+' ':'A ')+'T'+(b.t0+1)+' '+LT[b.t0]+' loot box'+(to==='hero'&&heroes.length>1?'es are':' is')+' waiting for '+who+(b.note?' ('+b.note+')':'')+(to==='hero'?'. Open them in the Loot tab.':'. Grab it in the Loot tab within 30 sec!'));
  toast('Loot box made for '+who);}
 function render(){const w=$('#kitbox');if(!w)return;w.replaceChildren();
  w.append(el('b','pn','One-shots'));
@@ -61,16 +61,16 @@ function render(){const w=$('#kitbox');if(!w)return;w.replaceChildren();
  [3,4].forEach(n=>ps.add(new Option(n+' heroes',n)));ps.value=String(partySize());ps.onchange=()=>{size=+ps.value;render();};
  r.append(ks,ps);w.append(r);
  const info=el('div','kact');info.append(el('small','note',[k.levels&&'Levels '+k.levels,k.heroes&&k.heroes+' heroes'].filter(Boolean).join(' · ')));
- if(k.pdf){const a=document.createElement('a');a.href=k.pdf;a.target='_blank';a.rel='noopener';a.className='ghost sm cmact';a.textContent='📄 Read the adventure';info.append(a);}
+ if(k.pdf){const a=document.createElement('a');a.href=k.pdf;a.target='_blank';a.rel='noopener';a.className='ghost sm cmact';a.textContent='Read the adventure';info.append(a);}
  w.append(info);
  if(!isDM||!monCol)w.append(el('div','note','Start a table as the Core Master (or Play solo) to add monsters.'));
  k.parts.forEach((p,pi)=>{const d=document.createElement('details');const key='boomkitopen:'+k.id+':'+pi;try{d.open=localStorage.getItem(key)==='1';}catch{}
   d.addEventListener('toggle',()=>{try{localStorage.setItem(key,d.open?'1':'0')}catch{}});
   const s=document.createElement('summary');s.textContent=p.t;d.append(s);
   p.scenes.forEach(sc=>{const b=el('div','ksc');b.append(el('b',null,sc.t));
-   sc.fights.forEach(f=>{const n=pickSize(f),row=el('div','krow'),t=el('span',null,'👹 '+f.t);t.append(el('small',null,(f.by[n]||[]).map(([nm,c])=>c+' × '+nm).join(', ')+' · for '+n+' heroes'));
+   sc.fights.forEach(f=>{const n=pickSize(f),row=el('div','krow'),t=el('span',null,''+f.t);t.append(el('small',null,(f.by[n]||[]).map(([nm,c])=>c+' × '+nm).join(', ')+' · for '+n+' heroes'));
     row.append(t,btn('Add fight',()=>addFight(k,f),'sm rb'));b.append(row);});
-   sc.loot.forEach(x=>{const row=el('div','krow'),t=el('span',null,'🎁 T'+(x.t0+1)+' '+LT[x.t0]+' box');
+   sc.loot.forEach(x=>{const row=el('div','krow'),t=el('span',null,'T'+(x.t0+1)+' '+LT[x.t0]+' box');
     t.append(el('small',null,(x.for==='each'?'One for each hero':x.for==='party'?'Party loot: everyone gets a copy':'Into the party stash')+' · level '+x.L+' monster'+(x.note?' · '+x.note:'')));
     row.append(t,btn('Make box',()=>makeBox(k,x),'sm heal'));b.append(row);});
    d.append(b);});

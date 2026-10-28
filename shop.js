@@ -1,4 +1,4 @@
-// Boom Shop: the buying pop-up. Opens from the 🛒 Shop button in the Loot tab while the market is open
+// Boom Shop: the buying pop-up. Opens from the Shop button in the Loot tab while the market is open
 // (the Core Master can always open it). Stock comes from shops.js, built from docs/shop-tables.md.
 // Prices are fixed, in coins of each item's tier, with the CM's price dial applied (rounded down).
 // Shop goods have no stats: weapons are plain (no plus), armor is always 1, and shops never buy their own stock back.
@@ -31,7 +31,7 @@ function close(){if(ov){ov.remove();ov=null;}document.removeEventListener('keydo
 function esc(e){if(e.key==='Escape')close();}
 function buy(it,tier){
  if(!canSell())return;
- const c=who();if(!c)return toast(isDM?'Choose who is buying':'Pick your hero first (🙋 This is me on the Party tab)');
+ const c=who();if(!c)return toast(isDM?'Choose who is buying':'Pick your hero first (tap "This is me" on the Party tab)');
  if(!isDM&&c.id!==myHero)return toast('You can only buy for your own hero');
  const k=kindOf(it),t=it[1]<0?tier:it[1],base=it[1]<0?10:it[2],cost=price(base);
  const cur=chars.find(x=>x.id===c.id)||c,arr=coinSub(coinsOf(cur),t,cost);
@@ -42,10 +42,10 @@ function buy(it,tier){
  else if(k==='armor')l.push({id:uid(),k:'item',ty:'armor',n:shown,t:0,plus:0,sk:'',at:/magical/i.test(it[3])?'m':'p',shop:1});
  else l.push({id:uid(),k:'item',ty:'gear',n:k==='ammo'?shown+' (refills from storage)':nm,t,plus:0,sk:'',shop:1});
  setLoot(cur,l,{coins:arr,gold:arr[0]});
- const m='🛒 '+(cur.name||'A hero')+' buys '+shown+' for '+cost+' '+LT[t]+' coin'+(cost===1?'':'s');toast(m);logEvent(m);render();}
+ const m=''+(cur.name||'A hero')+' buys '+shown+' for '+cost+' '+LT[t]+' coin'+(cost===1?'':'s');toast(m);logEvent(m);render();}
 function render(){
  if(!ov)return;const data=(window.BOOM_SHOPS||{})[theme]||[],c=ov.querySelector('.shopc');c.replaceChildren();
- const h=el('div','shh');h.append(el('b','pn','🛒 Shop'),btn('Close',close,'ghost sm'));c.append(h);
+ const h=el('div','shh');h.append(el('b','pn','Shop'),btn('Close',close,'ghost sm'));c.append(h);
  c.append(el('div','note',(marketOpen?'The market is open.':'The market is closed: only the Core Master can buy right now.')+' Prices are in coins of each item\'s tier'+(dialPct()?', with the price dial at '+(dialPct()>0?'+':'')+dialPct()+'%':'')+'. Shop goods have no stats, and shops never buy their own stock back.'));
  const sel=el('div','shsel'),wb=el('div'),wt=el('div');
  const bs=document.createElement('select');bs.id='shopwho';const hs=heroes().filter(x=>isDM||x.id===myHero);
@@ -54,7 +54,7 @@ function render(){
  const lb=el('label',null,'Buying for');lb.htmlFor='shopwho';wb.append(lb,bs);
  const ts=document.createElement('select');ts.id='shopth';THEMES.forEach(([k,n])=>ts.add(new Option(n,k)));ts.value=theme;ts.onchange=()=>{theme=ts.value;shopI=0;render();};
  const lt=el('label',null,'Shops');lt.htmlFor='shopth';wt.append(lt,ts);sel.append(wb,wt);c.append(sel);
- const b=who();if(b){const cs=coinsOf(b),s=cs.map((x,i)=>x?x+' '+LT[i]:'').filter(Boolean).reverse().join(' · ')||'no coins';c.append(el('div','shpurse','👛 '+(b.name||'This hero')+': '+s));}
+ const b=who();if(b){const cs=coinsOf(b),s=cs.map((x,i)=>x?x+' '+LT[i]:'').filter(Boolean).reverse().join(' · ')||'no coins';c.append(el('div','shpurse',''+(b.name||'This hero')+': '+s));}
  const tabs=el('div','shtabs');data.forEach((s,i)=>{const t=btn(s.s,()=>{shopI=i;render();});if(i===shopI)t.classList.add('on');t.setAttribute('aria-pressed',i===shopI);tabs.append(t);});c.append(tabs);
  const s=data[shopI];if(!s){c.append(el('div','note','No shops found. Reload the page.'));return;}
  const list=el('div');
@@ -66,7 +66,7 @@ function render(){
   const bb=btn('Buy',()=>buy(it,tier),'sm rb');bb.disabled=!b||(!marketOpen&&!isDM);r.append(bb);list.append(r);});
  c.append(list);}
 window.openShop=function(){
- if(!marketOpen&&!isDM)return toast('🏪 The market is closed');
+ if(!marketOpen&&!isDM)return toast('The market is closed');
  if(!window.BOOM_SHOPS)return toast('The shop lists did not load. Reload the page.');
  theme=theme||SKIN2SHOP[typeof skin==='string'?skin:'core']||'core';
  close();ov=el('div','shopov');ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Shop');

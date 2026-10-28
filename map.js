@@ -385,11 +385,11 @@ function renderTools(){
 /* ---------- full screen (in-person play on a tablet or TV) ---------- */
 let full=false,big=true,showTools=false,wake=null;
 function renderView(){if(!B.view)return;const V=B.view;V.replaceChildren();
- if(!full){V.append(btn('⛶ Full screen',()=>setFull(true),'ghost sm'));V.append(el('small','minfo','For a tablet or TV on the table: big tokens and text, nothing else on screen.'));return;}
- V.append(el('span','ttl','🗺️ Map'),el('span','sp'));
- const bb=btn('🔠 Big text',()=>{big=!big;try{localStorage.setItem('boommapbig',big?'1':'0')}catch{}B.wrap.classList.toggle('big',big);renderView();},'ghost sm'+(big?' on':''));bb.setAttribute('aria-pressed',big);V.append(bb);
- if(canDraw()){const tb=btn('✏️ Tools',()=>{showTools=!showTools;B.wrap.classList.toggle('tools',showTools);renderView();},'ghost sm'+(showTools?' on':''));tb.setAttribute('aria-pressed',showTools);V.append(tb);}
- V.append(btn('✕ Exit',()=>setFull(false),'sm rb'));}
+ if(!full){V.append(btn('Full screen',()=>setFull(true),'ghost sm'));V.append(el('small','minfo','For a tablet or TV on the table: big tokens and text, nothing else on screen.'));return;}
+ V.append(el('span','ttl','Map'),el('span','sp'));
+ const bb=btn('Big text',()=>{big=!big;try{localStorage.setItem('boommapbig',big?'1':'0')}catch{}B.wrap.classList.toggle('big',big);renderView();},'ghost sm'+(big?' on':''));bb.setAttribute('aria-pressed',big);V.append(bb);
+ if(canDraw()){const tb=btn('Tools',()=>{showTools=!showTools;B.wrap.classList.toggle('tools',showTools);renderView();},'ghost sm'+(showTools?' on':''));tb.setAttribute('aria-pressed',showTools);V.append(tb);}
+ V.append(btn('Exit',()=>setFull(false),'sm rb'));}
 async function setFull(v,fromBrowser){if(v===full)return;full=v;
  try{big=localStorage.getItem('boommapbig')!=='0'}catch{}
  B.wrap.classList.toggle('mfull',v);B.wrap.classList.toggle('big',v&&big);B.wrap.classList.toggle('tools',v&&showTools);document.body.classList.toggle('mapfull',v);
@@ -414,8 +414,8 @@ function renderCard(){
  C.replaceChildren();C.className='card pc mrc';C.style.removeProperty('--cc');
  const{heroes,mons}=cardTargets(),all=[...heroes,...mons];
  if(!cardFor||!all.some(x=>x.ref===cardFor.ref))cardFor=all.find(x=>x.ref===myHero)||all[0]||null;
- const h=el('div','pch'),close=btn('✕',()=>openCard(false),'ghost sm');close.setAttribute('aria-label','Close roll card');
- if(!cardFor){h.append(el('b','pn','Roll card'),close);C.append(h,el('div','note',isDM?'Add heroes in the Party tab or monsters in the CM tab first.':'Tap 🙋 This is me on your hero in the Party tab, then your roll card shows up here.'));return;}
+ const h=el('div','pch'),close=btn('×',()=>openCard(false),'ghost sm');close.setAttribute('aria-label','Close roll card');
+ if(!cardFor){h.append(el('b','pn','Roll card'),close);C.append(h,el('div','note',isDM?'Add heroes in the Party tab or monsters in the CM tab first.':'Tap "This is me" on your hero in the Party tab, then your roll card shows up here.'));return;}
  const sel=document.createElement('select');sel.id='mrcwho';sel.setAttribute('aria-label','Whose roll card');
  if(heroes.length){const og=document.createElement('optgroup');og.label='Party';heroes.forEach(x=>og.append(new Option(x.name,'hero:'+x.ref)));sel.append(og);}
  if(mons.length){const og=document.createElement('optgroup');og.label='Monsters';mons.forEach(x=>og.append(new Option(x.name,'mon:'+x.ref)));sel.append(og);}
@@ -423,32 +423,32 @@ function renderCard(){
  const any=(who,col)=>{const r=el('div','row'),i=document.createElement('input');i.id='mrcexpr';i.placeholder='2d6+3';i.autocomplete='off';i.setAttribute('autocapitalize','off');i.spellcheck=false;i.setAttribute('aria-label','Any roll');i.enterKeyHint='go';
   const go=()=>{const v=i.value.replace(/\s+/g,'');if(!parse(v))return toast('Try something like 3d6+2, d20, or 2d8+1d4-1');rollLast(doRoll(v,who,null,false,col));i.blur();renderCard();};
   i.addEventListener('keydown',e=>{if(e.key==='Enter')go();});r.append(i,btn('Roll',go,'rb'));return r;};
- const lastEl=()=>last?(()=>{const d=el('div','mlast');d.append('Last roll: '+last.who+' ');d.append(el('b',null,String(last.total)));if(last.booms)d.append(' 💥×'+last.booms);return d;})():el('div','mlast','Rolls land in the dice log below for the whole table.');
+ const lastEl=()=>last?(()=>{const d=el('div','mlast');d.append('Last roll: '+last.who+' ');d.append(el('b',null,String(last.total)));if(last.booms)d.append(' Boom ×'+last.booms);return d;})():el('div','mlast','Rolls land in the dice log below for the whole table.');
  const wrap=fn=>(...a)=>{rollLast(fn(...a));renderCard();};
  if(cardFor.kind==='hero'){
   const c=chars.find(x=>x.id===cardFor.ref),k=calc(c),cc=cvar(colorMap[c.id]);if(cc){C.classList.add('colored');C.style.setProperty('--cc',cc);}
-  h.append(sel,el('span','lv','Lv '+c.level));if(!c.dead)h.append(btn('🎲 Init',()=>{rollInit(c);last=null;renderCard();},'sm rb'));h.append(close);C.append(h);
+  h.append(sel,el('span','lv','Lv '+c.level));if(!c.dead)h.append(btn('Init',()=>{rollInit(c);last=null;renderCard();},'sm rb'));h.append(close);C.append(h);
   C.append(hpBox(c,k));
   C.append(chipRow(STATS.map(([key,lab])=>[key,lab,eff(c,key)]),(()=>{const A=arm(c);return A.p+A.m;})(),c.name,colorMap[c.id]||'',!!c.dead));
   C.append(el('div','note','Move '+k.mv+' · '+k.na+' action'+(k.na>1?'s':'')+' per turn · Phys '+(k.pd>0?'+':'')+k.pd+' · Magic '+(k.md>0?'+':'')+k.md));
   const list=atks(c);C.append(el('div','sec','Attacks · Abilities'));
-  for(const p of ['w','w2']){if(!((c[p+'N']||'').trim()||slotItem(c,p)))continue;const lab=(EQ.find(x=>x[0]===p)||[0,'Weapon'])[1],w=wpn(c,k,p),r=el('div','at'),g=btn('🗡 '+(((c[p+'N']||'').trim())||lab),wrap(()=>doRoll(w.ex,c.name+' · '+(((c[p+'N']||'').trim())||lab),null,true,colorMap[c.id])),'atkb rb');g.append(el('small',null,w.ex));r.append(g);C.append(r);}
-  if(bothOk(c)){const a=wpn(c,k,'w'),b2=wpn(c,k,'w2'),ex=(a.n+b2.n)+'d'+a.die+(a.bn>0?'+'+a.bn:a.bn<0?String(a.bn):''),r=el('div','at'),g=btn('🗡 Both hands',wrap(()=>doRoll(ex,c.name+' · Both hands',null,true,colorMap[c.id])),'atkb rb');g.append(el('small',null,ex));r.append(g);C.append(r);}
-  list.forEach(a=>{const bo=a.t==='p'?k.pd:a.t==='m'?k.md:eff(c,BT[a.t]||'str'),ex=a.e+(bo>0?'+'+bo:bo<0?String(bo):''),r=el('div','at'),g=btn('⚔ '+a.n,wrap(()=>doRoll(ex,c.name+' · '+a.n,null,a.t==='p'||a.t==='m',colorMap[c.id])),'atkb rb');g.append(el('small',null,'T'+(a.r||1)+' · '+ex+(TI[a.t]?' '+TI[a.t]:'')));r.append(g);C.append(r);});
+  for(const p of ['w','w2']){if(!((c[p+'N']||'').trim()||slotItem(c,p)))continue;const lab=(EQ.find(x=>x[0]===p)||[0,'Weapon'])[1],w=wpn(c,k,p),r=el('div','at'),g=btn(''+(((c[p+'N']||'').trim())||lab),wrap(()=>doRoll(w.ex,c.name+' · '+(((c[p+'N']||'').trim())||lab),null,true,colorMap[c.id])),'atkb rb');g.append(el('small',null,w.ex));r.append(g);C.append(r);}
+  if(bothOk(c)){const a=wpn(c,k,'w'),b2=wpn(c,k,'w2'),ex=(a.n+b2.n)+'d'+a.die+(a.bn>0?'+'+a.bn:a.bn<0?String(a.bn):''),r=el('div','at'),g=btn('Both hands',wrap(()=>doRoll(ex,c.name+' · Both hands',null,true,colorMap[c.id])),'atkb rb');g.append(el('small',null,ex));r.append(g);C.append(r);}
+  list.forEach(a=>{const bo=a.t==='p'?k.pd:a.t==='m'?k.md:eff(c,BT[a.t]||'str'),ex=a.e+(bo>0?'+'+bo:bo<0?String(bo):''),r=el('div','at'),g=btn(''+a.n,wrap(()=>doRoll(ex,c.name+' · '+a.n,null,a.t==='p'||a.t==='m',colorMap[c.id])),'atkb rb');g.append(el('small',null,'T'+(a.r||1)+' · '+ex+(TI[a.t]?' '+TI[a.t]:'')));r.append(g);C.append(r);});
   if(!list.length&&!C.querySelector('.atkb'))C.append(el('div','note','No weapons or abilities yet.'));
   C.append(any(c.name,colorMap[c.id]));
  }else{
   const m=(monsters||[]).find(x=>x.id===cardFor.ref),hp=monHp(m),cur=Math.max(0,Math.min(hp,m.hpCur==null?hp:m.hpCur));
-  h.append(sel,el('span','lv','Lv '+m.level+(m.kind==='boss'?' · Boss':m.kind==='minion'?' · Minion':'')),btn('🎲 Init',()=>{rollMonInit(m);last=null;renderCard();},'sm rb'),close);C.append(h);
-  const hb=el('div','hpb');hb.append(el('b',null,cur<=0?'☠ Defeated':'HP '+cur+' / '+hp));const bar=el('div','bar'),fill=el('div','fill'+(cur<=hp*.25?' low':''));fill.style.width=(hp?cur/hp*100:0)+'%';bar.append(fill);hb.append(bar);
+  h.append(sel,el('span','lv','Lv '+m.level+(m.kind==='boss'?' · Boss':m.kind==='minion'?' · Minion':'')),btn('Init',()=>{rollMonInit(m);last=null;renderCard();},'sm rb'),close);C.append(h);
+  const hb=el('div','hpb');hb.append(el('b',null,cur<=0?'Defeated':'HP '+cur+' / '+hp));const bar=el('div','bar'),fill=el('div','fill'+(cur<=hp*.25?' low':''));fill.style.width=(hp?cur/hp*100:0)+'%';bar.append(fill);hb.append(bar);
   const r=el('div','row hpc'),n=document.createElement('input');n.type='number';n.min=1;n.placeholder='Amount';n.inputMode='numeric';n.id='mrcamt';const amt=()=>Math.max(0,Math.floor(+n.value)||0);
-  r.append(n,btn('Dmg',()=>{const a=amt();if(!a)return;const nc=Math.max(0,cur-a);putM(m,{hpCur:nc});if(nc===0&&cur>0){toast(m.name+' is defeated');logEvent('☠ '+m.name+' is defeated');}n.blur();renderCard();renderTokens();},'sm dmg'),
+  r.append(n,btn('Dmg',()=>{const a=amt();if(!a)return;const nc=Math.max(0,cur-a);putM(m,{hpCur:nc});if(nc===0&&cur>0){toast(m.name+' is defeated');logEvent(''+m.name+' is defeated');}n.blur();renderCard();renderTokens();},'sm dmg'),
    btn('Heal',()=>{const a=amt();if(a)putM(m,{hpCur:Math.min(hp,cur+a)});n.blur();renderCard();renderTokens();},'sm heal'),btn('Full',()=>{putM(m,{hpCur:hp});renderCard();renderTokens();}));hb.append(r);C.append(hb);
   C.append(chipRow(STATS.map(([key,lab])=>[key,lab,+m[key]||0]),m.armor||0,m.name,'',cur<=0));
   C.append(el('div','note','Move '+(5+m.level+m.spd)+' · '+(1+Math.floor(m.spd/4))+' action'+(m.spd>=4?'s':'')+' per turn'));
   C.append(el('div','sec','Attacks · Abilities'));
-  [['⚔ Melee',(m.mel||'2d6')+(m.str>0?'+'+m.str:'')],['🏹 Ranged',(m.rng||'2d4')+(m.int>0?'+'+m.int:'')]].filter(x=>!(x[0]==='🏹 Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t.slice(2))),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
-  mAbs(m).forEach(a=>{const bo=m[BT[a.t]||'str'],ex=a.e+(bo>0?'+'+bo:''),w=el('div','at'),g=btn('⚔ '+a.n,wrap(()=>doRoll(ex,m.name+' · '+a.n)),'atkb rb');g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')));w.append(g);C.append(w);});
+  [['Melee',(m.mel||'2d6')+(m.str>0?'+'+m.str:'')],['Ranged',(m.rng||'2d4')+(m.int>0?'+'+m.int:'')]].filter(x=>!(x[0]==='Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t)),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
+  mAbs(m).forEach(a=>{const bo=m[BT[a.t]||'str'],ex=a.e+(bo>0?'+'+bo:''),w=el('div','at'),g=btn(''+a.n,wrap(()=>doRoll(ex,m.name+' · '+a.n)),'atkb rb');g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')));w.append(g);C.append(w);});
   C.append(any(m.name,''));
  }
  C.append(lastEl());}

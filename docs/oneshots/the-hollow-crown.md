@@ -181,7 +181,7 @@ Read the lullaby aloud (Appendix B), then hand the players the Lullaby handout. 
 
 ### The Market
 
-Open the market (the **Market** button in the CM tab). The heroes have festival coins, loot box coins, and maybe reagents to sell. They can buy from the Core and Fantasy shops in the app's **🛒 Shop**. A few favorites, in Common coins:
+Open the market (the **Market** button in the CM tab). The heroes have festival coins, loot box coins, and maybe reagents to sell. They can buy from the Core and Fantasy shops in the app's **Shop**. A few favorites, in Common coins:
 
 | Item | Price | What it does |
 | --- | --- | --- |
