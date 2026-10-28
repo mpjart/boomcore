@@ -101,6 +101,7 @@ Holding a turn is handled at the table: the player says they're holding and acts
 - **Loot name tables:** https://mpjart.github.io/boomcore/loot-names.html (source: `docs/loot-names.md`)
 - **Shop tables:** https://mpjart.github.io/boomcore/shop-tables.html (source: `docs/shop-tables.md`)
 - **Prep tables:** https://mpjart.github.io/boomcore/prep-tables.html — d100 rumors, encounters, and plot hooks for every theme (source: `docs/prep-tables.md`)
+- **Bestiary:** https://mpjart.github.io/boomcore/bestiary.html — over 130 monsters: crossover ones for every theme plus each theme's own, covering every name the New encounter button uses (source: the data files in `tools/bestiary/`; run `python3 tools/bestiary/build.py`, then `python3 tools/build_docs.py`)
 - **Sample adventure:** https://mpjart.github.io/boomcore/the-hollow-crown.pdf — The Hollow Crown, a three-session starter adventure for levels 1 to 3 (source: `docs/oneshots/the-hollow-crown.md`).
 
 The rules, loot, and shop pages are built from the Markdown in `docs/`. After editing it, run `python3 tools/build_docs.py` (needs `pip install markdown`) and commit the updated HTML and `shops.js`. After editing a one-shot, run `python3 tools/build_oneshots.py` and commit the PDF and `oneshots.js`.
