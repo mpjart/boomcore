@@ -1833,17 +1833,17 @@ A goat with no gag reflex and no shame. She eats tin cans, swords, wedding rings
 
 > **Ready to run at level 3:** HP 20 · Armor 0 · Con 1, Str 1 · Init d20 · Move 8 steps · 1 action · Headbutt 2d6 + 1 · Spat-out can 2d4 · Deep Swallow 1d6 + 1, one target, Stunned for 1 round · Loot box T1 · Threat 2
 
-### Dick-clops
+### Dyke-clops
 
 *Standard · Uncommon · points go Str, Con, Charm*
 
-One giant eye, in entirely the wrong place. He's also cockeyed: he never hits who he's looking at, and nobody can look him in the eye.
+A cyclops with three eyes, so the name was wrong from the start. Two of them are dead-eye straight. The third is cockeyed, which she finds deeply ironic and does not want to talk about.
 
-- **Attacks:** Club (yes, that one) (melee 2d6 + Str) and thrown boulder (ranged 2d4 + Int).
-- **Cockeyed Swing** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Frightened. Hits the hero next to the one he's aiming at. The Core Master announces the aim first, for maximum confusion.
-- **Tactics:** Swings at whoever he thinks is staring, and always hits the hero beside them. Pants make him furious; none of them fit.
+- **Attacks:** Sledgehammer (melee 2d6 + Str) and thrown boulder (ranged 2d4 + Int).
+- **Cockeyed Swing** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Frightened. Hits the hero next to the one she's aiming at. The Core Master announces the aim first, for maximum confusion.
+- **Tactics:** Sizes up whoever she thinks is staring at the third eye, then hits the hero beside them. Hitting on her is a free action; her next swing goes straight at you, and that eye doesn't miss twice.
 
-> **Ready to run at level 5:** HP 30 · Armor 1 · Con 1, Str 2, Charm 1 · Init d20 · Move 10 steps · 1 action · Club (yes, that one) 2d6 + 2 · Thrown boulder 2d4 · Cockeyed Swing 2d6 + 2, two targets, Prone and Frightened for 2 rounds · Loot box T2 · Threat 2
+> **Ready to run at level 5:** HP 30 · Armor 1 · Con 1, Str 2, Charm 1 · Init d20 · Move 10 steps · 1 action · Sledgehammer 2d6 + 2 · Thrown boulder 2d4 · Cockeyed Swing 2d6 + 2, two targets, Prone and Frightened for 2 rounds · Loot box T2 · Threat 2
 
 ### Trojan Horse (Ribbed)
 
