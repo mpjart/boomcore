@@ -718,14 +718,62 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 </table></div>
 <p>Trade up every 100 coins of a tier for 1 coin of the next. To pay with smaller coins, break a bigger one and keep the change. The app does both for you. If you ever have to say "a hundred million" out loud, you're doing it wrong: trade up.</p>
 <h3 id="the-loot-box">The Loot Box</h3>
-<p>After a fight, a dungeon room, or a quest, each hero gets a <strong>loot box</strong>. (The whole box fits on one page: the <a href="https://mpjart.github.io/boomcore/loot-box.html">Loot Box Quick Reference</a>.) The Core Master makes the box (in the app, from the CM tab), and the player opens it; the app does the rolling.</p>
-<p><strong>Coins:</strong> roll <strong>(monster level + your level)d6</strong>, at least 2d6 and at most <strong>20d6</strong>, in coins of the monster's tier.</p>
-<p><strong>Box tier:</strong> the monster's rarity sets the box, from Common (T1) to Divine (T6). The Core Master can upgrade any box. The box tier sets item quality (Chapter 7), the tier of any soul cores, and the coins reagents are worth. A lucky box is lucky. The coin roll always uses the monster's coin tier.</p>
-<p><strong>The d100 pool:</strong> start with 1d100. Dice never add; each die is its own pull. Roll the whole pool, then resolve every die at the <strong>highest tier the box reached</strong>.</p>
+<p>After a fight, a dungeon room, or a quest, each hero gets a <strong>loot box</strong>. (The whole box fits on one page: the <a href="https://mpjart.github.io/boomcore/loot-box.html">Loot Box Quick Reference</a>.) The Core Master makes the box (in the app, from the CM tab), and the player opens it; the app does the rolling. Everything comes off one kind of die, the d100, so the only extra rolls are booms.</p>
+<p><strong>Step 1: the tier (no roll).</strong> The monster's rarity sets the box tier. The Core Master can upgrade any box.</p>
 <div class="tw"><table>
 <thead>
 <tr>
-<th>d100 roll</th>
+<th>Box tier</th>
+<th>Monster rarity</th>
+<th>Item bonus</th>
+<th>Potion heals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1 Common</td>
+<td>Everyday monsters</td>
+<td>none</td>
+<td>1d6</td>
+</tr>
+<tr>
+<td>T2 Uncommon</td>
+<td>Tougher</td>
+<td>+1</td>
+<td>2d6</td>
+</tr>
+<tr>
+<td>T3 Rare</td>
+<td>Dangerous</td>
+<td>+2</td>
+<td>3d6</td>
+</tr>
+<tr>
+<td>T4 Epic</td>
+<td>Bosses</td>
+<td>+3</td>
+<td>4d6</td>
+</tr>
+<tr>
+<td>T5 Legendary</td>
+<td>Legends</td>
+<td>+4</td>
+<td>5d6</td>
+</tr>
+<tr>
+<td>T6 Divine</td>
+<td>Gods</td>
+<td>+5</td>
+<td>6d6</td>
+</tr>
+</tbody>
+</table></div>
+<p>The box tier sets items, potions, the tier of every soul core, and what reagents are worth. A lucky box is lucky. Coins always use the <strong>monster's coin tier</strong>, set by its level (Coin Tiers, above).</p>
+<p><strong>Step 2: roll the d100 pool.</strong> Start with 1d100. Dice never add; each die is its own pull. Roll the whole pool, then read every die at the <strong>highest tier the box reached</strong>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>d100</th>
 <th>Result</th>
 </tr>
 </thead>
@@ -735,20 +783,36 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <td><strong>Boom:</strong> no loot; the die becomes 2d100</td>
 </tr>
 <tr>
-<td>2-50, even</td>
-<td>A <strong>sellable reagent</strong> worth the number rolled in coins of the box's tier</td>
+<td>2-21</td>
+<td><strong>Coins:</strong> the number rolled, in the monster's coin tier</td>
 </tr>
 <tr>
-<td>3-49, odd</td>
-<td>A <strong>healing potion</strong> of the box's tier, in place of the reagent</td>
+<td>22-35</td>
+<td><strong>Sellable reagent:</strong> worth the number rolled, in coins of the box's tier</td>
+</tr>
+<tr>
+<td>36-50</td>
+<td><strong>Healing potion</strong> of the box's tier</td>
 </tr>
 <tr>
 <td>51-70</td>
-<td>An <strong>ability token</strong>, which can also mimic this monster's signature ability once (Chapter 4)</td>
+<td><strong>Ability token</strong>, which can also mimic this monster's signature ability once (Chapter 4)</td>
 </tr>
 <tr>
-<td>71-99</td>
-<td>An <strong>item:</strong> d4 for type (1 weapon, 2 armor, 3 jewelry, 4 gem); from T2 up, d6 for its stat (1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck). Gems never get a stat</td>
+<td>71-78</td>
+<td><strong>Weapon</strong></td>
+</tr>
+<tr>
+<td>79-86</td>
+<td><strong>Armor</strong></td>
+</tr>
+<tr>
+<td>87-93</td>
+<td><strong>Jewelry</strong></td>
+</tr>
+<tr>
+<td>94-99</td>
+<td><strong>Gem</strong> (treasure to sell, never a stat)</td>
 </tr>
 <tr>
 <td>100</td>
@@ -756,9 +820,44 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 </tr>
 </tbody>
 </table></div>
-<p><strong>Naming loot:</strong> roll a d100 clever name and a d100 base item, such as Black Hawk Longbow (+2 Speed). Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), so any combination works, such as Space, Street Grit, and Grit 18+, or Horror and Fantasy. Gems get a quality word for the box tier instead, such as Polished Opal. Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. Grit 18+ is a bonus set of crude, punny names for adult tables, made to pair with Street Grit, and it mixes in like any other table. Use it only when everyone at the table is in (see Safety Tools in Chapter 8). In the app the Core Master toggles which tables a loot box uses when making it; with none on, names come from Core/Fantasy. The full tables for Fantasy, Pirate, Steampunk, Horror, Street Grit, Grit 18+, and Space are on the <a href="https://mpjart.github.io/boomcore/loot-names.html">Loot Name Tables</a> page, and the app rolls them for you.</p>
 <p><strong>Any even roll from 2 to 98</strong> also drops a <strong>soul core</strong> of the monster's level, at the box's final tier. The core's level sets how much of your XP bar it fills; its tier sets which abilities it can train and what it sells for. The pool stops growing at 100 dice.</p>
-<p><strong>Example:</strong> Bob opens a T1 box from a level 3 monster and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 38 and 79. At T2, the 64 is a token plus a T2 core, the 38 is a reagent worth 38 Uncommon coins (the box's tier) plus a T2 core, and the 79 is an item with +1 to a random stat.</p>
+<p><strong>Step 3: read the item (no roll).</strong> From T2 up, a weapon, armor, or jewelry gets the box's bonus on one stat, and the <strong>ones digit</strong> of its roll picks the stat:</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Ones digit</th>
+<th>Stat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0, 1, 2</td>
+<td>Constitution</td>
+</tr>
+<tr>
+<td>3, 4</td>
+<td>Strength</td>
+</tr>
+<tr>
+<td>5, 6</td>
+<td>Intellect</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Speed</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Charm</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Spirit/Luck</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Naming loot:</strong> the same number picks the clever name: a 74 is name #74 on the <a href="https://mpjart.github.io/boomcore/loot-names.html">Loot Name Tables</a>. The hero or the Core Master then picks a base item that fits, so a mage never gets stuck with a two-handed axe, such as Black Hawk Longbow (+1 Strength). Every weapon does the same base damage for its hands and reach, so the base item only sets hands, touch or ranged, and physical or magical. A gem uses the number to pick the gem and the box tier for its quality word, such as Polished Opal. Mix tables freely: the clever name can come from one theme and the base item from another (a Space name on a Horror item), such as Space, Street Grit, and Grit 18+, or Horror and Fantasy. Grit 18+ is a bonus set of crude, punny names for adult tables, made to pair with Street Grit; use it only when everyone at the table is in (see Safety Tools in Chapter 8). In the app the Core Master toggles which tables a loot box uses; with none on, names come from Core/Fantasy, and the app picks the base item for you.</p>
+<p><strong>Example:</strong> Bob opens a T1 box from a level 3 monster and rolls 1, so he rolls 2d100: 100 and 64. The 100 upgrades the box to T2 and becomes 2 more dice: 18 and 74. At T2, the 64 is a token plus a T2 core, the 18 is 18 Common coins (the monster's coin tier) plus a T2 core, and the 74 is a weapon with +1 Strength (its ones digit is 4) and a T2 core.</p>
 <h3 id="using-loot">Using Loot</h3>
 <ul>
 <li><strong>Sell</strong> (only while the market is open, below): reagents for their number. Everything else (items, gems, potions, and cores, if the Core Master allows selling them) sells for a d100 roll, which can boom, in coins of the box tier it dropped at. A lucky box pays off.</li>
@@ -872,7 +971,7 @@ code{font-size:.9em;background:var(--alt);padding:1px 5px;border-radius:5px}
 <h3 id="one-shots">One-Shots</h3>
 <p>A one-shot kit is a ready-to-run adventure. Pick it under <strong>One-shots</strong> in the CM tab, choose 3 or 4 heroes, and every fight and loot box in it is one tap away: <strong>Add fight</strong> drops its monsters into the Monsters list with the adventure's stats, and <strong>Make box</strong> sends its loot boxes to the Loot tab. The first kit is <strong>The Hollow Crown</strong>, a three-session starter for levels 1 to 3 that teaches the whole game (<a href="https://mpjart.github.io/boomcore/the-hollow-crown.pdf">read it here</a>). More are on the way.</p>
 <h3 id="party-loot">Party Loot</h3>
-<p>Normally each hero opens their own box. For <strong>bosses</strong> and <strong>finishing a quest or dungeon</strong>, roll one <strong>party loot</strong> box instead: <strong>every hero gets a full copy</strong> of everything in it, nothing split. Use the party's average level as the hero level in the coin roll.</p>
+<p>Normally each hero opens their own box. For <strong>bosses</strong> and <strong>finishing a quest or dungeon</strong>, roll one <strong>party loot</strong> box instead: <strong>every hero gets a full copy</strong> of everything in it, nothing split. Coins come off the d100 like any other box, so nobody's level matters.</p>
 <h3 id="the-party-stash">The Party Stash</h3>
 <p>The stash is shared treasure. The Core Master can add any gear, tokens, cores, or coins, or drop a loot box straight into it. Players trade by putting things in and taking things out; there is no direct giving. The Core Master can lock the stash at any time, such as mid-fight.</p>
 <h3 id="rewards-and-pacing">Rewards and Pacing</h3>

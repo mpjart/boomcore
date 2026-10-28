@@ -200,16 +200,17 @@ The **Shop** opens a pop-up over the app. Its stock is the Boom Shop Tables (sho
 
 ## Loot Tab
 
-The CM makes boxes in the CM tab's **Make a loot box** card (if the app can't save boxes at all, the card sits in the Loot tab and opens boxes at once): pick who it's for, set **Enemy lvl** and **Box tier**, and tap **Make loot box**. A box for one hero waits in the Loot tab until that hero's player (or the CM) opens it; a group box for the whole party or the stash has a timer, and everyone taps Grab it. Enemies can be level 1 to 99 and heroes level 1 to 100. Results post to the shared feed with a celebration.
+The CM makes boxes in the CM tab's **Make a loot box** card (if the app can't save boxes at all, the card sits in the Loot tab and opens boxes at once): pick who it's for, set **Enemy lvl** and **Box tier** (the hero's level doesn't matter), and tap **Make loot box**. A box for one hero waits in the Loot tab until that hero's player (or the CM) opens it; a group box for the whole party or the stash has a timer, and everyone taps Grab it. Enemies can be level 1 to 99. Results post to the shared feed with a celebration.
 
 - **Loot name tables:** the Make a loot box card has on/off toggles, in this order: **Fantasy**, **Pirate**, **Steampunk**, **Horror**, **Street Grit**, **Grit 18+** (crude, punny bonus names for adult tables, made to pair with Street Grit), and **Space**. Any mix works. Each part of an item's name rolls its own table from the ones that are on: the clever name from one and the base item from another (a Space name on a Horror weapon), and for gems the quality word and the gem each roll separately. The base item still sets a weapon's hands, reach, and physical or magical, and armor's type. With none on, names come from Core/Fantasy. The choice is remembered on the CM's device and saved on each box when it's made, so the box names its loot from those tables whoever opens it. The CM's **Random name** button for stash items uses the same toggles.
-- **Coins:** (enemy level + hero level)d6, **at least 2d6 and at most 20d6**, in coins of the tier for the enemy's level.
+- **One die does everything:** the box rolls only d100s, no coin roll, no item-type roll, and no stat roll. The feed card shows every d100 (booms struck through), the coins in large type (or "No coins in this box"), and each pull on its own line.
 - **The d100 pool:** start with 1d100. A 1 becomes 2 dice. A 100 upgrades the box one tier (up to T6) and becomes 2 dice. Every other die is its own loot at the final tier, and the pool stops growing at 100 dice.
-- **2-50, even:** a sellable reagent worth the number rolled in coins of the box's tier. **3-49, odd:** a healing potion of the box's tier.
+- **2-21:** coins, the number rolled, in coins of the tier for the enemy's level. **22-35:** a sellable reagent worth the number rolled in coins of the box's tier. **36-50:** a healing potion of the box's tier.
 - **51-70:** an ability token.
-- **71-99:** an item. The type is a d4 (weapon, armor, jewelry, or gem), and from T2 up it gets +1 to +5 on a random stat (gems never get a stat).
+- **71-78 weapon, 79-86 armor, 87-93 jewelry, 94-99 gem.** From T2 up, a weapon, armor, or jewelry gets +1 to +5 (the box tier minus 1) on the stat its ones digit picks: 0-2 Constitution, 3-4 Strength, 5-6 Intellect, 7 Speed, 8 Charm, 9 Spirit/Luck. Gems never get a stat.
+- **Names:** the number rolled picks clever name #N (and gem #N) from one of the toggled tables; the base item is rolled. The CM's Random name button for stash items is still fully random.
 - **Any even roll from 2-98:** also drops a soul core of the monster's level, at the box's final tier. The loot list marks it "+ core."
-- **Where it goes:** a hero's box goes to that hero's coins and Loot list. **Whole party** gives every hero a full copy, using the party's average level; **Party stash** puts one shared copy in the stash. The Loot button on a boss's monster card selects the whole party.
+- **Where it goes:** a hero's box goes to that hero's coins and Loot list. **Whole party** gives every hero a full copy; **Party stash** puts one shared copy in the stash. The Loot button on a boss's monster card selects the whole party.
 
 ## The Party Stash
 

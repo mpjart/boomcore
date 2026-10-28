@@ -245,7 +245,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="row" style="margin-top:10px"><input id="qname" placeholder="Name (e.g. Sword)" style="flex:.8"><button class="ghost" id="save">＋ Save current</button></div>
 </div>
 </div><div id="pgParty" hidden><div class="card" id="addrow" hidden><div class="row"><input id="pname" placeholder="New player name"><button id="padd">Add player</button></div></div><div id="plist"></div><div class="card" id="holist" hidden></div></div><div id="pgLoot" hidden>
-<details class="how"><summary>Open a loot box for coins, cores, and treasure <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: spirit coins, <b>(monster level + hero level)d6</b> (at least 2d6), in the coin tier for the monster's level. Then a pool of <b>d100</b>s: a <b>1</b> explodes into 2 dice, a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier: 2 to 50 is a reagent to sell, but an odd roll there is a healing potion instead (heals the tier in d6, so a T3 potion heals 3d6, and the dice can boom); 51 to 70 is an ability token; 71 to 99 is an item. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
+<details class="how"><summary>Open a loot box for coins, cores, and treasure <span class="hw">How it works</span></summary><p>The Core Master makes loot boxes in the CM tab, and they wait here until they are opened. A box for one hero is opened by that hero's player (or the Core Master). A group box, for the whole party or the party stash, has a timer: everyone taps <b>Grab it</b> before time runs out, and it opens when the timer ends or when every hero has grabbed it. The feed shows who opened each box.</p><p>Inside: a pool of <b>d100</b>s, and nothing else to roll. The box starts at the monster's rarity tier. A <b>1</b> explodes into 2 dice; a <b>100</b> upgrades the box a tier and explodes. Every other die is its own loot at the final tier: <b>2-21</b> coins (the number rolled, in the monster's coin tier), <b>22-35</b> a reagent to sell, <b>36-50</b> a healing potion (heals the tier in d6, and the dice can boom), <b>51-70</b> an ability token, <b>71-78</b> a weapon, <b>79-86</b> armor, <b>87-93</b> jewelry, <b>94-99</b> a gem. From T2 up, an item's ones digit picks its stat: 0-2 Con, 3-4 Str, 5-6 Int, 7 Spd, 8 Charm, 9 Spirit/Luck. Even rolls also drop a soul core of that tier.</p><p>Ability tokens stack. Learning a new ability costs 1 token and a T1 core or better. Training an ability to a tier costs 1 token and a core of that tier or better, so an upgraded box's cores unlock stronger training.</p><p>A hero's box goes to their coin totals and Loot list. A whole-party box gives every hero a full copy, nothing split: use it only for bosses and for finishing a quest or dungeon. A stash box drops one copy in the party stash.</p></details>
 <div class="mkt" id="mktnote" role="status"></div><div class="card" id="boxlist"></div>
 <div class="card" id="lootmk" data-g="loot">
  <b class="pn" id="lmkh">Make a loot box</b>
@@ -353,7 +353,7 @@ function card(r){
  const top=el('div','top');
  top.append(el('span',null,(r.who||(r.uid===me?'You':(names[r.uid]||'Someone')))+' · '+r.expr),el('span',null,timeAgo(r.ts)));
  const nD=rollDice(r),st=animStep(nD),t0=r.note||r.loot?0:animAt(r),el0=Date.now()-t0,an=!!t0&&!RM.matches&&nD>1&&el0<nD*st+400;let di=0;
- const tot=el('div','total',String(r.total));if(an){tot.classList.add('an');tot.style.animationDelay=(nD*st-el0)+'ms';}if(r.loot){let ct=0;try{ct=JSON.parse(r.loot).ct||0}catch{}tot.append(el('span','note',' '+LT[ct]+' spirit coins'));}
+ const tot=el('div','total',String(r.total));if(an){tot.classList.add('an');tot.style.animationDelay=(nD*st-el0)+'ms';}if(r.loot){let ct=0;try{ct=JSON.parse(r.loot).ct||0}catch{}if(r.total)tot.append(el('span','note',' '+LT[ct]+' spirit coins'));else tot.replaceChildren(el('span','note','No coins in this box'));}
  if(r.booms>0)tot.append(el('span','badge','Boom ×'+r.booms));
  c.append(top,tot);
  for(const p of det.parts){
@@ -1198,9 +1198,11 @@ let lootTabs=['fantasy'];try{const v=JSON.parse(localStorage.getItem('boomlootta
 const tabSets=tabs=>{const B=window.BOOM_NAMES||{},l=(Array.isArray(tabs)?tabs:[]).map(k=>B[k]).filter(Boolean);return l.length?l:(B.fantasy?[B.fantasy]:[]);};
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 // Clever name + base item; gems get the tier's quality word instead. Weapons carry hands/reach/damage, armor its type.
-function nameItem(type,tier,tabs){const L=tabSets(tabs===undefined?lootTabs:tabs),ty=String(type).toLowerCase();if(!L.length)return{n:LT[tier]+' '+ty};
- if(ty==='gem')return{n:pick(L).q[tier]+' '+pick(pick(L).g)};
- const c=pick(pick(L).n);
+// v (the d100 that dropped it) picks clever name #v and gem #v; without v (the CM's Random name button) both are random.
+const byNum=(a,v)=>v?a[(v-1)%a.length]:pick(a);
+function nameItem(type,tier,tabs,v){const L=tabSets(tabs===undefined?lootTabs:tabs),ty=String(type).toLowerCase();if(!L.length)return{n:LT[tier]+' '+ty};
+ if(ty==='gem')return{n:pick(L).q[tier]+' '+byNum(pick(L).g,v)};
+ const c=byNum(pick(L).n,v);
  if(ty==='weapon'){const w=pick(pick(L).w);return{n:c+' '+w[0],wh:String(w[1]),wr:w[2],wt:w[3]};}
  if(ty==='armor'){const a=pick(pick(L).a);return{n:c+' '+a[0],at:a[1]};}
  return{n:c+' '+pick(pick(L).j)};}
@@ -1210,27 +1212,33 @@ function renderLootTabs(){const w=$('#ltabs');if(!w)return;w.replaceChildren();
  const nm=lootTabs.map(k=>LTABS.find(t=>t[0]===k)[1].replace(/^\S+\s/,''));
  $('#ltabnote').textContent=!nm.length?'None on: names come from Core/Fantasy.':nm.length===1?'Names come from '+nm[0]+'.':'Each name mixes '+nm.slice(0,-1).join(', ')+' and '+nm[nm.length-1]+': the clever name and the base item each roll their own table.'+(lootTabs.includes('adult')?' Grit 18+ is for adult tables where everyone has said yes. Talk first, and keep an X-card on the table (Safety Tools, Chapter 8).':'');
  if(nm.length===1&&lootTabs.includes('adult'))$('#ltabnote').textContent+=' It\'s for adult tables where everyone has said yes. Talk first, and keep an X-card on the table (Safety Tools, Chapter 8).';}
+// The loot box: one kind of die does everything. 1 booms into 2d100, 100 upgrades the box and booms.
+// 2-21 coins (the number, monster's coin tier), 22-35 reagent, 36-50 potion, 51-70 token,
+// 71-78 weapon, 79-86 armor, 87-93 jewelry, 94-99 gem. Any even roll 2-98 also drops a core.
+// An item's stat (T2 and up) is its ones digit: 0-2 Con, 3-4 Str, 5-6 Int, 7 Spd, 8 Charm, 9 Spirit/Luck. No sub-rolls.
+const DSTAT=[0,0,0,1,1,2,2,3,4,5];
+const lootKind=v=>v<=21?'coin':v<=35?'reagent':v<=50?'potion':v<=70?'token':v<=78?'Weapon':v<=86?'Armor':v<=93?'Jewelry':'Gem';
 function makeLoot(L,l,t0,tabs){
- const cr=rollExpr([{sign:1,n:Math.min(20,Math.max(2,L+l)),s:6}]);
- let tier=t0,made=0,pending=1,up=0,booms=0;const seq=[],fin=[];
+ let tier=t0,made=0,pending=1,up=0,booms=0,coins=0;const seq=[],fin=[],dice=[];
  while(pending>0){
   pending--;const v=1+Math.floor(Math.random()*100);made++;
   if((v===1||v===100)&&made+pending+2<=LOOTCAP){
-   pending+=2;booms++;
+   pending+=2;booms++;dice.push([v,1]);
    if(v===100){tier=Math.min(5,tier+1);up++;seq.push({v,k:'up',t:tier});}else seq.push({v,k:'boom'});
-  }else if(v>=2&&v<=99)fin.push(v);
-  else seq.push({v,k:'cap'});
+  }else{dice.push([v,0]);if(v>=2&&v<=99)fin.push(v);else seq.push({v,k:'cap'});}
  }
  const loot=[];let cores=0;
  for(const v of fin){
-  const e={v};
+  const e={v},k=lootKind(v);
   if(v%2===0){cores++;e.core=1;}
-  if(v<=50){if(v%2){e.k='potion';}else{e.k='reagent';e.val=v;}}
-  else if(v<=70)e.k='token';
-  else{e.k='item';e.type=ITYPE[Math.floor(Math.random()*4)];e.plus=e.type==='Gem'?0:tier;if(e.plus>0){const si=Math.floor(Math.random()*6);e.stat=STATS[si][1];e.sk=STATS[si][0];}e.cap=Math.pow(10,tier+2);e.nm=nameItem(e.type,tier,tabs);}
+  if(k==='coin'){e.k='coin';e.val=v;coins+=v;}
+  else if(k==='reagent'){e.k='reagent';e.val=v;}
+  else if(k==='potion')e.k='potion';
+  else if(k==='token')e.k='token';
+  else{e.k='item';e.type=k;e.plus=k==='Gem'?0:tier;if(e.plus>0){const si=DSTAT[v%10];e.stat=STATS[si][1];e.sk=STATS[si][0];}e.nm=nameItem(k,tier,tabs,v);}
   loot.push(e);
  }
- return{L,l,t0,tier,coins:cr.total,coinParts:cr.parts,booms:cr.booms+booms,up,seq,loot,cores,core:L*100,ct:band(L)};
+ return{L,l,t0,tier,coins,coinParts:[{sign:1,n:1,s:100,dice}],booms,up,seq,loot,cores,core:L*100,ct:band(L)};
 }
 function lootBody(r){
  let o;try{o=JSON.parse(r.loot)}catch{return el('div')}
@@ -1243,7 +1251,8 @@ function lootBody(r){
  }
  for(const e of o.loot){
   let t;
-  if(e.k==='reagent')t='Sellable reagent · worth '+e.val+' '+LT[o.tier]+' coins';
+  if(e.k==='coin')t='Coins · '+e.val+' '+LT[o.ct||0]+' coins';
+  else if(e.k==='reagent')t='Sellable reagent · worth '+e.val+' '+LT[o.tier]+' coins';
   else if(e.k==='token')t='Ability token';
   else if(e.k==='potion')t='T'+(o.tier+1)+' healing potion · heals '+(o.tier+1)+'d6';
   else t=(e.type==='Gem'?'':'')+(e.nm?e.nm.n:LT[o.tier]+' '+e.type.toLowerCase())+(e.plus>0&&e.type!=='Gem'?' (+'+e.plus+' '+e.stat+')':'')+' · '+LT[o.tier]+' '+e.type.toLowerCase()+', sells for 1d100 '+LT[o.tier]+' coins';
@@ -1283,8 +1292,8 @@ function heroLvl(){const v=$('#lhero').value;
  if(GROUP(v))return avgLvl();
  const c=chars.find(x=>x.id===v);return c?c.level:(Math.floor(+$('#lhl').value)||0);}
 function syncHL(){const v=$('#lhero').value,sh=shared();
- $('#lhlw').hidden=!!v||sh;$('#ltw').hidden=!GROUP(v);$('#lextra').hidden=!sh;
- $('#lhlnote').textContent=v?'Hero level '+heroLvl()+(GROUP(v)?' (party average)':'')+(sh?', taken from the sheet when the box is opened.':', filled in from the sheet.'):'';}
+ $('#lhlw').hidden=true;$('#ltw').hidden=!GROUP(v);$('#lextra').hidden=!sh;
+ $('#lhlnote').textContent='';}
 function fillHeroes(){
  const s=$('#lhero');if(!s)return;const cur=s.value,sh=shared();
  s.replaceChildren(new Option(sh?'Choose who it is for…':'No hero (type the hero level)',''));
@@ -1323,8 +1332,8 @@ async function openLoot(spec,by){
 $('#lgo').onclick=async()=>{
  const L=Math.floor(+$('#lmon').value)||0,hv=$('#lhero').value,t0=+$('#ltier').value||0,sh=shared();
  if(sh&&!hv){$('#lerr').textContent='Choose a hero, the whole party, or the party stash.';return;}
- const l=heroLvl();
- if(L<1||l<1||L>99||l>100){$('#lerr').textContent='Enemy level 1 to 99, hero level 1 to 100.';return;}
+ const l=Math.max(1,heroLvl()||1);
+ if(L<1||L>99){$('#lerr').textContent='Enemy level 1 to 99.';return;}
  $('#lerr').textContent='';
  const to=hv==='__party'?'party':hv==='__stash'?'stash':hv?'hero':'none';
  if(!sh){const ch=chars.find(c=>c.id===hv);await openLoot({to,hero:hv,L,t0,l,tabs:[...lootTabs]},ch?'Opened by '+ch.name:'');return;}

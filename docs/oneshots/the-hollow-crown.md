@@ -130,7 +130,7 @@ note: A rat reduced to 1 HP, or left alone when its friends fall, runs into the 
 
 ### Loot
 
-Each hero opens a T1 loot box from one rat (monster level 1). Coins are (1 + 1)d6. Walk the players through the d100 in the app: a 1 booms into two more dice, 2-50 is a sellable reagent on an even roll or a healing potion on an odd one, 51-70 an ability token, 71-99 an item, and any even roll also drops a soul core. Any cores they find here are extra; they can save them for the trainer in Scene 5.
+Each hero opens a T1 loot box from one rat (monster level 1). Walk the players through the d100 in the app: a 1 booms into two more dice, 2-21 is coins, 22-35 a sellable reagent, 36-50 a healing potion, 51-70 an ability token, 71-99 an item (weapon, armor, jewelry, or gem by range), and any even roll also drops a soul core. Any cores they find here are extra; they can save them for the trainer in Scene 5.
 
 ```loot
 for: each
@@ -540,7 +540,7 @@ Any hero can read it. The 24-hour resurrection window from the Core Guidelines m
 
 ### Party Loot
 
-Roll **party loot** for the boss: one T3 box (the king is Rare), and every hero gets a full copy. Coins are (4 + the party's average level)d6. Cores from this box are level 4 cores: with the XP bar, one fills the rest of a lower-level hero's bar, so the fallen can begin to climb back.
+Roll **party loot** for the boss: one T3 box (the king is Rare), and every hero gets a full copy. Cores from this box are level 4 cores: with the XP bar, one fills the rest of a lower-level hero's bar, so the fallen can begin to climb back.
 
 ```loot
 for: party
