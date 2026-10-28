@@ -1821,14 +1821,14 @@ Wooden soldiers with big square jaws and one job. They aim low. They always aim 
 
 ### Mind Goblins
 
-*Minion · Common · points go Int, Charm*
+*Minion · Common · points go Spd, Int*
 
-Little green psychics who ask if you've heard of them. You say "Who?" They say "Deez nuts." Every time.
+Filthy little goblins with pockets full of nuts. They ask if you've heard of deez nuts, then toss them at your face before you can answer.
 
-- **Attacks:** Noggin knock (melee 2d6 + Str) and thrown nuts (ranged 2d4 + Int).
-- **Tactics:** Swarm whoever falls for the setup. A hero who says "deez nuts" first leaves the whole swarm Frightened for a round, out of professional respect.
+- **Attacks:** Dirty headbutt (melee 2d6 + Str) and tossed deez nuts (ranged 2d4 + Int).
+- **Tactics:** Hang back and toss deez nuts at whoever looks most confused. A hero who says "deez nuts" first leaves the whole swarm Frightened for a round, out of professional respect.
 
-> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Noggin knock 1d6 · Thrown nuts 1d4 · Loot box T1 · Threat 1
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Dirty headbutt 1d6 · Tossed deez nuts 1d4 · Loot box T1 · Threat 1
 
 ### Reanimated Socks
 

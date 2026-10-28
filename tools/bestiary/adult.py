@@ -57,9 +57,9 @@ M = [
           ("Thick Blubber","con","selftemp",[],"")],
       t="Fights at sea and rams the ship first. A one-legged captain will help the heroes, right up until he wants the kill. Great at Pirate tables, too."),
  # ---- more minions
- dict(n="Mind Goblins", kind="minion", rar=1, lv=1, order=["int","cha"], atk=("Noggin knock","Thrown nuts"),
-      d="Little green psychics who ask if you've heard of them. You say \"Who?\" They say \"Deez nuts.\" Every time.",
-      t="Swarm whoever falls for the setup. A hero who says \"deez nuts\" first leaves the whole swarm Frightened for a round, out of professional respect."),
+ dict(n="Mind Goblins", kind="minion", rar=1, lv=1, order=["spd","int"], atk=("Dirty headbutt","Tossed deez nuts"),
+      d="Filthy little goblins with pockets full of nuts. They ask if you've heard of deez nuts, then toss them at your face before you can answer.",
+      t="Hang back and toss deez nuts at whoever looks most confused. A hero who says \"deez nuts\" first leaves the whole swarm Frightened for a round, out of professional respect."),
  dict(n="Reanimated Socks", kind="minion", rar=1, lv=2, order=["con","str"], atk=("Crusty slap","Stiff throw"),
       d="Found under a bachelor's bed and raised by dark magic. Stiff, crusty, and nobody wants to touch them.",
       t="No hero will grab, carry, or pocket one, no matter what. A washing machine, a campfire, or a bucket of water ends one instantly."),
