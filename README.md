@@ -98,6 +98,7 @@ Holding a turn is handled at the table: the player says they're holding and acts
 - **Core Master screen:** https://mpjart.github.io/boomcore/cm-screen.html — three panels that print on letter paper, landscape. Add `?theme=space` (or fantasy, fantasydark, pirate, steampunk, horror, grit, gritdark) to match a theme; the app's CM tab opens it in the table's theme.
 - **Loot name tables:** https://mpjart.github.io/boomcore/loot-names.html (source: `docs/loot-names.md`)
 - **Shop tables:** https://mpjart.github.io/boomcore/shop-tables.html (source: `docs/shop-tables.md`)
+- **Prep tables:** https://mpjart.github.io/boomcore/prep-tables.html — d100 rumors, encounters, and plot hooks for every theme (source: `docs/prep-tables.md`)
 - **Sample adventure:** https://mpjart.github.io/boomcore/the-hollow-crown.pdf — The Hollow Crown, a three-session starter adventure for levels 1 to 3 (source: `docs/oneshots/the-hollow-crown.md`).
 
 The rules, loot, and shop pages are built from the Markdown in `docs/`. After editing it, run `python3 tools/build_docs.py` (needs `pip install markdown`) and commit the updated HTML and `shops.js`. After editing a one-shot, run `python3 tools/build_oneshots.py` and commit the PDF and `oneshots.js`.

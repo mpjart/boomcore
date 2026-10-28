@@ -1,6 +1,6 @@
 # Boom Core Guidelines
 
-*Updated October 27, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html), go shopping with the [shop tables](https://mpjart.github.io/boomcore/shop-tables.html), and start with the one-shot [The Hollow Crown](https://mpjart.github.io/boomcore/the-hollow-crown.pdf). These guidelines are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see License at the end).*
+*Updated October 28, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html), go shopping with the [shop tables](https://mpjart.github.io/boomcore/shop-tables.html), prep a session with the [prep tables](https://mpjart.github.io/boomcore/prep-tables.html), and start with the one-shot [The Hollow Crown](https://mpjart.github.io/boomcore/the-hollow-crown.pdf). These guidelines are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see License at the end).*
 
 ## Chapter 1: What Is Boom?
 
@@ -535,6 +535,8 @@ Add up the monsters' threat points and compare with the party size.
 - **Mid-fight:** if it goes badly, add reinforcements or lower a boss's HP. The app rolls the dice, so never fudge a roll.
 - **Bosses** feel best with a couple of minions and a hazard in the room. A boss alone is just a very tall target.
 
+**Need an encounter fast?** Roll a d100 on your theme's encounter table on the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html) page. The higher the roll, the rarer the monster, so the roll also sets its loot box. The same page has rumors and plot hooks for every theme.
+
 ### Traps and Hazards
 
 Build a hazard like an ability: its tier sets its dice, targets, rounds, and effects (Chapter 4). For example: T1 tripwire darts, T2 swinging blade, T3 collapsing floor (Prone), T4 poison gas (Poisoned), T5 lava vent (Burning), T6 a tear in reality (Stunned).
@@ -568,7 +570,7 @@ The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look i
 
 The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leather and brass look, handouts typed onto leather in a riveted brass frame with gears, and its own loot name tables. Conditions might be Scalded, Overwound, or Short-Circuited.
 
-Every theme has its own six shops on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, from a bodega that somehow sells rope to a hangar that sells space stations (some assembly required).
+Every theme has its own six shops on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, from a bodega that somehow sells rope to a hangar that sells space stations (some assembly required). Every theme also has its own d100 rumors, encounters, and plot hooks on the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html) page, from a sharksquid in the mill pond to a bodega cat that runs the neighborhood.
 
 ### What Changes Easily
 
