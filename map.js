@@ -5,7 +5,7 @@
 // Shared data lives in three collections under the table: map (bg, state), mapstrokes, maptokens.
 // Uses the main script's globals: db, me, isDM, chars, monsters, myHero, colorMap, cvar, calc,
 // hpBox, statChips, doRoll, rollInit, rollMonInit, statRoll, wpn, rollWpn, bothOk, slotItem, atks,
-// eff, BT, TI, EQ, STATS, SHORT, monHp, putM, mAbs, parse, toast, hoJpeg, el, btn, logEvent.
+// eff, BT, TI, EQ, STATS, SHORT, monHp, putM, mAbs, monMel, monRng, useMonAb, parse, toast, hoJpeg, el, btn, logEvent.
 (function(){
 const CSS=`
 #mapbox{padding:0;overflow:hidden}
@@ -294,7 +294,8 @@ function renderTray(){
   w.append(ch,r);return w;};
  B.tray.append(box('Party',chars.filter(c=>!c.dead),'hero'),box('Monsters',monsters||[],'mon'));}
 
-/* ---------- encounter generator (CM): monsters, traps, and cover, sized by the Chapter 8 threat points ---------- */
+/* ---------- encounter generator (CM): monsters, traps, and cover, sized by the Chapter 9 threat points ----------
+   Threat points per hero: Easy 1, Fair 1.5, Hard 2; quartered at party level 1, halved at levels 2-4. */
 const FOES={
  fantasy:{m:['Goblin','Kobold','Skeleton','Giant Rat','Cultist','Bandit'],s:['Orc','Hobgoblin','Ghoul','Bandit Brute','Giant Spider','Lizardfolk'],b:['Goblin Chief','Ogre','Bandit Captain','Necromancer','Troll','Wyvern']},
  space:{m:['Drone','Scav','Sentry Bot','Swarmling','Raider','Spore Mite'],s:['Xeno Hunter','Mech Trooper','Void Raider','Turret','Bounty Hunter','Cyborg'],b:['Warlord','Hive Queen','Battle Mech','Pirate Admiral','Rogue AI Core','Star Wyrm']},
@@ -320,9 +321,9 @@ async function genEncounter(diff,b){
  if(genArm!==diff){genArm=diff;clearTimeout(genT);renderTools();genT=setTimeout(()=>{genArm='';renderTools();},3500);return;}
  genArm='';clearTimeout(genT);
  const party=chars.filter(c=>!c.dead),n=party.length||4,avg=party.length?Math.max(1,Math.round(party.reduce((a,c)=>a+c.level,0)/party.length)):1;
- const per={easy:1,fair:1.5,hard:2}[diff];let budget=Math.max(1,Math.round(per*n*(avg<=2?.5:1)));const threat=budget;
+ const per={easy:1,fair:1.5,hard:2}[diff];let budget=Math.max(1,Math.round(per*n*(avg<=1?.25:avg<=4?.5:1)));const threat=budget;
  const kinds=[];
- if(diff==='hard'&&budget>=4){kinds.push('boss');budget-=4;}else if(diff==='fair'&&budget>=6&&Math.random()<.5){kinds.push('boss');budget-=4;}
+ if(diff==='hard'&&budget>=4){kinds.push('boss');budget-=4;}else if(diff==='fair'&&budget>=5&&Math.random()<.5){kinds.push('boss');budget-=4;}
  while(budget>0&&kinds.length<8){if(budget>=2&&Math.random()<(diff==='easy'?.35:.65)){kinds.push('standard');budget-=2;}else{kinds.push('minion');budget-=1;}}
  const F=FOES[skin==='core'||skin==='coredark'||skin==='fantasydark'?'fantasy':skin==='gritdark'?'grit':skin]||FOES.fantasy,mName=pick(F.m),sNames=F.s.slice().sort(()=>Math.random()-.5);
  let mi=0,si=0;const made=[];
@@ -447,8 +448,8 @@ function renderCard(){
   C.append(chipRow(STATS.map(([key,lab])=>[key,lab,+m[key]||0]),m.armor||0,m.name,'',cur<=0));
   C.append(el('div','note','Move '+(5+m.level+m.spd)+' · '+(1+Math.floor(m.spd/4))+' action'+(m.spd>=4?'s':'')+' per turn'));
   C.append(el('div','sec','Attacks · Abilities'));
-  [['Melee',(m.mel||'2d6')+(m.str>0?'+'+m.str:'')],['Ranged',(m.rng||'2d4')+(m.int>0?'+'+m.int:'')]].filter(x=>!(x[0]==='Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t)),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
-  mAbs(m).forEach(a=>{const bo=m[BT[a.t]||'str'],ex=a.e+(bo>0?'+'+bo:''),w=el('div','at'),g=btn(''+a.n,wrap(()=>doRoll(ex,m.name+' · '+a.n)),'atkb rb');g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')));w.append(g);C.append(w);});
+  [['Melee',monMel(m)+(m.str>0?'+'+m.str:'')],['Ranged',monRng(m)+(m.int>0?'+'+m.int:'')]].filter(x=>!(x[0]==='Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,wrap(()=>doRoll(ex,m.name+' · '+t)),'atkb rb');g.append(el('small',null,ex));a.append(g);C.append(a);});
+  mAbs(m).forEach((a,i)=>{const bo=m[BT[a.t]||'str'],ex=a.e+(bo>0?'+'+bo:''),w=el('div','at'),g=btn(''+a.n,wrap(()=>useMonAb(m,i)),'atkb rb'+(a.u?' used':''));g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')+(a.u?' · used':'')));w.append(g);C.append(w);});
   C.append(any(m.name,''));
  }
  C.append(lastEl());}

@@ -116,7 +116,7 @@ type: minion
 rarity: Common
 melee: 1d4
 melee label: Bite
-melee note: starter override: a level 1 minion normally hits for 2d6, which would kill a commoner
+melee note: starter override: level 1 monsters hit for 1d6 (one hand), and even that can kill a commoner, so these rats bite softer
 ranged: none
 swarm: no
 note: A rat reduced to 1 HP, or left alone when its friends fall, runs into the walls and is gone. Rats don't swarm: they're too busy fighting each other over the grain. Roll each rat on its own.
@@ -503,7 +503,9 @@ note: The Hollowguards swarm: one initiative and one pooled attack roll.
 
 When the hero dies, stop the fight for a breath. Let the player describe their hero's last moment. Then the king's helm turns toward the rest of the party, and the fight goes on.
 
-**Other tactics:** on turns without a Claim, the king uses Royal Command on the two heroes doing the most damage, then gray fire on whoever is hurt. He uses Crown Guard once, when he is first bloodied. The Hollowguards stand between the heroes and the king.
+**Breaking the rules on purpose:** monsters normally use each ability once per fight, at no more than their level ÷ 3 in tier (T2 for the king). Hollow Claim is a story ability and ignores both. The king's other abilities follow the normal rules.
+
+**Other tactics:** the king uses Royal Command once, on the two heroes doing the most damage, and Crown Guard once, when he is first bloodied. On his other turns without a Claim, he throws gray fire at whoever is hurt or swings his scepter. The Hollowguards stand between the heroes and the king.
 
 ## Scene 3: The Escape
 

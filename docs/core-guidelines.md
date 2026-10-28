@@ -493,7 +493,7 @@ With the XP bar, about half of all boxes hold a core, so a level takes roughly *
 
 ## Chapter 9: Encounters and Monsters
 
-Fair doesn't mean easy. Fair means the players can see the risk and make a real choice. These numbers come from simulated fights, so treat them as a starting point.
+Fair doesn't mean easy. Fair means the players can see the risk and make a real choice. These numbers come from about 200,000 simulated fights with parties of 3 to 5, so treat them as a starting point.
 
 ### Building Monsters
 
@@ -508,8 +508,8 @@ A monster is a simpler hero. The app's CM tab builds one from a name, level, typ
 Round everything down, except a minion's HP, which rounds up.
 
 - **Stats:** deal points one at a time with a d6: 1 Con, 2 Str, 3 Int, 4 Spd, 5 Charm, 6 Spirit/Luck.
-- **Attacks:** melee 2d6 + Strength and ranged 2d4 + Intellect. This is by design, to keep monsters quick to build. Flavor them to fit: a wolf bites with its melee attack and howls with its ranged one. Armor is one total, with no physical or magical split. The Core Master can always build outside this template.
-- **Abilities:** built as in Chapter 4. The first is its **signature ability**, which a token from it can mimic once.
+- **Attacks:** melee 2d6 + Strength and ranged 2d4 + Intellect. At **level 1**, monsters attack with one hand, like the commoners they're fighting: 1d6 melee and 1d4 ranged. This is by design, to keep monsters quick to build. Flavor them to fit: a wolf bites with its melee attack and howls with its ranged one. Armor is one total, with no physical or magical split. The Core Master can always build outside this template.
+- **Abilities:** built as in Chapter 4, at the monster's rarity tier, but **never above its level ÷ 3, rounded up**: T1 at levels 1 to 3, T2 at 4 to 6, T3 at 7 to 9, and so on. A level 4 Epic boss still uses T2 abilities. **A monster uses each ability once per fight**, then goes back to attacking. The first is its **signature ability**, which a token from it can mimic once.
 - **Initiative and actions:** the same as a hero. Minions of the same kind swarm: one initiative and one pooled attack roll (Chapter 3).
 - **Rarity** (Common to Divine) is a loose guide to toughness and sets its loot box tier. A boss is usually Epic.
 - **Tier** is its coin tier, set by its level (Chapter 6). It sets the coins it drops. Its rarity, not its coin tier, sets the tier of its cores. Monsters carry no coins of their own; nobody wants to know where they'd keep them.
@@ -530,7 +530,8 @@ Add up the monsters' threat points and compare with the party size.
 | Deadly | 3 | 12 | A boss and four standard |
 
 - Use monsters within a couple of levels of the party's average.
-- **Levels 1 and 2:** heroes have very little HP. Halve the threat points.
+- **Low levels:** heroes have very little HP. At **level 1, quarter** the threat points (round to the nearest whole point, at least 1); at **levels 2 to 4, halve** them.
+- **Small parties:** a party of 3 at levels 2 to 4 can't fit a boss into a Hard fight. Add a standard monster to keep it hard.
 - **Armor:** it subtracts from every hit, so keep it at the levels above or fights drag.
 - **Mid-fight:** if it goes badly, add reinforcements or lower a boss's HP. The app rolls the dice, so never fudge a roll.
 - **Bosses** feel best with a couple of minions and a hazard in the room. A boss alone is just a very tall target.

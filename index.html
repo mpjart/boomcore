@@ -47,7 +47,7 @@ button.sm{padding:6px 11px;font-size:14px}
 .sg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}.st{border:1px solid var(--line);border-radius:var(--rb);padding:6px;text-align:center}.st small{display:block}.st b{font-size:20px}.sb{display:flex;gap:4px;justify-content:center;margin-top:4px}
 .eq{display:grid;grid-template-columns:88px 1fr;gap:6px;align-items:center;margin-bottom:6px}.fv{font-size:14px}
 .sec{font-size:12px;color:var(--mute);font-weight:700;text-transform:uppercase;margin:10px 0 6px}
-.at{display:flex;gap:6px;margin-bottom:6px}.atkb{flex:1;text-align:left}.atkb small{margin-left:8px;opacity:.85;font-weight:400}
+.at{display:flex;gap:6px;margin-bottom:6px}.atkb.used{opacity:.55}.atkb{flex:1;text-align:left}.atkb small{margin-left:8px;opacity:.85;font-weight:400}
 .add{margin:6px 0 10px;flex-wrap:wrap}.add input{min-width:80px}
 .hpb{margin-bottom:8px}.bar{height:10px;background:var(--chip);border-radius:99px;overflow:hidden;margin:4px 0 8px}.fill{height:100%;background:var(--hp)}.fill.low{background:#dc2626}.hpc input{flex:0 0 84px;min-width:84px;max-width:110px;padding:6px 8px;font-size:16px}.hpc{flex-wrap:wrap}.tmp{color:var(--acc);font-weight:700;margin-left:10px}.st>button{margin-top:4px;width:100%}
 .conds{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.conds:empty{display:none}.chip{background:var(--boom);color:#fff;border-radius:99px;padding:3px 10px;font-size:13px;font-weight:700}.conds input{max-width:140px}
@@ -288,7 +288,7 @@ h1,.pn{color:var(--head)}.tabs button.on{background:var(--tabbg);color:var(--tab
  <div class="row" style="margin-top:8px"><select id="mkind" aria-label="Type"></select><select id="mrar" aria-label="Rarity"></select></div>
  <div class="row" style="margin-top:10px"><button id="mgo" style="flex:1">Generate monster</button></div>
  <div class="err" id="merr"></div>
- <div class="note">The app deals out random stat points (fewer for minions, more for bosses), sets armor, and gives a 2d6 melee and a 2d4 ranged attack. Add up to 3 abilities on each card.</div> <div class="row" style="margin-top:10px"><button id="mclr" class="sm dmg" style="flex:1" hidden>Remove all monsters</button></div>
+ <div class="note">The app deals out random stat points (fewer for minions, more for bosses), sets armor, and gives a 2d6 melee and a 2d4 ranged attack (1d6 and 1d4 at level 1). Add up to 3 abilities on each card: each is up to its rarity tier but no higher than its level ÷ 3 (rounded up), and is used once per fight. <b>Ready abilities</b> resets them for the next fight.</div> <div class="row" style="margin-top:10px"><button id="mclr" class="sm dmg" style="flex:1" hidden>Remove all monsters</button></div>
 </div>
 <div id="mlist" data-g="mon"></div>
 </div><aside id="side"><div id="banner" class="note" style="margin-bottom:8px"></div>
@@ -1358,6 +1358,16 @@ function genMon(name,level,kind,rarity){
 }
 function putM(m,p){Object.assign(m,p);const{id,...d}=m;monCol.doc(id).set(d).catch(()=>{});}
 function mAbs(m){try{return JSON.parse(m.abil)}catch{return[]}}
+// Level 1 monsters attack with one hand (1d6 melee, 1d4 ranged), like the commoners they fight.
+const monMel=m=>m.mel||(m.level<=1?'1d6':'2d6'),monRng=m=>m.rng||(m.level<=1?'1d4':'2d4');
+// A monster's ability tier is its rarity tier, but never above its level / 3, rounded up.
+const abCap=m=>Math.max(1,Math.min((m.rarity|0)+1,Math.ceil(m.level/3)));
+// Monsters use each ability once per fight. A used ability is marked; tapping it again asks first.
+let abArm='';
+function useMonAb(m,i){const ab=mAbs(m),a=ab[i];if(!a)return;const bonus=m[BT[a.t]||'str'],ex=a.e+(bonus>0?'+'+bonus:''),k=m.id+'|'+i;
+ if(a.u&&abArm!==k){abArm=k;setTimeout(()=>{if(abArm===k)abArm='';},3000);return toast(a.n+' was already used this fight. Tap again to use it anyway.');}
+ abArm='';doRoll(ex,m.name+' · '+a.n);ab[i]={...a,u:1};putM(m,{abil:JSON.stringify(ab)});}
+function readyMonAbs(m){putM(m,{abil:JSON.stringify(mAbs(m).map(({u,...a})=>a))});}
 function rollMonInit(m){const r=doRoll('1d20'+(m.spd>0?'+'+m.spd:''),m.name+' · Initiative');if(r&&initCol)initCol.doc('m'+m.id).set({name:m.name,v:r.total,ts:Date.now()}).catch(()=>{});}
 function monCard(m){
  const hp=monHp(m),cur=Math.max(0,Math.min(hp,m.hpCur==null?hp:m.hpCur)),down=cur<=0;
@@ -1382,15 +1392,16 @@ function monCard(m){
  for(const[key,lb]of STATS){const s=el('div','st');s.append(el('small',null,lb),el('b',null,String(m[key])),btn('Roll',()=>statRoll(m,key,lb),'sm rb'));
   const bb=el('div','sb');bb.append(btn('−',()=>{if(m[key]>0)putM(m,{[key]:m[key]-1});}),btn('+',()=>putM(m,{[key]:m[key]+1})));s.append(bb);sg.append(s);}
  box.append(sg);
- const mel=(m.mel||'2d6')+(m.str>0?'+'+m.str:''),rng=(m.rng||'2d4')+(m.int>0?'+'+m.int:'');
+ const mel=monMel(m)+(m.str>0?'+'+m.str:''),rng=monRng(m)+(m.int>0?'+'+m.int:'');
  [['Melee',mel],['Ranged',rng]].filter(x=>!(x[0]==='Ranged'&&m.rng==='')).forEach(([t,ex])=>{const a=el('div','at'),g=btn(t,()=>doRoll(ex,m.name+' · '+t),'atkb rb');g.append(el('small',null,ex));a.append(g);box.append(a);});
  if(m.note)box.append(el('div','note',m.note));
- const ab=mAbs(m);box.append(el('div','sec','Abilities '+ab.length+'/3'));
- ab.forEach((a,i)=>{const bonus=m[BT[a.t]||'str'],ex=a.e+(bonus>0?'+'+bonus:''),w=el('div','at'),g=btn(''+a.n,()=>doRoll(ex,m.name+' · '+a.n),'atkb rb');g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')));w.append(g,btn('×',()=>putM(m,{abil:JSON.stringify(ab.filter((_,j)=>j!==i))})));box.append(w);});
+ const ab=mAbs(m),cap=abCap(m);box.append(el('div','sec','Abilities '+ab.length+'/3 · up to T'+cap+' ('+cap+'d6) · once each per fight'));
+ ab.forEach((a,i)=>{const bonus=m[BT[a.t]||'str'],ex=a.e+(bonus>0?'+'+bonus:''),w=el('div','at'),g=btn(''+a.n,()=>useMonAb(m,i),'atkb rb'+(a.u?' used':''));g.append(el('small',null,ex+(TI[a.t]?' '+TI[a.t]:'')+(a.u?' · used':'')));const x=btn('×',()=>putM(m,{abil:JSON.stringify(ab.filter((_,j)=>j!==i))}));x.setAttribute('aria-label','Remove');w.append(g,x);box.append(w);});
  if(ab.length<3){const w=el('div','row add'),nn=document.createElement('input'),ee=document.createElement('input'),tt=document.createElement('select');
-  nn.placeholder='Name';ee.placeholder='3d6';[['p','Physical (Str)'],['m','Magic (Int)'],['c','Lifeforce (Con)'],['s','Speed'],['h','Charm'],['l','Spirit/Luck']].forEach(([v,t])=>tt.add(new Option(t,v)));
+  nn.placeholder='Name';ee.placeholder=cap+'d6';[['p','Physical (Str)'],['m','Magic (Int)'],['c','Lifeforce (Con)'],['s','Speed'],['h','Charm'],['l','Spirit/Luck']].forEach(([v,t])=>tt.add(new Option(t,v)));
   w.append(nn,ee,tt,btn('Add',()=>{const x=ee.value.replace(/\s+/g,'');if(!nn.value.trim()||!parse(x))return toast('Need a name and a valid roll');putM(m,{abil:JSON.stringify([...ab,{n:nn.value.trim().slice(0,30),e:x,t:tt.value}])});},'sm'));box.append(w);}
  const ft=el('div','row');
+ if(ab.some(a=>a.u))ft.append(btn('Ready abilities',()=>readyMonAbs(m),'sm'));
  ft.append(btn('Reroll stats',()=>{const g=genMon(m.name,m.level,m.kind,m.rarity);putM(m,{con:g.con,str:g.str,int:g.int,spd:g.spd,cha:g.cha,lck:g.lck,hpCur:null});}),
   btn('Loot',()=>{$('#lmon').value=m.level;$('#ltier').value=String(m.rarity);$('#lhero').value=m.kind==='boss'?'__party':'';$('#lnote').value=m.name;$('#lhero').onchange();cmShow('loot');$('#lootmk').scrollIntoView({behavior:'smooth',block:'center'});toast('Loot box set for a level '+m.level+' '+LT[m.rarity]+' monster'+(m.kind==='boss'?'':'. Choose who it is for'));}));
  let armed=0;const d=btn('Remove',()=>{if(!armed){armed=1;d.textContent='Tap again to delete';setTimeout(()=>{armed=0;d.textContent='Remove';},3000);}else{if(initCol)initCol.doc('m'+m.id).delete().catch(()=>{});monCol.doc(m.id).delete();}});ft.append(d);box.append(ft);
@@ -1400,7 +1411,7 @@ function monCard(m){
 const swarmKey=m=>String(m.name||'Monster').replace(/\s*#?\d+$/,'').trim().toLowerCase()+'|'+m.level;
 function swarms(){const g={};for(const m of monsters){if(m.kind!=='minion'||m.solo||monHp(m)<=0)continue;const cur=m.hpCur==null?monHp(m):m.hpCur;if(cur<=0)continue;(g[swarmKey(m)]=g[swarmKey(m)]||[]).push(m);}
  return Object.values(g).filter(a=>a.length>1);}
-function swarmRoll(list,ranged){const n=list.length,die=ranged?4:6,dice=ranged?(list[0].rng||'2d4'):(list[0].mel||'2d6'),mm=/^(\d+)d(\d+)/.exec(dice)||[0,2,die],per=+mm[1],sz=+mm[2];
+function swarmRoll(list,ranged){const n=list.length,die=ranged?4:6,dice=ranged?monRng(list[0]):monMel(list[0]),mm=/^(\d+)d(\d+)/.exec(dice)||[0,2,die],per=+mm[1],sz=+mm[2];
  const bn=Math.max(...list.map(m=>ranged?(m.int||0):(m.str||0))),total=Math.min(100,per*n),ex=total+'d'+sz+(bn>0?'+'+bn:''),nm=String(list[0].name).replace(/\s*#?\d+$/,'').trim();
  const terms=[{sign:1,n:total,s:sz}];if(bn>0)terms.push({sign:1,mod:bn});
  doRoll(ex,nm+' swarm ×'+n+' · '+(ranged?'Ranged':'Melee'),terms,true);}
@@ -1409,7 +1420,7 @@ function swarmInit(list){const m=list[0],nm=String(m.name).replace(/\s*#?\d+$/,'
 function swarmCard(list){const nm=String(list[0].name).replace(/\s*#?\d+$/,'').trim(),w=el('div','card pc swarm');
  const h=el('div','pch');h.append(el('b','pn',''+nm+' swarm'),el('span','lv','×'+list.length+' · Lv '+list[0].level));w.append(h);
  w.append(el('div','note','Same-kind minions act as one: one initiative, one turn, one pooled attack roll with the bonus added once. Each keeps its own HP, so the dice shrink as they drop. To hit more than one hero, split the dice before rolling.'));
- const n=list.length,mel=list[0].mel||'2d6',rng=list[0].rng||'2d4',per=d=>+(/^(\d+)/.exec(d)||[0,2])[1],sz=d=>(/d(\d+)/.exec(d)||[0,6])[1];
+ const n=list.length,mel=monMel(list[0]),rng=monRng(list[0]),per=d=>+(/^(\d+)/.exec(d)||[0,2])[1],sz=d=>(/d(\d+)/.exec(d)||[0,6])[1];
  const bm=Math.max(...list.map(m=>m.str||0)),br=Math.max(...list.map(m=>m.int||0));
  [['Swarm melee',per(mel)*n+'d'+sz(mel)+(bm>0?'+'+bm:''),false],['Swarm ranged',per(rng)*n+'d'+sz(rng)+(br>0?'+'+br:''),true]].forEach(([t,ex,rg])=>{const a=el('div','at'),g=btn(t,()=>swarmRoll(list,rg),'atkb rb');g.append(el('small',null,ex));a.append(g);w.append(a);});
  const r=el('div','row');r.append(btn('Swarm initiative',()=>swarmInit(list),'sm rb'));w.append(r);
