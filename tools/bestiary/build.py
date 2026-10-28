@@ -86,6 +86,7 @@ out = ["# Boom Bestiary", "",
 "- **Each ability is used once per fight.** After that, the monster attacks.",
 "- **Minions** have no abilities and swarm (Chapter 3). **Standard** monsters have a signature ability. **Bosses** have three, and the first is the signature, the one an ability token can mimic.",
 "- **Rarity** is the usual one. It sets the loot box tier, and the CM can raise or lower it for a tougher or easier version.",
+"- **Move any monster into any theme** with one flavor word: Clockwork or Steam for Steampunk, Space or Void for Space, Ghost or Cursed for Horror, Drowned or Sea for Pirate, and Hallucination for Street Grit (it's just the bad batch talking). A Clockwork Goblin, a Space Orc, and a Hallucination Troll use the same stat block as the original. The app knows the trick: type the flavored name and it builds the original.",
 "- **Ready to run** gives every number for one sample level and rarity, so you can use it straight from the page.",
 "- **In the app:** in the CM tab's Monsters card, enter the name, level, type, and rarity, set the stats to match (or keep the rolled ones), and add its abilities. The card shows the tier cap and marks each ability once it's used.", ""]
 EV = load("everywhere")

@@ -11,6 +11,7 @@
 - **Each ability is used once per fight.** After that, the monster attacks.
 - **Minions** have no abilities and swarm (Chapter 3). **Standard** monsters have a signature ability. **Bosses** have three, and the first is the signature, the one an ability token can mimic.
 - **Rarity** is the usual one. It sets the loot box tier, and the CM can raise or lower it for a tougher or easier version.
+- **Move any monster into any theme** with one flavor word: Clockwork or Steam for Steampunk, Space or Void for Space, Ghost or Cursed for Horror, Drowned or Sea for Pirate, and Hallucination for Street Grit (it's just the bad batch talking). A Clockwork Goblin, a Space Orc, and a Hallucination Troll use the same stat block as the original. The app knows the trick: type the flavored name and it builds the original.
 - **Ready to run** gives every number for one sample level and rarity, so you can use it straight from the page.
 - **In the app:** in the CM tab's Monsters card, enter the name, level, type, and rarity, set the stats to match (or keep the rolled ones), and add its abilities. The card shows the tier cap and marks each ability once it's used.
 
@@ -115,6 +116,54 @@ Birds, bats, or bugs: lots of small wings and no respect for personal space.
 - **Tactics:** Goes for shiny things, food, and eyes, in that order. Bright light or a big noise scatters it.
 
 > **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Peck 1d6 · Dive 1d4 · Loot box T1 · Threat 1
+
+### Wolves
+
+*Minion · Common · points go Spd, Str*
+
+Hungry, patient, and never alone. If you can see one, four more can see you.
+
+- **Called:** *Core and Fantasy:* Wolves, Dire Wolf · *Pirate:* Sea Dogs · *Steampunk:* Clockwork Hounds · *Horror:* Hellhounds · *Street Grit:* Coyote Pack · *Space:* Void Jackals
+- **Attacks:** Bite (melee 2d6 + Str) and howl (ranged 2d4 + Int).
+- **Tactics:** Circle first, then rush whoever is hurt or alone. Kill the biggest one and the rest think twice.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Bite 2d6 · Howl 2d4 · Loot box T1 · Threat 1
+
+### Imps
+
+*Minion · Common · points go Spd, Spirit/Luck*
+
+Knee-high, red, and delighted by anything that breaks. They didn't do it. They definitely did it.
+
+- **Called:** *Core and Fantasy:* Imps · *Pirate:* Bilge Imps · *Steampunk:* Gremlins · *Horror:* Imps · *Street Grit:* Gremlins · *Space:* Gremlins
+- **Attacks:** Tiny pitchfork (melee 2d6 + Str) and spat fire (ranged 2d4 + Int).
+- **Tactics:** Sabotage before they fight: snap a bowstring, unscrew a lantern, hide the keys. They run when anyone laughs at them.
+
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Tiny pitchfork 1d6 · Spat fire 1d4 · Loot box T1 · Threat 1
+
+### Bloodskeeters
+
+*Minion · Common · points go Spd, Con*
+
+Mosquitoes the size of a cat. They latch on, drink deep, and fly off fat and happy.
+
+- **Called:** *Core and Fantasy:* Bloodskeeters · *Pirate:* Swamp Skeeters · *Steampunk:* Brass Leeches · *Horror:* Blood Moths · *Street Grit:* Hallucination Skeeters · *Space:* Leech Drones
+- **Attacks:** Proboscis (melee 2d6 + Str) and buzz dive (ranged 2d4 + Int).
+- **Tactics:** Latch onto whoever is bleeding. Smoke or a good swat sends the swarm away.
+
+> **Ready to run at level 1:** HP 3 · Armor 0 · no stat points · Init d20 · Move 6 steps · 1 action · Proboscis 1d6 · Buzz dive 1d4 · Loot box T1 · Threat 1
+
+### Giant Centipedes
+
+*Minion · Common · points go Spd, Con*
+
+A hundred legs, all of them moving toward you. They come out of every crack in the floor.
+
+- **Called:** *Core and Fantasy:* Giant Centipedes · *Pirate:* Bilge Centipedes · *Steampunk:* Clockwork Centipedes · *Horror:* Grave Centipedes · *Street Grit:* Sewer Centipedes · *Space:* Hull Crawlers
+- **Attacks:** Mandibles (melee 2d6 + Str) and venom spit (ranged 2d4 + Int).
+- **Tactics:** Pour out of cracks behind the party. Light makes them skitter back into the walls.
+
+> **Ready to run at level 2:** HP 5 · Armor 0 · no stat points · Init d20 · Move 7 steps · 1 action · Mandibles 2d6 · Venom spit 2d4 · Loot box T1 · Threat 1
 
 ## Everywhere: Standard Monsters
 
@@ -261,6 +310,149 @@ Shark in front, squid in back, bad news all around. Nobody knows how it gets int
 
 > **Ready to run at level 5:** HP 30 · Armor 1 · Con 1, Str 2, Spd 1 · Init d20 + 1 · Move 11 steps · 1 action · Bite 2d6 + 2 · Ink jet 2d4 · Tentacle Grab 2d6 + 2, two targets, Slowed and Stunned for 2 rounds · Loot box T2 · Threat 2
 
+### Gargoyle
+
+*Standard · Common · points go Con, Str*
+
+A statue that wasn't. It has been watching the party since they walked in.
+
+- **Called:** *Core and Fantasy:* Gargoyle · *Pirate:* Figurehead · *Steampunk:* Clockwork Gargoyle · *Horror:* Gargoyle · *Street Grit:* Hallucination Gargoyle · *Space:* Hull Gargoyle
+- **Attacks:** Stone claws (melee 2d6 + Str) and thrown rubble (ranged 2d4 + Int).
+- **Stone Dive** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Stunned. Drops from above.
+- **Tactics:** Holds perfectly still until someone turns their back. Hard to hurt; easy to outrun.
+
+> **Ready to run at level 4:** HP 30 · Armor 0 · Con 2, Str 1 · Init d20 · Move 9 steps · 1 action · Stone claws 2d6 + 1 · Thrown rubble 2d4 · Stone Dive 1d6 + 1, one target, Prone for 1 round · Loot box T1 · Threat 2
+
+### Scrap Golem
+
+*Standard · Uncommon · points go Con, Str*
+
+Built from whatever was lying around and told to guard one thing forever. It takes the job very seriously.
+
+- **Called:** *Core and Fantasy:* Stone Golem, Flesh Golem · *Pirate:* Shipwreck Golem · *Steampunk:* Scrap Golem · *Horror:* Flesh Golem · *Street Grit:* Junkyard Golem · *Space:* Scrap Mech
+- **Attacks:** Slam (melee 2d6 + Str) and thrown junk (ranged 2d4 + Int).
+- **Crush** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Stunned.
+- **Tactics:** Guards its post and won't chase far. Find the word, rune, or off switch its maker used and it stops cold.
+
+> **Ready to run at level 5:** HP 35 · Armor 1 · Con 2, Str 2 · Init d20 · Move 10 steps · 1 action · Slam 2d6 + 2 · Thrown junk 2d4 · Crush 2d6 + 2, two targets, Prone and Stunned for 2 rounds · Loot box T2 · Threat 2
+
+### Angry Weather
+
+*Standard · Common · points go Int, Con*
+
+Fire, water, or wind with a bad attitude. Pick the one the scene has the most of.
+
+- **Called:** *Core and Fantasy:* Fire Elemental, Water Elemental, Wind Elemental · *Pirate:* Living Squall · *Steampunk:* Steam Elemental · *Horror:* Fog That Moves · *Street Grit:* Dust Devil · *Space:* Plasma Elemental
+- **Attacks:** Lash (melee 2d6 + Str) and bolt (ranged 2d4 + Int).
+- **Storm Burst** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Burning, Prone, Slowed. Fire burns, water knocks Prone, wind Slows: the CM picks the one that fits.
+- **Tactics:** Fights where its element is strongest. Starve it (put out the fire, drain the water, close the window) and it shrinks.
+
+> **Ready to run at level 4:** HP 25 · Armor 0 · Con 1, Int 2 · Init d20 · Move 9 steps · 1 action · Lash 2d6 · Bolt 2d4 + 2 · Storm Burst 1d6 + 2, one target, Burning for 1 round · Loot box T1 · Threat 2
+
+### Copycat
+
+*Standard · Common · points go Charm, Spd*
+
+Looks exactly like one of the heroes, down to the bad haircut. Only it knows which one is real.
+
+- **Called:** *Core and Fantasy:* Copycat · *Pirate:* Shapeshifter · *Steampunk:* Mirror Automaton · *Horror:* The Other You · *Street Grit:* Hallucination Twin · *Space:* Mimic
+- **Attacks:** Borrowed weapon (melee 2d6 + Str) and borrowed spell (ranged 2d4 + Int).
+- **Who's the Real One?** (signature): T d6 + Charm, damage to up to T targets. Effects, in order: Frightened, Stunned. Then it swaps places with the hero it's copying.
+- **Tactics:** Joins the party mid-fight and waits for a chance. Ask it something only the real hero would know.
+
+> **Ready to run at level 4:** HP 20 · Armor 0 · Spd 1, Charm 2 · Init d20 + 1 · Move 10 steps · 1 action · Borrowed weapon 2d6 · Borrowed spell 2d4 · Who's the Real One? 1d6 + 2, one target, Frightened for 1 round · Loot box T1 · Threat 2
+
+### Cacklers
+
+*Standard · Common · points go Str, Spd, Charm*
+
+Hyena-folk raiders who laugh at everything, especially you.
+
+- **Called:** *Core and Fantasy:* Cacklers · *Pirate:* Hyena Raiders · *Steampunk:* Clockwork Cacklers · *Horror:* Cacklers · *Street Grit:* Hyenas · *Space:* Space Hyenas
+- **Attacks:** Spiked club (melee 2d6 + Str) and thrown bone (ranged 2d4 + Int).
+- **Mocking Cackle** (signature): T d6 + Charm, damage to up to T targets. Effect: Frightened. Every Cackler that hears it laughs along.
+- **Tactics:** Raid in packs and pick on the weakest. Make them the joke and they lose their nerve.
+
+> **Ready to run at level 3:** HP 15 · Armor 0 · Str 1, Spd 1 · Init d20 + 1 · Move 9 steps · 1 action · Spiked club 2d6 + 1 · Thrown bone 2d4 · Mocking Cackle 1d6, one target, Frightened for 1 round · Loot box T1 · Threat 2
+
+### Were-Whatever
+
+*Standard · Uncommon · points go Str, Con, Spd*
+
+A perfectly nice person who turns into a different animal every full moon. Last month: a badger. Tonight: a goose.
+
+- **Called:** *Core and Fantasy:* Were-Whatever · *Pirate:* Were-Shark · *Steampunk:* Clockwork Were-Badger · *Horror:* Were-Something · *Street Grit:* Were-Rat · *Space:* Were-Xeno
+- **Attacks:** Claws, teeth, or hooves (melee 2d6 + Str) and pounce (ranged 2d4 + Int).
+- **Full Moon** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Bleeding, Frightened. The CM picks this month's animal. It changes the flavor, never the numbers.
+- **Tactics:** Doesn't want to hurt anyone and does anyway. Keep it busy until dawn and it apologizes.
+
+> **Ready to run at level 5:** HP 30 · Armor 1 · Con 1, Str 2, Spd 1 · Init d20 + 1 · Move 11 steps · 1 action · Claws, teeth, or hooves 2d6 + 2 · Pounce 2d4 · Full Moon 2d6 + 2, two targets, Bleeding and Frightened for 2 rounds · Loot box T2 · Threat 2
+
+### Blink Panther
+
+*Standard · Uncommon · points go Spd, Str, Spirit/Luck*
+
+A big cat that's never quite where it looks. Swing at it and you hit the floor next to it.
+
+- **Called:** *Core and Fantasy:* Blink Panther · *Pirate:* Blink Shark · *Steampunk:* Mirror Panther · *Horror:* Shadow Panther · *Street Grit:* Hallucination Panther · *Space:* Phase Panther
+- **Attacks:** Claws (melee 2d6 + Str) and tail whip (ranged 2d4 + Int).
+- **Not Really There** (signature): T d6 + Speed, damage to up to T targets. Effects, in order: Bleeding, Frightened. The first attack against it each round hits empty air.
+- **Tactics:** Toys with the heroes. Once someone lands a hit, the trick is spotted and it bolts.
+
+> **Ready to run at level 5:** HP 25 · Armor 1 · Str 1, Spd 2, Spirit/Luck 1 · Init d20 + 2 · Move 12 steps · 1 action · Claws 2d6 + 1 · Tail whip 2d4 · Not Really There 2d6 + 2, two targets, Bleeding and Frightened for 2 rounds · Loot box T2 · Threat 2
+
+### Brain Squid
+
+*Standard · Uncommon · points go Int, Charm*
+
+A squid-headed schemer that wants your brain and won't stop being smug about it.
+
+- **Called:** *Core and Fantasy:* Brain Squid · *Pirate:* Brain Squid · *Steampunk:* Brain Squid in a Diving Suit · *Horror:* Brain Squid · *Street Grit:* Hallucination Squid · *Space:* Brain Squid
+- **Attacks:** Tentacle slap (melee 2d6 + Str) and psychic jab (ranged 2d4 + Int).
+- **Brain Freeze** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Stunned, Frightened.
+- **Tactics:** Lets its thralls fight and gloats from the back. Insult its intelligence and it comes forward to prove you wrong.
+
+> **Ready to run at level 5:** HP 25 · Armor 1 · Int 2, Charm 2 · Init d20 · Move 10 steps · 1 action · Tentacle slap 2d6 · Psychic jab 2d4 + 2 · Brain Freeze 2d6 + 2, two targets, Stunned and Frightened for 2 rounds · Loot box T2 · Threat 2
+
+### Mole-ogre
+
+*Standard · Uncommon · points go Str, Con*
+
+An ogre-sized mole that tunnels up under the party. Its tiny eyes are surprisingly hard to look away from.
+
+- **Called:** *Core and Fantasy:* Mole-ogre · *Pirate:* Sand Mole-ogre · *Steampunk:* Drill Mole-ogre · *Horror:* Mole-ogre · *Street Grit:* Subway Mole-ogre · *Space:* Asteroid Mole-ogre
+- **Attacks:** Digging claws (melee 2d6 + Str) and flung dirt (ranged 2d4 + Int).
+- **Dizzy Stare** (signature): T d6 + Constitution, damage to up to T targets. Effects, in order: Stunned, Slowed. Tunnels up under its first target.
+- **Tactics:** Opens from underground. Bright light makes it squint and dig back down.
+
+> **Ready to run at level 5:** HP 35 · Armor 1 · Con 2, Str 2 · Init d20 · Move 10 steps · 1 action · Digging claws 2d6 + 2 · Flung dirt 2d4 · Dizzy Stare 2d6 + 2, two targets, Stunned and Slowed for 2 rounds · Loot box T2 · Threat 2
+
+### Centipillar
+
+*Standard · Common · points go Str, Con*
+
+Half caterpillar, half centipede, with tickly tentacles around its mouth. Nobody wants to see what it turns into.
+
+- **Called:** *Core and Fantasy:* Centipillar · *Pirate:* Bilge Centipillar · *Steampunk:* Clockwork Centipillar · *Horror:* Grave Centipillar · *Street Grit:* Sewer Centipillar · *Space:* Hull Centipillar
+- **Attacks:** Mandibles (melee 2d6 + Str) and sticky silk (ranged 2d4 + Int).
+- **Tickly Tentacles** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Slowed, Stunned.
+- **Tactics:** Crawls on the ceiling and drops on whoever's last in line. Burn the silk and it falls.
+
+> **Ready to run at level 4:** HP 25 · Armor 0 · Con 1, Str 2 · Init d20 · Move 9 steps · 1 action · Mandibles 2d6 + 2 · Sticky silk 2d4 · Tickly Tentacles 1d6 + 2, one target, Slowed for 1 round · Loot box T1 · Threat 2
+
+### Hiss-folk
+
+*Standard · Common · points go Charm, Spd, Int*
+
+Snake people running a cult from the old jungle temple. Very polite, right up until the hissing.
+
+- **Called:** *Core and Fantasy:* Hiss-folk · *Pirate:* Jungle Hiss-folk · *Steampunk:* Hiss-folk Society · *Horror:* Hiss-folk Cult · *Street Grit:* Hiss Gang · *Space:* Serpentoids
+- **Attacks:** Curved blade (melee 2d6 + Str) and spit venom (ranged 2d4 + Int).
+- **Hypnotic Sway** (signature): T d6 + Charm, damage to up to T targets. Effects, in order: Stunned, Frightened.
+- **Tactics:** Talk first, poison second. Interrupt the swaying and the spell breaks.
+
+> **Ready to run at level 3:** HP 15 · Armor 0 · Spd 1, Charm 1 · Init d20 + 1 · Move 9 steps · 1 action · Curved blade 2d6 · Spit venom 2d4 · Hypnotic Sway 1d6 + 1, one target, Stunned for 1 round · Loot box T1 · Threat 2
+
 ## Everywhere: Bosses
 
 ### Boss of the Gang
@@ -323,11 +515,41 @@ It's not madness if it works. It usually doesn't work. That's the problem.
 
 > **Ready to run at level 6:** HP 135 · Armor 2 · Con 3, Int 4, Spd 3, Spirit/Luck 3 · Init d20 + 3 · Move 14 steps · 1 action · Wrench 2d6 · Ray gun 2d4 + 4 · Experimental Blast 2d6 + 4, two targets, Burning and Stunned for 2 rounds · It's Alive! (T2) · Questionable Tonic 2d6 + 3, healing for itself, Blessed for 2 rounds · Loot box T4 · Threat 4
 
+### Hill Giant
+
+*Boss · Uncommon · points go Str, Con, Spd, Spirit/Luck*
+
+Big, dumb, and hungry. Every setting needs one, and every setting's cows are nervous about it.
+
+- **Called:** *Core and Fantasy:* Hill Giant · *Pirate:* Sea Giant · *Steampunk:* Steam Giant · *Horror:* Grave Giant · *Street Grit:* The Big Guy · *Space:* Space Giant
+- **Attacks:** Tree-trunk club (melee 2d6 + Str) and thrown boulder (ranged 2d4 + Int).
+- **Club Sweep** (signature): T d6 + Strength, damage to up to T targets. Effects, in order: Prone, Stunned, Slowed. Hits everyone in reach.
+- **Boulder Toss:** T d6 + Strength, damage to up to T targets. Effect: Prone.
+- **Second Lunch:** T d6 + Constitution, healing for itself. Eats something, possibly a hero's horse.
+- **Tactics:** Fights in the open and loses interest fast. Offer it food and it might just sit down and eat.
+
+> **Ready to run at level 6:** HP 135 · Armor 2 · Con 3, Str 4, Spd 3, Spirit/Luck 3 · Init d20 + 3 · Move 14 steps · 1 action · Tree-trunk club 2d6 + 4 · Thrown boulder 2d4 · Club Sweep 2d6 + 4, two targets, Prone and Stunned for 2 rounds · Boulder Toss 2d6 + 4, two targets, Prone for 2 rounds · Second Lunch 2d6 + 3, healing for itself · Loot box T2 · Threat 4
+
+### Eyeball Committee
+
+*Boss · Rare · points go Int, Spirit/Luck, Con, Charm*
+
+A cluster of floating eyes that argue about everything, especially who gets to zap you.
+
+- **Called:** *Core and Fantasy:* Eyeball Committee · *Pirate:* Eyeball Admiralty · *Steampunk:* Optic Board of Directors · *Horror:* Eyes in the Dark · *Street Grit:* Hallucination Eyes · *Space:* Eyeball Council
+- **Attacks:** Bite (melee 2d6 + Str) and eye beam (ranged 2d4 + Int).
+- **Motion to Zap** (signature): T d6 + Intellect, damage to up to T targets. Effects, in order: Burning, Stunned, Slowed. Passed unanimously, for once.
+- **Point of Order:** T d6 + Charm, damage to up to T targets. Effect: Stunned. Every eye glares at the same heroes.
+- **Filibuster:** T d6 + Constitution, temp HP for itself. Effect: Blessed. Argues with itself and ignores everything else.
+- **Tactics:** Never agrees on a target; the CM picks which eye is in charge each round. Blind one eye and the rest call a recess.
+
+> **Ready to run at level 7:** HP 165 · Armor 2 · Con 4, Int 4, Charm 3, Spirit/Luck 4 · Init d20 · Move 12 steps · 1 action · Bite 2d6 · Eye beam 2d4 + 4 · Motion to Zap 3d6 + 4, three targets, Burning and Stunned and Slowed for 3 rounds · Point of Order 3d6 + 3, three targets, Stunned for 3 rounds · Filibuster 3d6 + 4, temp HP for itself, Blessed for 3 rounds · Loot box T3 · Threat 4
+
 # Core and Fantasy
 
 Goblins, griffenchickens, and dragons: the classic fantasy road, with a few Boom originals.
 
-**Also in this theme,** from Everywhere: Giant Rat (Rats), Angry Bees, Bandit, Cultist, Skeleton, Zombie Farmhand (Zombie), Wolf (Guard Dog), Angry Geese (Pecking Swarm), Bandit Brute (Bruiser), Town Guard (Soldier), Bounty Hunter, Giant Spider, Poltergeist (Ghost), Ghoul, Swamp Gator (Gator), Hungry Chest, Slime (Ooze), Smuggler, Lake Sharksquid (Sharksquid), Bandit Captain (Boss of the Gang), Bee Queen (Hive Queen), The Baron (Corrupt Official), Mad Alchemist (Mad Scientist).
+**Also in this theme,** from Everywhere: Giant Rat (Rats), Angry Bees, Bandit, Cultist, Skeleton, Zombie Farmhand (Zombie), Wolf (Guard Dog), Angry Geese (Pecking Swarm), Bandit Brute (Bruiser), Town Guard (Soldier), Bounty Hunter, Giant Spider, Poltergeist (Ghost), Ghoul, Swamp Gator (Gator), Hungry Chest, Slime (Ooze), Smuggler, Lake Sharksquid (Sharksquid), Bandit Captain (Boss of the Gang), Bee Queen (Hive Queen), The Baron (Corrupt Official), Mad Alchemist (Mad Scientist), Wolves, Dire Wolf (Wolves), Imps, Bloodskeeters, Giant Centipedes, Gargoyle, Stone Golem, Flesh Golem (Scrap Golem), Fire Elemental, Water Elemental, Wind Elemental (Angry Weather), Copycat, Cacklers, Were-Whatever, Blink Panther, Brain Squid, Mole-ogre, Centipillar, Hiss-folk, Hill Giant, Eyeball Committee.
 
 ## Core and Fantasy: Minions
 
@@ -630,7 +852,7 @@ Lives in a maze and has lost the map. Very angry about it. Also, about you.
 
 Salt, rum, and things with too many arms. Most of these monsters are wet.
 
-**Also in this theme,** from Everywhere: Bilge Rat, Crab-rat (Rats), Island Hornets (Angry Bees), Cutthroat, Deckhand (Bandit), Drowned One (Cultist), Skeleton Sailor (Skeleton), Drowned Sailor (Zombie), Ship's Hound (Guard Dog), Gull Swarm (Pecking Swarm), Boarding Brute (Bruiser), Marine Sergeant (Soldier), Thief-taker (Bounty Hunter), Rigging Spider (Giant Spider), Drowned Ghost (Ghost), Wreck Ghoul (Ghoul), Mangrove Crocodile (Gator), Toothy Sea Chest (Hungry Chest), Bilge Ooze (Ooze), Smuggler, Sharksquid, Pirate Captain (Boss of the Gang), Hornet Queen of Skull Isle (Hive Queen), The Governor (Corrupt Official), Sea Witch's Apprentice (Mad Scientist).
+**Also in this theme,** from Everywhere: Bilge Rat, Crab-rat (Rats), Island Hornets (Angry Bees), Cutthroat, Deckhand (Bandit), Drowned One (Cultist), Skeleton Sailor (Skeleton), Drowned Sailor (Zombie), Ship's Hound (Guard Dog), Gull Swarm (Pecking Swarm), Boarding Brute (Bruiser), Marine Sergeant (Soldier), Thief-taker (Bounty Hunter), Rigging Spider (Giant Spider), Drowned Ghost (Ghost), Wreck Ghoul (Ghoul), Mangrove Crocodile (Gator), Toothy Sea Chest (Hungry Chest), Bilge Ooze (Ooze), Smuggler, Sharksquid, Pirate Captain (Boss of the Gang), Hornet Queen of Skull Isle (Hive Queen), The Governor (Corrupt Official), Sea Witch's Apprentice (Mad Scientist), Sea Dogs (Wolves), Bilge Imps (Imps), Swamp Skeeters (Bloodskeeters), Bilge Centipedes (Giant Centipedes), Figurehead (Gargoyle), Shipwreck Golem (Scrap Golem), Living Squall (Angry Weather), Shapeshifter (Copycat), Hyena Raiders (Cacklers), Were-Shark (Were-Whatever), Blink Shark (Blink Panther), Brain Squid, Sand Mole-ogre (Mole-ogre), Bilge Centipillar (Centipillar), Jungle Hiss-folk (Hiss-folk), Sea Giant (Hill Giant), Eyeball Admiralty (Eyeball Committee).
 
 ## Pirate: Minions
 
@@ -855,7 +1077,7 @@ Rules a drowned palace and collects sailors the way some people collect spoons.
 
 Brass, steam, and inventions that should have stayed on the drawing board.
 
-**Also in this theme,** from Everywhere: Clockwork Rat, Steam Rat (Rats), Brass Bees (Angry Bees), Factory Thug (Bandit), Gear Cultist (Cultist), Rattlebones (Skeleton), Galvanized Corpse (Zombie), Tesla Pup (Guard Dog), Pigeon Drones (Pecking Swarm), Furnace Stoker (Bruiser), Constable, Airship Marine (Soldier), Hired Detective (Bounty Hunter), Spider Walker (Giant Spider), Gaslight Phantom (Ghost), Coal Ghoul (Ghoul), Rust-plated Gator (Gator), Steamer Trunk with Teeth (Hungry Chest), Oil Slick (Ooze), Aether Runner (Smuggler), Canal Sharksquid (Sharksquid), The Engine Baron (Boss of the Gang), The Brass Hive (Hive Queen), The Lord Mayor (Corrupt Official), Mad Professor (Mad Scientist).
+**Also in this theme,** from Everywhere: Clockwork Rat, Steam Rat (Rats), Brass Bees (Angry Bees), Factory Thug (Bandit), Gear Cultist (Cultist), Rattlebones (Skeleton), Galvanized Corpse (Zombie), Tesla Pup (Guard Dog), Pigeon Drones (Pecking Swarm), Furnace Stoker (Bruiser), Constable, Airship Marine (Soldier), Hired Detective (Bounty Hunter), Spider Walker (Giant Spider), Gaslight Phantom (Ghost), Coal Ghoul (Ghoul), Rust-plated Gator (Gator), Steamer Trunk with Teeth (Hungry Chest), Oil Slick (Ooze), Aether Runner (Smuggler), Canal Sharksquid (Sharksquid), The Engine Baron (Boss of the Gang), The Brass Hive (Hive Queen), The Lord Mayor (Corrupt Official), Mad Professor (Mad Scientist), Clockwork Hounds (Wolves), Gremlins (Imps), Brass Leeches (Bloodskeeters), Clockwork Centipedes (Giant Centipedes), Clockwork Gargoyle (Gargoyle), Scrap Golem, Steam Elemental (Angry Weather), Mirror Automaton (Copycat), Clockwork Cacklers (Cacklers), Clockwork Were-Badger (Were-Whatever), Mirror Panther (Blink Panther), Brain Squid in a Diving Suit (Brain Squid), Drill Mole-ogre (Mole-ogre), Clockwork Centipillar (Centipillar), Hiss-folk Society (Hiss-folk), Steam Giant (Hill Giant), Optic Board of Directors (Eyeball Committee).
 
 ## Steampunk: Minions
 
@@ -1090,7 +1312,7 @@ Stolen from the museum, wound up by someone who shouldn't have, and very excited
 
 Things that go bump, scrape, and whisper your name. Use the Safety Tools in Chapter 8; scary is fun when everyone's in.
 
-**Also in this theme,** from Everywhere: Rat Swarm, Plague Rat (Rats), Corpse Bees (Angry Bees), Grave Robber (Bandit), Cultist, Skeleton, Zombie, Hellhound Pup (Guard Dog), Bat Swarm, Crows (Pecking Swarm), The Big One (Bruiser), Witch-Hunter (Soldier), Monster Hunter (Bounty Hunter), Bell Tower Spider (Giant Spider), Restless Spirit (Ghost), Ghoul, Bog Gator (Gator), Coffin That Bites (Hungry Chest), Grave Ooze (Ooze), Body Snatcher (Smuggler), Black Lake Sharksquid (Sharksquid), The Butcher's Boss (Boss of the Gang), Corpse Bee Mother (Hive Queen), The Magistrate (Corrupt Official), Mad Surgeon (Mad Scientist).
+**Also in this theme,** from Everywhere: Rat Swarm, Plague Rat (Rats), Corpse Bees (Angry Bees), Grave Robber (Bandit), Cultist, Skeleton, Zombie, Hellhound Pup (Guard Dog), Bat Swarm, Crows (Pecking Swarm), The Big One (Bruiser), Witch-Hunter (Soldier), Monster Hunter (Bounty Hunter), Bell Tower Spider (Giant Spider), Restless Spirit (Ghost), Ghoul, Bog Gator (Gator), Coffin That Bites (Hungry Chest), Grave Ooze (Ooze), Body Snatcher (Smuggler), Black Lake Sharksquid (Sharksquid), The Butcher's Boss (Boss of the Gang), Corpse Bee Mother (Hive Queen), The Magistrate (Corrupt Official), Mad Surgeon (Mad Scientist), Hellhounds (Wolves), Imps, Blood Moths (Bloodskeeters), Grave Centipedes (Giant Centipedes), Gargoyle, Flesh Golem (Scrap Golem), Fog That Moves (Angry Weather), The Other You (Copycat), Cacklers, Were-Something (Were-Whatever), Shadow Panther (Blink Panther), Brain Squid, Mole-ogre, Grave Centipillar (Centipillar), Hiss-folk Cult (Hiss-folk), Grave Giant (Hill Giant), Eyes in the Dark (Eyeball Committee).
 
 ## Horror: Minions
 
@@ -1339,7 +1561,7 @@ Something ancient that has been dreaming under the hill for a very long time. Th
 
 Alleys, rooftops, and the people who run them. Bring cash, a good pair of shoes, and a lawyer.
 
-**Also in this theme,** from Everywhere: Subway Rat (Rats), Rooftop Wasps (Angry Bees), Thug, Goon (Bandit), True Believer (Cultist), Bone Collector (Skeleton), Shambler (Zombie), Guard Dog, Rooftop Pigeons (Pecking Swarm), Enforcer, Bruiser (Bruiser), Dirty Cop (Soldier), Skip Tracer (Bounty Hunter), Sewer Spider (Giant Spider), Haunted Tenant (Ghost), Alley Ghoul (Ghoul), Sewer Gator (Gator), Locker That Bites (Hungry Chest), Sewer Sludge (Ooze), Fixer (Smuggler), Harbor Sharksquid (Sharksquid), Kingpin, Gang Boss, Underboss (Boss of the Gang), Queen of the Rooftops (Hive Queen), Crooked Captain (Corrupt Official), Basement Chemist (Mad Scientist).
+**Also in this theme,** from Everywhere: Subway Rat (Rats), Rooftop Wasps (Angry Bees), Thug, Goon (Bandit), True Believer (Cultist), Bone Collector (Skeleton), Shambler (Zombie), Guard Dog, Rooftop Pigeons (Pecking Swarm), Enforcer, Bruiser (Bruiser), Dirty Cop (Soldier), Skip Tracer (Bounty Hunter), Sewer Spider (Giant Spider), Haunted Tenant (Ghost), Alley Ghoul (Ghoul), Sewer Gator (Gator), Locker That Bites (Hungry Chest), Sewer Sludge (Ooze), Fixer (Smuggler), Harbor Sharksquid (Sharksquid), Kingpin, Gang Boss, Underboss (Boss of the Gang), Queen of the Rooftops (Hive Queen), Crooked Captain (Corrupt Official), Basement Chemist (Mad Scientist), Coyote Pack (Wolves), Gremlins (Imps), Hallucination Skeeters (Bloodskeeters), Sewer Centipedes (Giant Centipedes), Hallucination Gargoyle (Gargoyle), Junkyard Golem (Scrap Golem), Dust Devil (Angry Weather), Hallucination Twin (Copycat), Hyenas (Cacklers), Were-Rat (Were-Whatever), Hallucination Panther (Blink Panther), Hallucination Squid (Brain Squid), Subway Mole-ogre (Mole-ogre), Sewer Centipillar (Centipillar), Hiss Gang (Hiss-folk), The Big Guy (Hill Giant), Hallucination Eyes (Eyeball Committee).
 
 ## Street Grit: Minions
 
@@ -1551,7 +1773,7 @@ Something moved into the water tower. The tap water tastes funny. Now the tower 
 
 The void is big, cold, and full of things that want your oxygen. Some of them are very polite about it.
 
-**Also in this theme,** from Everywhere: Vent Rat (Rats), Swarmling (Angry Bees), Scav, Raider (Bandit), Reactor Cultist (Cultist), Spacewalker Bones (Skeleton), Infected Crew (Zombie), Robo-hound (Guard Dog), Glow-moths (Pecking Swarm), Bouncer (Bruiser), Mech Trooper (Soldier), Bounty Hunter, Void Spider (Giant Spider), Station Echo (Ghost), Cargo Hold Ghoul (Ghoul), Mud Gator (Gator), Cargo Crate That Bites (Hungry Chest), Spore Mold (Ooze), Void Runner (Smuggler), Vacuum Sharksquid (Sharksquid), Warlord (Boss of the Gang), Hive Queen, The Senator (Corrupt Official), Rogue Geneticist (Mad Scientist).
+**Also in this theme,** from Everywhere: Vent Rat (Rats), Swarmling (Angry Bees), Scav, Raider (Bandit), Reactor Cultist (Cultist), Spacewalker Bones (Skeleton), Infected Crew (Zombie), Robo-hound (Guard Dog), Glow-moths (Pecking Swarm), Bouncer (Bruiser), Mech Trooper (Soldier), Bounty Hunter, Void Spider (Giant Spider), Station Echo (Ghost), Cargo Hold Ghoul (Ghoul), Mud Gator (Gator), Cargo Crate That Bites (Hungry Chest), Spore Mold (Ooze), Void Runner (Smuggler), Vacuum Sharksquid (Sharksquid), Warlord (Boss of the Gang), Hive Queen, The Senator (Corrupt Official), Rogue Geneticist (Mad Scientist), Void Jackals (Wolves), Gremlins (Imps), Leech Drones (Bloodskeeters), Hull Crawlers (Giant Centipedes), Hull Gargoyle (Gargoyle), Scrap Mech (Scrap Golem), Plasma Elemental (Angry Weather), Mimic (Copycat), Space Hyenas (Cacklers), Were-Xeno (Were-Whatever), Phase Panther (Blink Panther), Brain Squid, Asteroid Mole-ogre (Mole-ogre), Hull Centipillar (Centipillar), Serpentoids (Hiss-folk), Space Giant (Hill Giant), Eyeball Council (Eyeball Committee).
 
 ## Space: Minions
 

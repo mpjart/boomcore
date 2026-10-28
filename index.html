@@ -1421,8 +1421,11 @@ const monHp=m=>Math.max(1,Math.ceil(5*(m.level+m.con)*(m.kind==='minion'?0.5:m.k
 const BEAST_T={fantasy:'fantasy',core:'fantasy',coredark:'fantasy',fantasydark:'fantasy',pirate:'pirate',steampunk:'steampunk',horror:'horror',grit:'grit',gritdark:'grit',space:'space'};
 const beastTheme=()=>BEAST_T[typeof skin==='string'?skin:'core']||'fantasy';
 const beastKey=n=>String(n||'').replace(/\s*#?\d+$/,'').trim().toLowerCase();
+// A flavor word in front moves any monster into any theme: Clockwork Goblin, Space Orc, Hallucination Troll.
+const FLAVOR=/^(clockwork|steam(?:-powered)?|brass|space|void|cyber|star|hallucination|hallucinated|ghost(?:ly)?|cursed|undead|zombie|drowned|sea|sewer)[\s-]+/i;
 function findBeast(name){const k=beastKey(name);if(!k)return null;const all=window.BOOM_BEASTS||[];
- return all.find(b=>b.n.toLowerCase()===k)||all.find(b=>b.c&&Object.values(b.c).some(v=>v.split(',').some(x=>x.trim().toLowerCase()===k)))||null;}
+ const hit=n=>all.find(b=>b.n.toLowerCase()===n)||all.find(b=>b.c&&Object.values(b.c).some(v=>v.split(',').some(x=>x.trim().toLowerCase()===n)))||null;
+ return hit(k)||(FLAVOR.test(k)?hit(k.replace(FLAVOR,'')):null);}
 // Grit 18+ monsters join the suggestions only while the CM's Grit 18+ loot toggle is on
 const adultOn=()=>typeof lootTabs!=='undefined'&&lootTabs.includes('adult');
 function beastNames(){const th=beastTheme(),out=[];for(const b of window.BOOM_BEASTS||[]){if(b.th===th||(b.th==='adult'&&adultOn()))out.push(b.n);else if(b.c&&b.c[th])b.c[th].split(',').forEach(x=>out.push(x.trim()));}return out.sort();}
