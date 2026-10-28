@@ -1,6 +1,6 @@
 # Boom Core Guidelines
 
-*Updated October 28, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html), go shopping with the [shop tables](https://mpjart.github.io/boomcore/shop-tables.html), prep a session with the [prep tables](https://mpjart.github.io/boomcore/prep-tables.html), find a foe in the [bestiary](https://mpjart.github.io/boomcore/bestiary.html), and start with the one-shot [The Hollow Crown](https://mpjart.github.io/boomcore/the-hollow-crown.pdf). These guidelines are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see License at the end).*
+*Updated October 28, 2026. Free and open source: play with the [Boom Dice app](https://mpjart.github.io/boomcore/), keep the [Core Master screen](https://mpjart.github.io/boomcore/cm-screen.html) handy, roll item names with the [loot name tables](https://mpjart.github.io/boomcore/loot-names.html), go shopping with the [shop tables](https://mpjart.github.io/boomcore/shop-tables.html), prep a session with the [prep tables](https://mpjart.github.io/boomcore/prep-tables.html), find a foe in the [bestiary](https://mpjart.github.io/boomcore/bestiary.html), keep the [loot box quick reference](https://mpjart.github.io/boomcore/loot-box.html) handy, look up how the app works in the [app guide](https://mpjart.github.io/boomcore/app-rules.html), and start with the one-shot [The Hollow Crown](https://mpjart.github.io/boomcore/the-hollow-crown.pdf). These guidelines are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see License at the end).*
 
 ## Chapter 1: What Is Boom?
 
@@ -355,7 +355,7 @@ Trade up every 100 coins of a tier for 1 coin of the next. To pay with smaller c
 
 ### The Loot Box
 
-After a fight, a dungeon room, or a quest, each hero gets a **loot box**. The Core Master makes the box (in the app, from the CM tab), and the player opens it; the app does the rolling.
+After a fight, a dungeon room, or a quest, each hero gets a **loot box**. (The whole box fits on one page: the [Loot Box Quick Reference](https://mpjart.github.io/boomcore/loot-box.html).) The Core Master makes the box (in the app, from the CM tab), and the player opens it; the app does the rolling.
 
 **Coins:** roll **(monster level + your level)d6**, at least 2d6 and at most **20d6**, in coins of the monster's tier.
 
@@ -493,7 +493,7 @@ With the XP bar, about half of all boxes hold a core, so a level takes roughly *
 
 ## Chapter 9: Encounters and Monsters
 
-Fair doesn't mean easy. Fair means the players can see the risk and make a real choice. These numbers come from about 200,000 simulated fights with parties of 3 to 5, so treat them as a starting point.
+Fair doesn't mean easy. Fair means the players can see the risk and make a real choice. These numbers come from about 200,000 [simulated fights](https://mpjart.github.io/boomcore/encounter-sims.html) with parties of 3 to 5, so treat them as a starting point.
 
 ### Building Monsters
 
@@ -640,4 +640,4 @@ The **mode** is the single most likely total; it sits below the average because 
 
 You're free to share, copy, adapt, remix, and even sell what you make with these rules, as long as you give credit. A line like this does it: *"Uses the Boom Core Guidelines by mpjart, licensed CC BY 4.0, mpjart.github.io/boomcore."* Say if you changed anything, and don't suggest we endorse your version (unless we do, in which case, boom).
 
-The same license covers the Shop Tables, the Prep Tables, the Bestiary, the Loot Name Tables, the Core Master screen, and The Hollow Crown. The Boom Dice app's code is open source under the MIT License (see LICENSE in the repo).
+The same license covers the Shop Tables, the Prep Tables, the Bestiary, the Loot Box Quick Reference, the Loot Name Tables, the Core Master screen, and The Hollow Crown. The Boom Dice app's code is open source under the MIT License (see LICENSE in the repo).

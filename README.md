@@ -104,6 +104,9 @@ Holding a turn is handled at the table: the player says they're holding and acts
 - **Shop tables:** https://mpjart.github.io/boomcore/shop-tables.html (source: `docs/shop-tables.md`)
 - **Prep tables:** https://mpjart.github.io/boomcore/prep-tables.html — d100 rumors, encounters, and plot hooks for every theme (source: `docs/prep-tables.md`)
 - **Bestiary:** https://mpjart.github.io/boomcore/bestiary.html — over 130 monsters: crossover ones for every theme plus each theme's own, covering every name the New encounter button uses (source: the data files in `tools/bestiary/`; run `python3 tools/bestiary/build.py`, then `python3 tools/build_docs.py`)
+- **Loot box quick reference:** https://mpjart.github.io/boomcore/loot-box.html — the whole loot box on one page (source: `docs/loot-box.md`)
+- **App guide (Rules As Built):** https://mpjart.github.io/boomcore/app-rules.html — every rule the app has built in, and where it still differs from the rules (source: `docs/app-rules.md`)
+- **Encounter simulations:** https://mpjart.github.io/boomcore/encounter-sims.html — the balance testing behind Chapter 9 (source: `docs/encounter-sims.md`; simulator: `tools/boomsim.py`)
 - **Sample adventure:** https://mpjart.github.io/boomcore/the-hollow-crown.pdf — The Hollow Crown, a three-session starter adventure for levels 1 to 3 (source: `docs/oneshots/the-hollow-crown.md`).
 
 The rules, loot, and shop pages are built from the Markdown in `docs/`. After editing it, run `python3 tools/build_docs.py` (needs `pip install markdown`) and commit the updated HTML and `shops.js`. After editing a one-shot, run `python3 tools/build_oneshots.py` and commit the PDF and `oneshots.js`.
