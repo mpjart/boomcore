@@ -132,7 +132,20 @@ def build(src, out, title):
     print(out, len(page))
 
 THEME_KEYS = {"Core and Fantasy": "core", "Pirate": "pirate", "Steampunk": "steampunk", "Horror": "horror",
-              "Street Grit": "grit", "Space": "space"}
+              "Street Grit": "grit", "Space": "space", "Adventurer's Outfitter": "all"}
+OUTFITTER_LOCAL = {
+    "pirate": {"Inn room, per night": "Tavern room, per night", "Stabling, per night": "Mooring fee, per night"},
+    "steampunk": {"Messenger": "Pneumatic tube message"},
+    "horror": {"Inn room, per night": "Inn room (don't ask about room 13), per night"},
+    "grit": {"Fire kit (flint and tinder)": "Fire kit (lighter and lighter fluid)", "Inn room, per night": "Motel room, per night",
+             "Stabling, per night": "Parking, per night", "Guide, per day": "Local fixer, per day",
+             "Navigator's kit (map case and compass)": "Navigator's kit (paper maps and compass, for when the phone dies)"},
+    "space": {"Fire kit (flint and tinder)": "Fire kit (plasma igniter)", "Inn room, per night": "Station bunk, per night",
+              "Stabling, per night": "Docking fee, per night", "Messenger": "Comm relay message",
+              "Navigator's kit (map case and compass)": "Navigator's kit (star charts and nav beacon)",
+              "Climbing kit (pitons, hammer, harness)": "Climbing kit (piton gun, harness)",
+              "Desert gear (wraps, wide hat, goggles)": "Hot-world gear (cooling wraps, sun visor)"},
+}
 
 def build_shops(src="docs/shop-tables.md", out="shops.js"):
     """Turn the shop tables into data for the app: {theme: [{s: shop, i: [[name, tier, price, use], ...]}]}.
@@ -151,6 +164,12 @@ def build_shops(src="docs/shop-tables.md", out="shops.js"):
             t = -1 if "to" in tier else int(tier[1:]) - 1
             p = int(re.match(r"\d+", price).group())
             shop["i"].append([name, t, p, use])
+    # the Adventurer's Outfitter turns up in every theme, under a few local names
+    common = data.pop("all", [])
+    for th, shops in data.items():
+        loc = OUTFITTER_LOCAL.get(th, {})
+        for sh in common:
+            shops.append({"s": sh["s"], "i": [[loc.get(i[0], i[0])] + i[1:] for i in sh["i"]]})
     js = "// Built by tools/build_docs.py from docs/shop-tables.md. Do not edit by hand.\nwindow.BOOM_SHOPS=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
     open(out, "w", encoding="utf-8").write(js)
     print(out, len(js), {k: sum(len(x["i"]) for x in v) for k, v in data.items()})

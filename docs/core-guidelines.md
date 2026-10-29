@@ -208,7 +208,7 @@ A condition is any effect the Core Master allows. The Core Master decides which 
 
 | Condition | What it does (for T rounds) |
 | --- | --- |
-| Bleeding | Take T damage at the start of your turn. Armor doesn't stop it. Any healing ends it. |
+| Bleeding | Take T damage at the start of your turn. Armor doesn't stop it. Any healing or a first aid kit ends it. |
 | Blessed | +T to every roll you make. |
 | Burning | Take T damage at the start of your turn. Spend an action to put it out. |
 | Exhausted | Half movement; can't work, fight, or cast. Can still eat, drink, and take potions. Lasts until a 10-hour rest. |
@@ -413,7 +413,7 @@ The box tier sets items, potions, the tier of every soul core, and what reagents
 
 The market is where heroes turn loot into coins and coins into rope. The Core Master opens and closes it whenever the story allows, like a trip to town between adventures. In the app, the **Market** button in the CM tab opens and closes it, and the roll feed notes each time. While it's closed, nobody buys or sells, and a player who tries is told the market is closed. The Core Master can always sell for anyone. This keeps heroes from cashing in a pile of loot in the middle of a dungeon.
 
-- **What coins buy:** food, healing potions, adventuring gear (rope, lanterns, winter clothes, airship fuel), plain weapons and armor, and anything else the Core Master allows. Shops sell at fixed prices in coins of each item's tier and never buy their own stock back. The full lists, shop by shop, are on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, and the app's **Shop** button sells from them while the market is open.
+- **What coins buy:** food, healing potions, adventuring gear (rope, lanterns, winter clothes, airship fuel), plain weapons and armor, kits (climbing, first aid, disguise), services (a hot meal, an inn room, a guide, a healer), and anything else the Core Master allows. Shops sell at fixed prices in coins of each item's tier and never buy their own stock back. The full lists, shop by shop, are on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, and the app's **Shop** button sells from them while the market is open.
 - **Shop weapons and armor are plain.** A shop weapon has no plus and rolls the usual dice for its hands and reach (Chapter 3), so a sword and a lead pipe hit the same; the look is flavor. Shop armor is always worth 1, physical or magical. Anything stronger comes from loot.
 - **Cores:** for sale only if the Core Master allows. We recommend keeping them rare: one or two on a dusty shelf, or sold at auction to the highest bidder, so nobody buys a stack of levels.
 - **Magic items are never for sale.** Heroes hunt for them or earn them as quest rewards.
@@ -597,7 +597,7 @@ The Pirate theme covers ships, navies, and sea monsters: a weathered-deck look i
 
 The Steampunk theme covers airships, clockwork, and gaslit cities: a dark leather and brass look, handouts typed onto leather in a riveted brass frame with gears, and its own loot name tables. Conditions might be Scalded, Overwound, or Short-Circuited.
 
-Every theme has its own six shops on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, from a bodega that somehow sells rope to a hangar that sells space stations (some assembly required). Every theme also has its own d100 rumors, encounters, and plot hooks on the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html) page, from a sharksquid in the mill pond to a bodega cat that runs the neighborhood. The [Bestiary](https://mpjart.github.io/boomcore/bestiary.html) gives every theme its own monsters, plus crossover ones under local names: a bilge rat, a clockwork rat, and a vent rat are the same rat in a different hat.
+Every theme has its own six shops on the [Shop Tables](https://mpjart.github.io/boomcore/shop-tables.html) page, from a bodega that somehow sells rope to a hangar that sells space stations (some assembly required), plus the Adventurer's Outfitter in all of them: kits, odds and ends (a poking pole for things you don't trust), an inn, and hired help. Every theme also has its own d100 rumors, encounters, and plot hooks on the [Prep Tables](https://mpjart.github.io/boomcore/prep-tables.html) page, from a sharksquid in the mill pond to a bodega cat that runs the neighborhood. The [Bestiary](https://mpjart.github.io/boomcore/bestiary.html) gives every theme its own monsters, plus crossover ones under local names: a bilge rat, a clockwork rat, and a vent rat are the same rat in a different hat.
 
 ### What Changes Easily
 

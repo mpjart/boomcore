@@ -24,7 +24,7 @@ const THEMES=[['core','Core and Fantasy'],['pirate','Pirate'],['steampunk','Stea
 const SKIN2SHOP={core:'core',coredark:'core',fantasy:'core',fantasydark:'core',pirate:'pirate',steampunk:'steampunk',horror:'horror',grit:'grit',gritdark:'grit',space:'space'};
 let ov=null,theme='',shopI=0,buyer='';
 const price=p=>Math.max(1,Math.floor(p*(100+dialPct())/100));
-function kindOf(it){const u=it[3]||'';if(/^Ammo/i.test(u))return'ammo';if(/^Armor/i.test(u))return'armor';if(/\dd[46]/.test(u))return'weapon';return /healing potion|medgel|med kit/i.test(it[0])?'potion':'gear';}
+function kindOf(it){const u=it[3]||'';if(/^Service/i.test(u))return /healer/i.test(it[0])?'healer':'service';if(/^Ammo/i.test(u))return'ammo';if(/^Armor/i.test(u))return'armor';if(/\dd[46]/.test(u))return'weapon';return /healing potion|medgel|med kit/i.test(it[0])?'potion':'gear';}
 function heroes(){return living();}
 function who(){return chars.find(c=>c.id===buyer&&!c.dead)||null;}
 function close(){if(ov){ov.remove();ov=null;}document.removeEventListener('keydown',esc);}
@@ -36,6 +36,13 @@ function buy(it,tier){
  const k=kindOf(it),t=it[1]<0?tier:it[1],base=it[1]<0?10:it[2],cost=price(base);
  const cur=chars.find(x=>x.id===c.id)||c,arr=coinSub(coinsOf(cur),t,cost);
  if(!arr)return toast('Not enough coins: '+it[0].replace(/\s*\(.*\)$/,'')+' costs '+cost+' '+LT[t]+' coins');
+ if(k==='healer'){const max=calc(cur).hp,hp=Math.max(0,Math.min(max,cur.hpCur==null?max:cur.hpCur));
+  if(hp>=max)return toast((cur.name||'This hero')+' is at full HP. A healer only helps when you are missing HP.');
+  const r=doRoll((t+1)+'d6',(cur.name||'A hero')+' · T'+(t+1)+' healer visit',null,true,colorMap[cur.id]);if(!r)return;
+  const h=Math.min(r.total,max-hp);setLoot(cur,lootList(cur),{coins:arr,gold:arr[0],hpCur:hp+h,temp:(cur.temp||0)+(r.total-h)});
+  const m=(cur.name||'A hero')+' pays a T'+(t+1)+' healer '+cost+' '+LT[t]+' coin'+(cost===1?'':'s')+' and heals '+r.total;toast(m);logEvent(m);render();return;}
+ if(k==='service'){setLoot(cur,lootList(cur),{coins:arr,gold:arr[0]});
+  const m=(cur.name||'A hero')+' pays for '+it[0].replace(/\s*\([^)]*\)\s*$/,'')+': '+cost+' '+LT[t]+' coin'+(cost===1?'':'s');toast(m);logEvent(m);render();return;}
  const l=lootList(cur),uid=()=>Math.random().toString(36).slice(2,8),nm=it[0];let shown=nm.replace(/\s*\((?!takes)[^)]*\)\s*$/,'');
  if(k==='potion'){const p=l.find(x=>x.k==='potion'&&x.t===t);if(p)p.q+=1;else l.push(potionOf(t,1,uid()));shown='T'+(t+1)+' healing potion';}
  else if(k==='weapon'){const m=/(\d)d([46])\s+(touch|ranged),\s*(\d)/i.exec(it[3]);l.push({id:uid(),k:'item',ty:'weapon',n:shown,t:0,plus:0,sk:'',wh:m?m[4]:'1',wr:m&&/ranged/i.test(m[3])?'r':'t',wt:'p',shop:1});}
@@ -59,9 +66,9 @@ function render(){
  const s=data[shopI];if(!s){c.append(el('div','note','No shops found. Reload the page.'));return;}
  const list=el('div');
  s.i.forEach(it=>{const r=el('div','shrow'),n=el('div','sn'),k=kindOf(it);n.append(el('b',null,it[0]));
-  const tag=k==='weapon'?it[3]+' · physical, no plus':k==='armor'?it[3]+' · takes an armor slot':k==='ammo'?'Ammo: a stack of 2+ in storage never runs out':k==='potion'?'Drink: heals 1d6 per tier (it can boom)':'Gear: no stats';n.append(el('small',null,tag));r.append(n);
+  const tag=k==='weapon'?it[3]+' · physical, no plus':k==='armor'?it[3]+' · takes an armor slot':k==='ammo'?'Ammo: a stack of 2+ in storage never runs out':k==='potion'?'Drink: heals 1d6 per tier (it can boom)':k==='healer'?'Service: heals 1d6 per tier now (it can boom), only when missing HP':k==='service'?'Service: paid now, nothing to carry':'Gear: no stats';n.append(el('small',null,tag));r.append(n);
   let tier=it[1];
-  if(it[1]<0){const ps=document.createElement('select');ps.setAttribute('aria-label','Potion tier');LT.forEach((x,i)=>ps.add(new Option('T'+(i+1),i)));ps.value='0';tier=0;const pr=el('span','pr',price(10)+' '+LT[0]);ps.onchange=()=>{tier=+ps.value;pr.textContent=price(10)+' '+LT[tier];};r.append(ps,pr);}
+  if(it[1]<0){const ps=document.createElement('select');ps.setAttribute('aria-label','Potion tier');LT.forEach((x,i)=>ps.add(new Option('T'+(i+1),i)));ps.value='0';tier=0;const pr=el('span','pr',price(10)+' '+LT[0]);ps.setAttribute('aria-label',k==='healer'?'Healer tier':'Potion tier');ps.onchange=()=>{tier=+ps.value;pr.textContent=price(10)+' '+LT[tier];};r.append(ps,pr);}
   else r.append(el('span','pr',price(it[2])+' '+LT[it[1]]));
   const bb=btn('Buy',()=>buy(it,tier),'sm rb');bb.disabled=!b||(!marketOpen&&!isDM);r.append(bb);list.append(r);});
  c.append(list);}

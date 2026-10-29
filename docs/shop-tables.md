@@ -1,10 +1,12 @@
 # Boom Shop Tables
 
-*Updated October 27, 2026. Shops for Core and Fantasy, Pirate, Steampunk, Horror, Street Grit, and Space. The [Boom Dice app](https://mpjart.github.io/boomcore/) sells from these lists while the market is open.*
+*Updated October 28, 2026. Shops for Core and Fantasy, Pirate, Steampunk, Horror, Street Grit, and Space, plus the Adventurer's Outfitter, which turns up in all of them. The [Boom Dice app](https://mpjart.github.io/boomcore/) sells from these lists while the market is open.*
 
 ## How Shopping Works
 
 - **Every theme has the same six shops** with its own stock: clothes, general goods, tools, potions and remedies, travel, and plain weapons and armor. Use your table's theme, or mix shops from any theme.
+- **The Adventurer's Outfitter is in every theme:** kits (climbing, first aid, fire, navigation, disguise), odds and ends, and an inn with hired help. Same stock and prices everywhere, with a few local names.
+- **Services** (a meal, a room, a guide) are paid on the spot and leave nothing to carry. A **healer visit** heals like a healing potion of the tier you pay for, and only when you're missing HP.
 - **Shops are open only while the market is open** (The Market, Chapter 6).
 - **Every hero already has dimensional storage,** so nobody needs to shop for a bigger bag.
 - **Prices are fixed,** in coins of the item's tier. A T2 riding horse at 3 costs 3 Uncommon coins (300 Common).
@@ -537,3 +539,55 @@ Plain weapons and armor.
 | Padded flight jacket | Armor 1, physical | T1 | 10 |
 | Plated vest | Armor 1, physical | T1 | 20 |
 | Personal shield emitter | Armor 1, magical | T1 | 15 |
+
+# Adventurer's Outfitter
+
+The odds and ends every party ends up needing, sold in every theme with the same prices. A few things go by a local name: a fire kit is a lighter in Street Grit and a plasma igniter in Space, an inn room is a tavern room in Pirate, a motel room in Street Grit, and a station bunk in Space, and stabling is a mooring fee in Pirate, parking in Street Grit, and a docking fee in Space. The app's Shop shows the local names.
+
+## Outfitter Kits
+
+Kits for the jobs heroes keep getting into.
+
+| Item | Tier | Price |
+| --- | --- | --- |
+| Fire kit (flint and tinder) | T1 | 1 |
+| Cook kit (pot, pan, spoon, salt) | T1 | 2 |
+| Fishing kit (line, hooks, one lucky lure) | T1 | 2 |
+| Writing kit (journal, ink, sealing wax) | T1 | 2 |
+| First aid kit (one use: ends Bleeding) | T1 | 5 |
+| Navigator's kit (map case and compass) | T1 | 5 |
+| Trap kit (snares, caltrops, tripwire) | T1 | 6 |
+| Disguise kit (wigs, face paint, one fake mustache) | T1 | 8 |
+| Climbing kit (pitons, hammer, harness) | T1 | 10 |
+| Forgery kit (inks, stamps, a very steady hand) | T2 | 2 |
+
+## Odds and Ends
+
+Small things that save the day, or at least the afternoon.
+
+| Item | Tier | Price |
+| --- | --- | --- |
+| Waterproof bag | T1 | 1 |
+| Poking pole, 2 steps long (for things you don't trust) | T1 | 1 |
+| Cards and loaded dice (the Core Master knows which) | T1 | 1 |
+| Signal kit (whistle, mirror, flares) | T1 | 2 |
+| Net (catches one thing; Core Master's call) | T1 | 3 |
+| Smoke flask (fills a room for 1 round; no damage) | T1 | 3 |
+| Manacles | T1 | 4 |
+| Desert gear (wraps, wide hat, goggles) | T1 | 5 |
+| Magnifying glass | T2 | 1 |
+
+## Inn and Hire
+
+Services, paid on the spot. Nothing to carry home.
+
+| Item | Use | Tier | Price |
+| --- | --- | --- | --- |
+| Hot meal | Service | T1 | 1 |
+| Bath (the party will thank you) | Service | T1 | 1 |
+| Stabling, per night | Service | T1 | 1 |
+| Messenger | Service | T1 | 2 |
+| Inn room, per night | Service | T1 | 3 |
+| Porter, per day | Service | T1 | 8 |
+| Guide, per day | Service | T1 | 10 |
+| Healer visit (heals 1d6 per tier) | Service | T1 to T6 | 10 of its tier |
